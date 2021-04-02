@@ -8,7 +8,7 @@ function enableDarkMode(toggleState: boolean): void {
 }
 
 function main(): void {
-  enableDarkMode(true)
+  
 }
 
 if(document.querySelectorAll('#nprogress').length == 0) main();

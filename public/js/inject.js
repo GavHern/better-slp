@@ -7,7 +7,6 @@ function enableDarkMode(toggleState) {
     document.body.classList.add('better-slp-dark-mode-container'); // Add dark mode link
 }
 function main() {
-    enableDarkMode(true);
 }
 if (document.querySelectorAll('#nprogress').length == 0)
     main();
