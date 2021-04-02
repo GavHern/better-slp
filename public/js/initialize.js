@@ -6,9 +6,9 @@ function enableDarkMode(toggleState, animation) {
         setTimeout(function () { document.documentElement.classList.remove('better-slp-dark-mode-transitioning'); }, 300);
     }
     if (!toggleState) {
-        document.documentElement.classList.remove('better-slp-dark-mode-container');
+        document.documentElement.setAttribute('better-slp-dark-mode', 'false');
         return;
     }
-    document.documentElement.classList.add('better-slp-dark-mode-container'); // Add dark mode link
+    document.documentElement.setAttribute('better-slp-dark-mode', 'true'); // Add dark mode link
 }
 enableDarkMode(true, false);

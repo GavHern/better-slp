@@ -5,11 +5,11 @@ function enableDarkMode(toggleState: boolean, animation: boolean = true): void {
   }
 
   if(!toggleState){
-    document.documentElement.classList.remove('better-slp-dark-mode-container');
+    document.documentElement.setAttribute('better-slp-dark-mode', 'false');
     return;
   }
 
-  document.documentElement.classList.add('better-slp-dark-mode-container'); // Add dark mode link
+  document.documentElement.setAttribute('better-slp-dark-mode', 'true'); // Add dark mode link
 
 }
 
