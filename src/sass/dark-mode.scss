@@ -126,7 +126,8 @@ html[better-slp-dark-mode="true"] {
     color: #d4d4d4 !important;
   }
 
-  .project-agenda-item-list-item-header-info .time {
+  .project-agenda-item-list-item-header-info .time,
+  .playlist-panel .assessment-links .assessment-link {
     color: #494949;
   }
 
@@ -177,7 +178,8 @@ html[better-slp-dark-mode="true"] {
   .project-overview-section .token,
   .project-lesson-media-block-icon-background-circle,
   .focusarea-diagnostic-btn button,
-  .token-display-only {
+  .token-display-only,
+  .alert-info {
     background: rgba(255, 255, 255, 0.068) !important;
     color: #c4c4c4 !important;
   }
@@ -242,6 +244,10 @@ html[better-slp-dark-mode="true"] {
   .media.project-lesson-media-block-container,
   .bordered-list-card {
     border-color: #3e3e3e !important;
+  }
+
+  .btn.btn-default {
+    border-color: rgba(0,0,0,0)
   }
 
   .score-badge {
