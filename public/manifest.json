@@ -1,0 +1,31 @@
+{
+  "manifest_version": 2,
+  "name": "BetterSLP",
+  "description": "Various improvments to the Summit Learning Platform",
+  "version": "0.1.0",
+  "content_scripts": [
+    {
+      "matches": [
+        "*://*.summitlearning.org/*"
+      ],
+      "js": [
+        "js/inject.js"
+      ],
+      "css" : [
+        "css/inject.css",
+        "css/pie.css",
+        "css/dark-mode.css"
+      ]
+    }
+  ],
+  "background": {
+    "scripts": ["js/background.js"]
+  },
+  "web_accessible_resources": [
+    "notes/editor/index.html",
+    "css/dark-mode-inject.css"
+  ],
+  "permissions": [
+    "*://*.summitlearning.org/*", "tabs", "history", "webNavigation", "storage", "unlimitedStorage"
+  ]
+}

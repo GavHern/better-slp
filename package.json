@@ -1,0 +1,11 @@
+{
+  "name": "betterslp",
+  "version": "0.1.0",
+  "description": "",
+  "author": "Gav Hern",
+  "license": "ISC",
+  "dependencies": {
+    "@types/chrome": "0.0.133",
+    "@types/jquery": "^3.5.5"
+  }
+}
