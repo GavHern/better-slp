@@ -11,5 +11,5 @@ function main(): void {
   enableDarkMode(true)
 }
 
+if(document.querySelectorAll('#nprogress').length == 0) main();
 document.querySelector('#nprogress')?.addEventListener('DOMNodeRemoved', () => {main()});
-main();
