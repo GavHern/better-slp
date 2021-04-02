@@ -2,13 +2,13 @@
 function enableDarkMode(toggleState, animation) {
     if (animation === void 0) { animation = true; }
     if (animation) {
-        document.body.classList.add('better-slp-dark-mode-transitioning');
-        setTimeout(function () { document.body.classList.remove('better-slp-dark-mode-transitioning'); }, 300);
+        document.documentElement.classList.add('better-slp-dark-mode-transitioning');
+        setTimeout(function () { document.documentElement.classList.remove('better-slp-dark-mode-transitioning'); }, 300);
     }
     if (!toggleState) {
-        document.body.classList.remove('better-slp-dark-mode-container');
+        document.documentElement.classList.remove('better-slp-dark-mode-container');
         return;
     }
-    document.body.classList.add('better-slp-dark-mode-container'); // Add dark mode link
+    document.documentElement.classList.add('better-slp-dark-mode-container'); // Add dark mode link
 }
 enableDarkMode(true, false);

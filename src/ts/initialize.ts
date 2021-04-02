@@ -1,15 +1,15 @@
 function enableDarkMode(toggleState: boolean, animation: boolean = true): void {
   if(animation){
-    document.body.classList.add('better-slp-dark-mode-transitioning');
-    setTimeout(() => {document.body.classList.remove('better-slp-dark-mode-transitioning')}, 300);
+    document.documentElement.classList.add('better-slp-dark-mode-transitioning');
+    setTimeout(() => {document.documentElement.classList.remove('better-slp-dark-mode-transitioning')}, 300);
   }
 
   if(!toggleState){
-    document.body.classList.remove('better-slp-dark-mode-container');
+    document.documentElement.classList.remove('better-slp-dark-mode-container');
     return;
   }
 
-  document.body.classList.add('better-slp-dark-mode-container'); // Add dark mode link
+  document.documentElement.classList.add('better-slp-dark-mode-container'); // Add dark mode link
 
 }
 
