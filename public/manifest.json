@@ -23,9 +23,9 @@
     "scripts": ["js/background.js"]
   },
   "web_accessible_resources": [
-    "notes/editor/index.html",
     "css/dark-mode-inject.css",
-    "html/dashboard.html"
+    "html/dashboard.html",
+    "html/notetaker.html"
   ],
   "permissions": [
     "*://*.summitlearning.org/*", "tabs", "history", "webNavigation", "storage", "unlimitedStorage"

@@ -44,8 +44,17 @@ function appendDashboardSidenavLink(): void {
   document.querySelector('.page-menu .app-page-menu-body > ul.nav')?.prepend(dashboardNavigationContainer);
 }
 
-function appendNoteTaker(): void {
+function openNoteTaker(): void {
+  alert(chrome.runtime.getURL('html/notetaker.html'))
+}
 
+function appendNoteTaker(): void {
+  const takeNotesButton = document.createElement('button');
+  takeNotesButton.classList.add('better-slp-take-notes-button');
+  takeNotesButton.addEventListener('click', e => {
+    openNoteTaker();
+  })
+  document.querySelector('.app-body > .app-page-title > .app-page-title-row')?.appendChild(takeNotesButton);
 }
 
 function main(): void {
@@ -55,13 +64,10 @@ function main(): void {
 
   switch(true) {
     case new RegExp('.*:\/\/.*?\.?summitlearning\.org/my/focusareas/.*').test(currentURL):
-      const takeNotesButton = document.createElement('button');
-      takeNotesButton.classList.add('better-slp-take-notes-button');
-      document.querySelector('.app-body > .app-page-title > .app-page-title-row')?.appendChild(takeNotesButton);
-      
+      appendNoteTaker();
       break;
   }
 }
 
-if(document.querySelectorAll('#nprogress').length == 0) main(); // Initial load
-document.querySelector('#nprogress')?.addEventListener('DOMNodeRemoved', () => {main()}); // Reload every pushstate
+if(!document.documentElement.classList.contains('nprogress-busy')) main(); // Initial load
+document.querySelector('#nprogress')?.addEventListener('DOMNodeRemoved', () => {main()}); // Reload every state change

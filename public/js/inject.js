@@ -44,20 +44,27 @@ function appendDashboardSidenavLink() {
     });
     (_a = document.querySelector('.page-menu .app-page-menu-body > ul.nav')) === null || _a === void 0 ? void 0 : _a.prepend(dashboardNavigationContainer);
 }
+function openNoteTaker() {
+    alert(chrome.runtime.getURL('html/notetaker.html'));
+}
 function appendNoteTaker() {
+    var _a;
+    const takeNotesButton = document.createElement('button');
+    takeNotesButton.classList.add('better-slp-take-notes-button');
+    takeNotesButton.addEventListener('click', e => {
+        openNoteTaker();
+    });
+    (_a = document.querySelector('.app-body > .app-page-title > .app-page-title-row')) === null || _a === void 0 ? void 0 : _a.appendChild(takeNotesButton);
 }
 function main() {
-    var _a;
     appendDashboardSidenavLink();
     const currentURL = window.location.href;
     switch (true) {
         case new RegExp('.*:\/\/.*?\.?summitlearning\.org/my/focusareas/.*').test(currentURL):
-            const takeNotesButton = document.createElement('button');
-            takeNotesButton.classList.add('better-slp-take-notes-button');
-            (_a = document.querySelector('.app-body > .app-page-title > .app-page-title-row')) === null || _a === void 0 ? void 0 : _a.appendChild(takeNotesButton);
+            appendNoteTaker();
             break;
     }
 }
-if (document.querySelectorAll('#nprogress').length == 0)
+if (!document.documentElement.classList.contains('nprogress-busy'))
     main(); // Initial load
-(_a = document.querySelector('#nprogress')) === null || _a === void 0 ? void 0 : _a.addEventListener('DOMNodeRemoved', () => { main(); }); // Reload every pushstate
+(_a = document.querySelector('#nprogress')) === null || _a === void 0 ? void 0 : _a.addEventListener('DOMNodeRemoved', () => { main(); }); // Reload every state change
