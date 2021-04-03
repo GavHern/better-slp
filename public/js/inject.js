@@ -45,14 +45,38 @@ function appendDashboardSidenavLink() {
     (_a = document.querySelector('.page-menu .app-page-menu-body > ul.nav')) === null || _a === void 0 ? void 0 : _a.prepend(dashboardNavigationContainer);
 }
 function openNoteTaker() {
-    alert(chrome.runtime.getURL('html/notetaker.html'));
+    var _a;
+    const mainContentContainer = document.querySelector('.claro-student-focusarea');
+    (_a = mainContentContainer === null || mainContentContainer === void 0 ? void 0 : mainContentContainer.querySelector('.panel-body')) === null || _a === void 0 ? void 0 : _a.classList.add('hidden');
+    const noteTakerEmbedURL = chrome.runtime.getURL('html/notetaker.html');
+    const noteTakerEmbed = document.createElement('iframe');
+    noteTakerEmbed.src = noteTakerEmbedURL;
+    noteTakerEmbed.className = 'better-slp-note-taker-embed';
+    noteTakerEmbed.style.width = "100%";
+    noteTakerEmbed.style.minHeight = "80vh";
+    mainContentContainer === null || mainContentContainer === void 0 ? void 0 : mainContentContainer.appendChild(noteTakerEmbed);
+}
+function closeNoteTaker() {
+    var _a;
+    const noteTakerInstances = document.querySelectorAll('.better-slp-note-taker-embed');
+    noteTakerInstances.forEach(instance => { instance.remove(); });
+    const mainContentContainer = document.querySelector('.claro-student-focusarea');
+    (_a = mainContentContainer === null || mainContentContainer === void 0 ? void 0 : mainContentContainer.querySelector('.panel-body')) === null || _a === void 0 ? void 0 : _a.classList.remove('hidden');
 }
 function appendNoteTaker() {
     var _a;
     const takeNotesButton = document.createElement('button');
     takeNotesButton.classList.add('better-slp-take-notes-button');
-    takeNotesButton.addEventListener('click', e => {
-        openNoteTaker();
+    takeNotesButton.addEventListener('click', function (e) {
+        const noteTakerOpen = this.classList.contains('active');
+        if (noteTakerOpen)
+            closeNoteTaker();
+        else
+            openNoteTaker();
+        if (noteTakerOpen)
+            this.classList.remove('active');
+        else
+            this.classList.add('active');
     });
     (_a = document.querySelector('.app-body > .app-page-title > .app-page-title-row')) === null || _a === void 0 ? void 0 : _a.appendChild(takeNotesButton);
 }

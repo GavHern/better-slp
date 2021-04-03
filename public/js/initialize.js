@@ -11,6 +11,8 @@ function enableDarkMode(toggleState, animation = true) {
     document.documentElement.setAttribute('better-slp-dark-mode', 'true'); // Enable dark mode attribute on the html tag
 }
 function initialize() {
-    enableDarkMode(true, false);
+    chrome.storage.sync.get('darkMode', items => {
+        // alert(JSON.stringify(items))
+    });
 }
 initialize();

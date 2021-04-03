@@ -27,7 +27,7 @@ window.addEventListener('load', () => {
   $(noteTaker).summernote('fullscreen.toggle');
 })
 
-if(true){
+if(false){
   document.head.innerHTML += `<link href="../../lib/bootstrap/dark.css" rel="stylesheet">`
 }
 

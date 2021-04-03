@@ -26,5 +26,13 @@
     letter-spacing: 0.03em;
   }
 
+  &.active::before {
+    content: 'save'
+  }
+
+  &.active::after {
+    content: 'Save and close';
+  }
+
   
 }

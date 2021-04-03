@@ -45,14 +45,42 @@ function appendDashboardSidenavLink(): void {
 }
 
 function openNoteTaker(): void {
-  alert(chrome.runtime.getURL('html/notetaker.html'))
+  const mainContentContainer = document.querySelector('.claro-student-focusarea');
+  mainContentContainer?.querySelector('.panel-body')?.classList.add('hidden');
+
+  const noteTakerEmbedURL = chrome.runtime.getURL('html/notetaker.html');
+  const noteTakerEmbed = document.createElement('iframe');
+
+  noteTakerEmbed.src = noteTakerEmbedURL;
+  noteTakerEmbed.className = 'better-slp-note-taker-embed';
+  noteTakerEmbed.style.width = "100%";
+  noteTakerEmbed.style.minHeight = "80vh";
+
+  mainContentContainer?.appendChild(noteTakerEmbed);
+
+
+
+}
+
+function closeNoteTaker(): void {
+  const noteTakerInstances = document.querySelectorAll('.better-slp-note-taker-embed');
+  noteTakerInstances.forEach(instance => { instance.remove() })
+
+  const mainContentContainer = document.querySelector('.claro-student-focusarea');
+  mainContentContainer?.querySelector('.panel-body')?.classList.remove('hidden');
 }
 
 function appendNoteTaker(): void {
   const takeNotesButton = document.createElement('button');
   takeNotesButton.classList.add('better-slp-take-notes-button');
-  takeNotesButton.addEventListener('click', e => {
-    openNoteTaker();
+  takeNotesButton.addEventListener('click', function(e) {
+    const noteTakerOpen = this.classList.contains('active');
+
+    if(noteTakerOpen) closeNoteTaker();
+    else openNoteTaker();
+
+    if(noteTakerOpen) this.classList.remove('active');
+    else this.classList.add('active');
   })
   document.querySelector('.app-body > .app-page-title > .app-page-title-row')?.appendChild(takeNotesButton);
 }
