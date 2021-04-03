@@ -14,4 +14,8 @@ function enableDarkMode(toggleState: boolean, animation: boolean = true): void {
 
 }
 
-enableDarkMode(true, false);
+function initialize(): void {
+  enableDarkMode(true, false);
+}
+
+initialize();

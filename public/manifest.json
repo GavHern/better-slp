@@ -24,7 +24,8 @@
   },
   "web_accessible_resources": [
     "notes/editor/index.html",
-    "css/dark-mode-inject.css"
+    "css/dark-mode-inject.css",
+    "html/dashboard.html"
   ],
   "permissions": [
     "*://*.summitlearning.org/*", "tabs", "history", "webNavigation", "storage", "unlimitedStorage"
