@@ -44,8 +44,19 @@ function appendDashboardSidenavLink() {
     });
     (_a = document.querySelector('.page-menu .app-page-menu-body > ul.nav')) === null || _a === void 0 ? void 0 : _a.prepend(dashboardNavigationContainer);
 }
+function appendNoteTaker() {
+}
 function main() {
+    var _a;
     appendDashboardSidenavLink();
+    const currentURL = window.location.href;
+    switch (true) {
+        case new RegExp('.*:\/\/.*?\.?summitlearning\.org/my/focusareas/.*').test(currentURL):
+            const takeNotesButton = document.createElement('button');
+            takeNotesButton.classList.add('better-slp-take-notes-button');
+            (_a = document.querySelector('.app-body > .app-page-title > .app-page-title-row')) === null || _a === void 0 ? void 0 : _a.appendChild(takeNotesButton);
+            break;
+    }
 }
 if (document.querySelectorAll('#nprogress').length == 0)
     main(); // Initial load

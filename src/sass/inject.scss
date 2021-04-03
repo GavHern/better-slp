@@ -1,0 +1,29 @@
+.better-slp-take-notes-button {
+  background: #5548ff;
+  padding: 12px 16px;
+  border-radius: 9999px;
+  margin-top: -4px;
+  margin-bottom: -12px;
+  display: inline-flex;
+  align-items: center;
+  font-size: 14px;
+
+  &::before {
+    content: 'create';
+    margin-right: 6px;
+    font-family: Material Icons v54 !important;
+    font-size: 120%;
+    -webkit-font-smoothing: antialiased;
+    font-style: normal;
+    position: relative;
+    text-rendering: optimizeLegibility;
+  }
+
+  &::after {
+    content: 'Take notes';
+    font-weight: 400;
+    letter-spacing: 0.03em;
+  }
+
+  
+}
