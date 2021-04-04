@@ -1,3 +1,5 @@
+const url = new URL(window.location.href);
+
 window.addEventListener('load', () => {
   const noteTaker = document.getElementById('summernote');
   if(noteTaker == null) return;
@@ -16,7 +18,7 @@ window.addEventListener('load', () => {
       ['edit', ['color']],
       ['para', ['ul', 'ol', 'paragraph']],
       ['misc', ['height']],
-      ['insert', ['link', 'picture', 'table', 'video', 'hr']],
+      ['insert', ['link', 'picture', 'table', 'hr']],
       ['history', ['undo', 'redo']],
       ['help', ['help']]
     ],
@@ -27,11 +29,13 @@ window.addEventListener('load', () => {
   $(noteTaker).summernote('fullscreen.toggle');
 })
 
-if(false){
+if(url.searchParams.get("dark")){
   document.head.innerHTML += `<link href="../../lib/bootstrap/dark.css" rel="stylesheet">`
 }
 
 
-function saveDoc(id, data){
-  chrome.storage.local.set({[id]: data});
+function saveDoc(){
+  const id = url.searchParams.get("id");
+  const data = $('#summernote').summernote('code');
+  chrome.storage.local.set({['note-doc-'+id]: data});
 }

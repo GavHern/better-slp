@@ -48,12 +48,14 @@ function openNoteTaker() {
     var _a;
     const mainContentContainer = document.querySelector('.claro-student-focusarea');
     (_a = mainContentContainer === null || mainContentContainer === void 0 ? void 0 : mainContentContainer.querySelector('.panel-body')) === null || _a === void 0 ? void 0 : _a.classList.add('hidden');
-    const noteTakerEmbedURL = chrome.runtime.getURL('html/notetaker.html');
+    const focusAreaId = new URL(window.location.href).pathname.split('my/focusareas/')[1]; // Find ID of focus area based on the URL pathname
+    const noteTakerEmbedURL = chrome.runtime.getURL(`html/notetaker.html?id=${focusAreaId}&dark=true`); // Get the chrome-extension url and add the id & theme as a parameter
     const noteTakerEmbed = document.createElement('iframe');
     noteTakerEmbed.src = noteTakerEmbedURL;
     noteTakerEmbed.className = 'better-slp-note-taker-embed';
+    noteTakerEmbed.style.backgroundColor = "transparent";
     noteTakerEmbed.style.width = "100%";
-    noteTakerEmbed.style.minHeight = "80vh";
+    noteTakerEmbed.style.minHeight = "72vh";
     mainContentContainer === null || mainContentContainer === void 0 ? void 0 : mainContentContainer.appendChild(noteTakerEmbed);
 }
 function closeNoteTaker() {
@@ -69,10 +71,7 @@ function appendNoteTaker() {
     takeNotesButton.classList.add('better-slp-take-notes-button');
     takeNotesButton.addEventListener('click', function (e) {
         const noteTakerOpen = this.classList.contains('active');
-        if (noteTakerOpen)
-            closeNoteTaker();
-        else
-            openNoteTaker();
+        noteTakerOpen ? closeNoteTaker() : openNoteTaker();
         if (noteTakerOpen)
             this.classList.remove('active');
         else

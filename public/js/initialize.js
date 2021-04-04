@@ -12,7 +12,9 @@ function enableDarkMode(toggleState, animation = true) {
 }
 function initialize() {
     chrome.storage.sync.get('darkMode', items => {
-        // alert(JSON.stringify(items))
+        if (items.darkMode)
+            enableDarkMode(true, false);
     });
+    chrome.storage.sync.set({ darkMode: true });
 }
 initialize();
