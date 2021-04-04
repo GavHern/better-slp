@@ -65,11 +65,19 @@ function openNoteTaker(): void {
 }
 
 function closeNoteTaker(): void {
-  const noteTakerInstances = document.querySelectorAll('.better-slp-note-taker-embed');
-  noteTakerInstances.forEach(instance => { instance.remove() })
+  const noteTakerInstance: HTMLIFrameElement | null = document.querySelector('.better-slp-note-taker-embed');
+  
+  noteTakerInstance?.contentWindow?.postMessage('save', '*');
 
-  const mainContentContainer = document.querySelector('.claro-student-focusarea');
-  mainContentContainer?.querySelector('.panel-body')?.classList.remove('hidden');
+  window.addEventListener('message', e => {
+    if(e.data == "save-successful"){
+      noteTakerInstance?.remove();
+    
+      const mainContentContainer = document.querySelector('.claro-student-focusarea');
+      mainContentContainer?.querySelector('.panel-body')?.classList.remove('hidden');
+    }  
+  }) 
+  
 }
 
 function appendNoteTaker(): void {

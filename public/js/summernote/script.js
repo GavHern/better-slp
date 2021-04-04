@@ -27,6 +27,13 @@ window.addEventListener('load', () => {
 
   $(noteTaker).summernote('fontName', 'Arial');
   $(noteTaker).summernote('fullscreen.toggle');
+
+  const id = url.searchParams.get("id");
+  chrome.storage.local.get('note-doc-'+id, data => {
+    let rawTextData = Object.values(data)[0];
+    
+    $('#summernote').summernote('code', rawTextData);
+  });
 })
 
 if(url.searchParams.get("dark")){
@@ -34,8 +41,15 @@ if(url.searchParams.get("dark")){
 }
 
 
-function saveDoc(){
+function saveDoc(callback){
   const id = url.searchParams.get("id");
   const data = $('#summernote').summernote('code');
-  chrome.storage.local.set({['note-doc-'+id]: data});
+
+  chrome.storage.local.set({['note-doc-'+id]: data}, callback);
 }
+
+window.addEventListener('message', e => {
+  if(e.data == "save") saveDoc(() => {
+    window.top.postMessage('save-successful', '*')
+  })
+}) 

@@ -60,10 +60,16 @@ function openNoteTaker() {
 }
 function closeNoteTaker() {
     var _a;
-    const noteTakerInstances = document.querySelectorAll('.better-slp-note-taker-embed');
-    noteTakerInstances.forEach(instance => { instance.remove(); });
-    const mainContentContainer = document.querySelector('.claro-student-focusarea');
-    (_a = mainContentContainer === null || mainContentContainer === void 0 ? void 0 : mainContentContainer.querySelector('.panel-body')) === null || _a === void 0 ? void 0 : _a.classList.remove('hidden');
+    const noteTakerInstance = document.querySelector('.better-slp-note-taker-embed');
+    (_a = noteTakerInstance === null || noteTakerInstance === void 0 ? void 0 : noteTakerInstance.contentWindow) === null || _a === void 0 ? void 0 : _a.postMessage('save', '*');
+    window.addEventListener('message', e => {
+        var _a;
+        if (e.data == "save-successful") {
+            noteTakerInstance === null || noteTakerInstance === void 0 ? void 0 : noteTakerInstance.remove();
+            const mainContentContainer = document.querySelector('.claro-student-focusarea');
+            (_a = mainContentContainer === null || mainContentContainer === void 0 ? void 0 : mainContentContainer.querySelector('.panel-body')) === null || _a === void 0 ? void 0 : _a.classList.remove('hidden');
+        }
+    });
 }
 function appendNoteTaker() {
     var _a;
