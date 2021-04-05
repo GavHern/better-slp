@@ -1,4 +1,5 @@
-@mixin icon {
+@mixin icon($icon-name) {
+  content: $icon-name;
   font-family: Material Icons v54 !important;
   font-size: 120%;
   -webkit-font-smoothing: antialiased;
@@ -19,8 +20,7 @@
   font-size: 14px;
 
   &::before {
-    content: 'create';
-    @include icon;
+    @include icon('create');
     margin-right: 6px;
   }
 
@@ -125,8 +125,7 @@
         };
 
         &::after {
-          @include icon;
-          content: 'arrow_forward';
+          @include icon('arrow_forward');
           color: rgb(255, 255, 255) !important;
           font-size: 1.75rem;
           font-weight: 100;
