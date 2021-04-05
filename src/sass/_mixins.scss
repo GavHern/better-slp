@@ -1,0 +1,9 @@
+@mixin icon($icon-name) {
+  content: $icon-name;
+  font-family: Material Icons v54 !important;
+  font-size: 120%;
+  -webkit-font-smoothing: antialiased;
+  font-style: normal;
+  position: relative;
+  text-rendering: optimizeLegibility;
+}
