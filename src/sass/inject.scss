@@ -1,3 +1,12 @@
+@mixin icon {
+  font-family: Material Icons v54 !important;
+  font-size: 120%;
+  -webkit-font-smoothing: antialiased;
+  font-style: normal;
+  position: relative;
+  text-rendering: optimizeLegibility;
+}
+
 .better-slp-take-notes-button {
   background: #5548ff;
   color: #ffffff;
@@ -11,13 +20,8 @@
 
   &::before {
     content: 'create';
+    @include icon;
     margin-right: 6px;
-    font-family: Material Icons v54 !important;
-    font-size: 120%;
-    -webkit-font-smoothing: antialiased;
-    font-style: normal;
-    position: relative;
-    text-rendering: optimizeLegibility;
   }
 
   &::after {
@@ -33,6 +37,101 @@
   &.active::after {
     content: 'Save and close';
   }
+}
 
-  
+.better-slp-quick-switcher-container { // Full Container
+  z-index: 500; 
+  position: fixed;
+  -webkit-backdrop-filter: blur(2px);
+  backdrop-filter: blur(2px);
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+
+  & > div { // Main content wrapper
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    margin: auto;
+    padding: 5rem 1rem;
+    
+    max-width: 36rem;
+    @media screen and (min-width: 1280px) { // Large Breakpoint
+      max-width: 56rem;
+    }
+
+    & > input { // Text input field
+      width: 100%;
+      height: 5rem;
+      -webkit-backdrop-filter: blur(8px);
+      backdrop-filter: blur(8px);
+      background-color: rgba(255, 255, 255, 0.6) !important;
+      border-radius: 9999px !important;
+      padding-left: 1.5rem !important;
+      padding-right: 1.5rem !important;
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04) !important;
+      flex-shrink: 0;
+      margin-bottom: 1.5rem;
+      font-size: 1.25rem !important;
+      line-height: 1.75rem !important;
+      border: none !important;
+      &::placeholder { // Input placeholder
+        opacity: 0.6;
+      }
+    }
+
+    & > div { // Results items container
+      width: 100%;
+      max-height: 100%;
+      -webkit-backdrop-filter: blur(8px);
+      backdrop-filter: blur(8px);
+      background-color: rgba(209, 213, 219, 0.5) !important;
+      border-radius: 1.5rem !important;
+      overflow: auto;
+
+      & > a { // Link item
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        height: 5rem;
+        padding: 0 1.5rem;
+
+        &:focus, &:hover { // Focus state
+          background-color: rgb(59, 130, 246);
+          outline: none !important;
+          text-decoration: none !important;
+        }
+
+        & > div {
+          h6 {
+            color: rgb(255, 255, 255) !important;
+            font-weight: 200 !important;
+            opacity: 0.5;
+            font-size: 1rem !important;
+            line-height: 1.5rem !important;
+            text-decoration: none !important;
+          }
+
+          div {
+            color: rgb(255, 255, 255);
+            font-weight: 600 !important;
+            font-size: 1.25rem;
+            line-height: 1.75rem;
+            text-decoration: none !important;
+          }
+        };
+
+        &::after {
+          @include icon;
+          content: 'arrow_forward';
+          color: rgb(255, 255, 255) !important;
+          font-size: 1.75rem;
+          font-weight: 100;
+        }
+      }
+    }
+  }
 }
