@@ -23,6 +23,66 @@ function enableDarkMode(toggleState, animation = true) {
     }
     document.documentElement.setAttribute('better-slp-dark-mode', 'true'); // Enable dark mode attribute on the html tag
 }
+function getQuickSwitcherAPIData() {
+    return __awaiter(this, void 0, void 0, function* () {
+        const responseRaw = yield fetch(`https://www.summitlearning.org/my/year/${getCurrentAcademicYear.toString()}.json`);
+        if (responseRaw.status >= 400 && responseRaw.status < 600) {
+            alert("A network error occurred");
+            openQuickSwitcher(false);
+            return false;
+        }
+        const response = yield responseRaw.json();
+        return response;
+    });
+}
+function parseQuickSwitcherAPIResponse(response) {
+    let resultList = [];
+    // Courses
+    response.courses.forEach((course) => {
+        resultList.push({
+            title: course.name,
+            subtitle: 'Course',
+            link: `https://www.summitlearning.org/my/courses/${course.id}/v2`
+        });
+    });
+    // Projects
+    response.projects.forEach((project) => {
+        const projectCourseId = response.projectCourses.filter((courseProject) => { return courseProject.projectId == project.id; })[0].courseId;
+        const projectCourseName = response.courses.filter((courses) => { return courses.id == projectCourseId; })[0].name;
+        resultList.push({
+            title: project.name,
+            subtitle: `Project • ${projectCourseName}`,
+            link: `https://www.summitlearning.org/my/projects/${project.id}/overview`
+        });
+    });
+    // Focus areas
+    response.focusAreas.forEach((focusArea) => {
+        const focusAreaAdditionalInformation = response.courseFocusAreas.filter((courseFocusArea) => { return courseFocusArea.knowDoId == focusArea.id; })[0];
+        if (focusAreaAdditionalInformation == undefined)
+            return;
+        const focusAreaCourseName = response.courses.filter((courses) => { return courses.id == focusAreaAdditionalInformation.courseId; })[0].name;
+        let focusAreaType;
+        switch (focusAreaAdditionalInformation.level) {
+            case 3:
+                focusAreaType = "Power";
+                break;
+            case 2:
+                focusAreaType = "Additional";
+                break;
+            case 1:
+                focusAreaType = "Challenge";
+                break;
+            default:
+                focusAreaType = "";
+        }
+        resultList.push({
+            title: focusArea.name,
+            subtitle: `${focusAreaType} Focus Area • ${focusAreaCourseName}`,
+            link: `https://www.summitlearning.org/my/focusareas/${focusArea.id}`
+        });
+    });
+    return resultList;
+}
 function appendQuickSwitcherToDOM() {
     return __awaiter(this, void 0, void 0, function* () {
         const quickSwitcherContainer = document.createElement('div');
@@ -37,59 +97,10 @@ function appendQuickSwitcherToDOM() {
         quickSwitcherContentWrapper.appendChild(quickSwitcherResultsContainer);
         document.body.appendChild(quickSwitcherContainer);
         quickSwitcherTextInput.focus();
-        const responseRaw = yield fetch('https://www.summitlearning.org/my/year/2021.json');
-        if (responseRaw.status >= 400 && responseRaw.status < 600) {
-            alert("A network error occurred");
-            openQuickSwitcher(false);
-        }
-        const response = yield responseRaw.json();
-        console.log(response);
-        let resultList = [];
-        // Courses
-        response.courses.forEach((course) => {
-            resultList.push({
-                title: course.name,
-                subtitle: 'Course',
-                link: `https://www.summitlearning.org/my/courses/${course.id}/v2`
-            });
-        });
-        // Projects
-        response.projects.forEach((project) => {
-            const projectCourseId = response.projectCourses.filter((courseProject) => { return courseProject.projectId == project.id; })[0].courseId;
-            const projectCourseName = response.courses.filter((courses) => { return courses.id == projectCourseId; })[0].name;
-            resultList.push({
-                title: project.name,
-                subtitle: `Project • ${projectCourseName}`,
-                link: `https://www.summitlearning.org/my/projects/${project.id}/overview`
-            });
-        });
-        // Focus Areas
-        response.focusAreas.forEach((focusArea) => {
-            const focusAreaAdditionalInformation = response.courseFocusAreas.filter((courseFocusArea) => { return courseFocusArea.knowDoId == focusArea.id; })[0];
-            if (focusAreaAdditionalInformation == undefined)
-                return;
-            const focusAreaCourseName = response.courses.filter((courses) => { return courses.id == focusAreaAdditionalInformation.courseId; })[0].name;
-            let focusAreaType;
-            switch (focusAreaAdditionalInformation.level) {
-                case 3:
-                    focusAreaType = "Power";
-                    break;
-                case 2:
-                    focusAreaType = "Additional";
-                    break;
-                case 1:
-                    focusAreaType = "Challenge";
-                    break;
-                default:
-                    focusAreaType = "";
-            }
-            resultList.push({
-                title: focusArea.name,
-                subtitle: `${focusAreaType} Focus Area • ${focusAreaCourseName}`,
-                link: `https://www.summitlearning.org/my/focusareas/${focusArea.id}`
-            });
-        });
-        console.log(resultList);
+        const response = yield getQuickSwitcherAPIData();
+        if (response === false)
+            return;
+        const resultList = parseQuickSwitcherAPIResponse(response);
         function fieldEditCallback() {
             quickSwitcherResultsContainer.innerHTML = '';
             if (quickSwitcherTextInput.value.length == 0)

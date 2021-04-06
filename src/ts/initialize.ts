@@ -19,41 +19,27 @@ function enableDarkMode(toggleState: boolean, animation: boolean = true): void {
 
 }
 
-async function appendQuickSwitcherToDOM(): Promise<void> {
-  const quickSwitcherContainer = document.createElement('div');
-  const quickSwitcherContentWrapper = document.createElement('div');
-  const quickSwitcherTextInput = document.createElement('input');
-  const quickSwitcherResultsContainer = document.createElement('div');
+interface searchResult {
+  title: string;
+  subtitle: string;
+  link: string;
+}
 
-  quickSwitcherContainer.className = "better-slp-quick-switcher-container";
-  quickSwitcherTextInput.type = "text";
-  quickSwitcherTextInput.placeholder = "Search...";
-
-  quickSwitcherContainer.appendChild(quickSwitcherContentWrapper);
-  quickSwitcherContentWrapper.appendChild(quickSwitcherTextInput);
-  quickSwitcherContentWrapper.appendChild(quickSwitcherResultsContainer);
-
-  document.body.appendChild(quickSwitcherContainer);
-
-  quickSwitcherTextInput.focus();
-
-  const responseRaw = await fetch('https://www.summitlearning.org/my/year/2021.json');
+async function getQuickSwitcherAPIData(): Promise<any> {
+  const responseRaw = await fetch(`https://www.summitlearning.org/my/year/${getCurrentAcademicYear.toString()}.json`);
 
   if(responseRaw.status >= 400 && responseRaw.status < 600) {
     alert("A network error occurred");
     openQuickSwitcher(false);
+    return false;
   }
 
   const response: any = await responseRaw.json();
 
-  console.log(response)
+  return response;
+}
 
-  interface searchResult {
-    title: string;
-    subtitle: string;
-    link: string;
-  }
-
+function parseQuickSwitcherAPIResponse(response: any): searchResult[] {
   let resultList: searchResult[] = [];
 
   // Courses
@@ -76,7 +62,7 @@ async function appendQuickSwitcherToDOM(): Promise<void> {
     });
   });
 
-  // Focus Areas
+  // Focus areas
   response.focusAreas.forEach((focusArea: any) => {
     const focusAreaAdditionalInformation = response.courseFocusAreas.filter((courseFocusArea: any) => {return courseFocusArea.knowDoId == focusArea.id})[0];
     if(focusAreaAdditionalInformation == undefined) return;
@@ -104,7 +90,32 @@ async function appendQuickSwitcherToDOM(): Promise<void> {
     });
   });
 
-  console.log(resultList);
+  return resultList;
+}
+
+async function appendQuickSwitcherToDOM(): Promise<void> {
+  const quickSwitcherContainer = document.createElement('div');
+  const quickSwitcherContentWrapper = document.createElement('div');
+  const quickSwitcherTextInput = document.createElement('input');
+  const quickSwitcherResultsContainer = document.createElement('div');
+
+  quickSwitcherContainer.className = "better-slp-quick-switcher-container";
+  quickSwitcherTextInput.type = "text";
+  quickSwitcherTextInput.placeholder = "Search...";
+
+  quickSwitcherContainer.appendChild(quickSwitcherContentWrapper);
+  quickSwitcherContentWrapper.appendChild(quickSwitcherTextInput);
+  quickSwitcherContentWrapper.appendChild(quickSwitcherResultsContainer);
+
+  document.body.appendChild(quickSwitcherContainer);
+
+  quickSwitcherTextInput.focus();
+
+  const response = await getQuickSwitcherAPIData();
+
+  if(response === false) return;
+
+  const resultList = parseQuickSwitcherAPIResponse(response); 
 
   function fieldEditCallback(): void {
     quickSwitcherResultsContainer.innerHTML = '';
