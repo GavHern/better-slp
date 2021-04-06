@@ -1,4 +1,17 @@
 "use strict";
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
+function getCurrentAcademicYear() {
+    const date = new Date();
+    return date.getFullYear() + (date.getMonth() > 5 ? 1 : 0);
+}
 function enableDarkMode(toggleState, animation = true) {
     if (animation) { // Apply a css animation if needed
         document.documentElement.classList.add('better-slp-dark-mode-transitioning');
@@ -11,18 +24,98 @@ function enableDarkMode(toggleState, animation = true) {
     document.documentElement.setAttribute('better-slp-dark-mode', 'true'); // Enable dark mode attribute on the html tag
 }
 function appendQuickSwitcherToDOM() {
-    const quickSwitcherContainer = document.createElement('div');
-    const quickSwitcherContentWrapper = document.createElement('div');
-    const quickSwitcherTextInput = document.createElement('input');
-    const quickSwitcherResultsContainer = document.createElement('div');
-    quickSwitcherContainer.className = "better-slp-quick-switcher-container";
-    quickSwitcherTextInput.type = "text";
-    quickSwitcherTextInput.placeholder = "Search...";
-    quickSwitcherContainer.appendChild(quickSwitcherContentWrapper);
-    quickSwitcherContentWrapper.appendChild(quickSwitcherTextInput);
-    quickSwitcherContentWrapper.appendChild(quickSwitcherResultsContainer);
-    document.body.appendChild(quickSwitcherContainer);
-    quickSwitcherTextInput.focus();
+    return __awaiter(this, void 0, void 0, function* () {
+        const quickSwitcherContainer = document.createElement('div');
+        const quickSwitcherContentWrapper = document.createElement('div');
+        const quickSwitcherTextInput = document.createElement('input');
+        const quickSwitcherResultsContainer = document.createElement('div');
+        quickSwitcherContainer.className = "better-slp-quick-switcher-container";
+        quickSwitcherTextInput.type = "text";
+        quickSwitcherTextInput.placeholder = "Search...";
+        quickSwitcherContainer.appendChild(quickSwitcherContentWrapper);
+        quickSwitcherContentWrapper.appendChild(quickSwitcherTextInput);
+        quickSwitcherContentWrapper.appendChild(quickSwitcherResultsContainer);
+        document.body.appendChild(quickSwitcherContainer);
+        quickSwitcherTextInput.focus();
+        const responseRaw = yield fetch('https://www.summitlearning.org/my/year/2021.json');
+        if (responseRaw.status >= 400 && responseRaw.status < 600) {
+            alert("A network error occurred");
+            openQuickSwitcher(false);
+        }
+        const response = yield responseRaw.json();
+        console.log(response);
+        let resultList = [];
+        // Courses
+        response.courses.forEach((course) => {
+            resultList.push({
+                title: course.name,
+                subtitle: 'Course',
+                link: `https://www.summitlearning.org/my/courses/${course.id}/v2`
+            });
+        });
+        // Projects
+        response.projects.forEach((project) => {
+            const projectCourseId = response.projectCourses.filter((courseProject) => { return courseProject.projectId == project.id; })[0].courseId;
+            const projectCourseName = response.courses.filter((courses) => { return courses.id == projectCourseId; })[0].name;
+            resultList.push({
+                title: project.name,
+                subtitle: `Project • ${projectCourseName}`,
+                link: `https://www.summitlearning.org/my/projects/${project.id}/overview`
+            });
+        });
+        // Focus Areas
+        response.focusAreas.forEach((focusArea) => {
+            const focusAreaAdditionalInformation = response.courseFocusAreas.filter((courseFocusArea) => { return courseFocusArea.knowDoId == focusArea.id; })[0];
+            if (focusAreaAdditionalInformation == undefined)
+                return;
+            const focusAreaCourseName = response.courses.filter((courses) => { return courses.id == focusAreaAdditionalInformation.courseId; })[0].name;
+            let focusAreaType;
+            switch (focusAreaAdditionalInformation.level) {
+                case 3:
+                    focusAreaType = "Power";
+                    break;
+                case 2:
+                    focusAreaType = "Additional";
+                    break;
+                case 1:
+                    focusAreaType = "Challenge";
+                    break;
+                default:
+                    focusAreaType = "";
+            }
+            resultList.push({
+                title: focusArea.name,
+                subtitle: `${focusAreaType} Focus Area • ${focusAreaCourseName}`,
+                link: `https://www.summitlearning.org/my/focusareas/${focusArea.id}`
+            });
+        });
+        console.log(resultList);
+        function fieldEditCallback() {
+            quickSwitcherResultsContainer.innerHTML = '';
+            if (quickSwitcherTextInput.value.length == 0)
+                return;
+            let filteredResults = resultList.filter((result) => { return result.title.toLowerCase().includes(quickSwitcherTextInput.value.toLowerCase()); });
+            filteredResults.forEach(item => {
+                var _a;
+                const searchResultItem = document.createElement('a');
+                const searchResultItemContentWrapper = document.createElement('div');
+                const searchResultSubtitle = document.createElement('h6');
+                const searchResultTitle = document.createElement('div');
+                searchResultItem.setAttribute('href', item.link);
+                searchResultSubtitle.innerText = (_a = item.subtitle) !== null && _a !== void 0 ? _a : '';
+                searchResultTitle.innerText = item.title;
+                if (item.subtitle != null)
+                    searchResultItemContentWrapper.appendChild(searchResultSubtitle);
+                searchResultItemContentWrapper.appendChild(searchResultTitle);
+                searchResultItem.appendChild(searchResultItemContentWrapper);
+                quickSwitcherResultsContainer.appendChild(searchResultItem);
+            });
+        }
+        quickSwitcherTextInput.addEventListener('keydown', function () { setTimeout(() => { fieldEditCallback(); }, 0); });
+        quickSwitcherTextInput.addEventListener('paste', function () { setTimeout(() => { fieldEditCallback(); }, 0); });
+        quickSwitcherTextInput.addEventListener('change', function () { setTimeout(() => { fieldEditCallback(); }, 0); });
+        fieldEditCallback();
+    });
 }
 function openQuickSwitcher(toggleState) {
     const existingInstances = document.querySelectorAll('.better-slp-quick-switcher-container');
