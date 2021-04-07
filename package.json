@@ -5,6 +5,8 @@
   "author": "Gav Hern",
   "license": "ISC",
   "dependencies": {
-    "@types/chrome": "0.0.133"
+    "@types/chrome": "0.0.133",
+    "@types/jquery": "^3.5.5",
+    "@types/summernote": "^0.8.4"
   }
 }
