@@ -19,12 +19,6 @@ function enableDarkMode(toggleState: boolean, animation: boolean = true): void {
 
 }
 
-interface searchResult {
-  title: string;
-  subtitle: string;
-  link: string;
-}
-
 async function getQuickSwitcherAPIData(): Promise<any> {
   const responseRaw = await fetch(`https://www.summitlearning.org/my/year/${getCurrentAcademicYear.toString()}.json`);
 
