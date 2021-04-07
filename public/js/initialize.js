@@ -1,13 +1,4 @@
 "use strict";
-var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
-    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
-    return new (P || (P = Promise))(function (resolve, reject) {
-        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
-        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
-        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
-        step((generator = generator.apply(thisArg, _arguments || [])).next());
-    });
-};
 function getCurrentAcademicYear() {
     const date = new Date();
     return date.getFullYear() + (date.getMonth() > 5 ? 1 : 0);
@@ -23,17 +14,15 @@ function enableDarkMode(toggleState, animation = true) {
     }
     document.documentElement.setAttribute('better-slp-dark-mode', 'true'); // Enable dark mode attribute on the html tag
 }
-function getQuickSwitcherAPIData() {
-    return __awaiter(this, void 0, void 0, function* () {
-        const responseRaw = yield fetch(`https://www.summitlearning.org/my/year/${getCurrentAcademicYear.toString()}.json`);
-        if (responseRaw.status >= 400 && responseRaw.status < 600) {
-            alert("A network error occurred");
-            openQuickSwitcher(false);
-            return false;
-        }
-        const response = yield responseRaw.json();
-        return response;
-    });
+async function getQuickSwitcherAPIData() {
+    const responseRaw = await fetch(`https://www.summitlearning.org/my/year/${getCurrentAcademicYear.toString()}.json`);
+    if (responseRaw.status >= 400 && responseRaw.status < 600) {
+        alert("A network error occurred");
+        openQuickSwitcher(false);
+        return false;
+    }
+    const response = await responseRaw.json();
+    return response;
 }
 function parseQuickSwitcherAPIResponse(response) {
     let resultList = [];
@@ -83,50 +72,47 @@ function parseQuickSwitcherAPIResponse(response) {
     });
     return resultList;
 }
-function appendQuickSwitcherToDOM() {
-    return __awaiter(this, void 0, void 0, function* () {
-        const quickSwitcherContainer = document.createElement('div');
-        const quickSwitcherContentWrapper = document.createElement('div');
-        const quickSwitcherTextInput = document.createElement('input');
-        const quickSwitcherResultsContainer = document.createElement('div');
-        quickSwitcherContainer.className = "better-slp-quick-switcher-container";
-        quickSwitcherTextInput.type = "text";
-        quickSwitcherTextInput.placeholder = "Search...";
-        quickSwitcherContainer.appendChild(quickSwitcherContentWrapper);
-        quickSwitcherContentWrapper.appendChild(quickSwitcherTextInput);
-        quickSwitcherContentWrapper.appendChild(quickSwitcherResultsContainer);
-        document.body.appendChild(quickSwitcherContainer);
-        quickSwitcherTextInput.focus();
-        const response = yield getQuickSwitcherAPIData();
-        if (response === false)
+async function appendQuickSwitcherToDOM() {
+    const quickSwitcherContainer = document.createElement('div');
+    const quickSwitcherContentWrapper = document.createElement('div');
+    const quickSwitcherTextInput = document.createElement('input');
+    const quickSwitcherResultsContainer = document.createElement('div');
+    quickSwitcherContainer.className = "better-slp-quick-switcher-container";
+    quickSwitcherTextInput.type = "text";
+    quickSwitcherTextInput.placeholder = "Search...";
+    quickSwitcherContainer.appendChild(quickSwitcherContentWrapper);
+    quickSwitcherContentWrapper.appendChild(quickSwitcherTextInput);
+    quickSwitcherContentWrapper.appendChild(quickSwitcherResultsContainer);
+    document.body.appendChild(quickSwitcherContainer);
+    quickSwitcherTextInput.focus();
+    const response = await getQuickSwitcherAPIData();
+    if (response === false)
+        return;
+    const resultList = parseQuickSwitcherAPIResponse(response);
+    function fieldEditCallback() {
+        quickSwitcherResultsContainer.innerHTML = '';
+        if (quickSwitcherTextInput.value.length == 0)
             return;
-        const resultList = parseQuickSwitcherAPIResponse(response);
-        function fieldEditCallback() {
-            quickSwitcherResultsContainer.innerHTML = '';
-            if (quickSwitcherTextInput.value.length == 0)
-                return;
-            let filteredResults = resultList.filter((result) => { return result.title.toLowerCase().includes(quickSwitcherTextInput.value.toLowerCase()); });
-            filteredResults.forEach(item => {
-                var _a;
-                const searchResultItem = document.createElement('a');
-                const searchResultItemContentWrapper = document.createElement('div');
-                const searchResultSubtitle = document.createElement('h6');
-                const searchResultTitle = document.createElement('div');
-                searchResultItem.setAttribute('href', item.link);
-                searchResultSubtitle.innerText = (_a = item.subtitle) !== null && _a !== void 0 ? _a : '';
-                searchResultTitle.innerText = item.title;
-                if (item.subtitle != null)
-                    searchResultItemContentWrapper.appendChild(searchResultSubtitle);
-                searchResultItemContentWrapper.appendChild(searchResultTitle);
-                searchResultItem.appendChild(searchResultItemContentWrapper);
-                quickSwitcherResultsContainer.appendChild(searchResultItem);
-            });
-        }
-        quickSwitcherTextInput.addEventListener('keydown', function () { setTimeout(() => { fieldEditCallback(); }, 0); });
-        quickSwitcherTextInput.addEventListener('paste', function () { setTimeout(() => { fieldEditCallback(); }, 0); });
-        quickSwitcherTextInput.addEventListener('change', function () { setTimeout(() => { fieldEditCallback(); }, 0); });
-        fieldEditCallback();
-    });
+        let filteredResults = resultList.filter((result) => { return result.title.toLowerCase().includes(quickSwitcherTextInput.value.toLowerCase()); });
+        filteredResults.forEach(item => {
+            const searchResultItem = document.createElement('a');
+            const searchResultItemContentWrapper = document.createElement('div');
+            const searchResultSubtitle = document.createElement('h6');
+            const searchResultTitle = document.createElement('div');
+            searchResultItem.setAttribute('href', item.link);
+            searchResultSubtitle.innerText = item.subtitle ?? '';
+            searchResultTitle.innerText = item.title;
+            if (item.subtitle != null)
+                searchResultItemContentWrapper.appendChild(searchResultSubtitle);
+            searchResultItemContentWrapper.appendChild(searchResultTitle);
+            searchResultItem.appendChild(searchResultItemContentWrapper);
+            quickSwitcherResultsContainer.appendChild(searchResultItem);
+        });
+    }
+    quickSwitcherTextInput.addEventListener('keydown', function () { setTimeout(() => { fieldEditCallback(); }, 0); });
+    quickSwitcherTextInput.addEventListener('paste', function () { setTimeout(() => { fieldEditCallback(); }, 0); });
+    quickSwitcherTextInput.addEventListener('change', function () { setTimeout(() => { fieldEditCallback(); }, 0); });
+    fieldEditCallback();
 }
 function openQuickSwitcher(toggleState) {
     const existingInstances = document.querySelectorAll('.better-slp-quick-switcher-container');

@@ -1,3 +1,4 @@
 public/js/*.js linguist-detectable=false
+public/js/*/*.js linguist-detectable=false
 public/css/*.css linguist-detectable=false
 legacy/*.* linguist-detectable=false

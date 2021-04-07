@@ -1,16 +1,5 @@
 "use strict";
-var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
-    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
-    return new (P || (P = Promise))(function (resolve, reject) {
-        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
-        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
-        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
-        step((generator = generator.apply(thisArg, _arguments || [])).next());
-    });
-};
-var _a;
 function appendDashboardSidenavLink() {
-    var _a;
     if (document.querySelector('#better-slp-dashboard-link') != null)
         return;
     const dashboardNavigationContainer = document.createElement('li');
@@ -26,28 +15,24 @@ function appendDashboardSidenavLink() {
     });
     dashboardNavigationIcon.innerHTML = "dashboard";
     dashboardNavigationLink.append("Dashboard");
-    dashboardNavigationLink.addEventListener('click', function (e) {
-        var _a;
-        return __awaiter(this, void 0, void 0, function* () {
-            e.preventDefault();
-            const applicationBody = document.querySelector('.app-body');
-            if (applicationBody == null)
-                return;
-            window.history.pushState({}, "", "/my/dashboard");
-            document.querySelectorAll('.page-menu .app-page-menu-body > ul.nav > li.active').forEach(navElement => {
-                navElement.classList.remove('active');
-            });
-            (_a = this.parentElement) === null || _a === void 0 ? void 0 : _a.classList.add('active');
-            let newPageContents = yield fetch(chrome.runtime.getURL('html/dashboard.html'));
-            applicationBody.innerHTML = yield newPageContents.text();
+    dashboardNavigationLink.addEventListener('click', async function (e) {
+        e.preventDefault();
+        const applicationBody = document.querySelector('.app-body');
+        if (applicationBody == null)
+            return;
+        window.history.pushState({}, "", "/my/dashboard");
+        document.querySelectorAll('.page-menu .app-page-menu-body > ul.nav > li.active').forEach(navElement => {
+            navElement.classList.remove('active');
         });
+        this.parentElement?.classList.add('active');
+        let newPageContents = await fetch(chrome.runtime.getURL('html/dashboard.html'));
+        applicationBody.innerHTML = await newPageContents.text();
     });
-    (_a = document.querySelector('.page-menu .app-page-menu-body > ul.nav')) === null || _a === void 0 ? void 0 : _a.prepend(dashboardNavigationContainer);
+    document.querySelector('.page-menu .app-page-menu-body > ul.nav')?.prepend(dashboardNavigationContainer);
 }
 function openNoteTaker() {
-    var _a;
     const mainContentContainer = document.querySelector('.claro-student-focusarea');
-    (_a = mainContentContainer === null || mainContentContainer === void 0 ? void 0 : mainContentContainer.querySelector('.panel-body')) === null || _a === void 0 ? void 0 : _a.classList.add('hidden');
+    mainContentContainer?.querySelector('.panel-body')?.classList.add('hidden');
     const focusAreaId = new URL(window.location.href).pathname.split('my/focusareas/')[1]; // Find ID of focus area based on the URL pathname
     const noteTakerEmbedURL = chrome.runtime.getURL(`html/notetaker.html?id=${focusAreaId}&dark=true`); // Get the chrome-extension url and add the id & theme as a parameter
     const noteTakerEmbed = document.createElement('iframe');
@@ -56,23 +41,20 @@ function openNoteTaker() {
     noteTakerEmbed.style.backgroundColor = "transparent";
     noteTakerEmbed.style.width = "100%";
     noteTakerEmbed.style.minHeight = "72vh";
-    mainContentContainer === null || mainContentContainer === void 0 ? void 0 : mainContentContainer.appendChild(noteTakerEmbed);
+    mainContentContainer?.appendChild(noteTakerEmbed);
 }
 function closeNoteTaker() {
-    var _a;
     const noteTakerInstance = document.querySelector('.better-slp-note-taker-embed');
-    (_a = noteTakerInstance === null || noteTakerInstance === void 0 ? void 0 : noteTakerInstance.contentWindow) === null || _a === void 0 ? void 0 : _a.postMessage('save', '*');
+    noteTakerInstance?.contentWindow?.postMessage('save', '*');
     window.addEventListener('message', e => {
-        var _a;
         if (e.data == "save-successful") {
-            noteTakerInstance === null || noteTakerInstance === void 0 ? void 0 : noteTakerInstance.remove();
+            noteTakerInstance?.remove();
             const mainContentContainer = document.querySelector('.claro-student-focusarea');
-            (_a = mainContentContainer === null || mainContentContainer === void 0 ? void 0 : mainContentContainer.querySelector('.panel-body')) === null || _a === void 0 ? void 0 : _a.classList.remove('hidden');
+            mainContentContainer?.querySelector('.panel-body')?.classList.remove('hidden');
         }
     });
 }
 function appendNoteTaker() {
-    var _a;
     const takeNotesButton = document.createElement('button');
     takeNotesButton.classList.add('better-slp-take-notes-button');
     takeNotesButton.addEventListener('click', function (e) {
@@ -83,7 +65,7 @@ function appendNoteTaker() {
         else
             this.classList.add('active');
     });
-    (_a = document.querySelector('.app-body > .app-page-title > .app-page-title-row')) === null || _a === void 0 ? void 0 : _a.appendChild(takeNotesButton);
+    document.querySelector('.app-body > .app-page-title > .app-page-title-row')?.appendChild(takeNotesButton);
 }
 function main() {
     appendDashboardSidenavLink();
@@ -96,4 +78,4 @@ function main() {
 }
 if (!document.documentElement.classList.contains('nprogress-busy'))
     main(); // Initial load
-(_a = document.querySelector('#nprogress')) === null || _a === void 0 ? void 0 : _a.addEventListener('DOMNodeRemoved', () => { main(); }); // Reload every state change
+document.querySelector('#nprogress')?.addEventListener('DOMNodeRemoved', () => { main(); }); // Reload every state change
