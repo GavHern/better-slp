@@ -19,7 +19,7 @@ async function getQuickSwitcherAPIData() {
     if (responseRaw.status >= 400 && responseRaw.status < 600) {
         alert("A network error occurred");
         openQuickSwitcher(false);
-        return false;
+        return null;
     }
     const response = await responseRaw.json();
     return response;
@@ -86,7 +86,7 @@ async function appendQuickSwitcherToDOM() {
     document.body.appendChild(quickSwitcherContainer);
     quickSwitcherTextInput.focus();
     const response = await getQuickSwitcherAPIData();
-    if (response === false)
+    if (response === null)
         return;
     const resultList = parseQuickSwitcherAPIResponse(response);
     function fieldEditCallback() {
