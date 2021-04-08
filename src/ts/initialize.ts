@@ -19,25 +19,25 @@ function enableDarkMode(toggleState: boolean, animation: boolean = true): void {
 
 }
 
-async function getQuickSwitcherAPIData(): Promise<any> {
-  const responseRaw = await fetch(`https://www.summitlearning.org/my/year/${getCurrentAcademicYear.toString()}.json`);
+async function getQuickSwitcherAPIData(): Promise<SummitLearningYearAPI | null>{
+  const responseRaw = await fetch(`https://www.summitlearning.org/my/year/${getCurrentAcademicYear().toString()}.json`);
 
   if(responseRaw.status >= 400 && responseRaw.status < 600) {
     alert("A network error occurred");
     openQuickSwitcher(false);
-    return false;
+    return null;
   }
 
-  const response: any = await responseRaw.json();
+  const response: SummitLearningYearAPI = await responseRaw.json();
 
   return response;
 }
 
-function parseQuickSwitcherAPIResponse(response: any): searchResult[] {
+function parseQuickSwitcherAPIResponse(response: SummitLearningYearAPI): searchResult[] {
   let resultList: searchResult[] = [];
 
   // Courses
-  response.courses.forEach((course: any) => {
+  response.courses.forEach((course: SummitLearningCourses) => {
     resultList.push({
       title: course.name,
       subtitle: 'Course',
@@ -46,9 +46,9 @@ function parseQuickSwitcherAPIResponse(response: any): searchResult[] {
   });
 
   // Projects
-  response.projects.forEach((project: any) => {
-    const projectCourseId = response.projectCourses.filter((courseProject: any) => {return courseProject.projectId == project.id})[0].courseId;
-    const projectCourseName = response.courses.filter((courses: any) => {return courses.id == projectCourseId})[0].name;
+  response.projects.forEach((project: SummitLearningProjects) => {
+    const projectCourseId = response.projectCourses.filter((courseProject: SummitLearningProjectCourses) => {return courseProject.projectId == project.id})[0].courseId;
+    const projectCourseName = response.courses.filter((courses: SummitLearningCourses) => {return courses.id == projectCourseId})[0].name;
     resultList.push({
       title: project.name,
       subtitle: `Project • ${projectCourseName}`,
@@ -57,10 +57,10 @@ function parseQuickSwitcherAPIResponse(response: any): searchResult[] {
   });
 
   // Focus areas
-  response.focusAreas.forEach((focusArea: any) => {
-    const focusAreaAdditionalInformation = response.courseFocusAreas.filter((courseFocusArea: any) => {return courseFocusArea.knowDoId == focusArea.id})[0];
+  response.focusAreas.forEach((focusArea: SummitLearningFocusAreas) => {
+    const focusAreaAdditionalInformation = response.courseFocusAreas.filter((courseFocusArea: summitLearningCourseFocusAreas) => {return courseFocusArea.knowDoId == focusArea.id})[0];
     if(focusAreaAdditionalInformation == undefined) return;
-    const focusAreaCourseName = response.courses.filter((courses: any) => {return courses.id == focusAreaAdditionalInformation.courseId})[0].name;
+    const focusAreaCourseName = response.courses.filter((courses: SummitLearningCourses) => {return courses.id == focusAreaAdditionalInformation.courseId})[0].name;
 
     let focusAreaType: string;
     switch(focusAreaAdditionalInformation.level){
@@ -107,7 +107,7 @@ async function appendQuickSwitcherToDOM(): Promise<void> {
 
   const response = await getQuickSwitcherAPIData();
 
-  if(response === false) return;
+  if(response === null) return;
 
   const resultList = parseQuickSwitcherAPIResponse(response); 
 

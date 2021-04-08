@@ -15,7 +15,7 @@ function enableDarkMode(toggleState, animation = true) {
     document.documentElement.setAttribute('better-slp-dark-mode', 'true'); // Enable dark mode attribute on the html tag
 }
 async function getQuickSwitcherAPIData() {
-    const responseRaw = await fetch(`https://www.summitlearning.org/my/year/${getCurrentAcademicYear.toString()}.json`);
+    const responseRaw = await fetch(`https://www.summitlearning.org/my/year/${getCurrentAcademicYear().toString()}.json`);
     if (responseRaw.status >= 400 && responseRaw.status < 600) {
         alert("A network error occurred");
         openQuickSwitcher(false);
