@@ -3,6 +3,9 @@
   "version": "0.1.0",
   "description": "",
   "author": "Gav Hern",
+  "scripts": {
+    "tsc-watch": "cd src/ts && tsc -w"
+  },
   "license": "ISC",
   "dependencies": {
     "@types/chrome": "0.0.133",
