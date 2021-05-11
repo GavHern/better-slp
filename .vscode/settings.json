@@ -9,5 +9,5 @@
   "liveSassCompile.settings.includeItems": [
     "src/sass/*.scss"
   ],
-  "liveSassCompile.settings.generateMap": false
+  "liveSassCompile.settings.generateMap": true
 }
