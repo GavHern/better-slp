@@ -13,9 +13,6 @@ function openNoteTaker(): void {
   noteTakerEmbed.style.minHeight = "72vh";
 
   mainContentContainer?.appendChild(noteTakerEmbed);
-
-
-
 }
 
 function closeNoteTaker(): void {
@@ -31,7 +28,6 @@ function closeNoteTaker(): void {
       mainContentContainer?.querySelector('.panel-body')?.classList.remove('hidden');
     }  
   }) 
-  
 }
 
 function appendNoteTaker(): void {
@@ -45,15 +41,24 @@ function appendNoteTaker(): void {
     if(noteTakerOpen) this.classList.remove('active');
     else this.classList.add('active');
   })
+
   document.querySelector('.app-body > .app-page-title > .app-page-title-row')?.appendChild(takeNotesButton);
+}
+
+function progressTab(): void {
+  if(document.querySelectorAll('.better-slp-pie-chart-grid').length < 1) return;
+  
 }
 
 function main(): void {
   const currentURL = window.location.href;
 
   switch(true) {
-    case new RegExp('.*:\/\/.*?\.?summitlearning\.org/my/focusareas/.*').test(currentURL):
+    case new RegExp('.*:\/\/.*?\.?summitlearning\.org/my/focusareas/.*').test(currentURL): // Focus area page
       appendNoteTaker();
+      break;
+    case new RegExp('.*:\/\/.*?\.?summitlearning\.org/my/progress(/.*)?').test(currentURL): // Progress page
+      progressTab();
       break;
   }
 }

@@ -36,11 +36,18 @@ function appendNoteTaker() {
     });
     document.querySelector('.app-body > .app-page-title > .app-page-title-row')?.appendChild(takeNotesButton);
 }
+function progressTab() {
+    if (document.querySelectorAll('.better-slp-pie-chart-grid').length < 1)
+        return;
+}
 function main() {
     const currentURL = window.location.href;
     switch (true) {
-        case new RegExp('.*:\/\/.*?\.?summitlearning\.org/my/focusareas/.*').test(currentURL):
+        case new RegExp('.*:\/\/.*?\.?summitlearning\.org/my/focusareas/.*').test(currentURL): // Focus area page
             appendNoteTaker();
+            break;
+        case new RegExp('.*:\/\/.*?\.?summitlearning\.org/my/progress(/.*)?').test(currentURL): // Progress page
+            progressTab();
             break;
     }
 }
