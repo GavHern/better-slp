@@ -1,16 +1,18 @@
 "use strict";
 function openNoteTaker() {
-    const mainContentContainer = document.querySelector('.claro-student-focusarea');
-    mainContentContainer?.querySelector('.panel-body')?.classList.add('hidden');
-    const focusAreaId = new URL(window.location.href).pathname.split('my/focusareas/')[1]; // Find ID of focus area based on the URL pathname
-    const noteTakerEmbedURL = chrome.runtime.getURL(`html/notetaker.html?id=${focusAreaId}&dark=true`); // Get the chrome-extension url and add the id & theme as a parameter
-    const noteTakerEmbed = document.createElement('iframe');
-    noteTakerEmbed.src = noteTakerEmbedURL;
-    noteTakerEmbed.className = 'better-slp-note-taker-embed';
-    noteTakerEmbed.style.backgroundColor = "transparent";
-    noteTakerEmbed.style.width = "100%";
-    noteTakerEmbed.style.minHeight = "72vh";
-    mainContentContainer?.appendChild(noteTakerEmbed);
+    chrome.storage.sync.get('darkMode', items => {
+        const mainContentContainer = document.querySelector('.claro-student-focusarea');
+        mainContentContainer?.querySelector('.panel-body')?.classList.add('hidden');
+        const focusAreaId = new URL(window.location.href).pathname.split('my/focusareas/')[1]; // Find ID of focus area based on the URL pathname
+        const noteTakerEmbedURL = chrome.runtime.getURL(`html/notetaker.html?id=${focusAreaId}&dark=${items.darkMode}`); // Get the chrome-extension url and add the id & theme as a parameter
+        const noteTakerEmbed = document.createElement('iframe');
+        noteTakerEmbed.src = noteTakerEmbedURL;
+        noteTakerEmbed.className = 'better-slp-note-taker-embed';
+        noteTakerEmbed.style.backgroundColor = "transparent";
+        noteTakerEmbed.style.width = "100%";
+        noteTakerEmbed.style.minHeight = "72vh";
+        mainContentContainer?.appendChild(noteTakerEmbed);
+    });
 }
 function closeNoteTaker() {
     const noteTakerInstance = document.querySelector('.better-slp-note-taker-embed');

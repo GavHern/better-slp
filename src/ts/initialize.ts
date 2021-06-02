@@ -159,11 +159,11 @@ function openQuickSwitcher(toggleState: boolean): void {
 }
 
 function initialize(): void {
+  chrome.storage.sync.set({darkMode: true});
+
   chrome.storage.sync.get('darkMode', items => {
     if(items.darkMode) enableDarkMode(true, false);
   });
-
-  chrome.storage.sync.set({darkMode: true});
 
   // Keyboard Shortcuts
   window.addEventListener('keydown', e => {

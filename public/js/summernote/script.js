@@ -32,7 +32,7 @@ window.addEventListener('load', () => {
         $('#summernote').summernote('code', rawTextData);
     });
 });
-if (url.searchParams.get("dark")) {
+if (url.searchParams.get("dark") === "true") {
     document.head.innerHTML += `<link href="../../lib/bootstrap/dark.css" rel="stylesheet">`;
 }
 function saveDoc(callback) {
