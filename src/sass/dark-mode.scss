@@ -89,6 +89,12 @@ $focus-area-tour-colors: (
 );
 
 
+$score-badge-colors: (
+  "red": #ff5252,
+  "yellow": #ffc400,
+  "green": #00e676
+);
+
 
 //* * Selector Constants
 
@@ -159,6 +165,13 @@ $focus-area-tour-button: ".upper-right-overlay .onboarding-nub";
 $focus-area-resource-collapsable-opened-contianer: ".focusarea .selected-panel";
 $focus-area-resource-collapsable-opened: " .focusarea .selected-panel .panel";
 
+$focus-area-score-badge: (
+  "green": ".score-badge.passed",
+  "yellow": ".score-badge.almost-passed",
+  "red": ".score-badge:not(.get-started)",
+  "indeterminate": ".focusarea .playlist-panel .score-badge.get-started"
+);
+
 //? Project page
 $project-overview-item-badge-background: ".project-day-to-day-side-nav-item-theme-default .media-circle-background-circle";
 $project-overview-checkpoint-not-selected: ".project-day-to-day-side-nav-item:not(.selected)";
@@ -180,6 +193,14 @@ $project-plans-timeline-connector-line: ".project-agenda-timeline-item-line-1, .
 //? Notebook Document
 $notebook-editor-container: ".platform-doc-editor-container";
 $needs-revision-submit-popover: ".needs-revision-popover";
+
+//? Notifications popover
+$notification-popover-background: "#notifications-popover";
+$notification-popover-subheading: ".notifications-subtitle";
+$notification-popover-border: ".notifications-header, .notification-item";
+$notification-popover-item-title-read: ".notification-item:not(.notification-item-unread) .notification-item-title-fragment";
+$notification-popover-item-subtitle: ".notification-item-subtitle, #notifications-popover .list-group-item";
+$notification-popover-item-bullet-read: ".notification-item-read-bullet";
 
 //? Other
 
@@ -233,6 +254,7 @@ html[better-slp-dark-mode="true"] {
   
       #{$goal-floating-card},
       #{$progress-grades-table-link-hover},
+      #{$notification-popover-background},
       #{$create-goal-popover},
       #{$create-goal-popover-goal-textarea},
       #{$create-goal-popover-submit-button},
@@ -294,7 +316,8 @@ html[better-slp-dark-mode="true"] {
     }
 
     #{$page-main-content},
-    #{$app-subheading}
+    #{$app-subheading},
+    #{$notification-popover-subheading}
     {
       color: $page-body-color !important;
     }
@@ -304,9 +327,20 @@ html[better-slp-dark-mode="true"] {
     #{$year-course-cog-score-text},
     #{$token-element},
     #{$create-goal-popover-goal-textarea}, #{$create-goal-popover-goal-textarea-placeholder},
-    #{$dropdown-menu-item}
+    #{$dropdown-menu-item},
+    #{$notification-popover-item-subtitle}
     {
       color: $light-900 !important;
+    }
+
+    #{$notification-popover-item-title-read}
+    {
+      color: $light-600 !important;
+    }
+
+    #{map-get($focus-area-score-badge, "indeterminate")}
+    {
+      color: transparent-white(0.4) !important;
     }
   }
 
@@ -316,6 +350,11 @@ html[better-slp-dark-mode="true"] {
     #{$default-button}
     {
       border-color: $transparent !important;
+    }
+
+    #{$notification-popover-item-bullet-read}
+    {
+      border-color: $light-900 !important;
     }
 
     #{$create-goal-popover-goal-unchecked-box}
@@ -330,7 +369,8 @@ html[better-slp-dark-mode="true"] {
       border-color: $dark-300 !important;
     }
 
-    #{$week-calendar-current-day-highlight-border}
+    #{$week-calendar-current-day-highlight-border},
+    #{$notification-popover-border}
     {
       border-color: $dark-100 !important;
     }
@@ -358,6 +398,11 @@ html[better-slp-dark-mode="true"] {
         & i {
           background-color: map-get($color-status-icon, $color) !important;
         }
+      }
+
+      #{map-get($focus-area-score-badge, $color)}
+      {
+        color: map-get($score-badge-colors, $color) !important;
       }
     }
   }
