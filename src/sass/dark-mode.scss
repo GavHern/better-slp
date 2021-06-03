@@ -137,6 +137,10 @@ $week-calendar-current-day-highlight-border: ".table-bordered td.sdl-week-calend
 
 //? Year
 $focus-area-hover-tooltip: ".courserow-tooltip.tooltip .tooltip-inner";
+$focus-area-hover-tooltip-header: ".courserow-tooltip .app-heading:not(.success)";
+$focus-area-hover-tooltip-project-status: ".courserow-tooltip .project-status";
+$focus-area-hover-tooltip-horizontal-rule: ".courserow-tooltip hr";
+$focus-area-hover-tooltip-success-date: ".courserow-tooltip.tooltip .app-heading.success";
 $year-scroll-right-shadow: ".claro-standard-layout-page .claro-this-year .this-year-outer .this-year-fade.right";
 $year-course-row-info-left: ".courserow-info.widen";
 $year-course-cog-score-text: ".courserow-score-text";
@@ -146,9 +150,9 @@ $year-scroll-nav-button: ".this-year-fade .nav-button-container:hover .this-year
 $year-scroll-nav-button-hovered: ".this-year-fade .nav-button-container:hover .this-year-nav-button:hover";
 
 $focus-area-statuses: (
-  "green": ".success",
-  "yellow": ".warning",
-  "red": ".danger",
+  "green": ".success:not(.app-heading)",
+  "yellow": ".warning:not(.app-heading)",
+  "red": ".danger:not(.app-heading)",
   "neutral": ".default, .courserow-list-item-content-default:not(.success):not(.warning):not(.danger)"
 );
 
@@ -317,7 +321,9 @@ html[better-slp-dark-mode="true"] {
 
     #{$page-main-content},
     #{$app-subheading},
-    #{$notification-popover-subheading}
+    #{$notification-popover-subheading},
+    #{$focus-area-hover-tooltip-header},
+    #{$focus-area-hover-tooltip-project-status}
     {
       color: $page-body-color !important;
     }
@@ -364,7 +370,8 @@ html[better-slp-dark-mode="true"] {
 
     #{$table-row},
     #{$year-course-row-name-borders},
-    #{$year-explore-more-courses-button}
+    #{$year-explore-more-courses-button},
+    #{$focus-area-hover-tooltip-horizontal-rule}
     {
       border-color: $dark-300 !important;
     }
@@ -404,6 +411,11 @@ html[better-slp-dark-mode="true"] {
       {
         color: map-get($score-badge-colors, $color) !important;
       }
+    }
+
+    #{$focus-area-hover-tooltip-success-date}
+    {
+      color: map-get($color-status-text, "green") !important;
     }
   }
 
