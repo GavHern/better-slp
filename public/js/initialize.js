@@ -91,6 +91,7 @@ async function appendQuickSwitcherToDOM() {
     const resultList = parseQuickSwitcherAPIResponse(response);
     function fieldEditCallback() {
         quickSwitcherResultsContainer.innerHTML = '';
+        quickSwitcherTextInput.focus();
         if (quickSwitcherTextInput.value.length == 0)
             return;
         let filteredResults = resultList.filter((result) => { return result.title.toLowerCase().includes(quickSwitcherTextInput.value.toLowerCase()); });
@@ -109,10 +110,54 @@ async function appendQuickSwitcherToDOM() {
             quickSwitcherResultsContainer.appendChild(searchResultItem);
         });
     }
-    quickSwitcherTextInput.addEventListener('keydown', function () { setTimeout(() => { fieldEditCallback(); }, 0); });
+    quickSwitcherTextInput.addEventListener('keydown', function (e) {
+        setTimeout(() => {
+            if (["ArrowUp", "ArrowDown"].includes(e.key))
+                return; // Return if arrow key is pressed
+            fieldEditCallback();
+        }, 0);
+    });
     quickSwitcherTextInput.addEventListener('paste', function () { setTimeout(() => { fieldEditCallback(); }, 0); });
     quickSwitcherTextInput.addEventListener('change', function () { setTimeout(() => { fieldEditCallback(); }, 0); });
     fieldEditCallback();
+    quickSwitcherContainer.addEventListener('keydown', e => {
+        switch (e.key) {
+            case "ArrowUp":
+                e.preventDefault();
+                if ([quickSwitcherTextInput, quickSwitcherResultsContainer.firstChild].includes(document.activeElement)) {
+                    quickSwitcherResultsContainer.lastChild?.focus();
+                }
+                else {
+                    if (document.activeElement === null)
+                        return;
+                    const results = [...quickSwitcherResultsContainer.children];
+                    const nextItem = results.indexOf(document.activeElement) - 1;
+                    const nextResult = quickSwitcherResultsContainer.children[nextItem];
+                    nextResult.focus();
+                }
+                ;
+                break;
+            case "ArrowDown":
+                e.preventDefault();
+                if ([quickSwitcherTextInput, quickSwitcherResultsContainer.lastChild].includes(document.activeElement)) {
+                    quickSwitcherResultsContainer.firstChild?.focus();
+                }
+                else {
+                    if (document.activeElement === null)
+                        return;
+                    const results = [...quickSwitcherResultsContainer.children];
+                    const nextItem = results.indexOf(document.activeElement) + 1;
+                    const nextResult = quickSwitcherResultsContainer.children[nextItem];
+                    nextResult.focus();
+                }
+                ;
+                break;
+            case "Enter":
+            case "Tab": break;
+            default:
+                quickSwitcherTextInput.focus();
+        }
+    }, { capture: true });
 }
 function openQuickSwitcher(toggleState) {
     const existingInstances = document.querySelectorAll('.better-slp-quick-switcher-container');

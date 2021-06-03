@@ -113,6 +113,8 @@ async function appendQuickSwitcherToDOM(): Promise<void> {
 
   function fieldEditCallback(): void {
     quickSwitcherResultsContainer.innerHTML = '';
+
+    quickSwitcherTextInput.focus();
    
     if(quickSwitcherTextInput.value.length == 0) return;
 
@@ -138,10 +140,52 @@ async function appendQuickSwitcherToDOM(): Promise<void> {
 
   }
   
-  quickSwitcherTextInput.addEventListener('keydown', function(){setTimeout(()=>{fieldEditCallback()},0)});
+  quickSwitcherTextInput.addEventListener('keydown', function(e){setTimeout(()=>{
+    if(["ArrowUp","ArrowDown"].includes(e.key)) return; // Return if arrow key is pressed
+    fieldEditCallback()},0)}
+  );
+
   quickSwitcherTextInput.addEventListener('paste', function(){setTimeout(()=>{fieldEditCallback()},0)});
   quickSwitcherTextInput.addEventListener('change', function(){setTimeout(()=>{fieldEditCallback()},0)});
   fieldEditCallback();
+
+  quickSwitcherContainer.addEventListener('keydown', e => {
+    switch(e.key){
+      case "ArrowUp":
+        e.preventDefault();
+        
+        if([quickSwitcherTextInput, quickSwitcherResultsContainer.firstChild].includes(document.activeElement)){
+          (quickSwitcherResultsContainer.lastChild as HTMLElement)?.focus();
+        } else {
+          if(document.activeElement === null) return;
+          const results = [...quickSwitcherResultsContainer.children];
+          const nextItem = results.indexOf(document.activeElement) - 1;
+          const nextResult = <HTMLElement>quickSwitcherResultsContainer.children[nextItem];
+
+          nextResult.focus();
+        };
+
+        break;
+      case "ArrowDown":
+        e.preventDefault();
+        
+        if([quickSwitcherTextInput, quickSwitcherResultsContainer.lastChild].includes(document.activeElement)){
+          (quickSwitcherResultsContainer.firstChild as HTMLElement)?.focus();
+        } else {
+          if(document.activeElement === null) return;
+          const results = [...quickSwitcherResultsContainer.children];
+          const nextItem = results.indexOf(document.activeElement) + 1;
+          const nextResult = <HTMLElement>quickSwitcherResultsContainer.children[nextItem];
+
+          nextResult.focus();
+        };
+
+        break;
+      case "Enter":case "Tab": break;
+      default:
+        quickSwitcherTextInput.focus();
+    }
+  }, {capture: true})
 }
 
 function openQuickSwitcher(toggleState: boolean): void {
