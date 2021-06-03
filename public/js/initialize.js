@@ -135,12 +135,16 @@ function initialize() {
     window.addEventListener('keydown', e => {
         switch (true) {
             case e.key == 'k' && e.ctrlKey: // Ctrl+k
+                // Return if the current focused element is in a notebook document. This is to prevent interfering with the `insert link` shortcut
+                const notebookFocused = document.querySelectorAll('.ProseMirror-focused').length > 0;
+                if (notebookFocused)
+                    return;
                 e.preventDefault();
                 openQuickSwitcher(true);
                 break;
             case e.key == 'Escape': // Escape
                 openQuickSwitcher(false);
         }
-    });
+    }, { capture: true });
 }
 initialize();
