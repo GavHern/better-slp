@@ -103,8 +103,8 @@ $page-body: ".page-content-body";
 $page-main-content: ".app-body";
 $panel-element: ".panel";
 $list-collection-item: ".list-group-item";
-$default-button: ".btn.btn-default";
-$avatar-background-not-sidebar: ".app-body .avatar-profile";
+$default-button: ".btn.btn-default:not(.edit-dropdown)";
+$avatar-background-not-sidebar: "*:not(.notifications-nub):not(.platform-doc-user-badge) > .avatar-profile";
 $token-element: ".token, .token-display-only";
 $table-row: ".table-bordered td";
 
@@ -196,7 +196,49 @@ $project-plans-timeline-connector-line: ".project-agenda-timeline-item-line-1, .
 
 //? Notebook Document
 $notebook-editor-container: ".platform-doc-editor-container";
+$notebook-checkpoint-header: ".project-feedback-header-container";
+$notebook-checkpoint-title: ".project-feedback-title";
+$notebook-checkpoint-icon: ".project-feedback .project-feedback-asset-switcher .project-feedback-asset-switcher-selector .project-asset-icon";
+$notebook-checkpoint-dropdown-caret: ".project-feedback-header-container .caret";
+$notebook-checkpoint-status-text: ".project-feedback-actions-text";
+$notebook-ask-for-help-button: ".student-request-feedback .student-request-feedback-default .btn-default";
+$notebook-checkpoint-button-active: ".open .project-feedback-asset-switcher-selector";
+$notebook-background: ".czi-editor-frame-body, .project-feedback-dimension-navigator-backdrop";
+$notebook-doc-header: ".platform-doc-header";
+$notebook-doc-header-button: ".project-feedback-header .btn.btn-default";
+$notebook-modal-border: ".modal-full-height .modal-content";
+$notebook-title-input: ".platform-doc-title-input";
+$notebook-title-input-focused: ".platform-doc-title-input:focus";
+$notebook-doc-header-round-button: ".platform-doc-header .platform-doc-button";
+$notebook-doc-header-round-button-hover: ".platform-doc-header .platform-doc-button:hover";
+$notebook-doc-header-tools-button: ".platform-doc-header #tools-menu-button";
+$notebook-doc-header-tools-button-hover: ".platform-doc-header #tools-menu-button:hover, .platform-doc-header #tools-menu-button:focus";
+$notebook-doc-header-tools-dropdown-item: ".tools-item";
+$notebook-doc-header-tools-dropdown-item-hover: ".tools-item:hover";
+$notebook-editing-mode-dropdown: ".edit-dropdown";
+$notebook-save-indicator: ".platform-doc-saving-indicator";
+$notebook-cog-skill-panel-col: ".project-feedback-drawer";
+$notebook-cog-skill-panel-container: ".project-feedback-dimension-navigator";
+$notebook-cog-skill-panel-content: ".project-feedback-dimension-navigator-drilldown-content";
+$notebook-cog-skill-panel-divider: ".project-feedback-dimension-navigator-drilldown-divider";
+$notebook-cog-skill-panel-score-token: ".project-feedback-dimension-navigator-score-token:not(.selected)";
+$notebook-cog-skill-panel-chevron-button: ".project-feedback-dimension-navigator-toggle";
+$notebook-nothing-to-submit-container: ".app-empty-state-vertical-center";
+$notebook-nothing-to-submit-text: ".app-empty-state-vertical-center h1";
+
+$notebook-ask-for-help-popover: ".feedback-help-request-popover.popover";
+$notebook-ask-for-help-popover-cancel-button: ".feedback-help-request-popover.popover .btn-default";
+$notebook-ask-for-help-popover-header: ".feedback-help-request-popover.popover strong";
+$notebook-ask-for-help-popover-textarea: ".feedback-help-request-popover.popover textarea";
+$notebook-ask-for-help-popover-textarea-placeholder: ".feedback-help-request-popover.popover textarea::placeholder";
 $needs-revision-submit-popover: ".needs-revision-popover";
+
+$notebook-resources-container: ".project-feedback-overview-panel.open";
+$notebook-resources-panel-header: ".project-feedback-info-overview .app-heading";
+$notebook-resources-panel-paragraph: ".project-feedback-info-overview .rich-text-note-editor";
+
+$notebook-version-history-header: ".history-header";
+$notebook-version-history-item: ".platform-doc-history-page .list-group .list-group-item";
 
 //? Notifications popover
 $notification-popover-background: "#notifications-popover";
@@ -222,13 +264,17 @@ html.better-slp-dark-mode-transitioning * {
 // Dark mode stles
 html[better-slp-dark-mode="true"] {
   
-  color-scheme: dark; // scss-lint:disable ImportantRule
+  // Dark chrome scrollbar. Interpolation syntax used to avoid a compiler warning since the SCSS transpiler doesnt recognize the `color-scheme` property.
+  #{"color-scheme"}: dark;
+
 
   // Background colors
   & {
     // Dark backgrounds
     & {
-      #{$page-body}
+      #{$page-body},
+      #{$notebook-background},
+      #{$notebook-nothing-to-submit-container}
       {
         background-color: $dark-900 !important;
       }
@@ -243,7 +289,8 @@ html[better-slp-dark-mode="true"] {
       }
   
       #{$project-plans-top-block},
-      #{$needs-revision-submit-popover}
+      #{$needs-revision-submit-popover},
+      #{$notebook-cog-skill-panel-container}
       {
         background-color: $dark-700 !important;
       }
@@ -251,7 +298,10 @@ html[better-slp-dark-mode="true"] {
       #{$week-calendar-current-day-highlight},
       #{$announcement-item-body},
       #{$dropdown-menu-container},
-      #{$focus-area-resource-collapsable-opened}
+      #{$focus-area-resource-collapsable-opened},
+      #{$notebook-checkpoint-header},
+      #{$notebook-doc-header},
+      #{$notebook-doc-header-button}
       {
         background-color: $dark-600 !important;
       }
@@ -266,18 +316,34 @@ html[better-slp-dark-mode="true"] {
       #{$project-plans-timeline-icon-background},
       #{$project-plans-timeline-connector-line},
       #{$project-overview-checkpoint-not-selected},
-      #{$avatar-background-not-sidebar}
+      #{$avatar-background-not-sidebar},
+      #{$notebook-resources-container}
       {
         background-color: $dark-500 !important;
       }
+
+      #{$notebook-ask-for-help-popover}
+      {
+        background-color: $dark-300 !important;
+      }
   
       #{$announcement-item-course-name-badge},
-      #{$dropdown-menu-hover-focus-item}
+      #{$dropdown-menu-hover-focus-item},
+      #{$notebook-doc-header-tools-dropdown-item-hover},
+      #{$notebook-cog-skill-panel-divider},
+      #{$notebook-cog-skill-panel-chevron-button},
+      #{$notebook-checkpoint-button-active},
+      #{$notebook-ask-for-help-button}
       {
         background-color: $dark-200 !important;
       }
 
-      #{$year-scroll-nav-button}
+      #{$year-scroll-nav-button},
+      #{$notebook-doc-header-round-button-hover},
+      #{$notebook-doc-header-tools-button-hover},
+      #{$notebook-checkpoint-icon},
+      #{$notebook-ask-for-help-popover-cancel-button},
+      #{$notebook-cog-skill-panel-score-token}
       {
         background-color: $dark-50 !important;
       }
@@ -291,7 +357,10 @@ html[better-slp-dark-mode="true"] {
     // Translucent colors
     & {
       #{$create-goal-popover-main-input},
-      #{$list-collection-item}
+      #{$list-collection-item},
+      #{$notebook-title-input},
+      #{$notebook-editing-mode-dropdown},
+      #{$notebook-ask-for-help-popover-textarea}
       {
         background-color: $transparent !important;
       }
@@ -313,7 +382,8 @@ html[better-slp-dark-mode="true"] {
 
   // Text colors
   & {
-    #{$app-title}
+    #{$app-title},
+    #{$notebook-checkpoint-title}
     {
       color: $light-0 !important;
       text-decoration-color: $light-600 !important;
@@ -323,9 +393,20 @@ html[better-slp-dark-mode="true"] {
     #{$app-subheading},
     #{$notification-popover-subheading},
     #{$focus-area-hover-tooltip-header},
-    #{$focus-area-hover-tooltip-project-status}
+    #{$focus-area-hover-tooltip-project-status},
+    #{$notebook-doc-header-button},
+    #{$notebook-checkpoint-status-text},
+    #{$notebook-title-input},
+    #{$notebook-doc-header-round-button},
+    #{$notebook-doc-header-tools-button},
+    #{$notebook-cog-skill-panel-chevron-button},
+    #{$notebook-ask-for-help-popover-cancel-button},
+    #{$notebook-ask-for-help-popover-header},
+    #{$notebook-resources-panel-header},
+    #{$notebook-version-history-header}
     {
       color: $page-body-color !important;
+      text-decoration-color: $light-600 !important;
     }
 
     #{$app-tertiary-heading},
@@ -334,14 +415,26 @@ html[better-slp-dark-mode="true"] {
     #{$token-element},
     #{$create-goal-popover-goal-textarea}, #{$create-goal-popover-goal-textarea-placeholder},
     #{$dropdown-menu-item},
-    #{$notification-popover-item-subtitle}
+    #{$notification-popover-item-subtitle},
+    #{$notebook-save-indicator},
+    #{$notebook-cog-skill-panel-content},
+    #{$notebook-doc-header-tools-dropdown-item},
+    #{$notebook-ask-for-help-popover-textarea},
+    #{$notebook-ask-for-help-popover-textarea-placeholder},
+    #{$notebook-resources-panel-paragraph}
     {
       color: $light-900 !important;
     }
 
-    #{$notification-popover-item-title-read}
+    #{$notification-popover-item-title-read},
+    #{$notebook-cog-skill-panel-score-token}
     {
       color: $light-600 !important;
+    }
+
+    #{$notebook-nothing-to-submit-text}
+    {
+      color: $dark-50 !important;
     }
 
     #{map-get($focus-area-score-badge, "indeterminate")}
@@ -358,6 +451,12 @@ html[better-slp-dark-mode="true"] {
       border-color: $transparent !important;
     }
 
+    // Removed border
+    #{$notebook-modal-border}
+    {
+      border: none;
+    }
+
     #{$notification-popover-item-bullet-read}
     {
       border-color: $light-900 !important;
@@ -371,7 +470,11 @@ html[better-slp-dark-mode="true"] {
     #{$table-row},
     #{$year-course-row-name-borders},
     #{$year-explore-more-courses-button},
-    #{$focus-area-hover-tooltip-horizontal-rule}
+    #{$focus-area-hover-tooltip-horizontal-rule},
+    #{$notebook-resources-container},
+    #{$notebook-version-history-header},
+    #{$notebook-version-history-item},
+    #{$notebook-cog-skill-panel-col}
     {
       border-color: $dark-300 !important;
     }
@@ -380,6 +483,11 @@ html[better-slp-dark-mode="true"] {
     #{$notification-popover-border}
     {
       border-color: $dark-100 !important;
+    }
+
+    #{$notebook-checkpoint-dropdown-caret}
+    {
+      border-top-color: $page-body-color;
     }
   }
 
@@ -426,9 +534,15 @@ html[better-slp-dark-mode="true"] {
     #{$focus-area-hover-tooltip},
     #{$goal-floating-card-container},
     #{$year-course-row-info-left},
-    #{$focus-area-resource-collapsable-opened-contianer}
+    #{$focus-area-resource-collapsable-opened-contianer},
+    #{$notebook-ask-for-help-popover-cancel-button}
     {
       box-shadow: none !important;
+    }
+
+    #{$notebook-title-input-focused}
+    {
+      box-shadow: 0 0 0 2px $dark-50 !important;
     }
   }
 
@@ -451,6 +565,12 @@ html[better-slp-dark-mode="true"] {
     #{$project-overview-copy-old-work-prompt}
     {
       background-color: $dark-warning-background !important;
+    }
+
+    // Removed border radius
+    #{$notebook-modal-border}
+    {
+      border-radius: 0;
     }
   }
 }
