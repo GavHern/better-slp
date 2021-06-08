@@ -1,18 +1,32 @@
 "use strict";
+const letterGradeScale = {
+    "A+": { percentage: 0.97, gpa: 4.0 },
+    "A": { percentage: 0.93, gpa: 4.0 },
+    "A-": { percentage: 0.90, gpa: 3.7 },
+    "B+": { percentage: 0.87, gpa: 3.3 },
+    "B": { percentage: 0.83, gpa: 3.0 },
+    "B-": { percentage: 0.80, gpa: 2.7 },
+    "C+": { percentage: 0.77, gpa: 2.3 },
+    "C": { percentage: 0.73, gpa: 2.0 },
+    "C-": { percentage: 0.70, gpa: 1.7 },
+    "D+": { percentage: 0.67, gpa: 1.3 },
+    "D": { percentage: 0.65, gpa: 1.0 },
+    "F": { percentage: 0.00, gpa: 0.0 }
+};
 function getCurrentAcademicYear() {
     const date = new Date();
     return date.getFullYear() + (date.getMonth() > 5 ? 1 : 0);
 }
 function enableDarkMode(toggleState, animation = true) {
-    if (animation) { // Apply a css animation if needed
+    if (animation) {
         document.documentElement.classList.add('better-slp-dark-mode-transitioning');
         setTimeout(() => { document.documentElement.classList.remove('better-slp-dark-mode-transitioning'); }, 300);
     }
     if (!toggleState) {
-        document.documentElement.setAttribute('better-slp-dark-mode', 'false'); // Disable dark mode attribute on the html tag
+        document.documentElement.setAttribute('better-slp-dark-mode', 'false');
         return;
     }
-    document.documentElement.setAttribute('better-slp-dark-mode', 'true'); // Enable dark mode attribute on the html tag
+    document.documentElement.setAttribute('better-slp-dark-mode', 'true');
 }
 async function getQuickSwitcherAPIData() {
     const responseRaw = await fetch(`https://www.summitlearning.org/my/year/${getCurrentAcademicYear().toString()}.json`);
@@ -26,7 +40,6 @@ async function getQuickSwitcherAPIData() {
 }
 function parseQuickSwitcherAPIResponse(response) {
     let resultList = [];
-    // Courses
     response.courses.forEach((course) => {
         resultList.push({
             title: course.name,
@@ -34,7 +47,6 @@ function parseQuickSwitcherAPIResponse(response) {
             link: `https://www.summitlearning.org/my/courses/${course.id}/v2`
         });
     });
-    // Projects
     response.projects.forEach((project) => {
         const projectCourseId = response.projectCourses.filter((courseProject) => { return courseProject.projectId == project.id; })[0].courseId;
         const projectCourseName = response.courses.filter((courses) => { return courses.id == projectCourseId; })[0].name;
@@ -44,7 +56,6 @@ function parseQuickSwitcherAPIResponse(response) {
             link: `https://www.summitlearning.org/my/projects/${project.id}/overview`
         });
     });
-    // Focus areas
     response.focusAreas.forEach((focusArea) => {
         const focusAreaAdditionalInformation = response.courseFocusAreas.filter((courseFocusArea) => { return courseFocusArea.knowDoId == focusArea.id; })[0];
         if (focusAreaAdditionalInformation == undefined)
@@ -113,7 +124,7 @@ async function appendQuickSwitcherToDOM() {
     quickSwitcherTextInput.addEventListener('keydown', function (e) {
         setTimeout(() => {
             if (["ArrowUp", "ArrowDown"].includes(e.key))
-                return; // Return if arrow key is pressed
+                return;
             fieldEditCallback();
         }, 0);
     });
@@ -161,13 +172,12 @@ async function appendQuickSwitcherToDOM() {
 }
 function openQuickSwitcher(toggleState) {
     const existingInstances = document.querySelectorAll('.better-slp-quick-switcher-container');
-    if (!toggleState || existingInstances.length != 0) { // Check if the toggle state says the quick switcher should be closed OR if there are already existing instances of the quick switcher
+    if (!toggleState || existingInstances.length != 0) {
         existingInstances.forEach(instance => {
             instance.remove();
         });
-        return; // Terminate function
+        return;
     }
-    // Open quick switcher
     appendQuickSwitcherToDOM();
 }
 function initialize() {
@@ -176,18 +186,16 @@ function initialize() {
         if (items.darkMode)
             enableDarkMode(true, false);
     });
-    // Keyboard Shortcuts
     window.addEventListener('keydown', e => {
         switch (true) {
-            case e.key == 'k' && e.ctrlKey: // Ctrl+k
-                // Return if the current focused element is in a notebook document. This is to prevent interfering with the `insert link` shortcut
+            case e.key == 'k' && e.ctrlKey:
                 const notebookFocused = document.querySelectorAll('.ProseMirror-focused').length > 0;
                 if (notebookFocused)
                     return;
                 e.preventDefault();
                 openQuickSwitcher(true);
                 break;
-            case e.key == 'Escape': // Escape
+            case e.key == 'Escape':
                 openQuickSwitcher(false);
         }
     }, { capture: true });

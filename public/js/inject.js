@@ -3,8 +3,8 @@ function openNoteTaker() {
     chrome.storage.sync.get('darkMode', items => {
         const mainContentContainer = document.querySelector('.claro-student-focusarea');
         mainContentContainer?.querySelector('.panel-body')?.classList.add('hidden');
-        const focusAreaId = new URL(window.location.href).pathname.split('my/focusareas/')[1]; // Find ID of focus area based on the URL pathname
-        const noteTakerEmbedURL = chrome.runtime.getURL(`html/notetaker.html?id=${focusAreaId}&dark=${items.darkMode}`); // Get the chrome-extension url and add the id & theme as a parameter
+        const focusAreaId = new URL(window.location.href).pathname.split('my/focusareas/')[1];
+        const noteTakerEmbedURL = chrome.runtime.getURL(`html/notetaker.html?id=${focusAreaId}&dark=${items.darkMode}`);
         const noteTakerEmbed = document.createElement('iframe');
         noteTakerEmbed.src = noteTakerEmbedURL;
         noteTakerEmbed.className = 'better-slp-note-taker-embed';
@@ -45,14 +45,14 @@ function progressTab() {
 function main() {
     const currentURL = window.location.href;
     switch (true) {
-        case new RegExp('.*:\/\/.*?\.?summitlearning\.org/my/focusareas/.*').test(currentURL): // Focus area page
+        case new RegExp('.*:\/\/.*?\.?summitlearning\.org/my/focusareas/.*').test(currentURL):
             appendNoteTaker();
             break;
-        case new RegExp('.*:\/\/.*?\.?summitlearning\.org/my/progress(/.*)?').test(currentURL): // Progress page
+        case new RegExp('.*:\/\/.*?\.?summitlearning\.org/my/progress(/.*)?').test(currentURL):
             progressTab();
             break;
     }
 }
 if (!document.documentElement.classList.contains('nprogress-busy'))
-    main(); // Initial load
-document.querySelector('#nprogress')?.addEventListener('DOMNodeRemoved', () => { main(); }); // Reload every state change
+    main();
+document.querySelector('#nprogress')?.addEventListener('DOMNodeRemoved', () => { main(); });
