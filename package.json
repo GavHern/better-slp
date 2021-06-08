@@ -4,7 +4,6 @@
   "description": "",
   "author": "Gav Hern",
   "scripts": {
-    "tsc-watch": "cd src/ts && tsc -w",
     "build": "parcel build src/ts/{background.ts,initialize.ts,inject.ts,summernote/script.ts} --out-dir public/js",
     "dev": "parcel watch --no-hmr src/ts/{background.ts,initialize.ts,inject.ts,summernote/script.ts} --out-dir public/js"
   },
