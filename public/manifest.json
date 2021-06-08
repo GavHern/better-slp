@@ -1,6 +1,7 @@
 {
   "manifest_version": 2,
-  "name": "BetterSLP",
+  "name": "BetterSLP: Improvements for the Summit Learning Platform",
+  "short_name": "BetterSLP",
   "description": "Various improvments to the Summit Learning Platform",
   "version": "0.1.0",
   "content_scripts": [
