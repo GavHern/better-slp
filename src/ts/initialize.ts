@@ -1,3 +1,7 @@
+import 'regenerator-runtime/runtime';
+
+import openQuickSwitcher from './modules/quickSwitcher';
+
 const letterGradeScale = {
   "A+": {percentage: 0.97, gpa: 4.0},
   "A" : {percentage: 0.93, gpa: 4.0},

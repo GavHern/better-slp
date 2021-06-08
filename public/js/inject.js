@@ -123,19 +123,21 @@ parcelRequire = (function (modules, cache, entry, globalName) {
 var _document$querySelect2;
 
 function openNoteTaker() {
-    chrome.storage.sync.get('darkMode', items => {
-        const mainContentContainer = document.querySelector('.claro-student-focusarea');
-        mainContentContainer?.querySelector('.panel-body')?.classList.add('hidden');
-        const focusAreaId = new URL(window.location.href).pathname.split('my/focusareas/')[1];
-        const noteTakerEmbedURL = chrome.runtime.getURL(`html/notetaker.html?id=${focusAreaId}&dark=${items.darkMode}`);
-        const noteTakerEmbed = document.createElement('iframe');
-        noteTakerEmbed.src = noteTakerEmbedURL;
-        noteTakerEmbed.className = 'better-slp-note-taker-embed';
-        noteTakerEmbed.style.backgroundColor = "transparent";
-        noteTakerEmbed.style.width = "100%";
-        noteTakerEmbed.style.minHeight = "72vh";
-        mainContentContainer?.appendChild(noteTakerEmbed);
-    });
+  chrome.storage.sync.get('darkMode', function (items) {
+    var _mainContentContainer;
+
+    var mainContentContainer = document.querySelector('.claro-student-focusarea');
+    mainContentContainer === null || mainContentContainer === void 0 ? void 0 : (_mainContentContainer = mainContentContainer.querySelector('.panel-body')) === null || _mainContentContainer === void 0 ? void 0 : _mainContentContainer.classList.add('hidden');
+    var focusAreaId = new URL(window.location.href).pathname.split('my/focusareas/')[1];
+    var noteTakerEmbedURL = chrome.runtime.getURL("html/notetaker.html?id=".concat(focusAreaId, "&dark=").concat(items.darkMode));
+    var noteTakerEmbed = document.createElement('iframe');
+    noteTakerEmbed.src = noteTakerEmbedURL;
+    noteTakerEmbed.className = 'better-slp-note-taker-embed';
+    noteTakerEmbed.style.backgroundColor = "transparent";
+    noteTakerEmbed.style.width = "100%";
+    noteTakerEmbed.style.minHeight = "72vh";
+    mainContentContainer === null || mainContentContainer === void 0 ? void 0 : mainContentContainer.appendChild(noteTakerEmbed);
+  });
 }
 
 function closeNoteTaker() {
@@ -172,16 +174,22 @@ function progressTab() {
 }
 
 function main() {
-    const currentURL = window.location.href;
-    switch (true) {
-        case new RegExp('.*:\/\/.*?\.?summitlearning\.org/my/focusareas/.*').test(currentURL):
-            appendNoteTaker();
-            break;
-        case new RegExp('.*:\/\/.*?\.?summitlearning\.org/my/progress(/.*)?').test(currentURL):
-            progressTab();
-            break;
-    }
+  var currentURL = window.location.href;
+
+  switch (true) {
+    case new RegExp('.*:\/\/.*?\.?summitlearning\.org/my/focusareas/.*').test(currentURL):
+      appendNoteTaker();
+      break;
+
+    case new RegExp('.*:\/\/.*?\.?summitlearning\.org/my/progress(/.*)?').test(currentURL):
+      progressTab();
+      break;
+  }
 }
-if (!document.documentElement.classList.contains('nprogress-busy'))
-    main();
-document.querySelector('#nprogress')?.addEventListener('DOMNodeRemoved', () => { main(); });
+
+if (!document.documentElement.classList.contains('nprogress-busy')) main();
+(_document$querySelect2 = document.querySelector('#nprogress')) === null || _document$querySelect2 === void 0 ? void 0 : _document$querySelect2.addEventListener('DOMNodeRemoved', function () {
+  main();
+});
+},{}]},{},["inject.ts"], null)
+//# sourceMappingURL=/inject.js.map

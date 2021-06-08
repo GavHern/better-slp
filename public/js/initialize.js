@@ -870,34 +870,45 @@ try {
 
 },{}],"modules/methods.ts":[function(require,module,exports) {
 "use strict";
-const letterGradeScale = {
-    "A+": { percentage: 0.97, gpa: 4.0 },
-    "A": { percentage: 0.93, gpa: 4.0 },
-    "A-": { percentage: 0.90, gpa: 3.7 },
-    "B+": { percentage: 0.87, gpa: 3.3 },
-    "B": { percentage: 0.83, gpa: 3.0 },
-    "B-": { percentage: 0.80, gpa: 2.7 },
-    "C+": { percentage: 0.77, gpa: 2.3 },
-    "C": { percentage: 0.73, gpa: 2.0 },
-    "C-": { percentage: 0.70, gpa: 1.7 },
-    "D+": { percentage: 0.67, gpa: 1.3 },
-    "D": { percentage: 0.65, gpa: 1.0 },
-    "F": { percentage: 0.00, gpa: 0.0 }
-};
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.getCurrentAcademicYear = void 0;
+
 function getCurrentAcademicYear() {
   var date = new Date();
   return date.getFullYear() + (date.getMonth() > 5 ? 1 : 0);
 }
-function enableDarkMode(toggleState, animation = true) {
-    if (animation) {
-        document.documentElement.classList.add('better-slp-dark-mode-transitioning');
-        setTimeout(() => { document.documentElement.classList.remove('better-slp-dark-mode-transitioning'); }, 300);
-    }
-    if (!toggleState) {
-        document.documentElement.setAttribute('better-slp-dark-mode', 'false');
-        return;
-    }
-    document.documentElement.setAttribute('better-slp-dark-mode', 'true');
+
+exports.getCurrentAcademicYear = getCurrentAcademicYear;
+},{}],"modules/quickSwitcher.ts":[function(require,module,exports) {
+"use strict";
+
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
+
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && iter[Symbol.iterator] != null || iter["@@iterator"] != null) return Array.from(iter); }
+
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var methods_1 = require("./methods");
+
+function getQuickSwitcherAPIData() {
+  return _getQuickSwitcherAPIData.apply(this, arguments);
 }
 
 function _getQuickSwitcherAPIData() {
@@ -941,93 +952,141 @@ function _getQuickSwitcherAPIData() {
 }
 
 function parseQuickSwitcherAPIResponse(response) {
-    let resultList = [];
-    response.courses.forEach((course) => {
-        resultList.push({
-            title: course.name,
-            subtitle: 'Course',
-            link: `https://www.summitlearning.org/my/courses/${course.id}/v2`
-        });
+  var resultList = [];
+  response.courses.forEach(function (course) {
+    resultList.push({
+      title: course.name,
+      subtitle: 'Course',
+      link: "https://www.summitlearning.org/my/courses/".concat(course.id, "/v2")
     });
-    response.projects.forEach((project) => {
-        const projectCourseId = response.projectCourses.filter((courseProject) => { return courseProject.projectId == project.id; })[0].courseId;
-        const projectCourseName = response.courses.filter((courses) => { return courses.id == projectCourseId; })[0].name;
-        resultList.push({
-            title: project.name,
-            subtitle: `Project • ${projectCourseName}`,
-            link: `https://www.summitlearning.org/my/projects/${project.id}/overview`
-        });
+  });
+  response.projects.forEach(function (project) {
+    var projectCourseId = response.projectCourses.filter(function (courseProject) {
+      return courseProject.projectId == project.id;
+    })[0].courseId;
+    var projectCourseName = response.courses.filter(function (courses) {
+      return courses.id == projectCourseId;
+    })[0].name;
+    resultList.push({
+      title: project.name,
+      subtitle: "Project \u2022 ".concat(projectCourseName),
+      link: "https://www.summitlearning.org/my/projects/".concat(project.id, "/overview")
     });
-    response.focusAreas.forEach((focusArea) => {
-        const focusAreaAdditionalInformation = response.courseFocusAreas.filter((courseFocusArea) => { return courseFocusArea.knowDoId == focusArea.id; })[0];
-        if (focusAreaAdditionalInformation == undefined)
-            return;
-        const focusAreaCourseName = response.courses.filter((courses) => { return courses.id == focusAreaAdditionalInformation.courseId; })[0].name;
-        let focusAreaType;
-        switch (focusAreaAdditionalInformation.level) {
-            case 3:
-                focusAreaType = "Power";
-                break;
-            case 2:
-                focusAreaType = "Additional";
-                break;
-            case 1:
-                focusAreaType = "Challenge";
-                break;
-            default:
-                focusAreaType = "";
-        }
-        resultList.push({
-            title: focusArea.name,
-            subtitle: `${focusAreaType} Focus Area • ${focusAreaCourseName}`,
-            link: `https://www.summitlearning.org/my/focusareas/${focusArea.id}`
-        });
+  });
+  response.focusAreas.forEach(function (focusArea) {
+    var focusAreaAdditionalInformation = response.courseFocusAreas.filter(function (courseFocusArea) {
+      return courseFocusArea.knowDoId == focusArea.id;
+    })[0];
+    if (focusAreaAdditionalInformation == undefined) return;
+    var focusAreaCourseName = response.courses.filter(function (courses) {
+      return courses.id == focusAreaAdditionalInformation.courseId;
+    })[0].name;
+    var focusAreaType;
+
+    switch (focusAreaAdditionalInformation.level) {
+      case 3:
+        focusAreaType = "Power";
+        break;
+
+      case 2:
+        focusAreaType = "Additional";
+        break;
+
+      case 1:
+        focusAreaType = "Challenge";
+        break;
+
+      default:
+        focusAreaType = "";
+    }
+
+    resultList.push({
+      title: focusArea.name,
+      subtitle: "".concat(focusAreaType, " Focus Area \u2022 ").concat(focusAreaCourseName),
+      link: "https://www.summitlearning.org/my/focusareas/".concat(focusArea.id)
     });
   });
   return resultList;
 }
-async function appendQuickSwitcherToDOM() {
-    const quickSwitcherContainer = document.createElement('div');
-    const quickSwitcherContentWrapper = document.createElement('div');
-    const quickSwitcherTextInput = document.createElement('input');
-    const quickSwitcherResultsContainer = document.createElement('div');
-    quickSwitcherContainer.className = "better-slp-quick-switcher-container";
-    quickSwitcherTextInput.type = "text";
-    quickSwitcherTextInput.placeholder = "Search...";
-    quickSwitcherContainer.appendChild(quickSwitcherContentWrapper);
-    quickSwitcherContentWrapper.appendChild(quickSwitcherTextInput);
-    quickSwitcherContentWrapper.appendChild(quickSwitcherResultsContainer);
-    document.body.appendChild(quickSwitcherContainer);
-    quickSwitcherTextInput.focus();
-    const response = await getQuickSwitcherAPIData();
-    if (response === null)
-        return;
-    const resultList = parseQuickSwitcherAPIResponse(response);
-    function fieldEditCallback() {
-        quickSwitcherResultsContainer.innerHTML = '';
-        quickSwitcherTextInput.focus();
-        if (quickSwitcherTextInput.value.length == 0)
-            return;
-        let filteredResults = resultList.filter((result) => { return result.title.toLowerCase().includes(quickSwitcherTextInput.value.toLowerCase()); });
-        filteredResults.forEach(item => {
-            const searchResultItem = document.createElement('a');
-            const searchResultItemContentWrapper = document.createElement('div');
-            const searchResultSubtitle = document.createElement('h6');
-            const searchResultTitle = document.createElement('div');
-            searchResultItem.setAttribute('href', item.link);
-            searchResultSubtitle.innerText = item.subtitle ?? '';
-            searchResultTitle.innerText = item.title;
-            if (item.subtitle != null)
-                searchResultItemContentWrapper.appendChild(searchResultSubtitle);
-            searchResultItemContentWrapper.appendChild(searchResultTitle);
-            searchResultItem.appendChild(searchResultItemContentWrapper);
-            quickSwitcherResultsContainer.appendChild(searchResultItem);
-        });
-    }
-    quickSwitcherTextInput.addEventListener('keydown', function (e) {
-        setTimeout(() => {
-            if (["ArrowUp", "ArrowDown"].includes(e.key))
-                return;
+
+function appendQuickSwitcherToDOM() {
+  return _appendQuickSwitcherToDOM.apply(this, arguments);
+}
+
+function _appendQuickSwitcherToDOM() {
+  _appendQuickSwitcherToDOM = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2() {
+    var quickSwitcherContainer, quickSwitcherContentWrapper, quickSwitcherTextInput, quickSwitcherResultsContainer, response, resultList, fieldEditCallback;
+    return regeneratorRuntime.wrap(function _callee2$(_context2) {
+      while (1) {
+        switch (_context2.prev = _context2.next) {
+          case 0:
+            fieldEditCallback = function _fieldEditCallback() {
+              quickSwitcherResultsContainer.innerHTML = '';
+              quickSwitcherTextInput.focus();
+              if (quickSwitcherTextInput.value.length == 0) return;
+              var filteredResults = resultList.filter(function (result) {
+                return result.title.toLowerCase().includes(quickSwitcherTextInput.value.toLowerCase());
+              });
+              filteredResults.forEach(function (item) {
+                var _item$subtitle;
+
+                var searchResultItem = document.createElement('a');
+                var searchResultItemContentWrapper = document.createElement('div');
+                var searchResultSubtitle = document.createElement('h6');
+                var searchResultTitle = document.createElement('div');
+                searchResultItem.setAttribute('href', item.link);
+                searchResultSubtitle.innerText = (_item$subtitle = item.subtitle) !== null && _item$subtitle !== void 0 ? _item$subtitle : '';
+                searchResultTitle.innerText = item.title;
+                if (item.subtitle != null) searchResultItemContentWrapper.appendChild(searchResultSubtitle);
+                searchResultItemContentWrapper.appendChild(searchResultTitle);
+                searchResultItem.appendChild(searchResultItemContentWrapper);
+                quickSwitcherResultsContainer.appendChild(searchResultItem);
+              });
+            };
+
+            quickSwitcherContainer = document.createElement('div');
+            quickSwitcherContentWrapper = document.createElement('div');
+            quickSwitcherTextInput = document.createElement('input');
+            quickSwitcherResultsContainer = document.createElement('div');
+            quickSwitcherContainer.className = "better-slp-quick-switcher-container";
+            quickSwitcherTextInput.type = "text";
+            quickSwitcherTextInput.placeholder = "Search...";
+            quickSwitcherContainer.appendChild(quickSwitcherContentWrapper);
+            quickSwitcherContentWrapper.appendChild(quickSwitcherTextInput);
+            quickSwitcherContentWrapper.appendChild(quickSwitcherResultsContainer);
+            document.body.appendChild(quickSwitcherContainer);
+            quickSwitcherTextInput.focus();
+            _context2.next = 15;
+            return getQuickSwitcherAPIData();
+
+          case 15:
+            response = _context2.sent;
+
+            if (!(response === null)) {
+              _context2.next = 18;
+              break;
+            }
+
+            return _context2.abrupt("return");
+
+          case 18:
+            resultList = parseQuickSwitcherAPIResponse(response);
+            quickSwitcherTextInput.addEventListener('keydown', function (e) {
+              setTimeout(function () {
+                if (["ArrowUp", "ArrowDown"].includes(e.key)) return;
+                fieldEditCallback();
+              }, 0);
+            });
+            quickSwitcherTextInput.addEventListener('paste', function () {
+              setTimeout(function () {
+                fieldEditCallback();
+              }, 0);
+            });
+            quickSwitcherTextInput.addEventListener('change', function () {
+              setTimeout(function () {
+                fieldEditCallback();
+              }, 0);
+            });
             fieldEditCallback();
             quickSwitcherContainer.addEventListener('keydown', function (e) {
               switch (e.key) {
@@ -1095,14 +1154,16 @@ async function appendQuickSwitcherToDOM() {
 }
 
 function openQuickSwitcher(toggleState) {
-    const existingInstances = document.querySelectorAll('.better-slp-quick-switcher-container');
-    if (!toggleState || existingInstances.length != 0) {
-        existingInstances.forEach(instance => {
-            instance.remove();
-        });
-        return;
-    }
-    appendQuickSwitcherToDOM();
+  var existingInstances = document.querySelectorAll('.better-slp-quick-switcher-container');
+
+  if (!toggleState || existingInstances.length != 0) {
+    existingInstances.forEach(function (instance) {
+      instance.remove();
+    });
+    return;
+  }
+
+  appendQuickSwitcherToDOM();
 }
 
 exports.default = openQuickSwitcher;
@@ -1123,11 +1184,66 @@ require("regenerator-runtime/runtime");
 
 var quickSwitcher_1 = __importDefault(require("./modules/quickSwitcher"));
 
+var letterGradeScale = {
+  "A+": {
+    percentage: 0.97,
+    gpa: 4.0
+  },
+  "A": {
+    percentage: 0.93,
+    gpa: 4.0
+  },
+  "A-": {
+    percentage: 0.90,
+    gpa: 3.7
+  },
+  "B+": {
+    percentage: 0.87,
+    gpa: 3.3
+  },
+  "B": {
+    percentage: 0.83,
+    gpa: 3.0
+  },
+  "B-": {
+    percentage: 0.80,
+    gpa: 2.7
+  },
+  "C+": {
+    percentage: 0.77,
+    gpa: 2.3
+  },
+  "C": {
+    percentage: 0.73,
+    gpa: 2.0
+  },
+  "C-": {
+    percentage: 0.70,
+    gpa: 1.7
+  },
+  "D+": {
+    percentage: 0.67,
+    gpa: 1.3
+  },
+  "D": {
+    percentage: 0.65,
+    gpa: 1.0
+  },
+  "F": {
+    percentage: 0.00,
+    gpa: 0.0
+  }
+};
+
+function getCurrentAcademicYear() {
+  var date = new Date();
+  return date.getFullYear() + (date.getMonth() > 5 ? 1 : 0);
+}
+
 function enableDarkMode(toggleState) {
   var animation = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : true;
 
   if (animation) {
-    // Apply a css animation if needed
     document.documentElement.classList.add('better-slp-dark-mode-transitioning');
     setTimeout(function () {
       document.documentElement.classList.remove('better-slp-dark-mode-transitioning');
@@ -1135,33 +1251,35 @@ function enableDarkMode(toggleState) {
   }
 
   if (!toggleState) {
-    document.documentElement.setAttribute('better-slp-dark-mode', 'false'); // Disable dark mode attribute on the html tag
-
+    document.documentElement.setAttribute('better-slp-dark-mode', 'false');
     return;
   }
 
-  document.documentElement.setAttribute('better-slp-dark-mode', 'true'); // Enable dark mode attribute on the html tag
+  document.documentElement.setAttribute('better-slp-dark-mode', 'true');
 }
 
 function initialize() {
-    chrome.storage.sync.set({ darkMode: true });
-    chrome.storage.sync.get('darkMode', items => {
-        if (items.darkMode)
-            enableDarkMode(true, false);
-    });
-    window.addEventListener('keydown', e => {
-        switch (true) {
-            case e.key == 'k' && e.ctrlKey:
-                const notebookFocused = document.querySelectorAll('.ProseMirror-focused').length > 0;
-                if (notebookFocused)
-                    return;
-                e.preventDefault();
-                openQuickSwitcher(true);
-                break;
-            case e.key == 'Escape':
-                openQuickSwitcher(false);
-        }
-    }, { capture: true });
+  chrome.storage.sync.set({
+    darkMode: true
+  });
+  chrome.storage.sync.get('darkMode', function (items) {
+    if (items.darkMode) enableDarkMode(true, false);
+  });
+  window.addEventListener('keydown', function (e) {
+    switch (true) {
+      case e.key == 'k' && e.ctrlKey:
+        var notebookFocused = document.querySelectorAll('.ProseMirror-focused').length > 0;
+        if (notebookFocused) return;
+        e.preventDefault();
+        quickSwitcher_1.default(true);
+        break;
+
+      case e.key == 'Escape':
+        quickSwitcher_1.default(false);
+    }
+  }, {
+    capture: true
+  });
 }
 
 initialize();
