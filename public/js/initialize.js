@@ -1167,7 +1167,34 @@ function openQuickSwitcher(toggleState) {
 }
 
 exports.default = openQuickSwitcher;
-},{"./methods":"modules/methods.ts"}],"initialize.ts":[function(require,module,exports) {
+},{"./methods":"modules/methods.ts"}],"modules/darkMode.ts":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.enableDarkMode = void 0;
+
+function enableDarkMode(toggleState) {
+  var animation = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : true;
+
+  if (animation) {
+    document.documentElement.classList.add('better-slp-dark-mode-transitioning');
+    setTimeout(function () {
+      document.documentElement.classList.remove('better-slp-dark-mode-transitioning');
+    }, 300);
+  }
+
+  if (!toggleState) {
+    document.documentElement.setAttribute('better-slp-dark-mode', 'false');
+    return;
+  }
+
+  document.documentElement.setAttribute('better-slp-dark-mode', 'true');
+}
+
+exports.enableDarkMode = enableDarkMode;
+},{}],"initialize.ts":[function(require,module,exports) {
 "use strict";
 
 var __importDefault = this && this.__importDefault || function (mod) {
@@ -1183,6 +1210,8 @@ Object.defineProperty(exports, "__esModule", {
 require("regenerator-runtime/runtime");
 
 var quickSwitcher_1 = __importDefault(require("./modules/quickSwitcher"));
+
+var darkMode_1 = require("./modules/darkMode");
 
 var letterGradeScale = {
   "A+": {
@@ -1235,35 +1264,12 @@ var letterGradeScale = {
   }
 };
 
-function getCurrentAcademicYear() {
-  var date = new Date();
-  return date.getFullYear() + (date.getMonth() > 5 ? 1 : 0);
-}
-
-function enableDarkMode(toggleState) {
-  var animation = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : true;
-
-  if (animation) {
-    document.documentElement.classList.add('better-slp-dark-mode-transitioning');
-    setTimeout(function () {
-      document.documentElement.classList.remove('better-slp-dark-mode-transitioning');
-    }, 300);
-  }
-
-  if (!toggleState) {
-    document.documentElement.setAttribute('better-slp-dark-mode', 'false');
-    return;
-  }
-
-  document.documentElement.setAttribute('better-slp-dark-mode', 'true');
-}
-
 function initialize() {
   chrome.storage.sync.set({
     darkMode: true
   });
   chrome.storage.sync.get('darkMode', function (items) {
-    if (items.darkMode) enableDarkMode(true, false);
+    if (items.darkMode) darkMode_1.enableDarkMode(true, false);
   });
   window.addEventListener('keydown', function (e) {
     switch (true) {
@@ -1283,5 +1289,5 @@ function initialize() {
 }
 
 initialize();
-},{"regenerator-runtime/runtime":"../../node_modules/regenerator-runtime/runtime.js","./modules/quickSwitcher":"modules/quickSwitcher.ts"}]},{},["initialize.ts"], null)
+},{"regenerator-runtime/runtime":"../../node_modules/regenerator-runtime/runtime.js","./modules/quickSwitcher":"modules/quickSwitcher.ts","./modules/darkMode":"modules/darkMode.ts"}]},{},["initialize.ts"], null)
 //# sourceMappingURL=/initialize.js.map

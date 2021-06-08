@@ -117,10 +117,13 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   }
 
   return newRequire;
-})({"inject.ts":[function(require,module,exports) {
+})({"modules/noteTaker.ts":[function(require,module,exports) {
 "use strict";
 
-var _document$querySelect2;
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.appendNoteTaker = void 0;
 
 function openNoteTaker() {
   chrome.storage.sync.get('darkMode', function (items) {
@@ -169,6 +172,18 @@ function appendNoteTaker() {
   (_document$querySelect = document.querySelector('.app-body > .app-page-title > .app-page-title-row')) === null || _document$querySelect === void 0 ? void 0 : _document$querySelect.appendChild(takeNotesButton);
 }
 
+exports.appendNoteTaker = appendNoteTaker;
+},{}],"inject.ts":[function(require,module,exports) {
+"use strict";
+
+var _document$querySelect;
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var noteTaker_1 = require("./modules/noteTaker");
+
 function progressTab() {
   if (document.querySelectorAll('.better-slp-pie-chart-grid').length < 1) return;
 }
@@ -178,7 +193,7 @@ function main() {
 
   switch (true) {
     case new RegExp('.*:\/\/.*?\.?summitlearning\.org/my/focusareas/.*').test(currentURL):
-      appendNoteTaker();
+      noteTaker_1.appendNoteTaker();
       break;
 
     case new RegExp('.*:\/\/.*?\.?summitlearning\.org/my/progress(/.*)?').test(currentURL):
@@ -188,8 +203,8 @@ function main() {
 }
 
 if (!document.documentElement.classList.contains('nprogress-busy')) main();
-(_document$querySelect2 = document.querySelector('#nprogress')) === null || _document$querySelect2 === void 0 ? void 0 : _document$querySelect2.addEventListener('DOMNodeRemoved', function () {
+(_document$querySelect = document.querySelector('#nprogress')) === null || _document$querySelect === void 0 ? void 0 : _document$querySelect.addEventListener('DOMNodeRemoved', function () {
   main();
 });
-},{}]},{},["inject.ts"], null)
+},{"./modules/noteTaker":"modules/noteTaker.ts"}]},{},["inject.ts"], null)
 //# sourceMappingURL=/inject.js.map

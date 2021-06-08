@@ -1,6 +1,7 @@
 import 'regenerator-runtime/runtime';
 
 import openQuickSwitcher from './modules/quickSwitcher';
+import { enableDarkMode } from './modules/darkMode';
 
 const letterGradeScale = {
   "A+": {percentage: 0.97, gpa: 4.0},
@@ -17,26 +18,6 @@ const letterGradeScale = {
   "F" : {percentage: 0.00, gpa: 0.0}
 }
 
-function getCurrentAcademicYear(): number {
-  const date = new Date();
-  return date.getFullYear() + (date.getMonth() > 5 ? 1 : 0);
-}
-
-function enableDarkMode(toggleState: boolean, animation: boolean = true): void {
-
-  if(animation){ // Apply a css animation if needed
-    document.documentElement.classList.add('better-slp-dark-mode-transitioning');
-    setTimeout(() => {document.documentElement.classList.remove('better-slp-dark-mode-transitioning')}, 300);
-  }
-
-  if(!toggleState){
-    document.documentElement.setAttribute('better-slp-dark-mode', 'false'); // Disable dark mode attribute on the html tag
-    return;
-  }
-
-  document.documentElement.setAttribute('better-slp-dark-mode', 'true'); // Enable dark mode attribute on the html tag
-
-}
 
 function initialize(): void {
   chrome.storage.sync.set({darkMode: true});
