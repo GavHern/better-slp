@@ -20,7 +20,7 @@ const letterGradeScale = {
 
 
 function initialize(): void {
-  chrome.storage.sync.set({darkMode: true});
+  chrome.storage.sync.set({darkMode: false});
 
   chrome.storage.sync.get('darkMode', items => {
     if(items.darkMode) enableDarkMode(true, false);

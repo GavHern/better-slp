@@ -1,8 +1,12 @@
 import { appendNoteTaker } from './modules/noteTaker';
+import { appendGPAEstimate } from './modules/gpaAverage';
 
 function progressTab(): void {
-  if(document.querySelectorAll('.better-slp-pie-chart-grid').length < 1) return;
+  //if(document.querySelectorAll('.better-slp-pie-chart-grid').length < 1) return;
+  const existingGPAEstimates = document.querySelectorAll('.better-slp-gpa-estimate');
+  existingGPAEstimates.forEach(e => e.remove());
   
+  appendGPAEstimate();
 }
 
 function main(): void {
