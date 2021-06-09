@@ -4,7 +4,7 @@
   "description": "",
   "author": "Gav Hern",
   "scripts": {
-    "build": "parcel build src/ts/{background.ts,initialize.ts,inject.ts,summernote/script.ts} --out-dir public/js",
+    "build": "parcel build src/ts/{background.ts,initialize.ts,inject.ts,summernote/script.ts} --out-dir public/js --detailed-report",
     "dev": "parcel watch --no-hmr src/ts/{background.ts,initialize.ts,inject.ts,summernote/script.ts} --out-dir public/js"
   },
   "license": "ISC",
