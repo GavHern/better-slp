@@ -1,0 +1,18 @@
+{
+  "extends": "@tsconfig/svelte/tsconfig.json",
+	"compilerOptions": {
+	  "target": "ESNext",
+	  "strict": true,
+	  "removeComments": true,
+	  "esModuleInterop": true,
+	  "skipLibCheck": true,
+	  "forceConsistentCasingInFileNames": true,
+	  "outDir": "../../public/js"
+	},
+	"watchOptions": {
+	  "watchFile": "useFsEvents",
+	  "watchDirectory": "useFsEvents",
+	  "fallbackPolling": "dynamicPriority"
+	},
+  "include": ["src/ts/**/*"]
+}
