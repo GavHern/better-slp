@@ -117,7 +117,7 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   }
 
   return newRequire;
-})({"background.ts":[function(require,module,exports) {
+})({"ts/background.ts":[function(require,module,exports) {
 "use strict";
 
 function executeInjectScript(details) {
@@ -134,5 +134,5 @@ chrome.webNavigation.onHistoryStateUpdated.addListener(function (d) {
     urlMatches: ".*://.*\\..*summitlearning\\.org.*"
   }]
 });
-},{}]},{},["background.ts"], null)
-//# sourceMappingURL=/background.js.map
+},{}]},{},["ts/background.ts"], null)
+//# sourceMappingURL=/ts/background.js.map

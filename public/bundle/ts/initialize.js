@@ -117,7 +117,7 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   }
 
   return newRequire;
-})({"../../node_modules/regenerator-runtime/runtime.js":[function(require,module,exports) {
+})({"../node_modules/regenerator-runtime/runtime.js":[function(require,module,exports) {
 var define;
 /**
  * Copyright (c) 2014-present, Facebook, Inc.
@@ -868,7 +868,7 @@ try {
   Function("r", "regeneratorRuntime = r")(runtime);
 }
 
-},{}],"modules/methods.ts":[function(require,module,exports) {
+},{}],"ts/modules/methods.ts":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -890,7 +890,7 @@ function getAverage(numbers) {
 }
 
 exports.getAverage = getAverage;
-},{}],"modules/quickSwitcher.ts":[function(require,module,exports) {
+},{}],"ts/modules/quickSwitcher.ts":[function(require,module,exports) {
 "use strict";
 
 function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
@@ -1175,7 +1175,7 @@ function openQuickSwitcher(toggleState) {
 }
 
 exports.default = openQuickSwitcher;
-},{"./methods":"modules/methods.ts"}],"modules/darkMode.ts":[function(require,module,exports) {
+},{"./methods":"ts/modules/methods.ts"}],"ts/modules/darkMode.ts":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -1202,7 +1202,7 @@ function enableDarkMode(toggleState) {
 }
 
 exports.enableDarkMode = enableDarkMode;
-},{}],"initialize.ts":[function(require,module,exports) {
+},{}],"ts/initialize.ts":[function(require,module,exports) {
 "use strict";
 
 var __importDefault = this && this.__importDefault || function (mod) {
@@ -1297,5 +1297,5 @@ function initialize() {
 }
 
 initialize();
-},{"regenerator-runtime/runtime":"../../node_modules/regenerator-runtime/runtime.js","./modules/quickSwitcher":"modules/quickSwitcher.ts","./modules/darkMode":"modules/darkMode.ts"}]},{},["initialize.ts"], null)
-//# sourceMappingURL=/initialize.js.map
+},{"regenerator-runtime/runtime":"../node_modules/regenerator-runtime/runtime.js","./modules/quickSwitcher":"ts/modules/quickSwitcher.ts","./modules/darkMode":"ts/modules/darkMode.ts"}]},{},["ts/initialize.ts"], null)
+//# sourceMappingURL=/ts/initialize.js.map

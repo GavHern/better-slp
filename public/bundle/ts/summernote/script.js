@@ -117,7 +117,7 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   }
 
   return newRequire;
-})({"summernote/script.ts":[function(require,module,exports) {
+})({"ts/summernote/script.ts":[function(require,module,exports) {
 "use strict";
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
@@ -160,5 +160,5 @@ window.addEventListener('message', function (e) {
     window.top.postMessage('save-successful', '*');
   });
 });
-},{}]},{},["summernote/script.ts"], null)
-//# sourceMappingURL=/summernote/script.js.map
+},{}]},{},["ts/summernote/script.ts"], null)
+//# sourceMappingURL=/ts/summernote/script.js.map

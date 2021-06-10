@@ -1,0 +1,210 @@
+/*
+! NOTE FOR CONTRIBUTORS: 
+! When adding new styles to this document, please follow these conventions:
+
+- Do not reference selectors in the css. Instead, create a SCSS variable for the selector and reference that. This allows for more semantic code and makes it easier to remove unused selectors in the future
+- Try to keep colors as constant variables (or functions) instead of referencing them directly in the css. This is to create a design sysem of sorts and makes it easier to tweak things if needed
+- Be mindful of where you put your code. Try to group it with things similar to it. Try to put variable declarations near similar values. Additionally, in the css, there are scss parent selectors added to section the css into several parts
+
+? Design System
+
+The styles for dark mode follow the material dark theme spec as best as possible.
+The spec can be found here: https://material.io/design/color/dark-theme.html
+
+
+* * Removed selectors:
+.project-asset-icon.material-icons-default
+.media-circle.large-icon .media-circle-background-circle
+.claro-index-card .media-circle-background-circle
+.alert-info
+
+*/
+html.better-slp-dark-mode-transitioning * {
+  transition: all 300ms !important; }
+
+html[better-slp-dark-mode="true"] {
+  color-scheme: dark; }
+  html[better-slp-dark-mode="true"] .page-content-body,
+  html[better-slp-dark-mode="true"] .czi-editor-frame-body, html[better-slp-dark-mode="true"] .project-feedback-dimension-navigator-backdrop,
+  html[better-slp-dark-mode="true"] .app-empty-state-vertical-center {
+    background-color: #121212 !important; }
+  html[better-slp-dark-mode="true"] .panel,
+  html[better-slp-dark-mode="true"] .courserow-tooltip.tooltip .tooltip-inner,
+  html[better-slp-dark-mode="true"] .sdl-course-grades button, html[better-slp-dark-mode="true"] .sdl-course-grades .grade-header,
+  html[better-slp-dark-mode="true"] .announcement,
+  html[better-slp-dark-mode="true"] .better-slp-note-taker-embed {
+    background-color: #1c1c1c !important; }
+  html[better-slp-dark-mode="true"] .project-lesson-media-block-objective,
+  html[better-slp-dark-mode="true"] .needs-revision-popover,
+  html[better-slp-dark-mode="true"] .project-feedback-dimension-navigator {
+    background-color: #242424 !important; }
+  html[better-slp-dark-mode="true"] .sdl-week-calendar-today,
+  html[better-slp-dark-mode="true"] .announcement-body,
+  html[better-slp-dark-mode="true"] .dropdown-menu,
+  html[better-slp-dark-mode="true"] .focusarea .selected-panel .panel,
+  html[better-slp-dark-mode="true"] .project-feedback-header-container,
+  html[better-slp-dark-mode="true"] .platform-doc-header,
+  html[better-slp-dark-mode="true"] .project-feedback-header .btn.btn-default {
+    background-color: #262626 !important; }
+  html[better-slp-dark-mode="true"] .goal-panel,
+  html[better-slp-dark-mode="true"] .sdl-course-grades button:hover,
+  html[better-slp-dark-mode="true"] #notifications-popover,
+  html[better-slp-dark-mode="true"] .sdl-goal-popover,
+  html[better-slp-dark-mode="true"] .sdl-goal-popover-input-title .form-control,
+  html[better-slp-dark-mode="true"] .sdl-goal-popover-create,
+  html[better-slp-dark-mode="true"] .sdl-goal-popover-footer,
+  html[better-slp-dark-mode="true"] .project-agenda-timeline-item-icon-background,
+  html[better-slp-dark-mode="true"] .project-agenda-timeline-item-line-1, html[better-slp-dark-mode="true"] .project-agenda-timeline-item-line-2,
+  html[better-slp-dark-mode="true"] .project-day-to-day-side-nav-item:not(.selected),
+  html[better-slp-dark-mode="true"] *:not(.notifications-nub):not(.platform-doc-user-badge) > .avatar-profile,
+  html[better-slp-dark-mode="true"] .project-feedback-overview-panel.open {
+    background-color: #2b2b2b !important; }
+  html[better-slp-dark-mode="true"] .feedback-help-request-popover.popover {
+    background-color: #333333 !important; }
+  html[better-slp-dark-mode="true"] .announcement-body-text .audience.badge,
+  html[better-slp-dark-mode="true"] .dropdown-menu > li:not(.active) > a:hover, html[better-slp-dark-mode="true"] .dropdown-menu > li:not(.active) > a:focus,
+  html[better-slp-dark-mode="true"] .tools-item:hover,
+  html[better-slp-dark-mode="true"] .project-feedback-dimension-navigator-drilldown-divider,
+  html[better-slp-dark-mode="true"] .project-feedback-dimension-navigator-toggle,
+  html[better-slp-dark-mode="true"] .open .project-feedback-asset-switcher-selector,
+  html[better-slp-dark-mode="true"] .student-request-feedback .student-request-feedback-default .btn-default {
+    background-color: #363636 !important; }
+  html[better-slp-dark-mode="true"] .this-year-fade .nav-button-container:hover .this-year-nav-button,
+  html[better-slp-dark-mode="true"] .platform-doc-header .platform-doc-button:hover,
+  html[better-slp-dark-mode="true"] .platform-doc-header #tools-menu-button:hover, html[better-slp-dark-mode="true"] .platform-doc-header #tools-menu-button:focus,
+  html[better-slp-dark-mode="true"] .project-feedback .project-feedback-asset-switcher .project-feedback-asset-switcher-selector .project-asset-icon,
+  html[better-slp-dark-mode="true"] .feedback-help-request-popover.popover .btn-default,
+  html[better-slp-dark-mode="true"] .project-feedback-dimension-navigator-score-token:not(.selected) {
+    background-color: #424242 !important; }
+  html[better-slp-dark-mode="true"] .this-year-fade .nav-button-container:hover .this-year-nav-button:hover {
+    background-color: #5c5c5c !important; }
+  html[better-slp-dark-mode="true"] .sdl-goal-popover-input,
+  html[better-slp-dark-mode="true"] .list-group-item,
+  html[better-slp-dark-mode="true"] .platform-doc-title-input,
+  html[better-slp-dark-mode="true"] .edit-dropdown,
+  html[better-slp-dark-mode="true"] .feedback-help-request-popover.popover textarea {
+    background-color: rgba(0, 0, 0, 0) !important; }
+  html[better-slp-dark-mode="true"] .project-day-to-day-side-nav-item-theme-default .media-circle-background-circle {
+    background-color: rgba(255, 255, 255, 0.1) !important; }
+  html[better-slp-dark-mode="true"] .project-day-to-day-side-nav-item-new-feedback-token,
+  html[better-slp-dark-mode="true"] .token, html[better-slp-dark-mode="true"] .token-display-only,
+  html[better-slp-dark-mode="true"] .project-lesson-media-block-icon-background-circle,
+  html[better-slp-dark-mode="true"] .focusarea-diagnostic-btn button {
+    background-color: rgba(255, 255, 255, 0.07) !important; }
+  html[better-slp-dark-mode="true"] .app-page-title-group h1,
+  html[better-slp-dark-mode="true"] .project-feedback-title {
+    color: white !important;
+    text-decoration-color: #d1d1d1 !important; }
+  html[better-slp-dark-mode="true"] .app-body,
+  html[better-slp-dark-mode="true"] .app-subheading, html[better-slp-dark-mode="true"] .app-subheading span,
+  html[better-slp-dark-mode="true"] .notifications-subtitle,
+  html[better-slp-dark-mode="true"] .courserow-tooltip .app-heading:not(.success),
+  html[better-slp-dark-mode="true"] .courserow-tooltip .project-status,
+  html[better-slp-dark-mode="true"] .project-feedback-header .btn.btn-default,
+  html[better-slp-dark-mode="true"] .project-feedback-actions-text,
+  html[better-slp-dark-mode="true"] .platform-doc-title-input,
+  html[better-slp-dark-mode="true"] .platform-doc-header .platform-doc-button,
+  html[better-slp-dark-mode="true"] .platform-doc-header #tools-menu-button,
+  html[better-slp-dark-mode="true"] .project-feedback-dimension-navigator-toggle,
+  html[better-slp-dark-mode="true"] .feedback-help-request-popover.popover .btn-default,
+  html[better-slp-dark-mode="true"] .feedback-help-request-popover.popover strong,
+  html[better-slp-dark-mode="true"] .project-feedback-info-overview .app-heading,
+  html[better-slp-dark-mode="true"] .history-header {
+    color: rgba(255, 255, 255, 0.85) !important;
+    text-decoration-color: #d1d1d1 !important; }
+  html[better-slp-dark-mode="true"] .app-tertiaryheading, html[better-slp-dark-mode="true"] .app-tertiaryheading span,
+  html[better-slp-dark-mode="true"] .app-compact-content-heading, html[better-slp-dark-mode="true"] .app-compact-content-heading span,
+  html[better-slp-dark-mode="true"] .courserow-score-text,
+  html[better-slp-dark-mode="true"] .token, html[better-slp-dark-mode="true"] .token-display-only,
+  html[better-slp-dark-mode="true"] .sdl-goal-popover-input-title .form-control, html[better-slp-dark-mode="true"] .sdl-goal-popover-input-title .form-control::placeholder,
+  html[better-slp-dark-mode="true"] .dropdown-menu li:not(.active) a,
+  html[better-slp-dark-mode="true"] .notification-item-subtitle, html[better-slp-dark-mode="true"] #notifications-popover .list-group-item,
+  html[better-slp-dark-mode="true"] .platform-doc-saving-indicator,
+  html[better-slp-dark-mode="true"] .project-feedback-dimension-navigator-drilldown-content,
+  html[better-slp-dark-mode="true"] .tools-item,
+  html[better-slp-dark-mode="true"] .feedback-help-request-popover.popover textarea,
+  html[better-slp-dark-mode="true"] .feedback-help-request-popover.popover textarea::placeholder,
+  html[better-slp-dark-mode="true"] .project-feedback-info-overview .rich-text-note-editor {
+    color: #8f8f8f !important; }
+  html[better-slp-dark-mode="true"] .notification-item:not(.notification-item-unread) .notification-item-title-fragment,
+  html[better-slp-dark-mode="true"] .project-feedback-dimension-navigator-score-token:not(.selected) {
+    color: #d1d1d1 !important; }
+  html[better-slp-dark-mode="true"] .app-empty-state-vertical-center h1 {
+    color: #424242 !important; }
+  html[better-slp-dark-mode="true"] .focusarea .playlist-panel .score-badge.get-started {
+    color: rgba(255, 255, 255, 0.4) !important; }
+  html[better-slp-dark-mode="true"] .btn.btn-default:not(.edit-dropdown) {
+    border-color: rgba(0, 0, 0, 0) !important; }
+  html[better-slp-dark-mode="true"] .modal-full-height .modal-content {
+    border: none; }
+  html[better-slp-dark-mode="true"] .notification-item-read-bullet {
+    border-color: #8f8f8f !important; }
+  html[better-slp-dark-mode="true"] .sdl-goal-popover .checkbox input[type=checkbox]:not(:checked):after {
+    border-color: #e6e6e6 !important; }
+  html[better-slp-dark-mode="true"] .table-bordered td,
+  html[better-slp-dark-mode="true"] .courserow-info.widen.months,
+  html[better-slp-dark-mode="true"] .this-year-explore-courses,
+  html[better-slp-dark-mode="true"] .courserow-tooltip hr,
+  html[better-slp-dark-mode="true"] .project-feedback-overview-panel.open,
+  html[better-slp-dark-mode="true"] .history-header,
+  html[better-slp-dark-mode="true"] .platform-doc-history-page .list-group .list-group-item,
+  html[better-slp-dark-mode="true"] .project-feedback-drawer {
+    border-color: #333333 !important; }
+  html[better-slp-dark-mode="true"] .table-bordered td.sdl-week-calendar-today,
+  html[better-slp-dark-mode="true"] .notifications-header, html[better-slp-dark-mode="true"] .notification-item {
+    border-color: #383838 !important; }
+  html[better-slp-dark-mode="true"] .project-feedback-header-container .caret {
+    border-top-color: rgba(255, 255, 255, 0.85); }
+  html[better-slp-dark-mode="true"] .default, html[better-slp-dark-mode="true"] .courserow-list-item-content-default:not(.success):not(.warning):not(.danger) {
+    background-color: rgba(255, 255, 255, 0.07) !important;
+    color: #bdbdbd !important; }
+  html[better-slp-dark-mode="true"] .project-day-to-day-side-nav-item-theme-default .project-day-to-day-side-nav-item-left-aligned-content.green .media-circle-background-circle {
+    background-color: rgba(153, 255, 153, 0.35) !important; }
+  html[better-slp-dark-mode="true"] .success:not(.app-heading) {
+    background-color: #26402f !important;
+    color: #96e896 !important; }
+    html[better-slp-dark-mode="true"] .success:not(.app-heading) i {
+      background-color: #1f9346 !important; }
+  html[better-slp-dark-mode="true"] .score-badge.passed {
+    color: #00e676 !important; }
+  html[better-slp-dark-mode="true"] .project-day-to-day-side-nav-item-theme-default .project-day-to-day-side-nav-item-left-aligned-content.yellow .media-circle-background-circle {
+    background-color: rgba(255, 255, 102, 0.35) !important; }
+  html[better-slp-dark-mode="true"] .warning:not(.app-heading) {
+    background-color: #3d3d29 !important;
+    color: #e8e896 !important; }
+    html[better-slp-dark-mode="true"] .warning:not(.app-heading) i {
+      background-color: #93931f !important; }
+  html[better-slp-dark-mode="true"] .score-badge.almost-passed {
+    color: #ffc400 !important; }
+  html[better-slp-dark-mode="true"] .project-day-to-day-side-nav-item-theme-default .project-day-to-day-side-nav-item-left-aligned-content.red .media-circle-background-circle {
+    background-color: rgba(255, 102, 102, 0.35) !important; }
+  html[better-slp-dark-mode="true"] .danger:not(.app-heading) {
+    background-color: #471f1f !important;
+    color: #e89696 !important; }
+    html[better-slp-dark-mode="true"] .danger:not(.app-heading) i {
+      background-color: #931f1f !important; }
+  html[better-slp-dark-mode="true"] .score-badge:not(.get-started) {
+    color: #ff5252 !important; }
+  html[better-slp-dark-mode="true"] .courserow-tooltip.tooltip .app-heading.success {
+    color: #96e896 !important; }
+  html[better-slp-dark-mode="true"] .claro-standard-layout-page .claro-this-year .this-year-outer .this-year-fade.right,
+  html[better-slp-dark-mode="true"] .courserow-tooltip.tooltip .tooltip-inner,
+  html[better-slp-dark-mode="true"] .goal-drawer,
+  html[better-slp-dark-mode="true"] .courserow-info.widen,
+  html[better-slp-dark-mode="true"] .focusarea .selected-panel,
+  html[better-slp-dark-mode="true"] .feedback-help-request-popover.popover .btn-default {
+    box-shadow: none !important; }
+  html[better-slp-dark-mode="true"] .platform-doc-title-input:focus {
+    box-shadow: 0 0 0 2px #424242 !important; }
+  html[better-slp-dark-mode="true"] .upper-right-overlay .onboarding-nub {
+    background-color: #1e2c2f !important;
+    border-color: #3a545a !important; }
+    html[better-slp-dark-mode="true"] .upper-right-overlay .onboarding-nub * {
+      color: #5db8c6 !important; }
+  html[better-slp-dark-mode="true"] .project-asset-copy-old-work-prompt {
+    background-color: #321b21 !important; }
+  html[better-slp-dark-mode="true"] .modal-full-height .modal-content {
+    border-radius: 0; }
+
+
+/*# sourceMappingURL=/dark-mode.css.map */

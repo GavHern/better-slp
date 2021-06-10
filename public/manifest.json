@@ -10,21 +10,21 @@
         "*://*.summitlearning.org/*"
       ],
       "js": [
-        "bundle/inject.js",
-        "bundle/initialize.js"
+        "bundle/ts/inject.js",
+        "bundle/ts/initialize.js"
       ],
       "css" : [
-        "css/inject.css",
-        "css/dark-mode.css",
-        "bundle/inject.css"
+        "bundle/sass/inject.css",
+        "bundle/sass/dark-mode.css",
+        "bundle/ts/inject.css"
       ]
     }
   ],
   "background": {
-    "scripts": ["bundle/background.js"]
+    "scripts": ["bundle/ts/background.js"]
   },
   "web_accessible_resources": [
-    "css/dark-mode-inject.css",
+    "bundle/sass/dark-mode.css",
     "html/dashboard.html",
     "html/notetaker.html"
   ],

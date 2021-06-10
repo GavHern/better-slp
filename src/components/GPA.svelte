@@ -9,7 +9,7 @@
   }
 
   .grade-column {
-    border: none;
+    border: none !important;
   }
 </style>
 

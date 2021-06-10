@@ -117,7 +117,7 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   }
 
   return newRequire;
-})({"modules/noteTaker.ts":[function(require,module,exports) {
+})({"ts/modules/noteTaker.ts":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -173,7 +173,7 @@ function appendNoteTaker() {
 }
 
 exports.appendNoteTaker = appendNoteTaker;
-},{}],"modules/data.ts":[function(require,module,exports) {
+},{}],"ts/modules/data.ts":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -230,7 +230,7 @@ exports.letterGradeScale = {
     gpa: 0.0
   }
 };
-},{}],"modules/methods.ts":[function(require,module,exports) {
+},{}],"ts/modules/methods.ts":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -252,7 +252,7 @@ function getAverage(numbers) {
 }
 
 exports.getAverage = getAverage;
-},{}],"../../node_modules/svelte/internal/index.mjs":[function(require,module,exports) {
+},{}],"../node_modules/svelte/internal/index.mjs":[function(require,module,exports) {
 var global = arguments[3];
 "use strict";
 
@@ -2483,7 +2483,7 @@ function loop_guard(timeout) {
     }
   };
 }
-},{}],"../components/GPA.svelte":[function(require,module,exports) {
+},{}],"components/GPA.svelte":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -2527,7 +2527,7 @@ function _iterableToArrayLimit(arr, i) { var _i = arr && (typeof Symbol !== "und
 
 function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
-var file = "../components/GPA.svelte";
+var file = "components/GPA.svelte";
 
 function create_fragment(ctx) {
   var div3;
@@ -2550,15 +2550,15 @@ function create_fragment(ctx) {
       /*gpa*/
       ctx[0]);
       (0, _internal.attr_dev)(div0, "class", "course-name-column col-xs-6 course-name");
-      (0, _internal.add_location)(div0, file, 17, 4, 281);
+      (0, _internal.add_location)(div0, file, 17, 4, 292);
       (0, _internal.attr_dev)(span, "class", "current-grade grade letter-grade");
-      (0, _internal.add_location)(span, file, 19, 6, 415);
-      (0, _internal.attr_dev)(div1, "class", "grade-column middle-column col-xs-5 svelte-lif43e");
-      (0, _internal.add_location)(div1, file, 18, 4, 358);
+      (0, _internal.add_location)(span, file, 19, 6, 426);
+      (0, _internal.attr_dev)(div1, "class", "grade-column middle-column col-xs-5 svelte-ewfhhj");
+      (0, _internal.add_location)(div1, file, 18, 4, 369);
       (0, _internal.attr_dev)(div2, "class", "row");
-      (0, _internal.add_location)(div2, file, 16, 2, 258);
-      (0, _internal.attr_dev)(div3, "class", "better-slp-gpa-estimate grade-row list-group-item svelte-lif43e");
-      (0, _internal.add_location)(div3, file, 15, 0, 191);
+      (0, _internal.add_location)(div2, file, 16, 2, 269);
+      (0, _internal.attr_dev)(div3, "class", "better-slp-gpa-estimate grade-row list-group-item svelte-ewfhhj");
+      (0, _internal.add_location)(div3, file, 15, 0, 202);
     },
     l: function claim(nodes) {
       throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -2678,7 +2678,7 @@ var GPA = /*#__PURE__*/function (_SvelteComponentDev) {
 
 var _default = GPA;
 exports.default = _default;
-},{"svelte/internal":"../../node_modules/svelte/internal/index.mjs"}],"modules/gpaAverage.ts":[function(require,module,exports) {
+},{"svelte/internal":"../node_modules/svelte/internal/index.mjs"}],"ts/modules/gpaAverage.ts":[function(require,module,exports) {
 "use strict";
 
 var __importDefault = this && this.__importDefault || function (mod) {
@@ -2751,7 +2751,7 @@ function appendGPAEstimate() {
 }
 
 exports.appendGPAEstimate = appendGPAEstimate;
-},{"./data":"modules/data.ts","./methods":"modules/methods.ts","../../components/GPA.svelte":"../components/GPA.svelte"}],"inject.ts":[function(require,module,exports) {
+},{"./data":"ts/modules/data.ts","./methods":"ts/modules/methods.ts","../../components/GPA.svelte":"components/GPA.svelte"}],"ts/inject.ts":[function(require,module,exports) {
 "use strict";
 
 var _document$querySelect;
@@ -2790,5 +2790,5 @@ if (!document.documentElement.classList.contains('nprogress-busy')) main();
 (_document$querySelect = document.querySelector('#nprogress')) === null || _document$querySelect === void 0 ? void 0 : _document$querySelect.addEventListener('DOMNodeRemoved', function () {
   main();
 });
-},{"./modules/noteTaker":"modules/noteTaker.ts","./modules/gpaAverage":"modules/gpaAverage.ts"}]},{},["inject.ts"], null)
-//# sourceMappingURL=/inject.js.map
+},{"./modules/noteTaker":"ts/modules/noteTaker.ts","./modules/gpaAverage":"ts/modules/gpaAverage.ts"}]},{},["ts/inject.ts"], null)
+//# sourceMappingURL=/ts/inject.js.map
