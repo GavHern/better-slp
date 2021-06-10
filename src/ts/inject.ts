@@ -1,5 +1,5 @@
 import { appendNoteTaker } from './modules/noteTaker';
-import { appendGPAEstimate } from './modules/gpaAverage';
+import { appendGPAEstimate } from './modules/gpaEstimate';
 
 function progressTab(): void {
   //if(document.querySelectorAll('.better-slp-pie-chart-grid').length < 1) return;

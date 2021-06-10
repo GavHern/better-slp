@@ -120,9 +120,13 @@ parcelRequire = (function (modules, cache, entry, globalName) {
 })({"ts/background.ts":[function(require,module,exports) {
 "use strict";
 
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
 function executeInjectScript(details) {
   chrome.tabs.executeScript(details.id, {
-    file: "js/inject.js"
+    file: "bundle/ts/inject.js"
   });
 }
 

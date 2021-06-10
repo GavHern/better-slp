@@ -1,5 +1,9 @@
 <script lang="ts">
-  export let gpa: number | null;
+	// Remove all other instances of the component
+	const existingGPAEstimates = document.querySelectorAll('.better-slp-gpa-estimate');
+	existingGPAEstimates.forEach(e => e.remove());
+
+  export let gpa: number | null; // Get the GPA prop
   gpa !== null ? gpa : "N/A"; // Set GPA to N/A if there is no data
 </script>
 

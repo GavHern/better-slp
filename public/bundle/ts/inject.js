@@ -2550,15 +2550,15 @@ function create_fragment(ctx) {
       /*gpa*/
       ctx[0]);
       (0, _internal.attr_dev)(div0, "class", "course-name-column col-xs-6 course-name");
-      (0, _internal.add_location)(div0, file, 17, 4, 292);
+      (0, _internal.add_location)(div0, file, 19, 4, 425);
       (0, _internal.attr_dev)(span, "class", "current-grade grade letter-grade");
-      (0, _internal.add_location)(span, file, 19, 6, 426);
+      (0, _internal.add_location)(span, file, 21, 6, 559);
       (0, _internal.attr_dev)(div1, "class", "grade-column middle-column col-xs-5 svelte-ewfhhj");
-      (0, _internal.add_location)(div1, file, 18, 4, 369);
+      (0, _internal.add_location)(div1, file, 20, 4, 502);
       (0, _internal.attr_dev)(div2, "class", "row");
-      (0, _internal.add_location)(div2, file, 16, 2, 269);
+      (0, _internal.add_location)(div2, file, 18, 2, 402);
       (0, _internal.attr_dev)(div3, "class", "better-slp-gpa-estimate grade-row list-group-item svelte-ewfhhj");
-      (0, _internal.add_location)(div3, file, 15, 0, 202);
+      (0, _internal.add_location)(div3, file, 17, 0, 335);
     },
     l: function claim(nodes) {
       throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
@@ -2603,6 +2603,10 @@ function instance($$self, $$props, $$invalidate) {
       slots = _$$props$$$slots === void 0 ? {} : _$$props$$$slots,
       $$scope = $$props.$$scope;
   (0, _internal.validate_slots)("GPA", slots, []);
+  var existingGPAEstimates = document.querySelectorAll(".better-slp-gpa-estimate");
+  existingGPAEstimates.forEach(function (e) {
+    return e.remove();
+  });
   var gpa = $$props.gpa;
   gpa !== null ? gpa : "N/A";
   var writable_props = ["gpa"];
@@ -2616,6 +2620,7 @@ function instance($$self, $$props, $$invalidate) {
 
   $$self.$capture_state = function () {
     return {
+      existingGPAEstimates: existingGPAEstimates,
       gpa: gpa
     };
   };
@@ -2678,7 +2683,7 @@ var GPA = /*#__PURE__*/function (_SvelteComponentDev) {
 
 var _default = GPA;
 exports.default = _default;
-},{"svelte/internal":"../node_modules/svelte/internal/index.mjs"}],"ts/modules/gpaAverage.ts":[function(require,module,exports) {
+},{"svelte/internal":"../node_modules/svelte/internal/index.mjs"}],"ts/modules/gpaEstimate.ts":[function(require,module,exports) {
 "use strict";
 
 var __importDefault = this && this.__importDefault || function (mod) {
@@ -2762,14 +2767,14 @@ Object.defineProperty(exports, "__esModule", {
 
 var noteTaker_1 = require("./modules/noteTaker");
 
-var gpaAverage_1 = require("./modules/gpaAverage");
+var gpaEstimate_1 = require("./modules/gpaEstimate");
 
 function progressTab() {
   var existingGPAEstimates = document.querySelectorAll('.better-slp-gpa-estimate');
   existingGPAEstimates.forEach(function (e) {
     return e.remove();
   });
-  gpaAverage_1.appendGPAEstimate();
+  gpaEstimate_1.appendGPAEstimate();
 }
 
 function main() {
@@ -2790,5 +2795,5 @@ if (!document.documentElement.classList.contains('nprogress-busy')) main();
 (_document$querySelect = document.querySelector('#nprogress')) === null || _document$querySelect === void 0 ? void 0 : _document$querySelect.addEventListener('DOMNodeRemoved', function () {
   main();
 });
-},{"./modules/noteTaker":"ts/modules/noteTaker.ts","./modules/gpaAverage":"ts/modules/gpaAverage.ts"}]},{},["ts/inject.ts"], null)
+},{"./modules/noteTaker":"ts/modules/noteTaker.ts","./modules/gpaEstimate":"ts/modules/gpaEstimate.ts"}]},{},["ts/inject.ts"], null)
 //# sourceMappingURL=/ts/inject.js.map
