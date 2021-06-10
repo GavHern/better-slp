@@ -1,5 +1,7 @@
 import { letterGradeScale } from './data';
 import { getAverage } from './methods';
+// @ts-ignore
+import GPAComponent from '../../components/GPA.svelte';
 
 function getGPA(grades: LetterGrade[]): number | null {
 
@@ -60,6 +62,13 @@ function createGPAElement(gpa: number | null): HTMLElement {
 
 export function appendGPAEstimate(): void {
   const gpa = getGPA(getLetterGrades());
-  const gpaAverageElement = createGPAElement(gpa);
-  document.querySelector('.sdl-course-grades')?.appendChild(gpaAverageElement);
+  const injectionParent = document.querySelector('.sdl-course-grades');
+  if(injectionParent === null) return;
+
+  new GPAComponent({
+    target: injectionParent,
+    props: {
+      gpa: gpa
+    }
+  })  
 }

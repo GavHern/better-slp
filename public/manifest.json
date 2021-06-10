@@ -10,17 +10,18 @@
         "*://*.summitlearning.org/*"
       ],
       "js": [
-        "js/inject.js",
-        "js/initialize.js"
+        "bundle/inject.js",
+        "bundle/initialize.js"
       ],
       "css" : [
         "css/inject.css",
-        "css/dark-mode.css"
+        "css/dark-mode.css",
+        "bundle/inject.css"
       ]
     }
   ],
   "background": {
-    "scripts": ["js/background.js"]
+    "scripts": ["bundle/background.js"]
   },
   "web_accessible_resources": [
     "css/dark-mode-inject.css",
