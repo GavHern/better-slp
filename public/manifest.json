@@ -16,7 +16,8 @@
       "css" : [
         "bundle/sass/inject.css",
         "bundle/sass/dark-mode.css",
-        "bundle/ts/inject.css"
+        "bundle/ts/inject.css",
+        "bundle/ts/initialize.css"
       ]
     }
   ],
