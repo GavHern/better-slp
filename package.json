@@ -8,7 +8,6 @@
     "dev": "parcel watch --no-hmr src/ts/{background.ts,initialize.ts,inject.ts,summernote/script.ts} src/sass/{inject.scss,dark-mode.scss} --out-dir public/bundle"
   },
   "license": "ISC",
-  "dependencies": {},
   "devDependencies": {
     "@tsconfig/svelte": "^2.0.1",
     "@types/chrome": "0.0.133",
