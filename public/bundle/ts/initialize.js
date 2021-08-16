@@ -4002,11 +4002,7 @@ function enableDarkMode(toggleState) {
     }, 300);
   }
 
-  if (!toggleState) {
-    document.documentElement.setAttribute('better-slp-dark-mode', 'false');
-    return;
-  }
-
+  if (!toggleState) document.documentElement.setAttribute('better-slp-dark-mode', 'false');
   document.documentElement.setAttribute('better-slp-dark-mode', 'true');
 }
 

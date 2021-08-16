@@ -25,13 +25,13 @@ function getLetterGrades(): LetterGrade[] {
   const letterGrades = [] as LetterGrade[];
   
   document.querySelectorAll('.current-grade .letter-grade').forEach(e => {
-    letterGrades.push(<LetterGrade>e.innerHTML);
+    letterGrades.push( <LetterGrade> e.innerHTML );
   });
 
   return letterGrades;
 }
 
-export function appendGPAEstimate(): void {
+export function appendGPAEstimate() {
   const gpa = getGPA(getLetterGrades());
   const injectionParent = document.querySelector('.sdl-course-grades');
   if(injectionParent === null) return;

@@ -2530,12 +2530,17 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 var file = "components/GPA.svelte";
 
 function create_fragment(ctx) {
+  var _ctx$;
+
   var div3;
   var div2;
   var div0;
   var t1;
   var div1;
   var span;
+  var t2_value = (
+  /*gpa*/
+  (_ctx$ = ctx[0]) !== null && _ctx$ !== void 0 ? _ctx$ : "N/A") + "";
   var t2;
   var block = {
     c: function create() {
@@ -2546,9 +2551,7 @@ function create_fragment(ctx) {
       t1 = (0, _internal.space)();
       div1 = (0, _internal.element)("div");
       span = (0, _internal.element)("span");
-      t2 = (0, _internal.text)(
-      /*gpa*/
-      ctx[0]);
+      t2 = (0, _internal.text)(t2_value);
       (0, _internal.attr_dev)(div0, "class", "course-name-column col-xs-6 course-name");
       (0, _internal.add_location)(div0, file, 19, 4, 425);
       (0, _internal.attr_dev)(span, "class", "current-grade grade letter-grade");
@@ -2573,14 +2576,16 @@ function create_fragment(ctx) {
       (0, _internal.append_dev)(span, t2);
     },
     p: function update(ctx, _ref) {
+      var _ctx$2;
+
       var _ref2 = _slicedToArray(_ref, 1),
           dirty = _ref2[0];
 
       if (dirty &
       /*gpa*/
-      1) (0, _internal.set_data_dev)(t2,
+      1 && t2_value !== (t2_value = (
       /*gpa*/
-      ctx[0]);
+      (_ctx$2 = ctx[0]) !== null && _ctx$2 !== void 0 ? _ctx$2 : "N/A") + "")) (0, _internal.set_data_dev)(t2, t2_value);
     },
     i: _internal.noop,
     o: _internal.noop,
@@ -2772,8 +2777,6 @@ function main() {
 }
 
 if (!document.documentElement.classList.contains('nprogress-busy')) main();
-(_document$querySelect = document.querySelector('#nprogress')) === null || _document$querySelect === void 0 ? void 0 : _document$querySelect.addEventListener('DOMNodeRemoved', function () {
-  main();
-});
+(_document$querySelect = document.querySelector('#nprogress')) === null || _document$querySelect === void 0 ? void 0 : _document$querySelect.addEventListener('DOMNodeRemoved', main);
 },{"./modules/noteTaker":"ts/modules/noteTaker.ts","./modules/gpaEstimate":"ts/modules/gpaEstimate.ts"}]},{},["ts/inject.ts"], null)
 //# sourceMappingURL=/ts/inject.js.map

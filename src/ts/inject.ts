@@ -1,7 +1,7 @@
 import { appendNoteTaker } from './modules/noteTaker';
 import { appendGPAEstimate } from './modules/gpaEstimate';
 
-function progressTab(): void {
+function progressTab() {
   //if(document.querySelectorAll('.better-slp-pie-chart-grid').length < 1) return;
   const existingGPAEstimates = document.querySelectorAll('.better-slp-gpa-estimate');
   existingGPAEstimates.forEach(e => e.remove());
@@ -9,7 +9,7 @@ function progressTab(): void {
   appendGPAEstimate();
 }
 
-function main(): void {
+function main() {
   const currentURL = window.location.href;
 
   switch(true) {
@@ -23,4 +23,4 @@ function main(): void {
 }
 
 if(!document.documentElement.classList.contains('nprogress-busy')) main(); // Initial load
-document.querySelector('#nprogress')?.addEventListener('DOMNodeRemoved', () => {main()}); // Reload every state change
+document.querySelector('#nprogress')?.addEventListener('DOMNodeRemoved', main); // Reload every state change

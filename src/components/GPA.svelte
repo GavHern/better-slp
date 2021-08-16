@@ -21,7 +21,7 @@
   <div class="row">
     <div class="course-name-column col-xs-6 course-name">GPA Estimate</div>
     <div class="grade-column middle-column col-xs-5">
-      <span class="current-grade grade letter-grade">{gpa}</span>
+      <span class="current-grade grade letter-grade">{gpa ?? 'N/A'}</span>
     </div>
   </div>
 </div>

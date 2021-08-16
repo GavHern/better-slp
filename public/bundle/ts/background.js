@@ -130,9 +130,9 @@ function executeInjectScript(details) {
   });
 }
 
-chrome.webNavigation.onHistoryStateUpdated.addListener(function (d) {
-  if (new RegExp('.*:\/\/.*?\.?summitlearning\.org/my/(assessment_takes|math_unit_assessment).*').test(d.url)) return;
-  executeInjectScript(d);
+chrome.webNavigation.onHistoryStateUpdated.addListener(function (destination) {
+  if (new RegExp('.*:\/\/.*?\.?summitlearning\.org/my/(assessment_takes|math_unit_assessment).*').test(destination.url)) return;
+  executeInjectScript(destination);
 }, {
   "url": [{
     urlMatches: ".*://.*\\..*summitlearning\\.org.*"
