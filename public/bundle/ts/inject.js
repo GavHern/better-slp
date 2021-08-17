@@ -2688,7 +2688,682 @@ var GPA = /*#__PURE__*/function (_SvelteComponentDev) {
 
 var _default = GPA;
 exports.default = _default;
-},{"svelte/internal":"../node_modules/svelte/internal/index.mjs"}],"ts/modules/gpaEstimate.ts":[function(require,module,exports) {
+},{"svelte/internal":"../node_modules/svelte/internal/index.mjs"}],"components/subcomponents/PieChart.svelte":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _internal = require("svelte/internal");
+
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArrayLimit(arr, i) { var _i = arr && (typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"]); if (_i == null) return; var _arr = []; var _n = true; var _d = false; var _s, _e; try { for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+var file = "components/subcomponents/PieChart.svelte";
+
+function create_fragment(ctx) {
+  var div;
+  var svg;
+  var circle0;
+  var circle1;
+  var t0;
+  var h1;
+  var t1;
+  var t2;
+  var block = {
+    c: function create() {
+      div = (0, _internal.element)("div");
+      svg = (0, _internal.svg_element)("svg");
+      circle0 = (0, _internal.svg_element)("circle");
+      circle1 = (0, _internal.svg_element)("circle");
+      t0 = (0, _internal.space)();
+      h1 = (0, _internal.element)("h1");
+      t1 = (0, _internal.text)(
+      /*percentage*/
+      ctx[0]);
+      t2 = (0, _internal.text)("%");
+      (0, _internal.attr_dev)(circle0, "class", "better-slp-pie-ring-circle-track svelte-13ffq7e");
+      (0, _internal.attr_dev)(circle0, "stroke", "currentColor");
+      (0, _internal.attr_dev)(circle0, "stroke-width", "14");
+      (0, _internal.attr_dev)(circle0, "fill", "transparent");
+      (0, _internal.attr_dev)(circle0, "r", "52");
+      (0, _internal.attr_dev)(circle0, "cx", "60");
+      (0, _internal.attr_dev)(circle0, "cy", "60");
+      (0, _internal.add_location)(circle0, file, 11, 2, 227);
+      (0, _internal.attr_dev)(circle1, "class", "better-slp-pie-ring-circle svelte-13ffq7e");
+      (0, _internal.attr_dev)(circle1, "stroke", "currentColor");
+      (0, _internal.attr_dev)(circle1, "stroke-width", "14");
+      (0, _internal.attr_dev)(circle1, "fill", "transparent");
+      (0, _internal.attr_dev)(circle1, "r", "52");
+      (0, _internal.attr_dev)(circle1, "cx", "60");
+      (0, _internal.attr_dev)(circle1, "cy", "60");
+      (0, _internal.set_style)(circle1, "--percentage",
+      /*percentage*/
+      ctx[0]);
+      (0, _internal.add_location)(circle1, file, 20, 2, 395);
+      (0, _internal.attr_dev)(svg, "class", "better-slp-pie-ring svelte-13ffq7e");
+      (0, _internal.attr_dev)(svg, "height", "120");
+      (0, _internal.attr_dev)(svg, "width", "120");
+      (0, _internal.attr_dev)(svg, "viewBox", "0 0 120 120");
+      (0, _internal.attr_dev)(svg, "data-percentage",
+      /*percentage*/
+      ctx[0]);
+      (0, _internal.add_location)(svg, file, 4, 1, 96);
+      (0, _internal.attr_dev)(h1, "class", "better-slp-pie-percentage svelte-13ffq7e");
+      (0, _internal.add_location)(h1, file, 32, 1, 606);
+      (0, _internal.attr_dev)(div, "class", "better-slp-pie-container svelte-13ffq7e");
+      (0, _internal.add_location)(div, file, 3, 0, 55);
+    },
+    l: function claim(nodes) {
+      throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
+    },
+    m: function mount(target, anchor) {
+      (0, _internal.insert_dev)(target, div, anchor);
+      (0, _internal.append_dev)(div, svg);
+      (0, _internal.append_dev)(svg, circle0);
+      (0, _internal.append_dev)(svg, circle1);
+      (0, _internal.append_dev)(div, t0);
+      (0, _internal.append_dev)(div, h1);
+      (0, _internal.append_dev)(h1, t1);
+      (0, _internal.append_dev)(h1, t2);
+    },
+    p: function update(ctx, _ref) {
+      var _ref2 = _slicedToArray(_ref, 1),
+          dirty = _ref2[0];
+
+      if (dirty &
+      /*percentage*/
+      1) {
+        (0, _internal.set_style)(circle1, "--percentage",
+        /*percentage*/
+        ctx[0]);
+      }
+
+      if (dirty &
+      /*percentage*/
+      1) {
+        (0, _internal.attr_dev)(svg, "data-percentage",
+        /*percentage*/
+        ctx[0]);
+      }
+
+      if (dirty &
+      /*percentage*/
+      1) (0, _internal.set_data_dev)(t1,
+      /*percentage*/
+      ctx[0]);
+    },
+    i: _internal.noop,
+    o: _internal.noop,
+    d: function destroy(detaching) {
+      if (detaching) (0, _internal.detach_dev)(div);
+    }
+  };
+  (0, _internal.dispatch_dev)("SvelteRegisterBlock", {
+    block: block,
+    id: create_fragment.name,
+    type: "component",
+    source: "",
+    ctx: ctx
+  });
+  return block;
+}
+
+function instance($$self, $$props, $$invalidate) {
+  var _$$props$$$slots = $$props.$$slots,
+      slots = _$$props$$$slots === void 0 ? {} : _$$props$$$slots,
+      $$scope = $$props.$$scope;
+  (0, _internal.validate_slots)("PieChart", slots, []);
+  var percentage = $$props.percentage;
+  var writable_props = ["percentage"];
+  Object.keys($$props).forEach(function (key) {
+    if (!~writable_props.indexOf(key) && key.slice(0, 2) !== "$$") console.warn("<PieChart> was created with unknown prop '".concat(key, "'"));
+  });
+
+  $$self.$$set = function ($$props) {
+    if ("percentage" in $$props) $$invalidate(0, percentage = $$props.percentage);
+  };
+
+  $$self.$capture_state = function () {
+    return {
+      percentage: percentage
+    };
+  };
+
+  $$self.$inject_state = function ($$props) {
+    if ("percentage" in $$props) $$invalidate(0, percentage = $$props.percentage);
+  };
+
+  if ($$props && "$$inject" in $$props) {
+    $$self.$inject_state($$props.$$inject);
+  }
+
+  return [percentage];
+}
+
+var PieChart = /*#__PURE__*/function (_SvelteComponentDev) {
+  _inherits(PieChart, _SvelteComponentDev);
+
+  var _super = _createSuper(PieChart);
+
+  function PieChart(options) {
+    var _this;
+
+    _classCallCheck(this, PieChart);
+
+    _this = _super.call(this, options);
+    (0, _internal.init)(_assertThisInitialized(_this), options, instance, create_fragment, _internal.safe_not_equal, {
+      percentage: 0
+    });
+    (0, _internal.dispatch_dev)("SvelteRegisterComponent", {
+      component: _assertThisInitialized(_this),
+      tagName: "PieChart",
+      options: options,
+      id: create_fragment.name
+    });
+    var ctx = _this.$$.ctx;
+    var props = options.props || {};
+
+    if (
+    /*percentage*/
+    ctx[0] === undefined && !("percentage" in props)) {
+      console.warn("<PieChart> was created without expected prop 'percentage'");
+    }
+
+    return _this;
+  }
+
+  _createClass(PieChart, [{
+    key: "percentage",
+    get: function get() {
+      throw new Error("<PieChart>: Props cannot be read directly from the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    },
+    set: function set(value) {
+      throw new Error("<PieChart>: Props cannot be set directly on the component instance unless compiling with 'accessors: true' or '<svelte:options accessors/>'");
+    }
+  }]);
+
+  return PieChart;
+}(_internal.SvelteComponentDev);
+
+var _default = PieChart;
+exports.default = _default;
+},{"svelte/internal":"../node_modules/svelte/internal/index.mjs"}],"components/YearProgress.svelte":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _internal = require("svelte/internal");
+
+var _PieChart = _interopRequireDefault(require("./subcomponents/PieChart.svelte"));
+
+var _methods = require("../ts/modules/methods");
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function _iterableToArrayLimit(arr, i) { var _i = arr && (typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"]); if (_i == null) return; var _arr = []; var _n = true; var _d = false; var _s, _e; try { for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
+
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+
+var file = "components/YearProgress.svelte";
+
+function get_each_context(ctx, list, i) {
+  var child_ctx = ctx.slice();
+  child_ctx[3] = list[i];
+  return child_ctx;
+} // (1:0) <script lang="ts">import PieChart from './subcomponents/PieChart.svelte';  import { getCurrentAcademicYear }
+
+
+function create_catch_block(ctx) {
+  var block = {
+    c: _internal.noop,
+    m: _internal.noop,
+    p: _internal.noop,
+    i: _internal.noop,
+    o: _internal.noop,
+    d: _internal.noop
+  };
+  (0, _internal.dispatch_dev)("SvelteRegisterBlock", {
+    block: block,
+    id: create_catch_block.name,
+    type: "catch",
+    source: "(1:0) <script lang=\\\"ts\\\">import PieChart from './subcomponents/PieChart.svelte';  import { getCurrentAcademicYear }",
+    ctx: ctx
+  });
+  return block;
+} // (27:3) {:then value}
+
+
+function create_then_block(ctx) {
+  var each_1_anchor;
+  var current;
+  var each_value =
+  /*progressInfo*/
+  ctx[1];
+  (0, _internal.validate_each_argument)(each_value);
+  var each_blocks = [];
+
+  for (var i = 0; i < each_value.length; i += 1) {
+    each_blocks[i] = create_each_block(get_each_context(ctx, each_value, i));
+  }
+
+  var out = function out(i) {
+    return (0, _internal.transition_out)(each_blocks[i], 1, 1, function () {
+      each_blocks[i] = null;
+    });
+  };
+
+  var block = {
+    c: function create() {
+      for (var _i = 0; _i < each_blocks.length; _i += 1) {
+        each_blocks[_i].c();
+      }
+
+      each_1_anchor = (0, _internal.empty)();
+    },
+    m: function mount(target, anchor) {
+      for (var _i2 = 0; _i2 < each_blocks.length; _i2 += 1) {
+        each_blocks[_i2].m(target, anchor);
+      }
+
+      (0, _internal.insert_dev)(target, each_1_anchor, anchor);
+      current = true;
+    },
+    p: function update(ctx, dirty) {
+      if (dirty &
+      /*progressInfo*/
+      2) {
+        each_value =
+        /*progressInfo*/
+        ctx[1];
+        (0, _internal.validate_each_argument)(each_value);
+
+        var _i3;
+
+        for (_i3 = 0; _i3 < each_value.length; _i3 += 1) {
+          var child_ctx = get_each_context(ctx, each_value, _i3);
+
+          if (each_blocks[_i3]) {
+            each_blocks[_i3].p(child_ctx, dirty);
+
+            (0, _internal.transition_in)(each_blocks[_i3], 1);
+          } else {
+            each_blocks[_i3] = create_each_block(child_ctx);
+
+            each_blocks[_i3].c();
+
+            (0, _internal.transition_in)(each_blocks[_i3], 1);
+
+            each_blocks[_i3].m(each_1_anchor.parentNode, each_1_anchor);
+          }
+        }
+
+        (0, _internal.group_outros)();
+
+        for (_i3 = each_value.length; _i3 < each_blocks.length; _i3 += 1) {
+          out(_i3);
+        }
+
+        (0, _internal.check_outros)();
+      }
+    },
+    i: function intro(local) {
+      if (current) return;
+
+      for (var _i4 = 0; _i4 < each_value.length; _i4 += 1) {
+        (0, _internal.transition_in)(each_blocks[_i4]);
+      }
+
+      current = true;
+    },
+    o: function outro(local) {
+      each_blocks = each_blocks.filter(Boolean);
+
+      for (var _i5 = 0; _i5 < each_blocks.length; _i5 += 1) {
+        (0, _internal.transition_out)(each_blocks[_i5]);
+      }
+
+      current = false;
+    },
+    d: function destroy(detaching) {
+      (0, _internal.destroy_each)(each_blocks, detaching);
+      if (detaching) (0, _internal.detach_dev)(each_1_anchor);
+    }
+  };
+  (0, _internal.dispatch_dev)("SvelteRegisterBlock", {
+    block: block,
+    id: create_then_block.name,
+    type: "then",
+    source: "(27:3) {:then value}",
+    ctx: ctx
+  });
+  return block;
+} // (28:4) {#each progressInfo as info}
+
+
+function create_each_block(ctx) {
+  var div1;
+  var div0;
+  var piechart;
+  var t;
+  var current;
+  piechart = new _PieChart.default({
+    props: {
+      percentage:
+      /*info*/
+      ctx[3].percentage
+    },
+    $$inline: true
+  });
+  var block = {
+    c: function create() {
+      div1 = (0, _internal.element)("div");
+      div0 = (0, _internal.element)("div");
+      (0, _internal.create_component)(piechart.$$.fragment);
+      t = (0, _internal.space)();
+      (0, _internal.attr_dev)(div0, "class", "better-slp-pie-chart-container svelte-1lrrmw4");
+      (0, _internal.add_location)(div0, file, 30, 6, 904);
+      (0, _internal.attr_dev)(div1, "class", "better-slp-year-progress-chart svelte-1lrrmw4");
+      (0, _internal.add_location)(div1, file, 28, 5, 850);
+    },
+    m: function mount(target, anchor) {
+      (0, _internal.insert_dev)(target, div1, anchor);
+      (0, _internal.append_dev)(div1, div0);
+      (0, _internal.mount_component)(piechart, div0, null);
+      (0, _internal.append_dev)(div1, t);
+      current = true;
+    },
+    p: _internal.noop,
+    i: function intro(local) {
+      if (current) return;
+      (0, _internal.transition_in)(piechart.$$.fragment, local);
+      current = true;
+    },
+    o: function outro(local) {
+      (0, _internal.transition_out)(piechart.$$.fragment, local);
+      current = false;
+    },
+    d: function destroy(detaching) {
+      if (detaching) (0, _internal.detach_dev)(div1);
+      (0, _internal.destroy_component)(piechart);
+    }
+  };
+  (0, _internal.dispatch_dev)("SvelteRegisterBlock", {
+    block: block,
+    id: create_each_block.name,
+    type: "each",
+    source: "(28:4) {#each progressInfo as info}",
+    ctx: ctx
+  });
+  return block;
+} // (25:26)       Loading...     {:then value}
+
+
+function create_pending_block(ctx) {
+  var t;
+  var block = {
+    c: function create() {
+      t = (0, _internal.text)("Loading...");
+    },
+    m: function mount(target, anchor) {
+      (0, _internal.insert_dev)(target, t, anchor);
+    },
+    p: _internal.noop,
+    i: _internal.noop,
+    o: _internal.noop,
+    d: function destroy(detaching) {
+      if (detaching) (0, _internal.detach_dev)(t);
+    }
+  };
+  (0, _internal.dispatch_dev)("SvelteRegisterBlock", {
+    block: block,
+    id: create_pending_block.name,
+    type: "pending",
+    source: "(25:26)       Loading...     {:then value}",
+    ctx: ctx
+  });
+  return block;
+}
+
+function create_fragment(ctx) {
+  var ul;
+  var li0;
+  var div1;
+  var div0;
+  var h2;
+  var t1;
+  var li1;
+  var div2;
+  var promise;
+  var current;
+  var info = {
+    ctx: ctx,
+    current: null,
+    token: null,
+    hasCatch: false,
+    pending: create_pending_block,
+    then: create_then_block,
+    catch: create_catch_block,
+    value: 2,
+    blocks: [,,,]
+  };
+  (0, _internal.handle_promise)(promise =
+  /*yearAPIResults*/
+  ctx[0], info);
+  var block = {
+    c: function create() {
+      ul = (0, _internal.element)("ul");
+      li0 = (0, _internal.element)("li");
+      div1 = (0, _internal.element)("div");
+      div0 = (0, _internal.element)("div");
+      h2 = (0, _internal.element)("h2");
+      h2.textContent = "Year Progress";
+      t1 = (0, _internal.space)();
+      li1 = (0, _internal.element)("li");
+      div2 = (0, _internal.element)("div");
+      info.block.c();
+      (0, _internal.attr_dev)(h2, "class", "app-heading mentor-card-title svelte-1lrrmw4");
+      (0, _internal.add_location)(h2, file, 15, 4, 523);
+      (0, _internal.attr_dev)(div0, "class", "col-md-10 svelte-1lrrmw4");
+      (0, _internal.add_location)(div0, file, 14, 3, 494);
+      (0, _internal.attr_dev)(div1, "class", "row svelte-1lrrmw4");
+      (0, _internal.add_location)(div1, file, 13, 2, 472);
+      (0, _internal.attr_dev)(li0, "class", "list-group-item svelte-1lrrmw4");
+      (0, _internal.add_location)(li0, file, 12, 1, 440);
+      (0, _internal.attr_dev)(div2, "class", "better-slp-year-progress-chart-containter svelte-1lrrmw4");
+      (0, _internal.add_location)(div2, file, 22, 2, 689);
+      (0, _internal.attr_dev)(li1, "class", "list-group-item better-slp-year-progress-row svelte-1lrrmw4");
+      (0, _internal.add_location)(li1, file, 21, 1, 628);
+      (0, _internal.attr_dev)(ul, "class", "claro-list-group mentor-card list-group svelte-1lrrmw4");
+      (0, _internal.add_location)(ul, file, 11, 0, 385);
+    },
+    l: function claim(nodes) {
+      throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
+    },
+    m: function mount(target, anchor) {
+      (0, _internal.insert_dev)(target, ul, anchor);
+      (0, _internal.append_dev)(ul, li0);
+      (0, _internal.append_dev)(li0, div1);
+      (0, _internal.append_dev)(div1, div0);
+      (0, _internal.append_dev)(div0, h2);
+      (0, _internal.append_dev)(ul, t1);
+      (0, _internal.append_dev)(ul, li1);
+      (0, _internal.append_dev)(li1, div2);
+      info.block.m(div2, info.anchor = null);
+
+      info.mount = function () {
+        return div2;
+      };
+
+      info.anchor = null;
+      current = true;
+    },
+    p: function update(new_ctx, _ref) {
+      var _ref2 = _slicedToArray(_ref, 1),
+          dirty = _ref2[0];
+
+      ctx = new_ctx;
+      (0, _internal.update_await_block_branch)(info, ctx, dirty);
+    },
+    i: function intro(local) {
+      if (current) return;
+      (0, _internal.transition_in)(info.block);
+      current = true;
+    },
+    o: function outro(local) {
+      for (var i = 0; i < 3; i += 1) {
+        var _block = info.blocks[i];
+        (0, _internal.transition_out)(_block);
+      }
+
+      current = false;
+    },
+    d: function destroy(detaching) {
+      if (detaching) (0, _internal.detach_dev)(ul);
+      info.block.d();
+      info.token = null;
+      info = null;
+    }
+  };
+  (0, _internal.dispatch_dev)("SvelteRegisterBlock", {
+    block: block,
+    id: create_fragment.name,
+    type: "component",
+    source: "",
+    ctx: ctx
+  });
+  return block;
+}
+
+function instance($$self, $$props, $$invalidate) {
+  var _$$props$$$slots = $$props.$$slots,
+      slots = _$$props$$$slots === void 0 ? {} : _$$props$$$slots,
+      $$scope = $$props.$$scope;
+  (0, _internal.validate_slots)("YearProgress", slots, []);
+  var yearAPIResults = fetch("https://www.summitlearning.org/my/year/".concat((0, _methods.getCurrentAcademicYear)(), ".json"));
+  var progressInfo = [{
+    percentage: 100
+  }, {
+    percentage: 66
+  }, {
+    percentage: 95
+  }, {
+    percentage: 23
+  }];
+  var writable_props = [];
+  Object.keys($$props).forEach(function (key) {
+    if (!~writable_props.indexOf(key) && key.slice(0, 2) !== "$$") console.warn("<YearProgress> was created with unknown prop '".concat(key, "'"));
+  });
+
+  $$self.$capture_state = function () {
+    return {
+      PieChart: _PieChart.default,
+      getCurrentAcademicYear: _methods.getCurrentAcademicYear,
+      yearAPIResults: yearAPIResults,
+      progressInfo: progressInfo
+    };
+  };
+
+  $$self.$inject_state = function ($$props) {
+    if ("yearAPIResults" in $$props) $$invalidate(0, yearAPIResults = $$props.yearAPIResults);
+  };
+
+  if ($$props && "$$inject" in $$props) {
+    $$self.$inject_state($$props.$$inject);
+  }
+
+  return [yearAPIResults, progressInfo];
+}
+
+var YearProgress = /*#__PURE__*/function (_SvelteComponentDev) {
+  _inherits(YearProgress, _SvelteComponentDev);
+
+  var _super = _createSuper(YearProgress);
+
+  function YearProgress(options) {
+    var _this;
+
+    _classCallCheck(this, YearProgress);
+
+    _this = _super.call(this, options);
+    (0, _internal.init)(_assertThisInitialized(_this), options, instance, create_fragment, _internal.safe_not_equal, {});
+    (0, _internal.dispatch_dev)("SvelteRegisterComponent", {
+      component: _assertThisInitialized(_this),
+      tagName: "YearProgress",
+      options: options,
+      id: create_fragment.name
+    });
+    return _this;
+  }
+
+  return YearProgress;
+}(_internal.SvelteComponentDev);
+
+var _default = YearProgress;
+exports.default = _default;
+},{"svelte/internal":"../node_modules/svelte/internal/index.mjs","./subcomponents/PieChart.svelte":"components/subcomponents/PieChart.svelte","../ts/modules/methods":"ts/modules/methods.ts"}],"ts/modules/gpaEstimate.ts":[function(require,module,exports) {
 "use strict";
 
 var __importDefault = this && this.__importDefault || function (mod) {
@@ -2707,6 +3382,8 @@ var data_1 = require("./data");
 var methods_1 = require("./methods");
 
 var GPA_svelte_1 = __importDefault(require("../../components/GPA.svelte"));
+
+var YearProgress_svelte_1 = __importDefault(require("../../components/YearProgress.svelte"));
 
 function getGPA(grades) {
   if (grades.every(function (e) {
@@ -2738,10 +3415,13 @@ function appendGPAEstimate() {
       gpa: gpa
     }
   });
+  new YearProgress_svelte_1.default({
+    target: document.querySelector('.claro-sdl-progress .panel-body .col-md-4')
+  });
 }
 
 exports.appendGPAEstimate = appendGPAEstimate;
-},{"./data":"ts/modules/data.ts","./methods":"ts/modules/methods.ts","../../components/GPA.svelte":"components/GPA.svelte"}],"ts/inject.ts":[function(require,module,exports) {
+},{"./data":"ts/modules/data.ts","./methods":"ts/modules/methods.ts","../../components/GPA.svelte":"components/GPA.svelte","../../components/YearProgress.svelte":"components/YearProgress.svelte"}],"ts/inject.ts":[function(require,module,exports) {
 "use strict";
 
 var _document$querySelect;

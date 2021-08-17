@@ -2,6 +2,8 @@ import { letterGradeScale } from './data';
 import { getAverage } from './methods';
 // @ts-ignore
 import GPAComponent from '../../components/GPA.svelte';
+// @ts-ignore
+import YearProgress from '../../components/YearProgress.svelte';
 
 function getGPA(grades: LetterGrade[]): number | null {
 
@@ -41,5 +43,9 @@ export function appendGPAEstimate() {
     props: {
       gpa: gpa
     }
-  })  
+  })
+
+	new YearProgress({
+    target: document.querySelector('.claro-sdl-progress .panel-body .col-md-4')
+  })
 }
