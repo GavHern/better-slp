@@ -1,5 +1,6 @@
 import { appendNoteTaker } from './modules/noteTaker';
 import { appendGPAEstimate } from './modules/gpaEstimate';
+import { randomFocusArea } from './modules/randomFocusArea';
 
 function progressTab() {
   //if(document.querySelectorAll('.better-slp-pie-chart-grid').length < 1) return;
@@ -7,6 +8,12 @@ function progressTab() {
   existingGPAEstimates.forEach(e => e.remove());
   
   appendGPAEstimate();
+}
+
+function yearTab() {
+	const yearPageAux = document.querySelector('.app-page-title-aux-items .app-page-title-aux');
+	
+	randomFocusArea(yearPageAux);
 }
 
 function main() {
@@ -19,6 +26,9 @@ function main() {
     case new RegExp('.*:\/\/.*?\.?summitlearning\.org/my/progress(/.*)?').test(currentURL): // Progress page
       progressTab();
       break;
+    case new RegExp('.*:\/\/.*?\.?summitlearning\.org/my/year/.*').test(currentURL): // Year
+			yearTab();
+			break;
   }
 }
 

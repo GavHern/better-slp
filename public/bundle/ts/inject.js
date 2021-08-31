@@ -2755,7 +2755,7 @@ function create_fragment(ctx) {
       /*percentage*/
       ctx[0]);
       t2 = (0, _internal.text)("%");
-      (0, _internal.attr_dev)(circle0, "class", "better-slp-pie-ring-circle-track svelte-13ffq7e");
+      (0, _internal.attr_dev)(circle0, "class", "better-slp-pie-ring-circle-track svelte-1c5zq4a");
       (0, _internal.attr_dev)(circle0, "stroke", "currentColor");
       (0, _internal.attr_dev)(circle0, "stroke-width", "14");
       (0, _internal.attr_dev)(circle0, "fill", "transparent");
@@ -2763,7 +2763,7 @@ function create_fragment(ctx) {
       (0, _internal.attr_dev)(circle0, "cx", "60");
       (0, _internal.attr_dev)(circle0, "cy", "60");
       (0, _internal.add_location)(circle0, file, 11, 2, 227);
-      (0, _internal.attr_dev)(circle1, "class", "better-slp-pie-ring-circle svelte-13ffq7e");
+      (0, _internal.attr_dev)(circle1, "class", "better-slp-pie-ring-circle svelte-1c5zq4a");
       (0, _internal.attr_dev)(circle1, "stroke", "currentColor");
       (0, _internal.attr_dev)(circle1, "stroke-width", "14");
       (0, _internal.attr_dev)(circle1, "fill", "transparent");
@@ -2774,7 +2774,7 @@ function create_fragment(ctx) {
       /*percentage*/
       ctx[0]);
       (0, _internal.add_location)(circle1, file, 20, 2, 395);
-      (0, _internal.attr_dev)(svg, "class", "better-slp-pie-ring svelte-13ffq7e");
+      (0, _internal.attr_dev)(svg, "class", "better-slp-pie-ring svelte-1c5zq4a");
       (0, _internal.attr_dev)(svg, "height", "120");
       (0, _internal.attr_dev)(svg, "width", "120");
       (0, _internal.attr_dev)(svg, "viewBox", "0 0 120 120");
@@ -2782,9 +2782,9 @@ function create_fragment(ctx) {
       /*percentage*/
       ctx[0]);
       (0, _internal.add_location)(svg, file, 4, 1, 96);
-      (0, _internal.attr_dev)(h1, "class", "better-slp-pie-percentage svelte-13ffq7e");
+      (0, _internal.attr_dev)(h1, "class", "better-slp-pie-percentage svelte-1c5zq4a");
       (0, _internal.add_location)(h1, file, 32, 1, 606);
-      (0, _internal.attr_dev)(div, "class", "better-slp-pie-container svelte-13ffq7e");
+      (0, _internal.attr_dev)(div, "class", "better-slp-pie-container svelte-1c5zq4a");
       (0, _internal.add_location)(div, file, 3, 0, 55);
     },
     l: function claim(nodes) {
@@ -3421,7 +3421,169 @@ function appendGPAEstimate() {
 }
 
 exports.appendGPAEstimate = appendGPAEstimate;
-},{"./data":"ts/modules/data.ts","./methods":"ts/modules/methods.ts","../../components/GPA.svelte":"components/GPA.svelte","../../components/YearProgress.svelte":"components/YearProgress.svelte"}],"ts/inject.ts":[function(require,module,exports) {
+},{"./data":"ts/modules/data.ts","./methods":"ts/modules/methods.ts","../../components/GPA.svelte":"components/GPA.svelte","../../components/YearProgress.svelte":"components/YearProgress.svelte"}],"components/RandomFocusArea.svelte":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _internal = require("svelte/internal");
+
+function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+var file = "components/RandomFocusArea.svelte";
+
+function create_fragment(ctx) {
+  var div;
+  var button;
+  var i;
+  var mounted;
+  var dispose;
+  var block = {
+    c: function create() {
+      div = (0, _internal.element)("div");
+      button = (0, _internal.element)("button");
+      i = (0, _internal.element)("i");
+      i.textContent = "casino";
+      (0, _internal.attr_dev)(i, "class", "material-icons material-icons-default better-slp-random-focus-area-icon svelte-10x5ljd");
+      (0, _internal.add_location)(i, file, 12, 2, 589);
+      (0, _internal.attr_dev)(button, "type", "button");
+      (0, _internal.attr_dev)(button, "class", "page-title-button btn-link");
+      (0, _internal.add_location)(button, file, 11, 1, 496);
+      (0, _internal.attr_dev)(div, "class", "better-slp-random-focus-area btn-group svelte-10x5ljd");
+      (0, _internal.add_location)(div, file, 10, 0, 441);
+    },
+    l: function claim(nodes) {
+      throw new Error("options.hydrate only works if the component was compiled with the `hydratable: true` option");
+    },
+    m: function mount(target, anchor) {
+      (0, _internal.insert_dev)(target, div, anchor);
+      (0, _internal.append_dev)(div, button);
+      (0, _internal.append_dev)(button, i);
+
+      if (!mounted) {
+        dispose = (0, _internal.listen_dev)(button, "click", visitRandomFocusArea, false, false, false);
+        mounted = true;
+      }
+    },
+    p: _internal.noop,
+    i: _internal.noop,
+    o: _internal.noop,
+    d: function destroy(detaching) {
+      if (detaching) (0, _internal.detach_dev)(div);
+      mounted = false;
+      dispose();
+    }
+  };
+  (0, _internal.dispatch_dev)("SvelteRegisterBlock", {
+    block: block,
+    id: create_fragment.name,
+    type: "component",
+    source: "",
+    ctx: ctx
+  });
+  return block;
+}
+
+function visitRandomFocusArea() {
+  var focusAreaLinks = document.querySelectorAll(".focusarea-list-item.courserow-list-item a:not(.success)");
+  if (focusAreaLinks.length === 0) return alert("You have passed every focus area. Congrats!");
+  var randomFocusAreaLink = focusAreaLinks[Math.floor(Math.random() * focusAreaLinks.length)];
+  randomFocusAreaLink.click();
+}
+
+function instance($$self, $$props, $$invalidate) {
+  var _$$props$$$slots = $$props.$$slots,
+      slots = _$$props$$$slots === void 0 ? {} : _$$props$$$slots,
+      $$scope = $$props.$$scope;
+  (0, _internal.validate_slots)("RandomFocusArea", slots, []);
+  "use strict";
+
+  var writable_props = [];
+  Object.keys($$props).forEach(function (key) {
+    if (!~writable_props.indexOf(key) && key.slice(0, 2) !== "$$") console.warn("<RandomFocusArea> was created with unknown prop '".concat(key, "'"));
+  });
+
+  $$self.$capture_state = function () {
+    return {
+      visitRandomFocusArea: visitRandomFocusArea
+    };
+  };
+
+  return [];
+}
+
+var RandomFocusArea = /*#__PURE__*/function (_SvelteComponentDev) {
+  _inherits(RandomFocusArea, _SvelteComponentDev);
+
+  var _super = _createSuper(RandomFocusArea);
+
+  function RandomFocusArea(options) {
+    var _this;
+
+    _classCallCheck(this, RandomFocusArea);
+
+    _this = _super.call(this, options);
+    (0, _internal.init)(_assertThisInitialized(_this), options, instance, create_fragment, _internal.safe_not_equal, {});
+    (0, _internal.dispatch_dev)("SvelteRegisterComponent", {
+      component: _assertThisInitialized(_this),
+      tagName: "RandomFocusArea",
+      options: options,
+      id: create_fragment.name
+    });
+    return _this;
+  }
+
+  return RandomFocusArea;
+}(_internal.SvelteComponentDev);
+
+var _default = RandomFocusArea;
+exports.default = _default;
+},{"svelte/internal":"../node_modules/svelte/internal/index.mjs"}],"ts/modules/randomFocusArea.ts":[function(require,module,exports) {
+"use strict";
+
+var __importDefault = this && this.__importDefault || function (mod) {
+  return mod && mod.__esModule ? mod : {
+    "default": mod
+  };
+};
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.randomFocusArea = void 0;
+
+var RandomFocusArea_svelte_1 = __importDefault(require("../../components/RandomFocusArea.svelte"));
+
+function randomFocusArea(auxParent) {
+  var randomFocusAreaContainer = document.createElement('div');
+  randomFocusAreaContainer.classList.add('btn-group');
+  new RandomFocusArea_svelte_1.default({
+    target: randomFocusAreaContainer
+  });
+  auxParent === null || auxParent === void 0 ? void 0 : auxParent.prepend(randomFocusAreaContainer);
+}
+
+exports.randomFocusArea = randomFocusArea;
+},{"../../components/RandomFocusArea.svelte":"components/RandomFocusArea.svelte"}],"ts/inject.ts":[function(require,module,exports) {
 "use strict";
 
 var _document$querySelect;
@@ -3434,12 +3596,19 @@ var noteTaker_1 = require("./modules/noteTaker");
 
 var gpaEstimate_1 = require("./modules/gpaEstimate");
 
+var randomFocusArea_1 = require("./modules/randomFocusArea");
+
 function progressTab() {
   var existingGPAEstimates = document.querySelectorAll('.better-slp-gpa-estimate');
   existingGPAEstimates.forEach(function (e) {
     return e.remove();
   });
   gpaEstimate_1.appendGPAEstimate();
+}
+
+function yearTab() {
+  var yearPageAux = document.querySelector('.app-page-title-aux-items .app-page-title-aux');
+  randomFocusArea_1.randomFocusArea(yearPageAux);
 }
 
 function main() {
@@ -3453,10 +3622,14 @@ function main() {
     case new RegExp('.*:\/\/.*?\.?summitlearning\.org/my/progress(/.*)?').test(currentURL):
       progressTab();
       break;
+
+    case new RegExp('.*:\/\/.*?\.?summitlearning\.org/my/year/.*').test(currentURL):
+      yearTab();
+      break;
   }
 }
 
 if (!document.documentElement.classList.contains('nprogress-busy')) main();
 (_document$querySelect = document.querySelector('#nprogress')) === null || _document$querySelect === void 0 ? void 0 : _document$querySelect.addEventListener('DOMNodeRemoved', main);
-},{"./modules/noteTaker":"ts/modules/noteTaker.ts","./modules/gpaEstimate":"ts/modules/gpaEstimate.ts"}]},{},["ts/inject.ts"], null)
+},{"./modules/noteTaker":"ts/modules/noteTaker.ts","./modules/gpaEstimate":"ts/modules/gpaEstimate.ts","./modules/randomFocusArea":"ts/modules/randomFocusArea.ts"}]},{},["ts/inject.ts"], null)
 //# sourceMappingURL=/ts/inject.js.map
