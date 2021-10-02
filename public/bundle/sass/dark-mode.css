@@ -12,198 +12,211 @@ The styles for dark mode follow the material dark theme spec as best as possible
 The spec can be found here: https://material.io/design/color/dark-theme.html
 
 
-* * Removed selectors:
-.project-asset-icon.material-icons-default
-.media-circle.large-icon .media-circle-background-circle
-.claro-index-card .media-circle-background-circle
-.alert-info
-
 */
 html.better-slp-dark-mode-transitioning * {
   transition: all 300ms !important; }
 
-html[better-slp-dark-mode="true"] {
+html[bslp-dark] {
   color-scheme: dark; }
-  html[better-slp-dark-mode="true"] .page-content-body,
-  html[better-slp-dark-mode="true"] .czi-editor-frame-body, html[better-slp-dark-mode="true"] .project-feedback-dimension-navigator-backdrop,
-  html[better-slp-dark-mode="true"] .app-empty-state-vertical-center {
+  html[bslp-dark] .page-content-body,
+  html[bslp-dark] .czi-editor-frame-body, html[bslp-dark] .project-feedback-dimension-navigator-backdrop,
+  html[bslp-dark] .app-empty-state-vertical-center {
     background-color: #121212 !important; }
-  html[better-slp-dark-mode="true"] .panel,
-  html[better-slp-dark-mode="true"] .courserow-tooltip.tooltip .tooltip-inner,
-  html[better-slp-dark-mode="true"] .sdl-course-grades button, html[better-slp-dark-mode="true"] .sdl-course-grades .grade-header,
-  html[better-slp-dark-mode="true"] .announcement,
-  html[better-slp-dark-mode="true"] .better-slp-note-taker-embed {
+  html[bslp-dark] .panel,
+  html[bslp-dark] .courserow-tooltip.tooltip .tooltip-inner,
+  html[bslp-dark] .sdl-course-grades button, html[bslp-dark] .sdl-course-grades .grade-header,
+  html[bslp-dark] .announcement,
+  html[bslp-dark] .better-slp-note-taker-embed {
     background-color: #1c1c1c !important; }
-  html[better-slp-dark-mode="true"] .project-lesson-media-block-objective,
-  html[better-slp-dark-mode="true"] .needs-revision-popover,
-  html[better-slp-dark-mode="true"] .project-feedback-dimension-navigator {
+  html[bslp-dark] .project-lesson-media-block-objective,
+  html[bslp-dark] .needs-revision-popover,
+  html[bslp-dark] .project-feedback-dimension-navigator {
     background-color: #242424 !important; }
-  html[better-slp-dark-mode="true"] .sdl-week-calendar-today,
-  html[better-slp-dark-mode="true"] .announcement-body,
-  html[better-slp-dark-mode="true"] .dropdown-menu,
-  html[better-slp-dark-mode="true"] .focusarea .selected-panel .panel,
-  html[better-slp-dark-mode="true"] .project-feedback-header-container,
-  html[better-slp-dark-mode="true"] .platform-doc-header,
-  html[better-slp-dark-mode="true"] .project-feedback-header .btn.btn-default {
+  html[bslp-dark] .sdl-week-calendar-today,
+  html[bslp-dark] .announcement-body,
+  html[bslp-dark] .dropdown-menu,
+  html[bslp-dark] .focusarea .selected-panel .panel,
+  html[bslp-dark] .project-feedback-header-container,
+  html[bslp-dark] .platform-doc-header,
+  html[bslp-dark] .project-feedback-header .btn.btn-default {
     background-color: #262626 !important; }
-  html[better-slp-dark-mode="true"] .goal-panel,
-  html[better-slp-dark-mode="true"] .sdl-course-grades button:hover,
-  html[better-slp-dark-mode="true"] #notifications-popover,
-  html[better-slp-dark-mode="true"] .sdl-goal-popover,
-  html[better-slp-dark-mode="true"] .sdl-goal-popover-input-title .form-control,
-  html[better-slp-dark-mode="true"] .sdl-goal-popover-create,
-  html[better-slp-dark-mode="true"] .sdl-goal-popover-footer,
-  html[better-slp-dark-mode="true"] .project-agenda-timeline-item-icon-background,
-  html[better-slp-dark-mode="true"] .project-agenda-timeline-item-line-1, html[better-slp-dark-mode="true"] .project-agenda-timeline-item-line-2,
-  html[better-slp-dark-mode="true"] .project-day-to-day-side-nav-item:not(.selected),
-  html[better-slp-dark-mode="true"] *:not(.notifications-nub):not(.platform-doc-user-badge) > .avatar-profile,
-  html[better-slp-dark-mode="true"] .project-feedback-overview-panel.open {
+  html[bslp-dark] .goal-panel,
+  html[bslp-dark] .sdl-course-grades button:hover,
+  html[bslp-dark] #notifications-popover,
+  html[bslp-dark] .sdl-goal-popover,
+  html[bslp-dark] .sdl-goal-popover-input-title .form-control,
+  html[bslp-dark] .sdl-goal-popover-create,
+  html[bslp-dark] .sdl-goal-popover-footer,
+  html[bslp-dark] .project-agenda-timeline-item-icon-background,
+  html[bslp-dark] .project-agenda-timeline-item-line-1, html[bslp-dark] .project-agenda-timeline-item-line-2,
+  html[bslp-dark] .project-day-to-day-side-nav-item:not(.selected),
+  html[bslp-dark] *:not(.notifications-nub):not(.platform-doc-user-badge) > .avatar-profile,
+  html[bslp-dark] .project-feedback-overview-panel.open {
     background-color: #2b2b2b !important; }
-  html[better-slp-dark-mode="true"] .feedback-help-request-popover.popover {
+  html[bslp-dark] .feedback-help-request-popover.popover {
     background-color: #333333 !important; }
-  html[better-slp-dark-mode="true"] .announcement-body-text .audience.badge,
-  html[better-slp-dark-mode="true"] .dropdown-menu > li:not(.active) > a:hover, html[better-slp-dark-mode="true"] .dropdown-menu > li:not(.active) > a:focus,
-  html[better-slp-dark-mode="true"] .tools-item:hover,
-  html[better-slp-dark-mode="true"] .project-feedback-dimension-navigator-drilldown-divider,
-  html[better-slp-dark-mode="true"] .project-feedback-dimension-navigator-toggle,
-  html[better-slp-dark-mode="true"] .open .project-feedback-asset-switcher-selector,
-  html[better-slp-dark-mode="true"] .student-request-feedback .student-request-feedback-default .btn-default {
+  html[bslp-dark] .announcement-body-text .audience.badge,
+  html[bslp-dark] .dropdown-menu > li:not(.active) > a:hover, html[bslp-dark] .dropdown-menu > li:not(.active) > a:focus,
+  html[bslp-dark] .tools-item:hover,
+  html[bslp-dark] .project-feedback-dimension-navigator-drilldown-divider,
+  html[bslp-dark] .project-feedback-dimension-navigator-toggle,
+  html[bslp-dark] .open .project-feedback-asset-switcher-selector,
+  html[bslp-dark] .student-request-feedback .student-request-feedback-default .btn-default {
     background-color: #363636 !important; }
-  html[better-slp-dark-mode="true"] .this-year-fade .nav-button-container:hover .this-year-nav-button,
-  html[better-slp-dark-mode="true"] .platform-doc-header .platform-doc-button:hover,
-  html[better-slp-dark-mode="true"] .platform-doc-header #tools-menu-button:hover, html[better-slp-dark-mode="true"] .platform-doc-header #tools-menu-button:focus,
-  html[better-slp-dark-mode="true"] .project-feedback .project-feedback-asset-switcher .project-feedback-asset-switcher-selector .project-asset-icon,
-  html[better-slp-dark-mode="true"] .feedback-help-request-popover.popover .btn-default,
-  html[better-slp-dark-mode="true"] .project-feedback-dimension-navigator-score-token:not(.selected) {
+  html[bslp-dark] .this-year-fade .nav-button-container:hover .this-year-nav-button,
+  html[bslp-dark] .platform-doc-header .platform-doc-button:hover,
+  html[bslp-dark] .platform-doc-header #tools-menu-button:hover, html[bslp-dark] .platform-doc-header #tools-menu-button:focus,
+  html[bslp-dark] .project-feedback .project-feedback-asset-switcher .project-feedback-asset-switcher-selector .project-asset-icon,
+  html[bslp-dark] .feedback-help-request-popover.popover .btn-default,
+  html[bslp-dark] .project-feedback-dimension-navigator-score-token:not(.selected) {
     background-color: #424242 !important; }
-  html[better-slp-dark-mode="true"] .this-year-fade .nav-button-container:hover .this-year-nav-button:hover {
+  html[bslp-dark] .this-year-fade .nav-button-container:hover .this-year-nav-button:hover {
     background-color: #5c5c5c !important; }
-  html[better-slp-dark-mode="true"] .sdl-goal-popover-input,
-  html[better-slp-dark-mode="true"] .list-group-item,
-  html[better-slp-dark-mode="true"] .platform-doc-title-input,
-  html[better-slp-dark-mode="true"] .edit-dropdown,
-  html[better-slp-dark-mode="true"] .feedback-help-request-popover.popover textarea {
+  html[bslp-dark] .sdl-goal-popover-input,
+  html[bslp-dark] .list-group-item,
+  html[bslp-dark] .platform-doc-title-input,
+  html[bslp-dark] .edit-dropdown,
+  html[bslp-dark] .feedback-help-request-popover.popover textarea {
     background-color: rgba(0, 0, 0, 0) !important; }
-  html[better-slp-dark-mode="true"] .project-day-to-day-side-nav-item-theme-default .media-circle-background-circle {
+  html[bslp-dark] .project-day-to-day-side-nav-item-theme-default .media-circle-background-circle {
     background-color: rgba(255, 255, 255, 0.1) !important; }
-  html[better-slp-dark-mode="true"] .project-day-to-day-side-nav-item-new-feedback-token,
-  html[better-slp-dark-mode="true"] .token, html[better-slp-dark-mode="true"] .token-display-only,
-  html[better-slp-dark-mode="true"] .project-lesson-media-block-icon-background-circle,
-  html[better-slp-dark-mode="true"] .focusarea-diagnostic-btn button {
+  html[bslp-dark] .project-day-to-day-side-nav-item-new-feedback-token,
+  html[bslp-dark] .token, html[bslp-dark] .token-display-only,
+  html[bslp-dark] .project-lesson-media-block-icon-background-circle,
+  html[bslp-dark] .focusarea-diagnostic-btn button {
     background-color: rgba(255, 255, 255, 0.07) !important; }
-  html[better-slp-dark-mode="true"] .app-page-title-group h1,
-  html[better-slp-dark-mode="true"] .project-feedback-title {
+  html[bslp-dark] .app-page-title-group h1,
+  html[bslp-dark] .project-feedback-title,
+  html[bslp-dark] .courserow-details-course-link-heading h2 {
     color: white !important;
     text-decoration-color: #d1d1d1 !important; }
-  html[better-slp-dark-mode="true"] .app-body,
-  html[better-slp-dark-mode="true"] .app-subheading, html[better-slp-dark-mode="true"] .app-subheading span,
-  html[better-slp-dark-mode="true"] .notifications-subtitle,
-  html[better-slp-dark-mode="true"] .courserow-tooltip .app-heading:not(.success),
-  html[better-slp-dark-mode="true"] .courserow-tooltip .project-status,
-  html[better-slp-dark-mode="true"] .project-feedback-header .btn.btn-default,
-  html[better-slp-dark-mode="true"] .project-feedback-actions-text,
-  html[better-slp-dark-mode="true"] .platform-doc-title-input,
-  html[better-slp-dark-mode="true"] .platform-doc-header .platform-doc-button,
-  html[better-slp-dark-mode="true"] .platform-doc-header #tools-menu-button,
-  html[better-slp-dark-mode="true"] .project-feedback-dimension-navigator-toggle,
-  html[better-slp-dark-mode="true"] .feedback-help-request-popover.popover .btn-default,
-  html[better-slp-dark-mode="true"] .feedback-help-request-popover.popover strong,
-  html[better-slp-dark-mode="true"] .project-feedback-info-overview .app-heading,
-  html[better-slp-dark-mode="true"] .history-header {
+  html[bslp-dark] .app-body,
+  html[bslp-dark] .app-subheading, html[bslp-dark] .app-subheading span,
+  html[bslp-dark] .notifications-subtitle,
+  html[bslp-dark] .courserow-tooltip .app-heading:not(.success),
+  html[bslp-dark] .courserow-tooltip .project-status,
+  html[bslp-dark] .project-feedback-header .btn.btn-default,
+  html[bslp-dark] .project-feedback-actions-text,
+  html[bslp-dark] .platform-doc-title-input,
+  html[bslp-dark] .platform-doc-header .platform-doc-button,
+  html[bslp-dark] .platform-doc-header #tools-menu-button,
+  html[bslp-dark] .project-feedback-dimension-navigator-toggle,
+  html[bslp-dark] .feedback-help-request-popover.popover .btn-default,
+  html[bslp-dark] .feedback-help-request-popover.popover strong,
+  html[bslp-dark] .project-feedback-info-overview .app-heading,
+  html[bslp-dark] .history-header,
+  html[bslp-dark] .announcements > div > h2,
+  html[bslp-dark] .announcement .owner-name,
+  html[bslp-dark] .announcement-title {
     color: rgba(255, 255, 255, 0.85) !important;
     text-decoration-color: #d1d1d1 !important; }
-  html[better-slp-dark-mode="true"] .app-tertiaryheading, html[better-slp-dark-mode="true"] .app-tertiaryheading span,
-  html[better-slp-dark-mode="true"] .app-compact-content-heading, html[better-slp-dark-mode="true"] .app-compact-content-heading span,
-  html[better-slp-dark-mode="true"] .courserow-score-text,
-  html[better-slp-dark-mode="true"] .token, html[better-slp-dark-mode="true"] .token-display-only,
-  html[better-slp-dark-mode="true"] .sdl-goal-popover-input-title .form-control, html[better-slp-dark-mode="true"] .sdl-goal-popover-input-title .form-control::placeholder,
-  html[better-slp-dark-mode="true"] .dropdown-menu li:not(.active) a,
-  html[better-slp-dark-mode="true"] .notification-item-subtitle, html[better-slp-dark-mode="true"] #notifications-popover .list-group-item,
-  html[better-slp-dark-mode="true"] .platform-doc-saving-indicator,
-  html[better-slp-dark-mode="true"] .project-feedback-dimension-navigator-drilldown-content,
-  html[better-slp-dark-mode="true"] .tools-item,
-  html[better-slp-dark-mode="true"] .feedback-help-request-popover.popover textarea,
-  html[better-slp-dark-mode="true"] .feedback-help-request-popover.popover textarea::placeholder,
-  html[better-slp-dark-mode="true"] .project-feedback-info-overview .rich-text-note-editor {
+  html[bslp-dark] .app-tertiaryheading, html[bslp-dark] .app-tertiaryheading span,
+  html[bslp-dark] .app-compact-content-heading, html[bslp-dark] .app-compact-content-heading span,
+  html[bslp-dark] .courserow-score-text,
+  html[bslp-dark] .token, html[bslp-dark] .token-display-only,
+  html[bslp-dark] .sdl-goal-popover-input-title .form-control, html[bslp-dark] .sdl-goal-popover-input-title .form-control::placeholder,
+  html[bslp-dark] .dropdown-menu li:not(.active) a,
+  html[bslp-dark] .notification-item-subtitle, html[bslp-dark] #notifications-popover .list-group-item,
+  html[bslp-dark] .platform-doc-saving-indicator,
+  html[bslp-dark] .project-feedback-dimension-navigator-drilldown-content,
+  html[bslp-dark] .tools-item,
+  html[bslp-dark] .feedback-help-request-popover.popover textarea,
+  html[bslp-dark] .feedback-help-request-popover.popover textarea::placeholder,
+  html[bslp-dark] .project-feedback-info-overview .rich-text-note-editor,
+  html[bslp-dark] .announcement-body,
+  html[bslp-dark] .app .text-muted {
     color: #8f8f8f !important; }
-  html[better-slp-dark-mode="true"] .notification-item:not(.notification-item-unread) .notification-item-title-fragment,
-  html[better-slp-dark-mode="true"] .project-feedback-dimension-navigator-score-token:not(.selected) {
+  html[bslp-dark] .notification-item:not(.notification-item-unread) .notification-item-title-fragment,
+  html[bslp-dark] .project-feedback-dimension-navigator-score-token:not(.selected) {
     color: #d1d1d1 !important; }
-  html[better-slp-dark-mode="true"] .app-empty-state-vertical-center h1 {
+  html[bslp-dark] .typography-module__colorBase___2P5Eh {
+    color: #ededed; }
+  html[bslp-dark] .app-empty-state-vertical-center h1 {
     color: #424242 !important; }
-  html[better-slp-dark-mode="true"] .focusarea .playlist-panel .score-badge.get-started {
+  html[bslp-dark] .typography-module__colorNeutral___2Xfii {
+    color: #5c5c5c !important; }
+  html[bslp-dark] .focusarea .playlist-panel .score-badge.get-started,
+  html[bslp-dark] .courserow-info > div h3 {
     color: rgba(255, 255, 255, 0.4) !important; }
-  html[better-slp-dark-mode="true"] .btn.btn-default:not(.edit-dropdown) {
+  html[bslp-dark] .btn.btn-default:not(.edit-dropdown) {
     border-color: rgba(0, 0, 0, 0) !important; }
-  html[better-slp-dark-mode="true"] .modal-full-height .modal-content {
+  html[bslp-dark] .modal-full-height .modal-content {
     border: none; }
-  html[better-slp-dark-mode="true"] .notification-item-read-bullet {
+  html[bslp-dark] .notification-item-read-bullet {
     border-color: #8f8f8f !important; }
-  html[better-slp-dark-mode="true"] .sdl-goal-popover .checkbox input[type=checkbox]:not(:checked):after {
+  html[bslp-dark] .sdl-goal-popover .checkbox input[type=checkbox]:not(:checked):after {
     border-color: #e6e6e6 !important; }
-  html[better-slp-dark-mode="true"] .table-bordered td,
-  html[better-slp-dark-mode="true"] .courserow-info.widen.months,
-  html[better-slp-dark-mode="true"] .this-year-explore-courses,
-  html[better-slp-dark-mode="true"] .courserow-tooltip hr,
-  html[better-slp-dark-mode="true"] .project-feedback-overview-panel.open,
-  html[better-slp-dark-mode="true"] .history-header,
-  html[better-slp-dark-mode="true"] .platform-doc-history-page .list-group .list-group-item,
-  html[better-slp-dark-mode="true"] .project-feedback-drawer {
+  html[bslp-dark] .table-bordered td,
+  html[bslp-dark] .courserow-info.widen.months,
+  html[bslp-dark] .this-year-explore-courses,
+  html[bslp-dark] .courserow-tooltip hr,
+  html[bslp-dark] .project-feedback-overview-panel.open,
+  html[bslp-dark] .history-header,
+  html[bslp-dark] .platform-doc-history-page .list-group .list-group-item,
+  html[bslp-dark] .project-feedback-drawer {
     border-color: #333333 !important; }
-  html[better-slp-dark-mode="true"] .table-bordered td.sdl-week-calendar-today,
-  html[better-slp-dark-mode="true"] .notifications-header, html[better-slp-dark-mode="true"] .notification-item {
+  html[bslp-dark] .table-bordered td.sdl-week-calendar-today,
+  html[bslp-dark] .notifications-header, html[bslp-dark] .notification-item {
     border-color: #383838 !important; }
-  html[better-slp-dark-mode="true"] .project-feedback-header-container .caret {
+  html[bslp-dark] .project-feedback-header-container .caret {
     border-top-color: rgba(255, 255, 255, 0.85); }
-  html[better-slp-dark-mode="true"] .default, html[better-slp-dark-mode="true"] .courserow-list-item-content-default:not(.success):not(.warning):not(.danger) {
+  html[bslp-dark] .default, html[bslp-dark] .courserow-list-item-content-default:not(.success):not(.warning):not(.danger) {
     background-color: rgba(255, 255, 255, 0.07) !important;
     color: #bdbdbd !important; }
-  html[better-slp-dark-mode="true"] .project-day-to-day-side-nav-item-theme-default .project-day-to-day-side-nav-item-left-aligned-content.green .media-circle-background-circle {
+  html[bslp-dark] .project-day-to-day-side-nav-item-theme-default .project-day-to-day-side-nav-item-left-aligned-content.green .media-circle-background-circle {
     background-color: rgba(153, 255, 153, 0.35) !important; }
-  html[better-slp-dark-mode="true"] .success:not(.app-heading) {
+  html[bslp-dark] .success:not(.app-heading) {
     background-color: #26402f !important;
     color: #96e896 !important; }
-    html[better-slp-dark-mode="true"] .success:not(.app-heading) i {
+    html[bslp-dark] .success:not(.app-heading) i {
       background-color: #1f9346 !important; }
-  html[better-slp-dark-mode="true"] .score-badge.passed {
+  html[bslp-dark] .score-badge.passed {
     color: #00e676 !important; }
-  html[better-slp-dark-mode="true"] .project-day-to-day-side-nav-item-theme-default .project-day-to-day-side-nav-item-left-aligned-content.yellow .media-circle-background-circle {
+  html[bslp-dark] .project-day-to-day-side-nav-item-theme-default .project-day-to-day-side-nav-item-left-aligned-content.yellow .media-circle-background-circle {
     background-color: rgba(255, 255, 102, 0.35) !important; }
-  html[better-slp-dark-mode="true"] .warning:not(.app-heading) {
+  html[bslp-dark] .warning:not(.app-heading) {
     background-color: #3d3d29 !important;
     color: #e8e896 !important; }
-    html[better-slp-dark-mode="true"] .warning:not(.app-heading) i {
+    html[bslp-dark] .warning:not(.app-heading) i {
       background-color: #93931f !important; }
-  html[better-slp-dark-mode="true"] .score-badge.almost-passed {
+  html[bslp-dark] .score-badge.almost-passed {
     color: #ffc400 !important; }
-  html[better-slp-dark-mode="true"] .project-day-to-day-side-nav-item-theme-default .project-day-to-day-side-nav-item-left-aligned-content.red .media-circle-background-circle {
+  html[bslp-dark] .project-day-to-day-side-nav-item-theme-default .project-day-to-day-side-nav-item-left-aligned-content.red .media-circle-background-circle {
     background-color: rgba(255, 102, 102, 0.35) !important; }
-  html[better-slp-dark-mode="true"] .danger:not(.app-heading) {
+  html[bslp-dark] .danger:not(.app-heading) {
     background-color: #471f1f !important;
     color: #e89696 !important; }
-    html[better-slp-dark-mode="true"] .danger:not(.app-heading) i {
+    html[bslp-dark] .danger:not(.app-heading) i {
       background-color: #931f1f !important; }
-  html[better-slp-dark-mode="true"] .score-badge:not(.get-started) {
+  html[bslp-dark] .score-badge:not(.get-started) {
     color: #ff5252 !important; }
-  html[better-slp-dark-mode="true"] .courserow-tooltip.tooltip .app-heading.success {
+  html[bslp-dark] .courserow-tooltip.tooltip .app-heading.success {
     color: #96e896 !important; }
-  html[better-slp-dark-mode="true"] .claro-standard-layout-page .claro-this-year .this-year-outer .this-year-fade.right,
-  html[better-slp-dark-mode="true"] .courserow-tooltip.tooltip .tooltip-inner,
-  html[better-slp-dark-mode="true"] .goal-drawer,
-  html[better-slp-dark-mode="true"] .courserow-info.widen,
-  html[better-slp-dark-mode="true"] .focusarea .selected-panel,
-  html[better-slp-dark-mode="true"] .feedback-help-request-popover.popover .btn-default {
+  html[bslp-dark] .claro-standard-layout-page .claro-this-year .this-year-outer .this-year-fade.right,
+  html[bslp-dark] .courserow-tooltip.tooltip .tooltip-inner,
+  html[bslp-dark] .goal-drawer,
+  html[bslp-dark] .courserow-info.widen,
+  html[bslp-dark] .focusarea .selected-panel,
+  html[bslp-dark] .feedback-help-request-popover.popover .btn-default {
     box-shadow: none !important; }
-  html[better-slp-dark-mode="true"] .platform-doc-title-input:focus {
+  html[bslp-dark] .platform-doc-title-input:focus {
     box-shadow: 0 0 0 2px #424242 !important; }
-  html[better-slp-dark-mode="true"] .upper-right-overlay .onboarding-nub {
+  html[bslp-dark] .upper-right-overlay .onboarding-nub {
     background-color: #1e2c2f !important;
     border-color: #3a545a !important; }
-    html[better-slp-dark-mode="true"] .upper-right-overlay .onboarding-nub * {
+    html[bslp-dark] .upper-right-overlay .onboarding-nub * {
       color: #5db8c6 !important; }
-  html[better-slp-dark-mode="true"] .project-asset-copy-old-work-prompt {
+  html[bslp-dark] .popover.left .arrow::after {
+    border-left-color: #2b2b2b; }
+  html[bslp-dark] .popover.right .arrow::after {
+    border-right-color: #2b2b2b; }
+  html[bslp-dark] .popover.top .arrow::after {
+    border-top-color: #2b2b2b; }
+  html[bslp-dark] .popover.bottom .arrow::after {
+    border-bottom-color: #2b2b2b; }
+  html[bslp-dark] .project-asset-copy-old-work-prompt {
     background-color: #321b21 !important; }
-  html[better-slp-dark-mode="true"] .modal-full-height .modal-content {
+  html[bslp-dark] .modal-full-height .modal-content {
     border-radius: 0; }
 
 

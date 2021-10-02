@@ -12,12 +12,6 @@ The styles for dark mode follow the material dark theme spec as best as possible
 The spec can be found here: https://material.io/design/color/dark-theme.html
 
 
-* * Removed selectors:
-.project-asset-icon.material-icons-default
-.media-circle.large-icon .media-circle-background-circle
-.claro-index-card .media-circle-background-circle
-.alert-info
-
 */
 
 
@@ -108,6 +102,13 @@ $avatar-background-not-sidebar: "*:not(.notifications-nub):not(.platform-doc-use
 $token-element: ".token, .token-display-only";
 $table-row: ".table-bordered td";
 
+$popover-arrows: (
+	"left": ".popover.left .arrow::after",
+	"right": ".popover.right .arrow::after",
+	"top": ".popover.top .arrow::after",
+	"bottom": ".popover.bottom .arrow::after"
+);
+
 $dropdown-menu-container: ".dropdown-menu";
 $dropdown-menu-item: ".dropdown-menu li:not(.active) a";
 $dropdown-menu-hover-focus-item: ".dropdown-menu>li:not(.active)>a:hover, .dropdown-menu>li:not(.active)>a:focus";
@@ -118,10 +119,18 @@ $app-subheading: ".app-subheading, .app-subheading span";
 $app-tertiary-heading: ".app-tertiaryheading, .app-tertiaryheading span";
 $app-compact-heading: ".app-compact-content-heading, .app-compact-content-heading span";
 
+$muted-text: ".app .text-muted";
+
+$typography-1: ".typography-module__colorNeutral___2Xfii";
+$typography-2: ".typography-module__colorBase___2P5Eh";
+
 //? Announcements
 $announcement-item-container: ".announcement";
 $announcement-item-body: ".announcement-body";
 $announcement-item-course-name-badge: " .announcement-body-text .audience.badge";
+$announcements-heading: ".announcements > div > h2";
+$announcements-post-author-name: ".announcement .owner-name";
+$announcement-post-title: ".announcement-title";
 
 //? Week
 $create-goal-popover: ".sdl-goal-popover";
@@ -141,6 +150,8 @@ $focus-area-hover-tooltip-header: ".courserow-tooltip .app-heading:not(.success)
 $focus-area-hover-tooltip-project-status: ".courserow-tooltip .project-status";
 $focus-area-hover-tooltip-horizontal-rule: ".courserow-tooltip hr";
 $focus-area-hover-tooltip-success-date: ".courserow-tooltip.tooltip .app-heading.success";
+$year-course-name-heading: ".courserow-details-course-link-heading h2";
+$year-course-assessment-type-labels: ".courserow-info > div h3"; 
 $year-scroll-right-shadow: ".claro-standard-layout-page .claro-this-year .this-year-outer .this-year-fade.right";
 $year-course-row-info-left: ".courserow-info.widen";
 $year-course-cog-score-text: ".courserow-score-text";
@@ -262,7 +273,7 @@ html.better-slp-dark-mode-transitioning * {
 }
 
 // Dark mode stles
-html[better-slp-dark-mode="true"] {
+html[bslp-dark] {
   
   // Dark chrome scrollbar. Interpolation syntax used to avoid a compiler warning since the SCSS transpiler doesnt recognize the `color-scheme` property.
   #{"color-scheme"}: dark;
@@ -383,7 +394,8 @@ html[better-slp-dark-mode="true"] {
   // Text colors
   & {
     #{$app-title},
-    #{$notebook-checkpoint-title}
+    #{$notebook-checkpoint-title},
+		#{$year-course-name-heading}
     {
       color: $light-0 !important;
       text-decoration-color: $light-600 !important;
@@ -403,7 +415,10 @@ html[better-slp-dark-mode="true"] {
     #{$notebook-ask-for-help-popover-cancel-button},
     #{$notebook-ask-for-help-popover-header},
     #{$notebook-resources-panel-header},
-    #{$notebook-version-history-header}
+    #{$notebook-version-history-header},
+		#{$announcements-heading},
+		#{$announcements-post-author-name},
+		#{$announcement-post-title}
     {
       color: $page-body-color !important;
       text-decoration-color: $light-600 !important;
@@ -421,7 +436,9 @@ html[better-slp-dark-mode="true"] {
     #{$notebook-doc-header-tools-dropdown-item},
     #{$notebook-ask-for-help-popover-textarea},
     #{$notebook-ask-for-help-popover-textarea-placeholder},
-    #{$notebook-resources-panel-paragraph}
+    #{$notebook-resources-panel-paragraph},
+		#{$announcement-item-body},
+		#{$muted-text}
     {
       color: $light-900 !important;
     }
@@ -432,12 +449,23 @@ html[better-slp-dark-mode="true"] {
       color: $light-600 !important;
     }
 
+		#{$typography-2}
+		{
+			color: $light-300;
+		}
+
     #{$notebook-nothing-to-submit-text}
     {
       color: $dark-50 !important;
     }
 
-    #{map-get($focus-area-score-badge, "indeterminate")}
+		#{$typography-1}
+		{
+			color: $dark-25 !important;
+		}
+
+    #{map-get($focus-area-score-badge, "indeterminate")},
+		#{$year-course-assessment-type-labels}
     {
       color: transparent-white(0.4) !important;
     }
@@ -562,6 +590,16 @@ html[better-slp-dark-mode="true"] {
       }
     }
 
+		& {
+			@each $position, $position-selector in $popover-arrows {
+				#{$position-selector}
+				{
+					#{"border-" + $position + "-color"}: $dark-500;
+				}
+			}
+		}
+
+
     #{$project-overview-copy-old-work-prompt}
     {
       background-color: $dark-warning-background !important;
@@ -573,4 +611,5 @@ html[better-slp-dark-mode="true"] {
       border-radius: 0;
     }
   }
+
 }
