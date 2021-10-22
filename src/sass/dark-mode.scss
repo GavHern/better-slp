@@ -140,14 +140,32 @@ $announcement-pill-badge: ".announcements-page .panel-body .announcement .announ
 //? Week
 $create-goal-popover: ".sdl-goal-popover";
 $create-goal-popover-submit-button: ".sdl-goal-popover-create";
-$create-goal-popover-add-plan-field: ".sdl-goal-popover-footer";
+$create-goal-popover-add-plan-field-container: ".sdl-goal-popover-footer";
+$create-goal-popover-add-plan-input: ".sdl-goal-popover-input input.form-control, .sdl-goal-popover-footer .rbt-input.form-control";
+$create-goal-popover-add-plan-input-placeholder: ".sdl-goal-popover-input input.form-control::placeholder, .sdl-goal-popover-footer .rbt-input.form-control::placeholder";
+$create-goal-popover-add-plan-input-hint: ".sdl-goal-popover-footer .rbt-input-hint";
+$create-goal-popover-date-picker: ".sdl-goal-popover-input";
 $create-goal-popover-main-input: ".sdl-goal-popover-input";
 $create-goal-popover-goal-textarea: ".sdl-goal-popover-input-title .form-control";
 $create-goal-popover-goal-textarea-placeholder: ".sdl-goal-popover-input-title .form-control::placeholder";
 $create-goal-popover-goal-unchecked-box: ".sdl-goal-popover .checkbox input[type=checkbox]:not(:checked):after";
+$create-goal-popover-footer-container: ".sdl-goal-popover-create, .sdl-goal-popover-footer";
+$create-goal-popover-dismiss: ".close-popover-button";
+$create-goal-popover-step-header: ".sdl-goal-popover-step-header.list-group-item h4";
+$create-goal-popover-step-container: ".sdl-goal-popover-step";
+$create-goal-popover-step-text: ".sdl-goal-popover-step.list-group-item .step-text";
+$create-goal-popoer-step-expand-label: ".sdl-goal-popover-steps .sdl-goal-popover-step-header button.goal-step-toggle .goal-step-toggle-label";
+$create-goal-popover-delete-dropdown-toggle: ".sdl-goal-popover-delete-toggle-button";
+$create-goal-popover-delete-dropdown-toggle-hover: ".sdl-goal-popover-delete-toggle-button:hover";
+$create-goal-popover-delete-button: ".sdl-goal-popover-delete-button";
+$create-goal-popover-delete-button-hover: ".sdl-goal-popover-delete-button:hover";
+$create-goal-popover-subgoal: ".sdl-goal-popover-child";
+$create-goal-popover-header: ".sdl-goal-popover-header";
 
 $week-calendar-current-day-highlight: ".sdl-week-calendar-today";
 $week-calendar-current-day-highlight-border: ".table-bordered td.sdl-week-calendar-today";
+
+$completed-goal: ".sdl-goal-token-completed .token";
 
 //? Year
 $focus-area-hover-tooltip: ".courserow-tooltip.tooltip .tooltip-inner";
@@ -166,7 +184,7 @@ $year-scroll-nav-button: ".this-year-fade .nav-button-container:hover .this-year
 $year-scroll-nav-button-hovered: ".this-year-fade .nav-button-container:hover .this-year-nav-button:hover";
 
 $focus-area-statuses: (
-  "green": ".success:not(.app-heading)",
+  "green": ".success:not(.app-heading)" + "," + $completed-goal, // Styles completed goals the same as passed focus areas
   "yellow": ".warning:not(.app-heading)",
   "red": ".danger:not(.app-heading)",
   "neutral": ".default, .courserow-list-item-content-default:not(.success):not(.warning):not(.danger)"
@@ -328,7 +346,8 @@ html[bslp-dark] {
       #{$notebook-checkpoint-header},
       #{$notebook-doc-header},
       #{$notebook-doc-header-button},
-			#{$checkin-flyout-textarea}
+			#{$checkin-flyout-textarea},
+			#{$create-goal-popover-delete-button}
       {
         background-color: $dark-600 !important;
       }
@@ -339,17 +358,23 @@ html[bslp-dark] {
       #{$create-goal-popover},
       #{$create-goal-popover-goal-textarea},
       #{$create-goal-popover-submit-button},
-      #{$create-goal-popover-add-plan-field},
+      #{$create-goal-popover-add-plan-field-container},
+			#{$create-goal-popover-add-plan-input},
+			#{$create-goal-popover-date-picker},
       #{$project-plans-timeline-icon-background},
       #{$project-plans-timeline-connector-line},
       #{$project-overview-checkpoint-not-selected},
       #{$avatar-background-not-sidebar},
-      #{$notebook-resources-container}
+      #{$notebook-resources-container},
+			#{$create-goal-popover-delete-button-hover},
+			#{$create-goal-popover-delete-dropdown-toggle},
+			#{$create-goal-popover-subgoal}
       {
         background-color: $dark-500 !important;
       }
 
-      #{$notebook-ask-for-help-popover}
+      #{$notebook-ask-for-help-popover},
+			#{$create-goal-popover-delete-dropdown-toggle-hover}
       {
         background-color: $dark-300 !important;
       }
@@ -361,7 +386,8 @@ html[bslp-dark] {
       #{$notebook-cog-skill-panel-chevron-button},
       #{$notebook-checkpoint-button-active},
       #{$notebook-ask-for-help-button},
-			#{$checkin-flyout-dismiss}
+			#{$checkin-flyout-dismiss},
+			#{$create-goal-popover-dismiss}
       {
         background-color: $dark-200 !important;
       }
@@ -439,7 +465,12 @@ html[bslp-dark] {
 		#{$announcement-post-title},
 		#{$checkin-flyout-dismiss},
 		#{$checkin-flyout-subtitle},
-		#{$announcement-time-heading}
+		#{$announcement-time-heading},
+		#{$create-goal-popover-dismiss},
+		#{$create-goal-popover-step-header},
+		#{$create-goal-popover-add-plan-input},
+		#{$create-goal-popover-header},
+		#{$create-goal-popover-goal-textarea}
     {
       color: $page-body-color !important;
       text-decoration-color: $light-600 !important;
@@ -449,7 +480,7 @@ html[bslp-dark] {
     #{$app-compact-heading},
     #{$year-course-cog-score-text},
     #{$token-element},
-    #{$create-goal-popover-goal-textarea}, #{$create-goal-popover-goal-textarea-placeholder},
+    #{$create-goal-popover-goal-textarea-placeholder},
     #{$dropdown-menu-item},
     #{$notification-popover-item-subtitle},
     #{$notebook-save-indicator},
@@ -459,14 +490,21 @@ html[bslp-dark] {
     #{$notebook-ask-for-help-popover-textarea-placeholder},
     #{$notebook-resources-panel-paragraph},
 		#{$announcement-item-body},
-		#{$muted-text}
+		#{$muted-text},
+		#{$create-goal-popover-step-text},
+		#{$create-goal-popoer-step-expand-label},
+		#{$create-goal-popover-add-plan-input-placeholder},
+		#{$create-goal-popover-add-plan-input-hint},
+		#{$create-goal-popover-date-picker}
     {
       color: $light-900 !important;
     }
 
     #{$notification-popover-item-title-read},
     #{$notebook-cog-skill-panel-score-token},
-		#{$announcement-pill-badge}
+		#{$announcement-pill-badge},
+		#{$create-goal-popover-delete-button},
+		#{$create-goal-popover-subgoal}
     {
       color: $light-600 !important;
     }
@@ -474,7 +512,7 @@ html[bslp-dark] {
 		#{$typography-2},
 		#{$radio-label}
 		{
-			color: $light-300;
+			color: $light-300 !important;
 		}
 
     #{$notebook-nothing-to-submit-text}
@@ -509,7 +547,8 @@ html[bslp-dark] {
       border: none;
     }
 
-    #{$notification-popover-item-bullet-read}
+    #{$notification-popover-item-bullet-read},
+		#{$create-goal-popover-date-picker}, #{$create-goal-popover-main-input}, #{$create-goal-popover-add-plan-input}
     {
       border-color: $light-900 !important;
     }
@@ -532,6 +571,14 @@ html[bslp-dark] {
     {
       border-color: $dark-300 !important;
     }
+
+		#{$create-goal-popover-footer-container},
+		#{$create-goal-popover-subgoal},
+		#{$create-goal-popover-header},
+		#{$create-goal-popover-step-container}
+		{
+			border-color: $dark-50 !important;
+		}
 
     #{$week-calendar-current-day-highlight-border},
     #{$notification-popover-border}

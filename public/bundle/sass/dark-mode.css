@@ -41,7 +41,8 @@ html[bslp-dark] {
   html[bslp-dark] .project-feedback-header-container,
   html[bslp-dark] .platform-doc-header,
   html[bslp-dark] .project-feedback-header .btn.btn-default,
-  html[bslp-dark] .app .mentor-checkin-prework-flow textarea.form-control {
+  html[bslp-dark] .app .mentor-checkin-prework-flow textarea.form-control,
+  html[bslp-dark] .sdl-goal-popover-delete-button {
     background-color: #262626 !important; }
   html[bslp-dark] .goal-panel,
   html[bslp-dark] .sdl-course-grades button:hover,
@@ -50,13 +51,19 @@ html[bslp-dark] {
   html[bslp-dark] .sdl-goal-popover-input-title .form-control,
   html[bslp-dark] .sdl-goal-popover-create,
   html[bslp-dark] .sdl-goal-popover-footer,
+  html[bslp-dark] .sdl-goal-popover-input input.form-control, html[bslp-dark] .sdl-goal-popover-footer .rbt-input.form-control,
+  html[bslp-dark] .sdl-goal-popover-input,
   html[bslp-dark] .project-agenda-timeline-item-icon-background,
   html[bslp-dark] .project-agenda-timeline-item-line-1, html[bslp-dark] .project-agenda-timeline-item-line-2,
   html[bslp-dark] .project-day-to-day-side-nav-item:not(.selected),
   html[bslp-dark] *:not(.notifications-nub):not(.platform-doc-user-badge) > .avatar-profile,
-  html[bslp-dark] .project-feedback-overview-panel.open {
+  html[bslp-dark] .project-feedback-overview-panel.open,
+  html[bslp-dark] .sdl-goal-popover-delete-button:hover,
+  html[bslp-dark] .sdl-goal-popover-delete-toggle-button,
+  html[bslp-dark] .sdl-goal-popover-child {
     background-color: #2b2b2b !important; }
-  html[bslp-dark] .feedback-help-request-popover.popover {
+  html[bslp-dark] .feedback-help-request-popover.popover,
+  html[bslp-dark] .sdl-goal-popover-delete-toggle-button:hover {
     background-color: #333333 !important; }
   html[bslp-dark] .announcement-body-text .audience.badge,
   html[bslp-dark] .dropdown-menu > li:not(.active) > a:hover, html[bslp-dark] .dropdown-menu > li:not(.active) > a:focus,
@@ -65,7 +72,8 @@ html[bslp-dark] {
   html[bslp-dark] .project-feedback-dimension-navigator-toggle,
   html[bslp-dark] .open .project-feedback-asset-switcher-selector,
   html[bslp-dark] .student-request-feedback .student-request-feedback-default .btn-default,
-  html[bslp-dark] .mentor-checkin-footer-buttons .btn-default {
+  html[bslp-dark] .mentor-checkin-footer-buttons .btn-default,
+  html[bslp-dark] .close-popover-button {
     background-color: #363636 !important; }
   html[bslp-dark] .this-year-fade .nav-button-container:hover .this-year-nav-button,
   html[bslp-dark] .platform-doc-header .platform-doc-button:hover,
@@ -115,14 +123,19 @@ html[bslp-dark] {
   html[bslp-dark] .announcement-title,
   html[bslp-dark] .mentor-checkin-footer-buttons .btn-default,
   html[bslp-dark] .mentor-checkin-body .subtitle,
-  html[bslp-dark] .announcements > ul > li > h2 {
+  html[bslp-dark] .announcements > ul > li > h2,
+  html[bslp-dark] .close-popover-button,
+  html[bslp-dark] .sdl-goal-popover-step-header.list-group-item h4,
+  html[bslp-dark] .sdl-goal-popover-input input.form-control, html[bslp-dark] .sdl-goal-popover-footer .rbt-input.form-control,
+  html[bslp-dark] .sdl-goal-popover-header,
+  html[bslp-dark] .sdl-goal-popover-input-title .form-control {
     color: rgba(255, 255, 255, 0.85) !important;
     text-decoration-color: #d1d1d1 !important; }
   html[bslp-dark] .app-tertiaryheading, html[bslp-dark] .app-tertiaryheading span,
   html[bslp-dark] .app-compact-content-heading, html[bslp-dark] .app-compact-content-heading span,
   html[bslp-dark] .courserow-score-text,
   html[bslp-dark] .token, html[bslp-dark] .token-display-only,
-  html[bslp-dark] .sdl-goal-popover-input-title .form-control, html[bslp-dark] .sdl-goal-popover-input-title .form-control::placeholder,
+  html[bslp-dark] .sdl-goal-popover-input-title .form-control::placeholder,
   html[bslp-dark] .dropdown-menu li:not(.active) a,
   html[bslp-dark] .notification-item-subtitle, html[bslp-dark] #notifications-popover .list-group-item,
   html[bslp-dark] .platform-doc-saving-indicator,
@@ -132,15 +145,22 @@ html[bslp-dark] {
   html[bslp-dark] .feedback-help-request-popover.popover textarea::placeholder,
   html[bslp-dark] .project-feedback-info-overview .rich-text-note-editor,
   html[bslp-dark] .announcement-body,
-  html[bslp-dark] .app .text-muted {
+  html[bslp-dark] .app .text-muted,
+  html[bslp-dark] .sdl-goal-popover-step.list-group-item .step-text,
+  html[bslp-dark] .sdl-goal-popover-steps .sdl-goal-popover-step-header button.goal-step-toggle .goal-step-toggle-label,
+  html[bslp-dark] .sdl-goal-popover-input input.form-control::placeholder, html[bslp-dark] .sdl-goal-popover-footer .rbt-input.form-control::placeholder,
+  html[bslp-dark] .sdl-goal-popover-footer .rbt-input-hint,
+  html[bslp-dark] .sdl-goal-popover-input {
     color: #8f8f8f !important; }
   html[bslp-dark] .notification-item:not(.notification-item-unread) .notification-item-title-fragment,
   html[bslp-dark] .project-feedback-dimension-navigator-score-token:not(.selected),
-  html[bslp-dark] .announcements-page .panel-body .announcement .announcement-body .badge.audience {
+  html[bslp-dark] .announcements-page .panel-body .announcement .announcement-body .badge.audience,
+  html[bslp-dark] .sdl-goal-popover-delete-button,
+  html[bslp-dark] .sdl-goal-popover-child {
     color: #d1d1d1 !important; }
   html[bslp-dark] .typography-module__colorBase___2P5Eh,
   html[bslp-dark] .radio label {
-    color: #ededed; }
+    color: #ededed !important; }
   html[bslp-dark] .app-empty-state-vertical-center h1 {
     color: #424242 !important; }
   html[bslp-dark] .typography-module__colorNeutral___2Xfii,
@@ -153,7 +173,8 @@ html[bslp-dark] {
     border-color: rgba(0, 0, 0, 0) !important; }
   html[bslp-dark] .modal-full-height .modal-content {
     border: none; }
-  html[bslp-dark] .notification-item-read-bullet {
+  html[bslp-dark] .notification-item-read-bullet,
+  html[bslp-dark] .sdl-goal-popover-input, html[bslp-dark] .sdl-goal-popover-input, html[bslp-dark] .sdl-goal-popover-input input.form-control, html[bslp-dark] .sdl-goal-popover-footer .rbt-input.form-control {
     border-color: #8f8f8f !important; }
   html[bslp-dark] .sdl-goal-popover .checkbox input[type=checkbox]:not(:checked):after,
   html[bslp-dark] .radio-inline input[type=radio]:after, html[bslp-dark] .radio input[type=radio]:after, html[bslp-dark] input[type=radio]:after {
@@ -168,6 +189,11 @@ html[bslp-dark] {
   html[bslp-dark] .project-feedback-drawer,
   html[bslp-dark] .mentor-checkin-footer {
     border-color: #333333 !important; }
+  html[bslp-dark] .sdl-goal-popover-create, html[bslp-dark] .sdl-goal-popover-footer,
+  html[bslp-dark] .sdl-goal-popover-child,
+  html[bslp-dark] .sdl-goal-popover-header,
+  html[bslp-dark] .sdl-goal-popover-step {
+    border-color: #424242 !important; }
   html[bslp-dark] .table-bordered td.sdl-week-calendar-today,
   html[bslp-dark] .notifications-header, html[bslp-dark] .notification-item {
     border-color: #383838 !important; }
@@ -178,10 +204,10 @@ html[bslp-dark] {
     color: #bdbdbd !important; }
   html[bslp-dark] .project-day-to-day-side-nav-item-theme-default .project-day-to-day-side-nav-item-left-aligned-content.green .media-circle-background-circle {
     background-color: rgba(153, 255, 153, 0.35) !important; }
-  html[bslp-dark] .success:not(.app-heading) {
+  html[bslp-dark] .success:not(.app-heading), html[bslp-dark] .sdl-goal-token-completed .token {
     background-color: #26402f !important;
     color: #96e896 !important; }
-    html[bslp-dark] .success:not(.app-heading) i {
+    html[bslp-dark] .success:not(.app-heading) i, html[bslp-dark] .sdl-goal-token-completed .token i {
       background-color: #1f9346 !important; }
   html[bslp-dark] .score-badge.passed {
     color: #00e676 !important; }
