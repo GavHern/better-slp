@@ -4002,8 +4002,8 @@ function enableDarkMode(toggleState) {
     }, 300);
   }
 
-  if (!toggleState) document.documentElement.setAttribute('better-slp-dark-mode', 'false');
-  document.documentElement.setAttribute('better-slp-dark-mode', 'true');
+  if (!toggleState) return document.documentElement.removeAttribute('bslp-dark');
+  document.documentElement.setAttribute('bslp-dark', '');
 }
 
 exports.enableDarkMode = enableDarkMode;
@@ -4079,7 +4079,7 @@ var letterGradeScale = {
 
 function initialize() {
   chrome.storage.sync.set({
-    darkMode: false
+    darkMode: true
   });
   chrome.storage.sync.get('darkMode', function (items) {
     if (items.darkMode) darkMode_1.enableDarkMode(true, false);

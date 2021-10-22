@@ -30,7 +30,9 @@ html[bslp-dark] {
     background-color: #1c1c1c !important; }
   html[bslp-dark] .project-lesson-media-block-objective,
   html[bslp-dark] .needs-revision-popover,
-  html[bslp-dark] .project-feedback-dimension-navigator {
+  html[bslp-dark] .project-feedback-dimension-navigator,
+  html[bslp-dark] .right-screen-flyout-content,
+  html[bslp-dark] .right-screen-flyout-control {
     background-color: #242424 !important; }
   html[bslp-dark] .sdl-week-calendar-today,
   html[bslp-dark] .announcement-body,
@@ -38,7 +40,8 @@ html[bslp-dark] {
   html[bslp-dark] .focusarea .selected-panel .panel,
   html[bslp-dark] .project-feedback-header-container,
   html[bslp-dark] .platform-doc-header,
-  html[bslp-dark] .project-feedback-header .btn.btn-default {
+  html[bslp-dark] .project-feedback-header .btn.btn-default,
+  html[bslp-dark] .app .mentor-checkin-prework-flow textarea.form-control {
     background-color: #262626 !important; }
   html[bslp-dark] .goal-panel,
   html[bslp-dark] .sdl-course-grades button:hover,
@@ -61,7 +64,8 @@ html[bslp-dark] {
   html[bslp-dark] .project-feedback-dimension-navigator-drilldown-divider,
   html[bslp-dark] .project-feedback-dimension-navigator-toggle,
   html[bslp-dark] .open .project-feedback-asset-switcher-selector,
-  html[bslp-dark] .student-request-feedback .student-request-feedback-default .btn-default {
+  html[bslp-dark] .student-request-feedback .student-request-feedback-default .btn-default,
+  html[bslp-dark] .mentor-checkin-footer-buttons .btn-default {
     background-color: #363636 !important; }
   html[bslp-dark] .this-year-fade .nav-button-container:hover .this-year-nav-button,
   html[bslp-dark] .platform-doc-header .platform-doc-button:hover,
@@ -87,7 +91,8 @@ html[bslp-dark] {
     background-color: rgba(255, 255, 255, 0.07) !important; }
   html[bslp-dark] .app-page-title-group h1,
   html[bslp-dark] .project-feedback-title,
-  html[bslp-dark] .courserow-details-course-link-heading h2 {
+  html[bslp-dark] .courserow-details-course-link-heading h2,
+  html[bslp-dark] .app .mentor-checkin-prework-flow textarea.form-control {
     color: white !important;
     text-decoration-color: #d1d1d1 !important; }
   html[bslp-dark] .app-body,
@@ -107,7 +112,9 @@ html[bslp-dark] {
   html[bslp-dark] .history-header,
   html[bslp-dark] .announcements > div > h2,
   html[bslp-dark] .announcement .owner-name,
-  html[bslp-dark] .announcement-title {
+  html[bslp-dark] .announcement-title,
+  html[bslp-dark] .mentor-checkin-footer-buttons .btn-default,
+  html[bslp-dark] .mentor-checkin-body .subtitle {
     color: rgba(255, 255, 255, 0.85) !important;
     text-decoration-color: #d1d1d1 !important; }
   html[bslp-dark] .app-tertiaryheading, html[bslp-dark] .app-tertiaryheading span,
@@ -129,7 +136,8 @@ html[bslp-dark] {
   html[bslp-dark] .notification-item:not(.notification-item-unread) .notification-item-title-fragment,
   html[bslp-dark] .project-feedback-dimension-navigator-score-token:not(.selected) {
     color: #d1d1d1 !important; }
-  html[bslp-dark] .typography-module__colorBase___2P5Eh {
+  html[bslp-dark] .typography-module__colorBase___2P5Eh,
+  html[bslp-dark] .radio label {
     color: #ededed; }
   html[bslp-dark] .app-empty-state-vertical-center h1 {
     color: #424242 !important; }
@@ -144,7 +152,8 @@ html[bslp-dark] {
     border: none; }
   html[bslp-dark] .notification-item-read-bullet {
     border-color: #8f8f8f !important; }
-  html[bslp-dark] .sdl-goal-popover .checkbox input[type=checkbox]:not(:checked):after {
+  html[bslp-dark] .sdl-goal-popover .checkbox input[type=checkbox]:not(:checked):after,
+  html[bslp-dark] .radio-inline input[type=radio]:after, html[bslp-dark] .radio input[type=radio]:after, html[bslp-dark] input[type=radio]:after {
     border-color: #e6e6e6 !important; }
   html[bslp-dark] .table-bordered td,
   html[bslp-dark] .courserow-info.widen.months,
@@ -153,7 +162,8 @@ html[bslp-dark] {
   html[bslp-dark] .project-feedback-overview-panel.open,
   html[bslp-dark] .history-header,
   html[bslp-dark] .platform-doc-history-page .list-group .list-group-item,
-  html[bslp-dark] .project-feedback-drawer {
+  html[bslp-dark] .project-feedback-drawer,
+  html[bslp-dark] .mentor-checkin-footer {
     border-color: #333333 !important; }
   html[bslp-dark] .table-bordered td.sdl-week-calendar-today,
   html[bslp-dark] .notifications-header, html[bslp-dark] .notification-item {

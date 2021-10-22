@@ -72,9 +72,8 @@
 
 	.better-slp-pie-percentage {
 		position: absolute;
-		top: 50%;
-		left: 50%;
-		transform: translate(-50%, -50%);
+		inset: 0;
+		margin: auto;
 		
 		font-size: 1.8em;
 		font-weight: 500;

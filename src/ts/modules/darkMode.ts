@@ -6,8 +6,8 @@ export function enableDarkMode(toggleState: boolean, animation: boolean = true) 
   }
 
   if(!toggleState)
-    document.documentElement.setAttribute('better-slp-dark-mode', 'false'); // Disable dark mode attribute on the html tag
+    return document.documentElement.removeAttribute('bslp-dark'); // Disable dark mode attribute on the html tag
 
-  document.documentElement.setAttribute('better-slp-dark-mode', 'true'); // Enable dark mode attribute on the html tag
+  document.documentElement.setAttribute('bslp-dark', ''); // Enable dark mode attribute on the html tag
 
 }
