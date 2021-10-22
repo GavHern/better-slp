@@ -133,6 +133,9 @@ $announcement-item-course-name-badge: " .announcement-body-text .audience.badge"
 $announcements-heading: ".announcements > div > h2";
 $announcements-post-author-name: ".announcement .owner-name";
 $announcement-post-title: ".announcement-title";
+$annoucement-date: ".announcements-page .panel-body .announcement .announcement-details .date";
+$announcement-time-heading: ".announcements > ul > li > h2";
+$announcement-pill-badge: ".announcements-page .panel-body .announcement .announcement-body .badge.audience";
 
 //? Week
 $create-goal-popover: ".sdl-goal-popover";
@@ -435,7 +438,8 @@ html[bslp-dark] {
 		#{$announcements-post-author-name},
 		#{$announcement-post-title},
 		#{$checkin-flyout-dismiss},
-		#{$checkin-flyout-subtitle}
+		#{$checkin-flyout-subtitle},
+		#{$announcement-time-heading}
     {
       color: $page-body-color !important;
       text-decoration-color: $light-600 !important;
@@ -461,7 +465,8 @@ html[bslp-dark] {
     }
 
     #{$notification-popover-item-title-read},
-    #{$notebook-cog-skill-panel-score-token}
+    #{$notebook-cog-skill-panel-score-token},
+		#{$announcement-pill-badge}
     {
       color: $light-600 !important;
     }
@@ -477,7 +482,8 @@ html[bslp-dark] {
       color: $dark-50 !important;
     }
 
-		#{$typography-1}
+		#{$typography-1},
+		#{$annoucement-date}
 		{
 			color: $dark-25 !important;
 		}

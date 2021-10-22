@@ -114,7 +114,8 @@ html[bslp-dark] {
   html[bslp-dark] .announcement .owner-name,
   html[bslp-dark] .announcement-title,
   html[bslp-dark] .mentor-checkin-footer-buttons .btn-default,
-  html[bslp-dark] .mentor-checkin-body .subtitle {
+  html[bslp-dark] .mentor-checkin-body .subtitle,
+  html[bslp-dark] .announcements > ul > li > h2 {
     color: rgba(255, 255, 255, 0.85) !important;
     text-decoration-color: #d1d1d1 !important; }
   html[bslp-dark] .app-tertiaryheading, html[bslp-dark] .app-tertiaryheading span,
@@ -134,14 +135,16 @@ html[bslp-dark] {
   html[bslp-dark] .app .text-muted {
     color: #8f8f8f !important; }
   html[bslp-dark] .notification-item:not(.notification-item-unread) .notification-item-title-fragment,
-  html[bslp-dark] .project-feedback-dimension-navigator-score-token:not(.selected) {
+  html[bslp-dark] .project-feedback-dimension-navigator-score-token:not(.selected),
+  html[bslp-dark] .announcements-page .panel-body .announcement .announcement-body .badge.audience {
     color: #d1d1d1 !important; }
   html[bslp-dark] .typography-module__colorBase___2P5Eh,
   html[bslp-dark] .radio label {
     color: #ededed; }
   html[bslp-dark] .app-empty-state-vertical-center h1 {
     color: #424242 !important; }
-  html[bslp-dark] .typography-module__colorNeutral___2Xfii {
+  html[bslp-dark] .typography-module__colorNeutral___2Xfii,
+  html[bslp-dark] .announcements-page .panel-body .announcement .announcement-details .date {
     color: #5c5c5c !important; }
   html[bslp-dark] .focusarea .playlist-panel .score-badge.get-started,
   html[bslp-dark] .courserow-info > div h3 {
