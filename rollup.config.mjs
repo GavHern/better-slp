@@ -1,5 +1,6 @@
 import copy from "rollup-plugin-copy";
 import svelte from "rollup-plugin-svelte";
+import preprocess from "svelte-preprocess";
 import css from "rollup-plugin-css-only";
 import typescript from "@rollup/plugin-typescript";
 import { nodeResolve } from "@rollup/plugin-node-resolve";
@@ -12,7 +13,9 @@ export default {
   external: ["svelte"],
   plugins: [
     nodeResolve(),
-    svelte(),
+    svelte({
+      preprocess: preprocess(),
+    }),
     css({
       output: "bundle.css",
     }),
