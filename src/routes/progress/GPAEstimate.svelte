@@ -12,6 +12,7 @@
     "D+": 1.3,
     "D": 1.0,
     "F": 0.0,
+    "I": 0.0,
   };
 
   const mean = (arr) => arr.reduce((a, b) => a + b) / arr.length;
@@ -167,7 +168,6 @@
       </div>
     </li>
   {:catch err}
-    {@const a = console.log(err)}
     There was an error calculating GPA estimates.
   {/await}
 </div>
