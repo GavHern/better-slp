@@ -131,7 +131,7 @@
           <div class="tooltip-inner">
             A rough estimate based on your current platform grades. UC approved
             expedition courses are not included. Review your report card for
-            more accuracy. GPA estimate updates every 30 minutes.
+            more accuracy. <i>Could</i> take up to 24 hours to update.
           </div>
         </div>
       </div>
