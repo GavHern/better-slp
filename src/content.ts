@@ -27,8 +27,8 @@ const injectContent = () => {
 
 // Inject code when the page initially loads
 document.addEventListener("DOMContentLoaded", () => {
+  console.log("DOM load detected");
   const observer = new MutationObserver((entries) => {
-    console.log(entries);
     entries.forEach((i) => {
       i.addedNodes.forEach((ii: any) => {
         if (ii.classList.contains("app")) {
