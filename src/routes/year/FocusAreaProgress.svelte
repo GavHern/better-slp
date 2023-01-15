@@ -28,7 +28,7 @@
 </script>
 
 <div
-  class="no-padding mentor-checkin-prework-reminder claro-content-wrapper-panel drop-shadow filter-none panel panel-default"
+  class="bslp-route-specific no-padding mentor-checkin-prework-reminder claro-content-wrapper-panel drop-shadow filter-none panel panel-default"
 >
   <div class="panel-body">
     <div style="display: flex; justify-content: space-between;">

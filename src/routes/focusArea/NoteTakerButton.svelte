@@ -4,7 +4,7 @@
   };
 </script>
 
-<button on:click={handleClick}>
+<button class="bslp-route-specific" on:click={handleClick}>
   <i class="material-icons material-icons-default">edit</i>
   <span>Take Notes</span>
 </button>

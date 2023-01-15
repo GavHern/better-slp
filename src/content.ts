@@ -4,6 +4,10 @@ import progress from "./routes/progress/handler";
 
 // Check the route and load appropriate route handler
 const injectContent = () => {
+  document
+    .querySelectorAll(".bslp-route-specific")
+    .forEach((element) => element.remove());
+
   const path = window.location.pathname;
 
   switch (true) {
