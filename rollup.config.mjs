@@ -10,16 +10,16 @@ export default {
   output: {
     dir: "public",
   },
-  external: ["svelte"],
   plugins: [
-    nodeResolve(),
     svelte({
       preprocess: preprocess(),
+      plugins: [nodeResolve()],
     }),
     css({
       output: "bundle.css",
     }),
     typescript(),
+    nodeResolve(),
     copy({
       targets: [{ src: "src/manifest.json", dest: "public" }],
     }),
