@@ -55,6 +55,10 @@ export const neededProgressYears = (data: any) => {
 
   const neededGradeLevels = gradeLevel - 9; // 0 needed in 9th grade, 3 needed in 12th
 
+  if (neededGradeLevels < 0) {
+    // TODO: Add fallback if user is not in high school
+  }
+
   let years = [];
 
   for (let i = 1; i <= neededGradeLevels; i++) {
