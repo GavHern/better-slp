@@ -1,0 +1,18 @@
+{
+  "manifest_version": 3,
+  "name": "BetterSLP",
+  "version": "0.0.0",
+  "description": "Adds additional functionality to the Summit Learning Platform",
+  "content_scripts": [
+    {
+      "matches": ["*://*.summitlearning.org/*"],
+      "css": ["bundle.css"],
+      "js": ["content.js"],
+      "run_at": "document_start"
+    }
+  ],
+  "background": {
+    "service_worker": "worker.js"
+  },
+  "permissions": ["tabs"]
+}

@@ -1,0 +1,25 @@
+{
+  "name": "betterslp-new",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "type": "module",
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@rollup/plugin-node-resolve": "^15.0.1",
+    "@rollup/plugin-typescript": "^11.0.0",
+    "@types/chrome": "^0.0.208",
+    "rollup": "^2.78.0",
+    "rollup-plugin-copy": "^3.4.0",
+    "rollup-plugin-css-only": "^4.3.0",
+    "rollup-plugin-svelte": "^7.1.0",
+    "svelte": "^3.55.1",
+    "svelte-local-storage-store": "^0.3.2",
+    "tslib": "^2.4.1"
+  }
+}
