@@ -1,10 +1,8 @@
 <script lang="ts">
-  const handleClick = () => {
-    alert("Open Note Taker");
-  };
+  export let openNotes;
 </script>
 
-<button class="bslp-route-specific" on:click={handleClick}>
+<button class="bslp-route-specific" on:click={openNotes}>
   <i class="material-icons material-icons-default">edit</i>
   <span>Take Notes</span>
 </button>
