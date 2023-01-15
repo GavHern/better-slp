@@ -26,7 +26,6 @@
           .name?.includes("AP "),
         isExpedition:
           res.courses.filter((c) => c.id === a.course_id)[0].subjectId === 10,
-        name: res.courses.filter((c) => c.id === a.course_id)[0].name,
       }))
       .filter((grade) => !grade.isExpedition && grade.grade !== "N/A");
 
@@ -58,6 +57,8 @@
   };
 
   const getAllPreviousAcademicYears = async (years: number[], initialInfo) => {
+    let parsed;
+
     const memoized = JSON.parse(
       window.localStorage.getItem("bslp-memoized-gpa")
     );
@@ -74,26 +75,27 @@
 
       const json = await Promise.all(previous.map((res) => res.json()));
 
-      const parsed = json.map((data) => parseAPIResponse(data));
-      parsed.push(initialInfo);
+      parsed = json.map((data) => parseAPIResponse(data));
 
-      const unweighted = mean(
-        parsed.map((data) => calculateYearAverage(false, data))
-      );
-      const weighted = mean(
-        parsed.map((data) => calculateYearAverage(true, data))
-      );
-
+      // Memoize old values
       window.localStorage["bslp-memoized-gpa"] = JSON.stringify({
-        unweighted,
-        weighted,
+        parsed,
         timestamp: new Date().getTime(),
       });
-
-      return { unweighted, weighted };
     } else {
-      return memoized;
+      parsed = memoized.parsed;
     }
+
+    parsed.push(initialInfo);
+
+    const unweighted = mean(
+      parsed.map((data) => calculateYearAverage(false, data))
+    );
+    const weighted = mean(
+      parsed.map((data) => calculateYearAverage(true, data))
+    );
+
+    return { unweighted, weighted };
   };
 
   let res = fetch("https://www.summitlearning.org/my/progress.json")
