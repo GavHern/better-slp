@@ -60,7 +60,11 @@
           {@const percentage = Math.round((complete / total) * 100)}
 
           <div class="bslp-progress-bar">
-            <div class="bslp-progress" style="width: {percentage}%" />
+            <div
+              class="bslp-progress"
+              style="width: {percentage}%"
+              class:bslp-progress-completed={percentage === 100}
+            />
             <div class="bslp-progress-label">{name} ({complete}/{total})</div>
             <div class="bslp-progress-percentage">{percentage}%</div>
           </div>
@@ -90,6 +94,14 @@
     height: 100%;
     top: 0;
     left: 0;
+  }
+
+  .bslp-progress.bslp-progress-completed {
+    background: #008656;
+  }
+
+  :has(> .bslp-progress.bslp-progress-completed) .bslp-progress-percentage {
+    color: white;
   }
 
   .bslp-progress-label {
