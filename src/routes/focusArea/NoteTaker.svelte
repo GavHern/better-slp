@@ -2,7 +2,7 @@
   export let id: string;
 
   const close = () => {
-    document.querySelectorAll(".bslp-note-taker-container").forEach((e) => {
+    document.querySelectorAll(".bslp-notes").forEach((e) => {
       e.remove();
     });
   };
@@ -15,11 +15,26 @@
 />
 
 <!-- svelte-ignore a11y-click-events-have-key-events -->
-<div class="bslp-route-specific bslp-note-taker-container">
-  <div class="bslp-note-taker">{id}</div>
+<div
+  class="bslp-route-specific bslp-notes bslp-note-taker-scrim"
+  on:click={close}
+/>
+
+<div class="bslp-route-specific bslp-notes bslp-note-taker-container">
+  <div class="bslp-note-taker">
+    {id}
+  </div>
 </div>
 
 <style>
+  .bslp-note-taker-scrim {
+    all: unset;
+    position: fixed;
+    z-index: 49999;
+    background: #0000008f;
+    inset: 0;
+  }
+
   .bslp-note-taker-container {
     all: unset;
     position: fixed;
@@ -27,11 +42,12 @@
     align-items: center;
     inset: 0;
     margin: auto;
-    background: #0000008f;
     z-index: 50000;
+    pointer-events: none;
   }
 
   .bslp-note-taker {
+    pointer-events: auto;
     width: 80%;
     height: 75%;
     background: #ffffff;
