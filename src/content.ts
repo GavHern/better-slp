@@ -1,5 +1,5 @@
 import year from "./routes/year/handler";
-import focusarea from "./routes/focusarea/handler";
+import focusarea from "./routes/focusArea/handler";
 import progress from "./routes/progress/handler";
 
 // Check the route and load appropriate route handler
