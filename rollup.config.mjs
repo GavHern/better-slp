@@ -6,7 +6,7 @@ import typescript from "@rollup/plugin-typescript";
 import { nodeResolve } from "@rollup/plugin-node-resolve";
 
 export default {
-  input: ["src/worker.ts", "src/content.ts"],
+  input: ["src/worker.ts", "src/content.ts",],
   output: {
     dir: "public",
   },
@@ -22,6 +22,7 @@ export default {
     nodeResolve(),
     copy({
       targets: [{ src: "src/manifest.json", dest: "public" }],
+      targets: [{ src: "src/assets", dest: "public/" }]
     }),
   ],
 };
