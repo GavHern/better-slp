@@ -12,7 +12,7 @@ const injectContent = () => {
 
   switch (true) {
     case /\/my\/(assessment_takes|math_unit_assessment)/.test(path): //! DO NOT RUN CODE IN CONTENT ASSESSMENTS OR MATH UNITS
-      break;
+      return;
     case /\/my\/year\/\d+/.test(path):
       year();
       break;
