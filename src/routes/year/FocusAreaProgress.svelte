@@ -23,7 +23,7 @@
       amount: [completedPowers + completedAdditionals, powers + additionals],
     },
     { name: "Power", amount: [completedPowers, powers] },
-    { name: "Additional", amount: [completedPowers, additionals] },
+    { name: "Additional", amount: [completedAdditionals, additionals] },
   ];
 </script>
 

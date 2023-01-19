@@ -11,6 +11,11 @@
       "run_at": "document_start"
     }
   ],
+  "icons":{
+    "16": "assets/assets/icon16.png",
+    "48": "assets/assets/icon48.png",
+    "128": "assets/assets/icon128.png"
+  },
   "background": {
     "service_worker": "worker.js"
   },
