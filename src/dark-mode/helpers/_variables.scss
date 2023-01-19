@@ -1,0 +1,150 @@
+// GENERAL COMPONENTS
+$page-body: ".page-content-body";
+$page-main-content: ".app-body";
+$panel-element: ".panel";
+$list-collection-item: ".list-group-item";
+$default-button: ".btn.btn-default:not(.edit-dropdown)";
+$avatar-background-not-sidebar: "*:not(.notifications-nub):not(.platform-doc-user-badge) > .avatar-profile";
+$token-element: ".token, .token-display-only";
+$table-row: ".table-bordered td";
+$radio-button: ".radio-inline input[type=radio]:after, .radio input[type=radio]:after, input[type=radio]:after";
+$radio-label: ".radio label";
+
+$popover-arrows: (
+	"left": ".popover.left .arrow::after",
+	"right": ".popover.right .arrow::after",
+	"top": ".popover.top .arrow::after",
+	"bottom": ".popover.bottom .arrow::after"
+);
+
+$dropdown-menu-container: ".dropdown-menu";
+$dropdown-menu-item: ".dropdown-menu li:not(.active) a";
+$dropdown-menu-hover-focus-item: ".dropdown-menu>li:not(.active)>a:hover, .dropdown-menu>li:not(.active)>a:focus";
+
+
+// ANNOUNCEMENTS COMPONENTS
+$announcement-item-container: ".announcement";
+$announcement-item-body: ".announcement-body";
+$announcement-item-course-name-badge: " .announcement-body-text .audience.badge";
+$announcements-heading: ".announcements > div > h2";
+$announcements-post-author-name: ".announcement .owner-name";
+$announcement-post-title: ".announcement-title";
+$annoucement-date: ".announcements-page .panel-body .announcement .announcement-details .date";
+$announcement-time-heading: ".announcements > ul > li > h2";
+$announcement-pill-badge: ".announcements-page .panel-body .announcement .announcement-body .badge.audience";
+$annouunement-badge: ".audiencebadge";
+
+
+// WEEK COMPONENTS
+$create-goal-popover: ".sdl-goal-popover";
+$create-goal-popover-submit-button: ".sdl-goal-popover-create";
+$create-goal-popover-add-plan-field-container: ".sdl-goal-popover-footer";
+$create-goal-popover-add-plan-input: ".sdl-goal-popover-input input.form-control, .sdl-goal-popover-footer .rbt-input.form-control";
+$create-goal-popover-add-plan-input-placeholder: ".sdl-goal-popover-input input.form-control::placeholder, .sdl-goal-popover-footer .rbt-input.form-control::placeholder";
+$create-goal-popover-add-plan-input-hint: ".sdl-goal-popover-footer .rbt-input-hint";
+$create-goal-popover-date-picker: ".sdl-goal-popover-input";
+$create-goal-popover-main-input: ".sdl-goal-popover-input";
+$create-goal-popover-goal-textarea: ".sdl-goal-popover-input-title .form-control";
+$create-goal-popover-goal-textarea-placeholder: ".sdl-goal-popover-input-title .form-control::placeholder";
+$create-goal-popover-goal-unchecked-box: ".sdl-goal-popover .checkbox input[type=checkbox]:not(:checked):after";
+$create-goal-popover-footer-container: ".sdl-goal-popover-create, .sdl-goal-popover-footer";
+$create-goal-popover-dismiss: ".close-popover-button";
+$create-goal-popover-step-header: ".sdl-goal-popover-step-header.list-group-item h4";
+$create-goal-popover-step-container: ".sdl-goal-popover-step";
+$create-goal-popover-step-text: ".sdl-goal-popover-step.list-group-item .step-text";
+$create-goal-popoer-step-expand-label: ".sdl-goal-popover-steps .sdl-goal-popover-step-header button.goal-step-toggle .goal-step-toggle-label";
+$create-goal-popover-delete-dropdown-toggle: ".sdl-goal-popover-delete-toggle-button";
+$create-goal-popover-delete-dropdown-toggle-hover: ".sdl-goal-popover-delete-toggle-button:hover";
+$create-goal-popover-delete-button: ".sdl-goal-popover-delete-button";
+$create-goal-popover-delete-button-hover: ".sdl-goal-popover-delete-button:hover";
+$create-goal-popover-subgoal: ".sdl-goal-popover-child";
+$create-goal-popover-header: ".sdl-goal-popover-header";
+
+$week-calendar-current-day-highlight: ".sdl-week-calendar-today";
+$week-calendar-current-day-highlight-border: ".table-bordered td.sdl-week-calendar-today";
+
+$completed-goal: ".sdl-goal-token-completed .token";
+
+
+// YEAR COMPONENTS
+$focus-area-hover-tooltip: ".courserow-tooltip.tooltip .tooltip-inner";
+$focus-area-hover-tooltip-header: ".courserow-tooltip .app-heading:not(.success)";
+$focus-area-hover-tooltip-project-status: ".courserow-tooltip .project-status";
+$focus-area-hover-tooltip-horizontal-rule: ".courserow-tooltip hr";
+$focus-area-hover-tooltip-success-date: ".courserow-tooltip.tooltip .app-heading.success";
+$year-course-name-heading: ".courserow-details-course-link-heading h2";
+$year-course-assessment-type-labels: ".courserow-info > div h3"; 
+$year-scroll-right-shadow: ".claro-standard-layout-page .claro-this-year .this-year-outer .this-year-fade.right";
+$year-course-row-info-left: ".courserow-info.widen";
+$year-course-cog-score-text: ".courserow-score-text";
+$year-course-row-name-borders: ".courserow-info.widen.months";
+$year-explore-more-courses-button: ".this-year-explore-courses";
+$year-scroll-nav-button: ".this-year-fade .nav-button-container:hover .this-year-nav-button";
+$year-scroll-nav-button-hovered: ".this-year-fade .nav-button-container:hover .this-year-nav-button:hover";
+
+$focus-area-statuses: (
+    "green": ".success:not(.app-heading)" + "," + $completed-goal, // Styles completed goals the same as passed focus areas
+    "yellow": ".warning:not(.app-heading)",
+    "red": ".danger:not(.app-heading)",
+    "neutral": ".default, .courserow-list-item-content-default:not(.success):not(.warning):not(.danger)"
+);
+
+
+// PROGRESS COMPONENTS
+$progress-grades-table-item: ".sdl-course-grades button, .sdl-course-grades .grade-header";
+$progress-grades-table-link-hover: ".sdl-course-grades button:hover";
+
+
+// FOCUS AREA COMPONENTS
+$diagnostic-start-button: ".focusarea-diagnostic-btn button";
+$goal-floating-card-container: ".goal-drawer";
+$goal-floating-card: ".goal-panel";
+$focus-area-tour-button: ".upper-right-overlay .onboarding-nub";
+
+$focus-area-resource-collapsable-opened-contianer: ".focusarea .selected-panel";
+$focus-area-resource-collapsable-opened: " .focusarea .selected-panel .panel";
+
+$focus-area-score-badge: (
+    "green": ".score-badge.passed",
+    "yellow": ".score-badge.almost-passed",
+    "red": ".score-badge:not(.get-started)",
+    "indeterminate": ".focusarea .playlist-panel .score-badge.get-started"
+);
+
+
+// PROJECT PAGE COMPONENTS
+$project-overview-item-badge-background: ".project-day-to-day-side-nav-item-theme-default .media-circle-background-circle";
+$project-overview-checkpoint-not-selected: ".project-day-to-day-side-nav-item:not(.selected)";
+$project-overview-checkpoint-new-feedback-badge: ".project-day-to-day-side-nav-item-new-feedback-token";
+
+$project-overview-checkpoint-feedback-badge: (
+    "green": ".project-day-to-day-side-nav-item-theme-default .project-day-to-day-side-nav-item-left-aligned-content.green .media-circle-background-circle",
+    "yellow": ".project-day-to-day-side-nav-item-theme-default .project-day-to-day-side-nav-item-left-aligned-content.yellow .media-circle-background-circle",
+    "red": ".project-day-to-day-side-nav-item-theme-default .project-day-to-day-side-nav-item-left-aligned-content.red .media-circle-background-circle"
+);
+
+$project-overview-copy-old-work-prompt: ".project-asset-copy-old-work-prompt";
+
+$project-plans-top-block: ".project-lesson-media-block-objective";
+$project-plans-top-block-icon-background: ".project-lesson-media-block-icon-background-circle";
+$project-plans-timeline-icon-background: ".project-agenda-timeline-item-icon-background";
+$project-plans-timeline-connector-line: ".project-agenda-timeline-item-line-1, .project-agenda-timeline-item-line-2";
+
+
+// NOTIFICATIONS COMPONENTS
+$notification-popover-background: "#notifications-popover";
+$notification-popover-subheading: ".notifications-subtitle";
+$notification-popover-border: ".notifications-header, .notification-item";
+$notification-popover-item-title-read: ".notification-item:not(.notification-item-unread) .notification-item-title-fragment";
+$notification-popover-item-subtitle: ".notification-item-subtitle, #notifications-popover .list-group-item";
+$notification-popover-item-bullet-read: ".notification-item-read-bullet";
+
+
+// CHECK-IN COMPONENTS
+$flyout-container: ".right-screen-flyout-content";
+$flyout-control: ".right-screen-flyout-control";
+$checkin-flyout-footer: ".mentor-checkin-footer";
+$checkin-flyout-dismiss: ".mentor-checkin-footer-buttons .btn-default";
+$checkin-flyout-textarea: ".app .mentor-checkin-prework-flow textarea.form-control";
+$checkin-flyout-subtitle: ".mentor-checkin-body .subtitle";
+$summit-reads-solves-dropdown: ".summit-reads-solves dropdown open";

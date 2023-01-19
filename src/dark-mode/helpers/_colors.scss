@@ -1,0 +1,70 @@
+// DARK COLORS 
+$dark-blk: hsl(0, 0%, 0%);
+$dark-900: hsl(0, 0%, 7%);
+$dark-800: hsl(0, 0%, 11%);
+$dark-700: hsl(0, 0%, 14%);
+$dark-600: hsl(0, 0%, 15%);
+$dark-500: hsl(0, 0%, 17%);
+$dark-400: hsl(0, 0%, 18%);
+$dark-300: hsl(0, 0%, 20%);
+$dark-200: hsl(0, 0%, 21%);
+$dark-100: hsl(0, 0%, 22%);
+$dark-50 : hsl(0, 0%, 26%);
+$dark-25 : hsl(0, 0%, 36%);
+
+// LIGHT COLORS
+$light-900: hsl(0, 0%, 56%);
+$light-800: hsl(0, 0%, 68%);
+$light-700: hsl(0, 0%, 74%);
+$light-600: hsl(0, 0%, 82%);
+$light-500: hsl(0, 0%, 88%);
+$light-400: hsl(0, 0%, 90%);
+$light-300: hsl(0, 0%, 93%);
+$light-200: hsl(0, 0%, 96%);
+$light-100: hsl(0, 0%, 98%);
+$light-0:   hsl(0, 0%, 100%);
+
+// TRANSPARENT FUNCTION
+$transparent: rgba(0, 0, 0, 0);
+@function transparent-white($transparency){@return rgba(255, 255, 255, $transparency)}
+$defualt: transparent-white(0.5);
+$page-body-color: transparent-white(0.85);
+
+// MAIN COLORS FOR DARK MODE
+$color-status-checkpoint-feedback: (
+    "green": hsla(120, 100%, 80%, 0.35),
+    "yellow": hsla(60, 100%, 70%, 0.35),
+    "red": hsla(0, 100%, 70%, 0.35)
+);
+
+$color-status-background: (
+    "green": hsl(140, 25%, 20%),
+    "yellow": hsl(60, 20%, 20%),
+    "red": hsl(0, 40%, 20%)
+);
+
+$color-status-text: (
+    "green": hsl(120, 64%, 75%),
+    "yellow": hsl(60, 64%, 75%),
+    "red": hsl(0, 64%, 75%)
+);
+
+$color-status-icon: (
+    "green": hsl(140, 65%, 35%),
+    "yellow": hsl(60, 65%, 35%),
+    "red": hsl(0, 65%, 35%)
+);
+
+
+$focus-area-tour-colors: (
+    "background": hsl(188, 22%, 15%),
+    "border": hsl(191, 22%, 29%),
+    "text": hsl(188, 48%, 57%)
+);
+
+
+$score-badge-colors: (
+    "red": #ff5252,
+    "yellow": #ffc400,
+    "green": #00e676
+);
