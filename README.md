@@ -2,7 +2,7 @@
 
 Better SLP is a browser extension that improves the Summit Learning Platform by adding additional quality-of-life improvments.
 
-> :warning: This extension is currently in development and is not avaliable for public use in any browser. To run locally, clone the repository with `git clone` and then compile the extension by running `npm run build`. This will output a `public` directory which can be loaded as an unpacked extension in most browers (chrome://extensions, brave://extensions, about:debugging, etc.)
+> :warning: This extension is currently in development and is not avaliable for public use in any browser. To run locally, clone the repository with `git clone`, install the required dependencies with `npm install`, and then compile the extension by running `npm run build`. This will output a `public` directory which can be loaded as an unpacked extension in most browers (chrome://extensions, brave://extensions, about:debugging, etc.)
 
 ## Features
 
@@ -43,7 +43,7 @@ All of the actual code is placed in the `src` directory, which is then compiled 
 
 Anything specific to a certain route on the Summit Learning website (week, year, progress, focus area, etc.) should be put in `src/routes`. Each folder is dedicated to a route and the `handler.ts` file is what should run when the route is navigated to. Components specific to the route should also be placed here.
 
-The components folder should be for components that are able to appear on several routes. All components are written in [svelte.js](https://svelte.dev). Svelte is a highly performant javascript framework that has strong resemblance to vanilla html/js. These components compile down to vanialla javascript with 0 dependancies making them very small and efficient.
+The components folder should be for components that are able to appear on several routes. All components are written in [svelte.js](https://svelte.dev). Svelte is a highly performant javascript framework that has strong resemblance to vanilla html/js. These components compile down to vanilla javascript with 0 dependancies making them very small and efficient.
 
 The assets folder is for any file that needs to be present in the manifest or directly used in the project without being bundled by rollup.
 
