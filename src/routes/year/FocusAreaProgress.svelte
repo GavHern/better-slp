@@ -41,7 +41,7 @@
         <i
           class="material-icons material-icons-default"
           style="transform: rotate({$collapsed
-            ? 0.5
+            ? -0.5
             : 0}turn) scale(1.5); transition: transform 300ms;"
         >
           arrow_drop_up
