@@ -30,10 +30,12 @@
 <!-- svelte-ignore a11y-click-events-have-key-events -->
 <div
   class="bslp-route-specific no-padding mentor-checkin-prework-reminder claro-content-wrapper-panel drop-shadow filter-none panel panel-default"
-  on:click={() => {collapsed.set(!$collapsed);}}
   >
   <div class="panel-body">
-    <div style="display: flex; justify-content: space-between;">
+    <div 
+    style="display: flex; justify-content: space-between;"
+    on:click={() => {collapsed.set(!$collapsed)}}
+    >
       <div class="mentor-checkin-prework-reminder-title">
         Focus Area Progress
       </div>
