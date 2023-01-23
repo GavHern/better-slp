@@ -4,15 +4,9 @@
 
   let collapsed = writable("bslp-focus-area-progress-collapsed", false);
 
-  const powers = document.querySelectorAll(
-    ".courserow .power.row .focusarea-list-item a"
-  ).length;
-  const completedPowers = document.querySelectorAll(
-    ".courserow .power.row .focusarea-list-item a.success"
-  ).length;
-  const additionals = document.querySelectorAll(
-    ".courserow .additional.row .focusarea-list-item a"
-  ).length;
+  const powers = document.querySelectorAll(".courserow .power.row .focusarea-list-item a").length;
+  const completedPowers = document.querySelectorAll(".courserow .power.row .focusarea-list-item a.success").length;
+  const additionals = document.querySelectorAll(".courserow .additional.row .focusarea-list-item a").length;
   const completedAdditionals = document.querySelectorAll(
     ".courserow .additional.row .focusarea-list-item a.success"
   ).length;
@@ -30,21 +24,19 @@
 <!-- svelte-ignore a11y-click-events-have-key-events -->
 <div
   class="bslp-route-specific no-padding mentor-checkin-prework-reminder claro-content-wrapper-panel drop-shadow filter-none panel panel-default"
-  >
+>
   <div class="panel-body">
-    <div 
-    style="display: flex; justify-content: space-between;"
-    on:click={() => {collapsed.set(!$collapsed)}}
+    <div
+      style="display: flex; justify-content: space-between;"
+      on:click={() => {
+        collapsed.set(!$collapsed);
+      }}
     >
-      <div class="mentor-checkin-prework-reminder-title">
-        Focus Area Progress
-      </div>
+      <div class="mentor-checkin-prework-reminder-title">Focus Area Progress</div>
       <button>
         <i
           class="material-icons material-icons-default"
-          style="transform: rotate({$collapsed
-            ? -0.5
-            : 0}turn) scale(1.5); transition: transform 300ms;"
+          style="transform: rotate({$collapsed ? -0.5 : 0}turn) scale(1.5); transition: transform 300ms;"
         >
           arrow_drop_up
         </i>

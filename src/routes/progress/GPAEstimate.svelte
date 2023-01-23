@@ -1,10 +1,5 @@
 <script lang="ts">
-  import {
-    parseAPIResponse,
-    neededProgressYears,
-    getDataFromAllPreviousAcademicYears,
-    formatGPA,
-  } from "./gpa";
+  import { parseAPIResponse, neededProgressYears, getDataFromAllPreviousAcademicYears, formatGPA } from "./gpa";
 
   let res = fetch("https://www.summitlearning.org/my/progress.json")
     .then((res) => res.json())
@@ -22,20 +17,13 @@
       <div class="col-xs-6 flex">
         <h2 class="courses-title">GPA Estimate</h2>
 
-        <i class="material-icons material-icons-default bslp-gpa-info-tooltip">
-          help_outline
-        </i>
+        <i class="material-icons material-icons-default bslp-gpa-info-tooltip"> help_outline </i>
 
-        <div
-          role="tooltip"
-          class="fade in tooltip bottom blsp-gpa-tooltip"
-          style="top: 20px; right: -71px;"
-        >
+        <div role="tooltip" class="fade in tooltip bottom blsp-gpa-tooltip" style="top: 20px; right: -71px;">
           <div class="tooltip-arrow" style="left: 50%;" />
           <div class="tooltip-inner">
-            A rough estimate based on your current platform grades. UC approved
-            expedition courses are not included. Review your report card for
-            more accuracy. <i>Could</i> take up to 24 hours to update.
+            A rough estimate based on your current platform grades. UC approved expedition courses are not included.
+            Review your report card for more accuracy. <i>Could</i> take up to 24 hours to update.
           </div>
         </div>
       </div>

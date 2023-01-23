@@ -11,7 +11,7 @@
       "run_at": "document_start"
     }
   ],
-  "icons":{
+  "icons": {
     "16": "assets/icon16.png",
     "48": "assets/icon48.png",
     "128": "assets/icon128.png"

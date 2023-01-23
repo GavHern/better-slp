@@ -32,19 +32,14 @@ export const parseAPIResponse = (res: any) =>
   res.courseAssignments
     .map((a) => ({
       grade: a.letter_grade,
-      isAP: res.courses
-        .filter((c) => c.id === a.course_id)[0]
-        .name?.includes("AP "),
-      isExpedition:
-        res.courses.filter((c) => c.id === a.course_id)[0].subjectId === 10,
+      isAP: res.courses.filter((c) => c.id === a.course_id)[0].name?.includes("AP "),
+      isExpedition: res.courses.filter((c) => c.id === a.course_id)[0].subjectId === 10,
     }))
     .filter((grade) => !grade.isExpedition && grade.grade !== "N/A");
 
 // Averages a list of letter grades
 const calculateYearAverage = (weighted, grades: any[]) => {
-  const gpaList = grades.map(
-    (grade) => gpaScale[grade.grade] + grade.isAP * weighted
-  );
+  const gpaList = grades.map((grade) => gpaScale[grade.grade] + grade.isAP * weighted);
   return mean(gpaList);
 };
 
@@ -68,22 +63,14 @@ export const neededProgressYears = (data: any) => {
   return years;
 };
 
-export const getDataFromAllPreviousAcademicYears = async (
-  years: number[],
-  initialInfo
-) => {
+export const getDataFromAllPreviousAcademicYears = async (years: number[], initialInfo) => {
   let parsed;
 
   const memoized = JSON.parse(window.localStorage.getItem("bslp-memoized-gpa"));
 
-  if (
-    memoized == null ||
-    (new Date().getTime() - memoized.timestamp) / 1000 > 86400
-  ) {
+  if (memoized == null || (new Date().getTime() - memoized.timestamp) / 1000 > 86400) {
     const previous = await Promise.all(
-      years.map((year) =>
-        fetch(`https://www.summitlearning.org/my/progress/year/${year}.json`)
-      )
+      years.map((year) => fetch(`https://www.summitlearning.org/my/progress/year/${year}.json`))
     );
 
     const json = await Promise.all(previous.map((res) => res.json()));
@@ -101,9 +88,7 @@ export const getDataFromAllPreviousAcademicYears = async (
 
   parsed.push(initialInfo);
 
-  const unweighted = mean(
-    parsed.map((data) => calculateYearAverage(false, data))
-  );
+  const unweighted = mean(parsed.map((data) => calculateYearAverage(false, data)));
   const weighted = mean(parsed.map((data) => calculateYearAverage(true, data)));
 
   return { unweighted, weighted };

@@ -13,10 +13,7 @@ const openNotes = () => {
 export default () => {
   const titleBar = document.querySelector(".app-page-title-group");
 
-  titleBar.setAttribute(
-    "style",
-    "display: flex; justify-content: space-between;"
-  );
+  titleBar.setAttribute("style", "display: flex; justify-content: space-between;");
 
   new NoteTakerButton({
     target: titleBar,

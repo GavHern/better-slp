@@ -15,10 +15,7 @@
 />
 
 <!-- svelte-ignore a11y-click-events-have-key-events -->
-<div
-  class="bslp-route-specific bslp-notes bslp-note-taker-scrim"
-  on:click={close}
-/>
+<div class="bslp-route-specific bslp-notes bslp-note-taker-scrim" on:click={close} />
 
 <div class="bslp-route-specific bslp-notes bslp-note-taker-container">
   <div class="bslp-note-taker">
@@ -53,7 +50,6 @@
     background: #ffffff;
     margin: auto;
     border-radius: 0.75em;
-    box-shadow: rgba(0, 0, 0, 0.1) 0px 20px 25px -5px,
-      rgba(0, 0, 0, 0.04) 0px 10px 10px -5px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 20px 25px -5px, rgba(0, 0, 0, 0.04) 0px 10px 10px -5px;
   }
 </style>
