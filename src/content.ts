@@ -1,3 +1,5 @@
+import "./dark-mode/dark.stylus";
+
 import init from "./init";
 import year from "./routes/year/handler";
 import focusarea from "./routes/focusArea/handler";

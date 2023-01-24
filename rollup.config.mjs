@@ -3,6 +3,7 @@ import svelte from "rollup-plugin-svelte";
 import preprocess from "svelte-preprocess";
 import css from "rollup-plugin-css-only";
 import typescript from "@rollup/plugin-typescript";
+import postcss from "rollup-plugin-postcss";
 import { nodeResolve } from "@rollup/plugin-node-resolve";
 
 export default {
@@ -19,6 +20,9 @@ export default {
       output: "bundle.css",
     }),
     typescript(),
+    postcss({
+      extract: "dark.css",
+    }),
     nodeResolve(),
     copy({
       targets: [{ src: "src/manifest.json", dest: "public" }],

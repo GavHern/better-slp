@@ -1,0 +1,58 @@
+// DARK COLORS 
+dark900 = hsl(0, 0%, 7%)
+dark800 = hsl(0, 0%, 11%)
+dark700 = hsl(0, 0%, 13%)
+dark600 = hsl(0, 0%, 15%)
+dark500 = hsl(0, 0%, 17%)
+dark400 = hsl(0, 0%, 18%)
+dark300 = hsl(0, 0%, 20%)
+dark200 = hsl(0, 0%, 21%)
+dark100 = hsl(0, 0%, 22%)
+darkDivide = rgba(255, 255, 255, 0.12);
+
+// LIGHT COLORS
+lightPrimary = rgba(255, 255, 255, 0.95)
+lightSecondary = rgba(255, 255, 255, 0.7)
+lightSubtle = rgba(255, 255, 255, 0.5)
+
+/*
+OLD COLORS FROM SCSS
+
+
+$color-status-checkpoint-feedback: (
+  "green": hsla(120, 100%, 80%, 0.35),
+  "yellow": hsla(60, 100%, 70%, 0.35),
+  "red": hsla(0, 100%, 70%, 0.35),
+);
+
+$color-status-background: (
+  "green": hsl(140, 25%, 20%),
+  "yellow": hsl(60, 20%, 20%),
+  "red": hsl(0, 40%, 20%),
+);
+
+$color-status-text: (
+  "green": hsl(120, 64%, 75%),
+  "yellow": hsl(60, 64%, 75%),
+  "red": hsl(0, 64%, 75%),
+);
+
+$color-status-icon: (
+  "green": hsl(140, 65%, 35%),
+  "yellow": hsl(60, 65%, 35%),
+  "red": hsl(0, 65%, 35%),
+);
+
+$focus-area-tour-colors: (
+  "background": hsl(188, 22%, 15%),
+  "border": hsl(191, 22%, 29%),
+  "text": hsl(188, 48%, 57%),
+);
+
+$score-badge-colors: (
+  "red": #ff5252,
+  "yellow": #ffc400,
+  "green": #00e676,
+);
+
+*/
