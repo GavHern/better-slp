@@ -1,0 +1,25 @@
+/*
+ *DARK MODE
+
+	All dark mode styles get nested inside of the html tag with the attribute of "bslp-dark".
+	This is an attribute since its easy to add or remove when debugging in dev tools.
+	Colors for design theme can be found in `helpers/colors.styl'.
+	Selectors for styling go in its respective route in the `selectors` folder.
+	Use `selectors/_global.styl` for selectors that are used on all routes.
+	Only use simple values or things already in the design system.
+	Only add to the design system if necessary
+
+	Adhere to the material.io dark theme specification as best as possible:
+	https://m2.material.io/design/color/dark-theme.html
+ */
+
+@import "colors.styl"
+@import "selectors/_global.styl"
+@import "selectors/focusArea.styl"
+@import "selectors/progress.styl"
+@import "selectors/project.styl"
+@import "selectors/week.styl"
+@import "selectors/year.styl"
+
+html[bslp-dark]
+	// Styles go here

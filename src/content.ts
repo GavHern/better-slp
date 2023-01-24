@@ -1,4 +1,4 @@
-import "./dark-mode/dark.stylus";
+import "./dark-mode/index.styl";
 
 import init from "./init";
 import year from "./routes/year/handler";

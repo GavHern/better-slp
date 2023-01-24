@@ -1,3 +1,5 @@
+//! REMOVE THIS FILE WHEN NO LONGER NEEDED FOR REFERENCE
+
 // GENERAL COMPONENTS
 $page-body: ".page-content-body";
 $page-main-content: ".app-body";
@@ -11,16 +13,15 @@ $radio-button: ".radio-inline input[type=radio]:after, .radio input[type=radio]:
 $radio-label: ".radio label";
 
 $popover-arrows: (
-	"left": ".popover.left .arrow::after",
-	"right": ".popover.right .arrow::after",
-	"top": ".popover.top .arrow::after",
-	"bottom": ".popover.bottom .arrow::after"
+  "left": ".popover.left .arrow::after",
+  "right": ".popover.right .arrow::after",
+  "top": ".popover.top .arrow::after",
+  "bottom": ".popover.bottom .arrow::after",
 );
 
 $dropdown-menu-container: ".dropdown-menu";
 $dropdown-menu-item: ".dropdown-menu li:not(.active) a";
 $dropdown-menu-hover-focus-item: ".dropdown-menu>li:not(.active)>a:hover, .dropdown-menu>li:not(.active)>a:focus";
-
 
 // ANNOUNCEMENTS COMPONENTS
 $announcement-item-container: ".announcement";
@@ -33,7 +34,6 @@ $annoucement-date: ".announcements-page .panel-body .announcement .announcement-
 $announcement-time-heading: ".announcements > ul > li > h2";
 $announcement-pill-badge: ".announcements-page .panel-body .announcement .announcement-body .badge.audience";
 $annouunement-badge: ".audiencebadge";
-
 
 // WEEK COMPONENTS
 $create-goal-popover: ".sdl-goal-popover";
@@ -65,7 +65,6 @@ $week-calendar-current-day-highlight-border: ".table-bordered td.sdl-week-calend
 
 $completed-goal: ".sdl-goal-token-completed .token";
 
-
 // YEAR COMPONENTS
 $focus-area-hover-tooltip: ".courserow-tooltip.tooltip .tooltip-inner";
 $focus-area-hover-tooltip-header: ".courserow-tooltip .app-heading:not(.success)";
@@ -73,7 +72,7 @@ $focus-area-hover-tooltip-project-status: ".courserow-tooltip .project-status";
 $focus-area-hover-tooltip-horizontal-rule: ".courserow-tooltip hr";
 $focus-area-hover-tooltip-success-date: ".courserow-tooltip.tooltip .app-heading.success";
 $year-course-name-heading: ".courserow-details-course-link-heading h2";
-$year-course-assessment-type-labels: ".courserow-info > div h3"; 
+$year-course-assessment-type-labels: ".courserow-info > div h3";
 $year-scroll-right-shadow: ".claro-standard-layout-page .claro-this-year .this-year-outer .this-year-fade.right";
 $year-course-row-info-left: ".courserow-info.widen";
 $year-course-cog-score-text: ".courserow-score-text";
@@ -83,17 +82,16 @@ $year-scroll-nav-button: ".this-year-fade .nav-button-container:hover .this-year
 $year-scroll-nav-button-hovered: ".this-year-fade .nav-button-container:hover .this-year-nav-button:hover";
 
 $focus-area-statuses: (
-    "green": ".success:not(.app-heading)" + "," + $completed-goal, // Styles completed goals the same as passed focus areas
-    "yellow": ".warning:not(.app-heading)",
-    "red": ".danger:not(.app-heading)",
-    "neutral": ".default, .courserow-list-item-content-default:not(.success):not(.warning):not(.danger)"
+  "green": ".success:not(.app-heading)" + "," + $completed-goal,
+  // Styles completed goals the same as passed focus areas
+  "yellow": ".warning:not(.app-heading)",
+  "red": ".danger:not(.app-heading)",
+  "neutral": ".default, .courserow-list-item-content-default:not(.success):not(.warning):not(.danger)",
 );
-
 
 // PROGRESS COMPONENTS
 $progress-grades-table-item: ".sdl-course-grades button, .sdl-course-grades .grade-header";
 $progress-grades-table-link-hover: ".sdl-course-grades button:hover";
-
 
 // FOCUS AREA COMPONENTS
 $diagnostic-start-button: ".focusarea-diagnostic-btn button";
@@ -105,12 +103,11 @@ $focus-area-resource-collapsable-opened-contianer: ".focusarea .selected-panel";
 $focus-area-resource-collapsable-opened: " .focusarea .selected-panel .panel";
 
 $focus-area-score-badge: (
-    "green": ".score-badge.passed",
-    "yellow": ".score-badge.almost-passed",
-    "red": ".score-badge:not(.get-started)",
-    "indeterminate": ".focusarea .playlist-panel .score-badge.get-started"
+  "green": ".score-badge.passed",
+  "yellow": ".score-badge.almost-passed",
+  "red": ".score-badge:not(.get-started)",
+  "indeterminate": ".focusarea .playlist-panel .score-badge.get-started",
 );
-
 
 // PROJECT PAGE COMPONENTS
 $project-overview-item-badge-background: ".project-day-to-day-side-nav-item-theme-default .media-circle-background-circle";
@@ -118,9 +115,12 @@ $project-overview-checkpoint-not-selected: ".project-day-to-day-side-nav-item:no
 $project-overview-checkpoint-new-feedback-badge: ".project-day-to-day-side-nav-item-new-feedback-token";
 
 $project-overview-checkpoint-feedback-badge: (
-    "green": ".project-day-to-day-side-nav-item-theme-default .project-day-to-day-side-nav-item-left-aligned-content.green .media-circle-background-circle",
-    "yellow": ".project-day-to-day-side-nav-item-theme-default .project-day-to-day-side-nav-item-left-aligned-content.yellow .media-circle-background-circle",
-    "red": ".project-day-to-day-side-nav-item-theme-default .project-day-to-day-side-nav-item-left-aligned-content.red .media-circle-background-circle"
+  "green":
+    ".project-day-to-day-side-nav-item-theme-default .project-day-to-day-side-nav-item-left-aligned-content.green .media-circle-background-circle",
+  "yellow":
+    ".project-day-to-day-side-nav-item-theme-default .project-day-to-day-side-nav-item-left-aligned-content.yellow .media-circle-background-circle",
+  "red":
+    ".project-day-to-day-side-nav-item-theme-default .project-day-to-day-side-nav-item-left-aligned-content.red .media-circle-background-circle",
 );
 
 $project-overview-copy-old-work-prompt: ".project-asset-copy-old-work-prompt";
@@ -130,7 +130,6 @@ $project-plans-top-block-icon-background: ".project-lesson-media-block-icon-back
 $project-plans-timeline-icon-background: ".project-agenda-timeline-item-icon-background";
 $project-plans-timeline-connector-line: ".project-agenda-timeline-item-line-1, .project-agenda-timeline-item-line-2";
 
-
 // NOTIFICATIONS COMPONENTS
 $notification-popover-background: "#notifications-popover";
 $notification-popover-subheading: ".notifications-subtitle";
@@ -138,7 +137,6 @@ $notification-popover-border: ".notifications-header, .notification-item";
 $notification-popover-item-title-read: ".notification-item:not(.notification-item-unread) .notification-item-title-fragment";
 $notification-popover-item-subtitle: ".notification-item-subtitle, #notifications-popover .list-group-item";
 $notification-popover-item-bullet-read: ".notification-item-read-bullet";
-
 
 // CHECK-IN COMPONENTS
 $flyout-container: ".right-screen-flyout-content";

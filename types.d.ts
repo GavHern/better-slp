@@ -3,7 +3,7 @@ declare module "*.svelte" {
   export default value;
 }
 
-declare module "*.stylus" {
+declare module "*.styl" {
   const value: any; // Add better type definitions here if desired.
   export default value;
 }

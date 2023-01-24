@@ -4,6 +4,7 @@ import preprocess from "svelte-preprocess";
 import css from "rollup-plugin-css-only";
 import typescript from "@rollup/plugin-typescript";
 import postcss from "rollup-plugin-postcss";
+import minify from "postcss-minify";
 import { nodeResolve } from "@rollup/plugin-node-resolve";
 
 export default {
@@ -22,6 +23,7 @@ export default {
     typescript(),
     postcss({
       extract: "dark.css",
+      plugins: [minify()],
     }),
     nodeResolve(),
     copy({
