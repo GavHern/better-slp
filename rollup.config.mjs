@@ -27,7 +27,7 @@ export default {
     }),
     nodeResolve(),
     copy({
-      targets: [{ src: "src/manifest.json", dest: "public" }],
+      targets: [{ src: "src/manifest.json", dest: "public/" }],
       targets: [{ src: "src/assets", dest: "public/" }],
     }),
   ],

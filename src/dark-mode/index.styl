@@ -21,5 +21,18 @@
 @import "selectors/week.styl"
 @import "selectors/year.styl"
 
-html[bslp-dark]
-	// Styles go here
+html
+	*
+		box-shadow: none !important
+		// border-color: darkDivide !important
+		
+	{join(',', appBody)}	
+		background-color: dark900 !important
+
+
+	{join(',', panel listGroupItem)}
+		background-color: dark700 !important
+		box-shadow: none !important
+
+	{join(',', heading appBody)}
+		color: lightPrimary !important
