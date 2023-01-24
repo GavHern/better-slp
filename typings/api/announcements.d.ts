@@ -1,5 +1,5 @@
 interface SummitLearningAnnouncementsAPI {
-  announcemens: SummitLearningAnnouncement[];
+  announcements: SummitLearningAnnouncement[];
 }
 
 // ---------------

@@ -1,9 +1,13 @@
+import init from "./init";
 import year from "./routes/year/handler";
 import focusarea from "./routes/focusArea/handler";
 import progress from "./routes/progress/handler";
+import announcements from "./routes/announcements/handler";
 
 // Check the route and load appropriate route handler
 const injectContent = () => {
+  init();
+
   document.querySelectorAll(".bslp-route-specific").forEach((element) => element.remove());
 
   const path = window.location.pathname;
@@ -19,6 +23,9 @@ const injectContent = () => {
       break;
     case /\/my\/progress/.test(path):
       progress();
+      break;
+    case /\/my\/announcements/.test(path):
+      announcements();
       break;
   }
 };
