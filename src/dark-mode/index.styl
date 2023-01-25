@@ -11,6 +11,28 @@
 
 	Adhere to the material.io dark theme specification as best as possible:
 	https://m2.material.io/design/color/dark-theme.html
+
+	Underscore function used to join all arguments together
+
+
+	CHECKLIST:
+	[ ] Announcements
+	[ ] Week
+	[ ] Year
+	[ ] Progress
+	[ ] College
+	[ ] Resources
+	[ ] Focus Area Page
+	[ ] Project Page
+	[ ] Plans Tab
+	[x] Course page (click from year page)
+	[ ] Document editor (skip document itself)
+	[ ] Notifications drawer
+	[ ] Progresss grades modal
+	[ ] "View Rubric" modal
+	[ ] Mentor checkin prework drawer
+	[ ] Navigation bar
+	[ ] BetterSLP components
  */
 
 @import "colors.styl"
@@ -21,5 +43,96 @@
 @import "selectors/week.styl"
 @import "selectors/year.styl"
 
+
+_(args...)
+	join(',', args)
+
+hover(selector)
+	selector + ":hover"
+
+
+html.bslp-dark-mode-transitioning *
+	transition: background-color 300ms, color 150ms, border-color 300ms, box-shadow 300ms !important
+
 html[bslp-dark]
-	// Styles go here
+	color-scheme: dark // Dark Scrollbar
+
+	*
+		box-shadow: none !important
+
+	
+	//? Background Colors
+
+	{_(
+		yearHorizontalScrollButton
+	)}
+		background-color: transparent !important
+		
+	&, {body}
+		background-color: dark900 !important
+
+	{_(
+		panel,
+		navigation,
+		listGroupItem
+	)}
+		background-color: dark700 !important
+
+	{_(
+		token,
+		activeNavigationItem,
+		yearFocusAreaDefault,
+		yearTooltip,
+		yearProjectDefault,
+		hover(navigationItem),
+		hover(listGroupButton),
+		hover(yearHorizontalScrollButton)
+	)}
+		background-color: dark400 !important
+
+
+	//? Colors
+
+	{_(
+		appBody,
+		heading
+	)}
+		color: lightPrimary !important
+
+	
+	{_(
+		token,
+		courserowLabel,
+		yearFocusAreaDefault,
+		yearProjectDefault
+	)}
+		color: lightSecondary !important
+
+	{_(
+		yearCogSkillAverage,
+		yearMonthsHeader
+	)}
+		color: lightSubtle !important
+
+
+	//? Border Colors
+
+	{_(
+		tableItem,
+		listGroupItem,
+		yearTooltip
+	)}
+		border-color: darkDivide !important
+
+	
+	//? Status Colors
+
+	{_(yearFocusAreaGreen, yearProjectGreen)}
+		color: statusGreen !important
+		background-color: statusGreenBg !important
+	{_(yearFocusAreaYellow, yearProjectYellow)}
+		color: statusYellow !important
+		background-color: statusYellowBg !important
+	{_(yearFocusAreaRed, yearProjectRed)}
+		color: statusRed !important
+		background-color: statusRedBg !important

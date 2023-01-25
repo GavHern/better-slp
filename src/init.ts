@@ -7,6 +7,7 @@ The default export will run every route change just to be certain everything is 
 */
 
 import AnnouncementBadge from "./components/AnnouncementBadge.svelte";
+import DarkModeToggle from "./components/DarkModeToggle.svelte";
 
 const appendAnnouncementsBadge = () => {
   const exists = document.querySelectorAll(".bslp-announcements-badge").length > 0;
@@ -23,6 +24,24 @@ const appendAnnouncementsBadge = () => {
   });
 };
 
+const appendDarkModeToggle = () => {
+  const exists = document.querySelectorAll(".bslp-dark-mode-toggle").length > 0;
+  if (exists) return;
+
+  const navBar = document.querySelector(".page-menu .container-fluid");
+  if (navBar == null) return; // For pages which dont have a navigation bar
+
+  const container = document.createElement("div");
+  container.setAttribute("style", "position:absolute;right:10px;top:10px;width:33px;height:33px;");
+  container.classList.add("bslp-dark-mode-toggle");
+  navBar.appendChild(container);
+
+  new DarkModeToggle({
+    target: container,
+  });
+};
+
 export default () => {
+  appendDarkModeToggle();
   appendAnnouncementsBadge();
 };
