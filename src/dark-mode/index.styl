@@ -18,7 +18,7 @@
 	CHECKLIST:
 	[ ] Announcements
 	[ ] Week
-	[ ] Year
+	[x] Year
 	[ ] Progress
 	[ ] College
 	[ ] Resources
@@ -37,6 +37,7 @@
 
 @import "colors.styl"
 @import "selectors/_global.styl"
+@import "selectors/announcements.styl"
 @import "selectors/focusArea.styl"
 @import "selectors/progress.styl"
 @import "selectors/project.styl"
@@ -74,15 +75,15 @@ html[bslp-dark]
 	{_(
 		panel,
 		navigation,
-		listGroupItem
+		listGroupItem,
+		announcementContainer
 	)}
 		background-color: dark700 !important
 
 	{_(
-		token,
 		activeNavigationItem,
-		yearFocusAreaDefault,
 		yearTooltip,
+		announcementBody,
 		yearProjectDefault,
 		hover(navigationItem),
 		hover(listGroupButton),
@@ -90,12 +91,22 @@ html[bslp-dark]
 	)}
 		background-color: dark400 !important
 
+	// Elevate 1 layer (transparent white)
+	{_(
+		token,
+		yearFocusAreaDefault,
+		announcementCourseNameBadge
+	)}
+		background-color: darkElevate !important
+
 
 	//? Colors
 
 	{_(
 		appBody,
-		heading
+		heading,
+		announcementContainer,
+		announcementText
 	)}
 		color: lightPrimary !important
 
@@ -104,7 +115,8 @@ html[bslp-dark]
 		token,
 		courserowLabel,
 		yearFocusAreaDefault,
-		yearProjectDefault
+		yearProjectDefault,
+		announcementCourseNameBadge
 	)}
 		color: lightSecondary !important
 
@@ -113,6 +125,11 @@ html[bslp-dark]
 		yearMonthsHeader
 	)}
 		color: lightSubtle !important
+
+	{_(
+		announcementLink
+	)}
+		color: brandGrape !important
 
 
 	//? Border Colors
@@ -136,3 +153,6 @@ html[bslp-dark]
 	{_(yearFocusAreaRed, yearProjectRed)}
 		color: statusRed !important
 		background-color: statusRedBg !important
+
+	{_(announcementBodyUnseen)}
+		background-color: brandGrapeBg !important
