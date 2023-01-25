@@ -41,6 +41,7 @@ document.addEventListener("DOMContentLoaded", () => {
         if (ii.classList.contains("app")) {
           observer.disconnect();
           injectContent();
+          document.documentElement.setAttribute("bslp-dark", "");
         }
       });
     });
