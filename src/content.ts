@@ -65,5 +65,5 @@ chrome.runtime.onMessage.addListener((request) => {
 
   const routerContainer = document.querySelector(".router-content .app");
 
-  observer.observe(routerContainer, { childList: true, subtree: true });
+  observer.observe(routerContainer, { childList: true });
 });
