@@ -9,4 +9,8 @@ chrome.tabs.onUpdated.addListener((tabId, changeInfo) => {
       }
     });
   }
+<<<<<<< Updated upstream
 });
+=======
+});
+>>>>>>> Stashed changes
