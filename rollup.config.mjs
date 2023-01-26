@@ -22,7 +22,7 @@ export default {
     }),
     typescript(),
     postcss({
-      extract: "dark.css",
+      extract: "stylus.css",
       plugins: [minify()],
     }),
     nodeResolve(),

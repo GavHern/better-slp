@@ -54,7 +54,7 @@
     position: absolute;
     top: 0px;
     left: 27px;
-    background: #d41e52;
+    background: #5162d2;
     color: #fff;
     display: flex;
     font-size: 11px;
