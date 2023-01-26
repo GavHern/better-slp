@@ -42,7 +42,7 @@ const appendDarkModeToggle = () => {
 };
 
 const changeReadsSolvesNavBarText = () => {
-  document.querySelector('a#summit-reads-solves span').childNodes[1].data = "Reads/Solves"
+  document.querySelector('a#summit-reads-solves span').childNodes[1].textContent = "Reads/Solves"
 }
 
 export default () => {
