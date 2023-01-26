@@ -58,5 +58,12 @@ document.addEventListener("DOMContentLoaded", () => {
 chrome.runtime.onMessage.addListener((request) => {
   if (request.message !== "routerUpdate") return;
 
-  document.querySelector("#nprogress")?.addEventListener("DOMNodeRemoved", injectContent);
+  const observer = new MutationObserver(() => {
+    observer.disconnect();
+    injectContent();
+  });
+
+  const routerContainer = document.querySelector(".router-content .app");
+
+  observer.observe(routerContainer, { childList: true, subtree: true });
 });
