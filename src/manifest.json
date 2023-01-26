@@ -6,7 +6,7 @@
   "content_scripts": [
     {
       "matches": ["*://*.summitlearning.org/*"],
-      "css": ["bundle.css", "dark.css"],
+      "css": ["bundle.css", "stylus.css"],
       "js": ["content.js"],
       "run_at": "document_start"
     }
