@@ -51,6 +51,9 @@ _(args...)
 hover(selector)
 	selector + ":hover"
 
+focus(selector)
+	selector + ":focus"
+
 
 html.bslp-dark-mode-transitioning *
 	transition: background-color 300ms, color 150ms, border-color 300ms, box-shadow 300ms !important
@@ -87,6 +90,7 @@ html[bslp-dark]
 		yearProjectDefault,
 		assesmentProgressBar,
 		hover(navigationItem),
+		focus(navigationItem),
 		hover(listGroupButton),
 		hover(yearHorizontalScrollButton),
 		calendarToday
