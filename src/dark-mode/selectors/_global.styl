@@ -10,7 +10,7 @@ listGroupButton = "button.list-group-item"
 tableItem = "td"
 token = ".token"
 buttonLink = ".btn-link:not(.dropdown-toggle)"
-buttonDefault = ".btn-default:not(.this-year-nav-button)"
+buttonDefault = ".btn-default:not(.this-year-nav-button, .composer *)"
 indexCardCircleBackground = ".media-circle-background-circle"
 indexCardIcon = ".claro-index-card .media-left .media-circle-content"
 dropdownToggleButton = ".dropdown-toggle"
@@ -20,8 +20,8 @@ dropdownToggle = ".dropdown-toggle:not(.page-menu *)"
 floatingGoalPanel = ".goal-panel"
 userProfileAvatar = ".avatar-profile"
 
-// Selector is this long in original source code
-formElement = ".app textarea, .app textarea.form-control, .app input.form-control, .app input[type=text]:not(.typeahead-input):not([data-bootstrap-override=inputfield]), .app input[type=password]:not([data-bootstrap-override=inputfield]), .app input[type=email]:not([data-bootstrap-override=inputfield]), .app input[type=number]:not([data-bootstrap-override=inputfield]), .app [type=text].form-control, .app [type=password].form-control, .app [type=email].form-control, .app [type=tel].form-control, .app [contenteditable].form-control, .app .rbt-input.form-control, .app select.form-control"
+// Selector is this long in original source code (other than :not statements)
+formElement = ".app textarea:not(.composer textarea), .app textarea.form-control:not(.composer textarea), .app input.form-control:not(.composer textarea), .app input[type=text]:not(.typeahead-input):not([data-bootstrap-override=inputfield]), .app input[type=password]:not([data-bootstrap-override=inputfield]), .app input[type=email]:not([data-bootstrap-override=inputfield]), .app input[type=number]:not([data-bootstrap-override=inputfield]), .app [type=text].form-control, .app [type=password].form-control, .app [type=email].form-control, .app [type=tel].form-control, .app [contenteditable].form-control, .app .rbt-input.form-control, .app select.form-control"
 selectFormOption = ".app select.form-control option"
 
 
