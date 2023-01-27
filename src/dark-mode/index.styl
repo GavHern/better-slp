@@ -16,11 +16,11 @@
 
 
 	CHECKLIST:
-	[ ] Announcements
+	[x] Announcements
 	[ ] Week
 	[x] Year
 	[ ] Progress
-	[ ] College
+	[x] College
 	[ ] Resources
 	[ ] Focus Area Page
 	[ ] Project Page
@@ -32,7 +32,7 @@
 	[ ] "View Rubric" modal
 	[ ] Mentor checkin prework drawer
 	[ ] Navigation bar
-	[ ] BetterSLP components
+	[x] BetterSLP components
  */
 
 @import "colors.styl"
@@ -79,7 +79,8 @@ html[bslp-dark]
 		panel,
 		navigation,
 		listGroupItem,
-		announcementContainer
+		announcementContainer,
+		progressFeedLineStopIcon 
 	)}
 		background-color: dark700 !important
 
@@ -102,7 +103,8 @@ html[bslp-dark]
 		goalModalInput,
 		rangeContainer,
 		rangeLower,
-		standardizedTestScoreGoalEmpty
+		standardizedTestScoreGoalEmpty,
+		progressFeedLineGrayIcon
 	)}
 		background-color: dark400 !important
 
@@ -114,7 +116,8 @@ html[bslp-dark]
 		announcementCourseNameBadge,
 		dropdownToggle,
 		hover(dropdownItem),
-		focus(dropdownItem)
+		focus(dropdownItem),
+		userProfileAvatar
 	)}
 		background-color: darkElevate !important
 
@@ -129,6 +132,7 @@ html[bslp-dark]
 	{_(
 		appBody,
 		heading,
+		dropdownToggleButton,
 		formElement,
 		selectFormOption,
 		announcementContainer,
@@ -153,7 +157,8 @@ html[bslp-dark]
 		textMuted,
 		dropdownItem,
 		goalModalText,
-		checkboxListGroup
+		checkboxListGroup,
+		progressFeedLineGrayIcon
 	)}
 		color: lightSecondary !important
 
@@ -182,22 +187,25 @@ html[bslp-dark]
 		yearTooltip,
 		composer,
 		dropdown,
+		progressFeedLineStopIcon 
 	)}
 		border-color: darkDivide !important
+	
+	{progressFeedLine}
+		background-color: darkDivide !important
 
 	
 	//? Status Colors
 
-	{_(yearFocusAreaGreen, yearProjectGreen)}
+	{_(yearFocusAreaGreen, yearProjectGreen, progressFeedLineGreenIcon )}
 		color: statusGreen !important
 		background-color: statusGreenBg !important
 	{_(yearFocusAreaYellow, yearProjectYellow)}
 		color: statusYellow !important
 		background-color: statusYellowBg !important
-	{_(yearFocusAreaRed, yearProjectRed)}
+	{_(yearFocusAreaRed, yearProjectRed, progressFeedLineRedIcon)}
 		color: statusRed !important
 		background-color: statusRedBg !important
 
 	{_(announcementBodyUnseen)}
 		background-color: brandGrapeBg !important
-
