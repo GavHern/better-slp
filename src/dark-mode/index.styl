@@ -17,7 +17,7 @@
 
 	CHECKLIST:
 	[x] Announcements
-	[ ] Week
+	[x] Week (could be better)
 	[x] Year
 	[x] Progress
 	[x] College
@@ -31,7 +31,7 @@
 	[ ] Progresss grades modal
 	[ ] "View Rubric" modal
 	[ ] Mentor checkin prework drawer
-	[ ] Navigation bar
+	[x] Navigation bar
 	[x] BetterSLP components
  */
 
@@ -81,7 +81,12 @@ html[bslp-dark]
 		listGroupItem,
 		announcementContainer,
 		progressFeedLineStopIcon,
-		progressNoteTextArea 
+		progressNoteTextArea,
+		goalStep,
+		goalModal,
+		goalModalInput,
+		goalModalFooter,
+		modal,
 	)}
 		background-color: dark700 !important
 
@@ -100,13 +105,12 @@ html[bslp-dark]
 		calendarToday,
 		indexCardCircleBackground,
 		dropdownMenu,
-		goalModal,
-		goalModalInput,
 		rangeContainer,
 		rangeLower,
 		standardizedTestScoreGoalEmpty,
 		progressFeedLineGrayIcon,
-		progressNoteCancelButton
+		progressNoteCancelButton,
+		goalChild
 	)}
 		background-color: dark400 !important
 
@@ -119,7 +123,10 @@ html[bslp-dark]
 		dropdownToggle,
 		hover(dropdownItem),
 		focus(dropdownItem),
-		userProfileAvatar
+		userProfileAvatar,
+		goalCreateButton,
+		buttonDefault
+
 	)}
 		background-color: darkElevate !important
 
@@ -143,7 +150,7 @@ html[bslp-dark]
 		courseName,
 		progressActivityPrimary,
 		mentorCard,
-		goalModalTextarea,
+		goalModalForm,
 		checkboxFormListLabels
 	)}
 		color: lightPrimary !important
@@ -161,13 +168,16 @@ html[bslp-dark]
 		goalModalText,
 		checkboxListGroup,
 		progressFeedLineGrayIcon,
-		progressNoteCancelButton
+		progressNoteCancelButton,
+		goalModalFormPlaceholder,
+		goalChild,
+		modalText
 	)}
 		color: lightSecondary !important
 
 	{_(
 		yearCogSkillAverage,
-		yearMonthsHeader
+		yearMonthsHeader,
 	)}
 		color: lightSubtle !important
 
@@ -192,7 +202,13 @@ html[bslp-dark]
 		dropdown,
 		progressWeekSection,
 		progressFeedLineStopIcon,
-		progressNoteCancelButton
+		progressNoteCancelButton,
+		goalModalInput,
+		goalCreateButton,
+		goalModal,
+		goalStep,
+		focus(goalModalInput),
+		buttonDefault
 	)}
 		border-color: darkDivide !important
 	
