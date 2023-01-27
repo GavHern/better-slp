@@ -10,8 +10,24 @@ listGroupButton = "button.list-group-item"
 tableItem = "td"
 token = ".token"
 buttonLink = ".btn-link"
-buttonDefault = ".btn-default"
-circleBackground = ".media-circle-background-circle"
+buttonDefault = ".btn-default:not(.this-year-nav-button)"
+indexCardCircleBackground = ".media-circle-background-circle"
+indexCardIcon = ".claro-index-card .media-left .media-circle-content"
 dropdownMenu = ".dropdown-menu"
 dropdownItem = ".dropdown-menu>li:not(.active)>a"
 dropdownToggle = ".dropdown-toggle"
+floatingGoalPanel = ".goal-panel"
+
+// Selector is this long in original source code
+formElement = ".app textarea, .app textarea.form-control, .app input.form-control, .app input[type=text]:not(.typeahead-input):not([data-bootstrap-override=inputfield]), .app input[type=password]:not([data-bootstrap-override=inputfield]), .app input[type=email]:not([data-bootstrap-override=inputfield]), .app input[type=number]:not([data-bootstrap-override=inputfield]), .app [type=text].form-control, .app [type=password].form-control, .app [type=email].form-control, .app [type=tel].form-control, .app [contenteditable].form-control, .app .rbt-input.form-control, .app select.form-control"
+selectFormOption = ".app select.form-control option"
+
+
+//? Bonus pages like college/resources tabs
+rangeContainer = ".range-holder.progress"
+rangeLower = ".range-holder.progress .range-left"
+rangeMiddle = ".range-holder.progress .range-middle" 
+rangeLabel = ".range-label-start, .range-label-finish"
+checkboxListGroup = ".selectivity-content .list-group li label"
+checkboxFormListLabels = ".selectivity-content span:has(input[type='checkbox']) + label"
+standardizedTestScoreGoalEmpty = ".studentcollege .pane-scores .scoregoal-unentered .progress-bar:last-child:before"

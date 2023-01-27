@@ -84,6 +84,8 @@ html[bslp-dark]
 		background-color: dark700 !important
 
 	{_(
+		floatingGoalPanel,
+		selectFormOption,
 		activeNavigationItem,
 		yearTooltip,
 		announcementBody,
@@ -94,15 +96,19 @@ html[bslp-dark]
 		hover(listGroupButton),
 		hover(yearHorizontalScrollButton),
 		calendarToday,
-		circleBackground,
+		indexCardCircleBackground,
 		dropdownMenu,
 		goalModal,
-		goalModalInput
+		goalModalInput,
+		rangeContainer,
+		rangeLower,
+		standardizedTestScoreGoalEmpty
 	)}
 		background-color: dark400 !important
 
 	// Elevate 1 layer (transparent white)
 	{_(
+		formElement,
 		token,
 		yearFocusAreaDefault,
 		announcementCourseNameBadge,
@@ -112,32 +118,42 @@ html[bslp-dark]
 	)}
 		background-color: darkElevate !important
 
+	{_(
+		rangeMiddle
+	)}
+		background-color: brandGrape !important
+
 
 	//? Colors
 
 	{_(
 		appBody,
 		heading,
+		formElement,
+		selectFormOption,
 		announcementContainer,
 		announcementText,
 		assesmentProgressText,
 		courseName,
 		progressActivityPrimary,
 		mentorCard,
-		goalModalTextarea
+		goalModalTextarea,
+		checkboxFormListLabels
 	)}
 		color: lightPrimary !important
 	
 	{_(
 		token,
+		rangeLabel,
+		listGroupItem,
 		courserowLabel,
 		yearFocusAreaDefault,
 		yearProjectDefault,
 		announcementCourseNameBadge,
 		textMuted,
 		dropdownItem,
-		goalModalText
-		
+		goalModalText,
+		checkboxListGroup
 	)}
 		color: lightSecondary !important
 
@@ -152,16 +168,17 @@ html[bslp-dark]
 		buttonLink,
 		buttonDefault,
 		goalSummary,
-		letterGrade
+		letterGrade,
+		indexCardIcon
 	)}
 		color: brandGrape !important
-
 
 	//? Border Colors
 
 	{_(
 		tableItem,
 		listGroupItem,
+		formElement,
 		yearTooltip,
 		composer,
 		dropdown,
