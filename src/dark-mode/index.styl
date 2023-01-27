@@ -82,11 +82,13 @@ html[bslp-dark]
 		announcementContainer,
 		progressFeedLineStopIcon,
 		progressNoteTextArea,
+    project_page
+		checkpointNavBar
 		goalStep,
 		goalModal,
 		goalModalInput,
 		goalModalFooter,
-		modal,
+		modal
 	)}
 		background-color: dark700 !important
 
@@ -110,6 +112,9 @@ html[bslp-dark]
 		standardizedTestScoreGoalEmpty,
 		progressFeedLineGrayIcon,
 		progressNoteCancelButton,
+    project_page
+		checkpointSelected,
+		hover(checkpointNavBar),
 		goalChild
 	)}
 		background-color: dark400 !important
@@ -235,3 +240,12 @@ html[bslp-dark]
 
 	{_(announcementBodyUnseen)}
 		background-color: brandGrapeBg !important
+
+	// Project Page 
+	{_(alertInfo, megaPhoneContainer, megaPhoneControls)}
+		background-color: black !important
+
+	{_(textCardTitle)}
+		color: lightPrimary !important
+		
+	// Use 'projectAssignmentAssetFeedbacks' api to check the status of feedback 
