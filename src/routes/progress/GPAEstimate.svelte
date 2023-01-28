@@ -1,14 +1,14 @@
 <script lang="ts">
   import { parseAPIResponse, neededProgressYears, getDataFromAllPreviousAcademicYears, formatGPA } from "./gpa";
 
-  let res = fetch("https://www.summitlearning.org/my/progress.json")
-    .then((res) => res.json())
-    .then(async (data) => {
-      const info = parseAPIResponse(data);
-      const years = neededProgressYears(data.courses);
+  export let req;
 
-      return await getDataFromAllPreviousAcademicYears(years, info);
-    });
+  let res = req.then(async (data) => {
+    const info = parseAPIResponse(data);
+    const years = neededProgressYears(data.courses);
+
+    return await getDataFromAllPreviousAcademicYears(years, info);
+  });
 </script>
 
 <div class="bslp-route-specific claro-list-group sdl-course-grades list-group">
