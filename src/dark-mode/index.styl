@@ -56,6 +56,9 @@ hover(selector)
 focus(selector)
 	selector + ":focus"
 
+placeholder(selector)
+	selector + "::placeholder"
+
 
 html.bslp-dark-mode-transitioning *
 	transition: background-color 300ms, color 150ms, border-color 300ms, box-shadow 300ms !important
@@ -84,13 +87,16 @@ html[bslp-dark]
 		announcementContainer,
 		progressFeedLineStopIcon,
 		progressNoteTextArea,
-    	project_page,
+		project_page,
 		checkpointNavBar,
-		goalStep,
-		goalModal,
-		goalModalInput,
-		goalModalFooter,
-		modal
+		goalPopoverStepContainer,
+		weekGoalPopover,
+		goalPopoverInputContainer,
+		goalPopoverFooter,
+		modal,
+		alertInfo,
+		megaPhoneContainer,
+		megaPhoneControls
 	)}
 		background-color: dark700 !important
 	
@@ -106,7 +112,7 @@ html[bslp-dark]
 		focus(navigationItem),
 		hover(listGroupButton),
 		hover(yearHorizontalScrollButton),
-		calendarToday,
+		weekCalendarTodayHighlight,
 		indexCardCircleBackground,
 		dropdownMenu,
 		rangeContainer,
@@ -114,7 +120,7 @@ html[bslp-dark]
 		standardizedTestScoreGoalEmpty,
 		progressFeedLineGrayIcon,
 		progressNoteCancelButton,
-        project_page,
+		project_page,
 		checkpointSelected,
 		hover(checkpointNavBar),
 		goalChild
@@ -131,7 +137,7 @@ html[bslp-dark]
 		hover(dropdownItem),
 		focus(dropdownItem),
 		userProfileAvatar,
-		goalCreateButton,
+		goalPopoverCreateButton,
 		buttonDefault
 
 	)}
@@ -154,11 +160,12 @@ html[bslp-dark]
 		announcementContainer,
 		announcementText,
 		assesmentProgressText,
-		courseName,
+		progressCourseName,
 		progressActivityPrimary,
-		mentorCard,
-		goalModalForm,
-		checkboxFormListLabels
+		progressGentorCardText,
+		goalPopoverInputForm,
+		checkboxFormListLabels,
+		textCardTitle
 	)}
 		color: lightPrimary !important
 	
@@ -172,11 +179,11 @@ html[bslp-dark]
 		announcementCourseNameBadge,
 		textMuted,
 		dropdownItem,
-		goalModalText,
+		goalPopoverText,
 		checkboxListGroup,
 		progressFeedLineGrayIcon,
 		progressNoteCancelButton,
-		goalModalFormPlaceholder,
+		placeholder(goalPopoverInputForm),
 		goalChild,
 		modalText
 	)}
@@ -192,8 +199,8 @@ html[bslp-dark]
 		announcementLink,
 		buttonLink,
 		buttonDefault,
-		goalSummary,
-		letterGrade,
+		progressWeeklyGoalSummaryLink,
+		progressLetterGrade,
 		indexCardIcon
 	)}
 		color: brandGrape !important
@@ -205,16 +212,16 @@ html[bslp-dark]
 		listGroupItem,
 		formElement,
 		yearTooltip,
-		composer,
-		dropdown,
+		progressAddNoteComposer,
+		dropdownToggleButton,
 		progressWeekSection,
 		progressFeedLineStopIcon,
 		progressNoteCancelButton,
-		goalModalInput,
-		goalCreateButton,
-		goalModal,
-		goalStep,
-		focus(goalModalInput),
+		goalPopoverInputContainer,
+		goalPopoverCreateButton,
+		weekGoalPopover,
+		goalPopoverStepContainer,
+		focus(goalPopoverInputContainer),
 		buttonDefault
 	)}
 		border-color: darkDivide !important
@@ -242,12 +249,3 @@ html[bslp-dark]
 
 	{_(announcementBodyUnseen)}
 		background-color: brandGrapeBg !important
-
-	// Project Page 
-	{_(alertInfo, megaPhoneContainer, megaPhoneControls)}
-		background-color: black !important
-
-	{_(textCardTitle)}
-		color: lightPrimary !important
-		
-	// Use 'projectAssignmentAssetFeedbacks' api to check the status of feedback 
