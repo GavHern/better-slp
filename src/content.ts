@@ -9,14 +9,13 @@ import announcements from "./routes/announcements/handler";
 
 // Check the route and load appropriate route handler
 const injectContent = () => {
-  init();
-
   document.querySelectorAll(".bslp-route-specific").forEach((element) => element.remove());
 
   const path = window.location.pathname;
 
   switch (true) {
     case /\/my\/(assessment_takes|math_unit_assessment)/.test(path): //! DO NOT RUN CODE IN CONTENT ASSESSMENTS OR MATH UNITS
+      document.documentElement.removeAttribute("bslp-dark");
       return;
     case /\/my\/year\/\d+/.test(path):
       year();
@@ -31,6 +30,8 @@ const injectContent = () => {
       announcements();
       break;
   }
+
+  init();
 };
 
 // Inject code when the page initially loads
@@ -64,7 +65,7 @@ chrome.runtime.onMessage.addListener((request) => {
     injectContent();
   });
 
-  const routerContainer = document.querySelector(".router-content .app");
+  const routerContainer = document.querySelector(".router-content");
 
   observer.observe(routerContainer, { childList: true, subtree: true });
 });

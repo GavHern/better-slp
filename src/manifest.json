@@ -8,7 +8,11 @@
       "matches": ["*://*.summitlearning.org/*"],
       "css": ["bundle.css", "stylus.css"],
       "js": ["content.js"],
-      "run_at": "document_start"
+      "run_at": "document_start",
+			"exclude_matches": [
+				"*://*.summitlearning.org/assessment_takes/*",
+				"*://*.summitlearning.org/math_unit_assessment/*"
+		]
     }
   ],
   "icons": {
