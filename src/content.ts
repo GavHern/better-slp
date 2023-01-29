@@ -1,5 +1,5 @@
 import "./dark-mode/index.styl";
-import "./style.styl"
+import "./style.styl";
 
 import init from "./init";
 import year from "./routes/year/handler";
@@ -66,5 +66,5 @@ chrome.runtime.onMessage.addListener((request) => {
 
   const routerContainer = document.querySelector(".router-content .app");
 
-  observer.observe(routerContainer, { childList: true });
+  observer.observe(routerContainer, { childList: true, subtree: true });
 });
