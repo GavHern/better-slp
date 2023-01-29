@@ -1,4 +1,5 @@
 import copy from "rollup-plugin-copy";
+import commonjs from "@rollup/plugin-commonjs";
 import svelte from "rollup-plugin-svelte";
 import preprocess from "svelte-preprocess";
 import css from "rollup-plugin-css-only";
@@ -13,6 +14,8 @@ export default {
     dir: "public",
   },
   plugins: [
+    commonjs(),
+    nodeResolve(),
     svelte({
       preprocess: preprocess(),
       plugins: [nodeResolve()],
@@ -25,7 +28,6 @@ export default {
       extract: "stylus.css",
       plugins: [minify()],
     }),
-    nodeResolve(),
     copy({
       targets: [
         { src: "src/manifest.json", dest: "public/" },

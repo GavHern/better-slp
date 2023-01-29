@@ -19,5 +19,5 @@
   "background": {
     "service_worker": "worker.js"
   },
-  "permissions": ["tabs"]
+  "permissions": ["tabs", "storage", "unlimitedStorage"]
 }
