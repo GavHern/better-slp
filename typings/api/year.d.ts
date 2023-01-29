@@ -20,8 +20,6 @@ interface SummitLearningYearAPI {
 
 // ---------------
 
-type SummitLearningISODateBasic = `${number}-${number}-${number}`;
-
 interface SummitLearningRubricDimensionScores {
   __global_id: string;
   id: number;
