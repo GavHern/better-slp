@@ -14,12 +14,12 @@
 <div class="bslp-route-specific claro-list-group sdl-course-grades list-group">
   <span class="grade-header list-group-item">
     <div class="row">
-      <div class="col-xs-6 flex">
+      <div class="col-xs-6 bslp-gpa-section-title-container flex">
         <h2 class="courses-title">GPA Estimate</h2>
 
         <i class="material-icons material-icons-default bslp-gpa-info-tooltip"> help_outline </i>
 
-        <div role="tooltip" class="fade in tooltip bottom blsp-gpa-tooltip" style="top: 20px; right: -71px;">
+        <div role="tooltip" class="fade in tooltip bottom blsp-gpa-tooltip">
           <div class="tooltip-arrow" style="left: 50%;" />
           <div class="tooltip-inner">
             A rough estimate based on your current platform grades. UC approved expedition courses are not included.
@@ -75,10 +75,16 @@
   .blsp-gpa-tooltip {
     pointer-events: none;
     opacity: 0;
+    top: 20px;
+    left: 37px;
   }
 
   .bslp-gpa-info-tooltip:hover + .blsp-gpa-tooltip {
     pointer-events: auto;
     opacity: 1;
+  }
+
+  .bslp-gpa-section-title-container {
+    width: 100%;
   }
 </style>
