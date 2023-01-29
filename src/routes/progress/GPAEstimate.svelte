@@ -22,8 +22,8 @@
         <div role="tooltip" class="fade in tooltip bottom blsp-gpa-tooltip">
           <div class="tooltip-arrow" style="left: 50%;" />
           <div class="tooltip-inner">
-            A rough estimate based on your current platform grades. UC approved expedition courses are not included.
-            Review your report card for more accuracy. <i>Could</i> take up to 24 hours to update.
+            A rough estimate based on your current platform grades from all high school years. UC approved expedition
+            courses are not included. Review your report card for more accuracy. <i>Could</i> take up to 24 hours to update.
           </div>
         </div>
       </div>
