@@ -1,5 +1,6 @@
 import GPAEstimate from "./GPAEstimate.svelte";
 import YearProgressUpdate from "./YearProgressUpdate.svelte";
+import NextDayOff from "./NextDayOff.svelte";
 
 const appendGPAEstimate = (data, container) => {
   const gpaContainer = container.appendChild(document.createElement("div"));
@@ -23,13 +24,25 @@ const appendYearProgressUpdate = (data, container) => {
   });
 };
 
+const appendNextDayOff = (data, container) => {
+  const nextDayOffContainer = container.appendChild(document.createElement("div"));
+
+  new NextDayOff({
+    target: nextDayOffContainer,
+    props: {
+      response: data,
+    },
+  });
+};
+
 export default () => {
   const container = document.querySelector("span:has(> .sdl-course-grades)");
 
-  const data = fetch("https://www.summitlearning.org/my/progress.json")
+  const data: Promise<SummitLearningProgressAPI> = fetch("https://www.summitlearning.org/my/progress.json")
     .then((res) => res.json())
     .catch((err) => console.error(err));
 
   appendGPAEstimate(data, container);
   appendYearProgressUpdate(data, container);
+  appendNextDayOff(data, container);
 };
