@@ -1,7 +1,6 @@
 <script lang="ts">
-  export let req;
+  export let res;
 
-  let res = req;
   let loaded = false;
 
   let weeks;
@@ -43,6 +42,30 @@
 
     return lastDay;
   };
+
+  const getMotivationalMessage = () => {
+    let message;
+
+    switch (true) {
+      case weeks > 30:
+        message = "It'll come faster than you think!";
+        break;
+      case weeks < 8 && weeks > 4:
+        message = "Summer's coming up, hang in there!";
+        break;
+      case weeks <= 4 && weeks > 0:
+        message = "Almost there!";
+        break;
+      case weeks == 0:
+        message = "One more week!";
+        break;
+      default: //? Add more things here, it will pick a random one
+        const randomMessages = ["Keep up the hard work!"];
+        message = randomMessages[Math.floor(Math.random() * randomMessages.length)];
+    }
+
+    return message;
+  };
 </script>
 
 <div class="bslp-route-specific claro-list-group sdl-course-grades list-group">
@@ -59,6 +82,7 @@
     {@const lastDay = getLastDay(schoolYears)}
     <li class="grade-row list-group-item bslp-time-left">
       {weeks} weeks, {days} days, {format(hours)}:{format(minutes)}:{format(seconds)}
+      <div class="bslp-time-left-motivational-message">{getMotivationalMessage()}</div>
     </li>
   {:catch err}
     There was an error loading your year progress update.
@@ -74,5 +98,10 @@
     color: #5751d2 !important;
     font-size: 17px;
     font-weight: bold;
+  }
+
+  .bslp-time-left-motivational-message {
+    color: var(--eds-theme-color-text-neutral-subtle);
+    font-size: 0.8rem;
   }
 </style>

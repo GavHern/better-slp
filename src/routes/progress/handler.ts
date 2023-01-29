@@ -19,7 +19,7 @@ const appendYearProgressUpdate = (data, container) => {
   new YearProgressUpdate({
     target: yearProgressContainer,
     props: {
-      req: data,
+      res: data,
     },
   });
 };
