@@ -8,16 +8,23 @@
   border-radius: 6px
   height: var(--left-nav-item-height)
 
-  svg
-    position: relative
-    top: 0.25rem
-    left: -1px
-    margin-top: -10px
-    margin-right: 18px
-    flex: none
-    vertical-align: middle
-    font-size: 1.5rem
-    line-height: 1.333
+  span:has(svg)
+    font-size: 0
+    &::after
+      content: "Reads/Solves"
+      font-size: var(--legacy-size-font-sm) !important
+      transform: translateX(-2px)
+    svg
+      position: relative
+      top: 0.25rem
+      left: -1px
+      transform: translateY(-5px)
+      margin-top: -10px
+      margin-right: 18px
+      flex: none
+      vertical-align: middle
+      font-size: 1.5rem
+      line-height: 1.333
 
 li.summit-reads-solves
   border-radius: 6px

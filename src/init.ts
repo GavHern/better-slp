@@ -41,14 +41,7 @@ const appendDarkModeToggle = () => {
   });
 };
 
-const changeReadsSolvesNavBarText = () => {
-  const navReadSolvesLink = document.querySelector("a#summit-reads-solves span");
-
-  if (navReadSolvesLink != null) navReadSolvesLink.childNodes[1].textContent = "Reads/Solves";
-};
-
 export default () => {
   appendDarkModeToggle();
   appendAnnouncementsBadge();
-  changeReadsSolvesNavBarText();
 };
