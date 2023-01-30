@@ -1,9 +1,9 @@
 {
   "manifest_version": 3,
   "name": "BetterSLP",
-  "short_name": "A supercharged Summit Learning experienc",
+  "short_name": "A supercharged Summit Learning experience",
   "version": "0.0.0",
-  "description": "Finally, an extension that makes Summit Learning Platform better.",
+  "description": "An extension that adds improvements to the Summit Learning Platform.",
   "content_scripts": [
     {
       "matches": ["*://*.summitlearning.org/*"],
