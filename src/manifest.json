@@ -1,10 +1,9 @@
 {
   "manifest_version": 3,
-  "name": "BetterSLP: A supercharged Summit Learning experience",
+  "name": "BetterSLP: Summit Learning supercharged",
   "short_name": "BetterSLP",
   "version": "0.0.0",
-  "description": "An extension that adds various improvements to the Summit Learning platform. Open source.",
-  "default_locale": "en",
+  "description": "Adds various improvements to the Summit Learning platform. Open source.",
   "content_scripts": [
     {
       "matches": ["*://*.summitlearning.org/*"],
