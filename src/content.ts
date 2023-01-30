@@ -51,13 +51,18 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  const container: any = document.querySelector("#container-root");
+  const container = document.querySelector("#container-root");
 
-  observer.observe(container, { childList: true });
+  if (container) {
+    observer.observe(container, { childList: true });
+  } else {
+    console.warn("Could not find observer container");
+  }
 });
 
 // Run injections again when a new history state is pushed via react router
 chrome.runtime.onMessage.addListener((request) => {
+  console.log(request);
   if (request.message !== "routerUpdate") return;
 
   const observer = new MutationObserver(() => {
@@ -67,5 +72,9 @@ chrome.runtime.onMessage.addListener((request) => {
 
   const routerContainer = document.querySelector(".router-content");
 
-  observer.observe(routerContainer, { childList: true, subtree: true });
+  if (routerContainer) {
+    observer.observe(routerContainer, { childList: true, subtree: true });
+  } else {
+    console.warn("Could not find observer container");
+  }
 });
