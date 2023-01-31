@@ -2,7 +2,7 @@
   "manifest_version": 3,
   "name": "BetterSLP: Summit Learning supercharged",
   "short_name": "BetterSLP",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "Adds various improvements to the Summit Learning platform. Open source.",
   "content_scripts": [
     {
