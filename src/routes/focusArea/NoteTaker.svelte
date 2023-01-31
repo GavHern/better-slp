@@ -98,13 +98,15 @@
     height: 75%;
     background: #ffffff;
     margin: auto;
-    border-radius: 0.75em;
-    box-shadow: rgba(0, 0, 0, 0.1) 0px 20px 25px -5px, rgba(0, 0, 0, 0.04) 0px 10px 10px -5px;
+    border-radius: 3px;
+    /* box-shadow: rgba(0, 0, 0, 0.1) 0px 20px 25px -5px, rgba(0, 0, 0, 0.04) 0px 10px 10px -5px; */
+    box-shadow: 0 5px 15px rgb(0 0 0 / 50%);
   }
 
   .bslp-quill-editor {
-    height: 100%;
+    height: calc(100% - 42px);
     border-color: transparent;
+    font-size: 1rem;
   }
 
   :global(.ql-toolbar.ql-snow) {
