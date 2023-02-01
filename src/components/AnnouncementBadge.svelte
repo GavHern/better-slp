@@ -54,7 +54,7 @@
     position: absolute;
     top: 0px;
     left: 27px;
-    background: #5162d2;
+    background: #d41e52;  /* dont touch this color */ 
     color: #fff;
     display: flex;
     font-size: 11px;
