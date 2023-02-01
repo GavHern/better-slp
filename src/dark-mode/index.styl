@@ -104,6 +104,7 @@ html[bslp-dark]
 		CheckpointHeadTitle,
 		CheckpointFocus,
 		CheckpointInputBox,
+		CheckpointModal
 	)}
 		background-color: dark700 !important
 	
@@ -131,7 +132,6 @@ html[bslp-dark]
 		checkpointSelected,
 		hover(checkpointNavBar),
 		projectOverviewTeacher,
-		
 	)}
 		background-color: dark400 !important
 
@@ -201,10 +201,10 @@ html[bslp-dark]
 		CheckpointFeedback,
 		CheckpointInputBox,
 		CheckpointSavingChanges,
-		CheckpointIcon_EditHistory,
-		CheckpointIcon_PrintDocument,
+		CheckpointIcon_History,
+		CheckpointIcon_Print,
 		CogSkillScoreNumber,
-		CogSkillMathLevel
+		CogSkillMathLevel,
 	)}
 		color: lightSecondary !important
 
@@ -290,9 +290,14 @@ html[bslp-dark]
 		background-color: dark800 !important
 	{_(CogSkillScoreHighligtedText)}
 		background-color: rebeccapurple !important
-
+	
 	//? One-off styles
 	{loadingSpinner}
-		border-left-color: darkDivide !important;
+		border-left-color: darkDivide !important;	
 		border-right-color: darkDivide !important;
 		border-bottom-color: darkDivide !important;
+	{CheckpointTitleFade}
+		background: linear-gradient(90deg, transparent, dark700) !important;
+	
+	{_(DocumentToolbarIcons)}
+		color: dark400 !important
