@@ -51,6 +51,16 @@
     <div class="row">
       <div class="col-xs-12 flex">
         <h2 class="courses-title">Next School Day Off</h2>
+
+        <i class="material-icons material-icons-default bslp-day-off-info-tooltip"> help_outline </i>
+
+        <div role="tooltip" class="fade in tooltip bottom blsp-day-off-tooltip">
+          <div class="tooltip-arrow" style="left: 50%;" />
+          <div class="tooltip-inner">
+            This date is directly from Summit Learning's non-instructional periods database, though can sometimes be
+            innaccurate.
+          </div>
+        </div>
       </div>
     </div>
   </span>
@@ -91,5 +101,23 @@
   .bslp-day-off-reason {
     color: var(--eds-theme-color-text-neutral-subtle);
     font-size: 0.8rem;
+  }
+
+  .bslp-day-off-info-tooltip {
+    color: #00000070;
+    padding-left: 0.3em;
+    cursor: help;
+  }
+
+  .blsp-day-off-tooltip {
+    pointer-events: none;
+    opacity: 0;
+    top: 20px;
+    left: 90px;
+  }
+
+  .bslp-day-off-info-tooltip:hover + .blsp-day-off-tooltip {
+    pointer-events: auto;
+    opacity: 1;
   }
 </style>
