@@ -98,6 +98,12 @@ html[bslp-dark]
 		alertInfo,
 		megaPhoneContainer,
 		megaPhoneControls,
+		CheckpointTitle,
+		CheckpointSwitcher,
+		CheckpointHead,
+		CheckpointHeadTitle,
+		CheckpointFocus,
+		CheckpointInputBox,
 	)}
 		background-color: dark700 !important
 	
@@ -124,7 +130,7 @@ html[bslp-dark]
 		project_page,
 		checkpointSelected,
 		hover(checkpointNavBar),
-		projectOverviewTeacher
+		projectOverviewTeacher,
 		
 	)}
 		background-color: dark400 !important
@@ -140,7 +146,7 @@ html[bslp-dark]
 		focus(dropdownItem),
 		userProfileAvatar,
 		goalPopoverCreateButton,
-		buttonDefault
+		buttonDefault,
 
 	)}
 		background-color: darkElevate !important
@@ -167,7 +173,9 @@ html[bslp-dark]
 		progressGentorCardText,
 		goalPopoverInputForm,
 		checkboxFormListLabels,
-		textCardTitle
+		textCardTitle,
+		CheckpointSwitcherTitle,
+		CheckpointFocus,
 	)}
 		color: lightPrimary !important
 	
@@ -189,13 +197,22 @@ html[bslp-dark]
 		goalChild,
 		modalText,
 		helpIcon,
-		mentorNote
+		mentorNote,
+		CheckpointFeedback,
+		CheckpointInputBox,
+		CheckpointSavingChanges,
+		CheckpointIcon_EditHistory,
+		CheckpointIcon_PrintDocument,
+		CogSkillScoreNumber,
+		CogSkillMathLevel
 	)}
 		color: lightSecondary !important
 
 	{_(
 		yearCogSkillAverage,
 		yearMonthsHeader,
+		CogSkillsDetail,
+		CogSkillScoreDescription
 	)}
 		color: lightSubtle !important
 
@@ -267,8 +284,13 @@ html[bslp-dark]
 
 	{_(announcementBodyUnseen)}
 		background-color: brandGrapeBg !important
+	{_(CheckpointBackDrop)}
+		background-color: black !important
+	{_(CheckpointBody)}
+		background-color: dark800 !important
+	{_(CogSkillScoreHighligtedText)}
+		background-color: rebeccapurple !important
 
-	
 	//? One-off styles
 	{loadingSpinner}
 		border-left-color: darkDivide !important;
