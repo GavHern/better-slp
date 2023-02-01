@@ -8,31 +8,50 @@ import postcss from "rollup-plugin-postcss";
 import minify from "postcss-minify";
 import { nodeResolve } from "@rollup/plugin-node-resolve";
 
-export default {
-  input: ["src/worker.ts", "src/content.ts"],
-  output: {
-    dir: "public",
-  },
-  plugins: [
-    commonjs(),
-    nodeResolve(),
-    svelte({
-      preprocess: preprocess(),
-      plugins: [nodeResolve()],
-    }),
-    css({
-      output: "bundle.css",
-    }),
-    typescript(),
-    postcss({
-      extract: "stylus.css",
-      plugins: [minify()],
-    }),
-    copy({
-      targets: [
-        { src: "src/manifest.json", dest: "public/" },
-        { src: "src/assets", dest: "public/" },
-      ],
-    }),
-  ],
+const supportGeckoBrowsers = (target, contents) => {
+  if (target === "chromium") return contents.toString();
+
+  const file = JSON.parse(contents.toString());
+
+  file.background.scripts = [file.background.service_worker];
+  delete file.background.service_worker;
+
+  return JSON.stringify(file, null, 2);
+};
+
+export default ({ configTarget: target, w: dev }) => {
+  const output = `dist/${dev ? "dev" : target}`;
+
+  return {
+    input: ["src/worker.ts", "src/content.ts"],
+    output: {
+      dir: output,
+    },
+    plugins: [
+      commonjs(),
+      nodeResolve(),
+      svelte({
+        preprocess: preprocess(),
+        plugins: [nodeResolve()],
+      }),
+      css({
+        output: "bundle.css",
+      }),
+      typescript(),
+      postcss({
+        extract: "stylus.css",
+        plugins: [minify()],
+      }),
+      copy({
+        targets: [
+          {
+            src: "src/manifest.json",
+            dest: output,
+            transform: (contents) => supportGeckoBrowsers(target, contents),
+          },
+          { src: "src/assets", dest: output },
+        ],
+      }),
+    ],
+  };
 };

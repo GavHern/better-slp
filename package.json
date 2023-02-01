@@ -4,8 +4,12 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "rollup -c -w",
-    "build": "rollup -c"
+    "dev": "rollup -c -w --configTarget=chromium",
+    "dev:chromium": "rollup -c -w --configTarget=chromium",
+    "dev:gecko": "rollup -c -w --configTarget=gecko",
+    "build": "rollup -c --configTarget=chromium && rollup -c --configTarget=gecko",
+    "build:chromium": "rollup -c --configTarget=chromium",
+    "build:gecko": "rollup -c --configTarget=gecko"
   },
   "keywords": [],
   "type": "module",
@@ -14,6 +18,7 @@
   "devDependencies": {
     "@rollup/plugin-commonjs": "^24.0.1",
     "@rollup/plugin-node-resolve": "^15.0.1",
+    "@rollup/plugin-replace": "^5.0.2",
     "@rollup/plugin-typescript": "^11.0.0",
     "@types/chrome": "^0.0.208",
     "postcss-minify": "^1.1.0",
