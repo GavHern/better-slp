@@ -7,9 +7,9 @@
     "dev": "rollup -c -w --configTarget=chromium",
     "dev:chromium": "rollup -c -w --configTarget=chromium",
     "dev:gecko": "rollup -c -w --configTarget=gecko",
-    "build": "rollup -c --configTarget=chromium && rollup -c --configTarget=gecko",
-    "build:chromium": "rollup -c --configTarget=chromium",
-    "build:gecko": "rollup -c --configTarget=gecko"
+    "build": "rm -rf dist/chromium && rollup -c --configTarget=chromium && rm -rf dist/gecko && rollup -c --configTarget=gecko",
+    "build:chromium": "rm -rf dist/chromium && rollup -c --configTarget=chromium",
+    "build:gecko": "rm -rf dist/gecko && rollup -c --configTarget=gecko"
   },
   "keywords": [],
   "type": "module",
