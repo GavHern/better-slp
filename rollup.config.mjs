@@ -45,11 +45,11 @@ export default ({ configTarget: target, w: dev }) => {
       copy({
         targets: [
           {
-            src: "src/manifest.json",
+            src: "public/manifest.json",
             dest: output,
             transform: (contents) => supportGeckoBrowsers(target, contents),
           },
-          { src: "src/assets", dest: output },
+          { src: "public/assets", dest: output },
         ],
       }),
     ],
