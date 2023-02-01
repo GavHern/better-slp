@@ -93,7 +93,7 @@
   }
 
   .bslp-day-off {
-    color: #5751d2 !important;
+    color: #5751d2;
     font-size: 17px;
     font-weight: bold;
   }
