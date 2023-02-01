@@ -248,7 +248,8 @@ html[bslp-dark]
 		button,
 		projectNav,
 		modalHeaderContainer,
-		modalFooterContainer
+		modalFooterContainer,
+		checkpointCardContainer
 	)}
 		border-color: darkDivide !important
 		
@@ -267,13 +268,13 @@ html[bslp-dark]
 	
 	//? Status Colors
 
-	{_(yearFocusAreaGreen, yearProjectGreen, progressFeedLineGreenIcon )}
+	{_(yearFocusAreaGreen, yearProjectGreen, progressFeedLineGreenIcon, checkpointGreenIcon )}
 		color: statusGreen !important
 		background-color: statusGreenBg !important
-	{_(yearFocusAreaYellow, yearProjectYellow)}
+	{_(yearFocusAreaYellow, yearProjectYellow, checkpointYellowIcon )}
 		color: statusYellow !important
 		background-color: statusYellowBg !important
-	{_(yearFocusAreaRed, yearProjectRed, progressFeedLineRedIcon)}
+	{_(yearFocusAreaRed, yearProjectRed, progressFeedLineRedIcon, checkpointRedIcon)}
 		color: statusRed !important
 		background-color: statusRedBg !important
 
@@ -301,3 +302,6 @@ html[bslp-dark]
 	
 	{_(DocumentToolbarIcons)}
 		color: dark400 !important
+
+	{projectNavDivider}
+		box-shadow: 1px 0 0 darkDivide !important
