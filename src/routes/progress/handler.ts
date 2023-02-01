@@ -36,7 +36,7 @@ const appendNextDayOff = (data, container) => {
 };
 
 export default () => {
-  const container = document.querySelector("span:has(> .sdl-course-grades)");
+  const container = document.querySelector(".sdl-course-grades").parentElement;
 
   const data: Promise<SummitLearningProgressAPI> = fetch("https://www.summitlearning.org/my/progress.json")
     .then((res) => res.json())
