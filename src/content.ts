@@ -9,6 +9,8 @@ import announcements from "./routes/announcements/handler";
 
 // Check the route and load appropriate route handler
 const injectContent = () => {
+  console.log("testing")
+
   document.querySelectorAll(".bslp-route-specific").forEach((element) => element.remove());
 
   const path = window.location.pathname;
@@ -65,9 +67,13 @@ chrome.runtime.onMessage.addListener((request) => {
   console.log(request);
   if (request.message !== "routerUpdate") return;
 
+  const progressBar = document.querySelector("#nprogress")
+  progressBar?.addEventListener("DOMNodeRemoved", injectContent);
+
   const observer = new MutationObserver(() => {
     observer.disconnect();
     injectContent();
+    progressBar?.removeEventListener("DOMNodeRemoved", injectContent);
   });
 
   const routerContainer = document.querySelector(".router-content");
