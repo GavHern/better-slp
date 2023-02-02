@@ -7,6 +7,7 @@ import typescript from "@rollup/plugin-typescript";
 import postcss from "rollup-plugin-postcss";
 import minify from "postcss-minify";
 import { nodeResolve } from "@rollup/plugin-node-resolve";
+import terser from "@rollup/plugin-terser";
 
 const supportGeckoBrowsers = (target, contents) => {
   if (target === "chromium") return contents.toString();
@@ -52,6 +53,15 @@ export default ({ configTarget: target, w: dev }) => {
           { src: "public/assets", dest: output },
         ],
       }),
+
+      // Only runs in production
+      !dev &&
+        terser({
+          compress: {
+            drop_console: true,
+            drop_debugger: true,
+          },
+        }),
     ],
   };
 };
