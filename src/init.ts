@@ -42,6 +42,6 @@ const appendDarkModeToggle = () => {
 };
 
 export default () => {
-  appendDarkModeToggle();
+  // appendDarkModeToggle();
   appendAnnouncementsBadge();
 };
