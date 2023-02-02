@@ -1,30 +1,7 @@
 <script lang="ts">
+  import { formatShortDate, formatLongDate } from "./formatDates";
+
   export let response;
-
-  const months = [
-    "January",
-    "February",
-    "March",
-    "April",
-    "May",
-    "June",
-    "July",
-    "August",
-    "September",
-    "October",
-    "November",
-    "December",
-  ];
-
-  const formatShortDate = (date) => {
-    const d = date.split("-");
-    return `${d[1]}/${d[2]}/${d[0]}`;
-  };
-
-  const formatLongDate = (date) => {
-    const d = date.split("-");
-    return `${months[+d[1] - 1]} ${+d[2]}, ${d[0]}`;
-  };
 
   const getNextDayOff = (daysOff) => {
     const today = new Date();

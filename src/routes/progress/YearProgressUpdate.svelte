@@ -1,7 +1,10 @@
 <script lang="ts">
+  import { formatLongDate } from "./formatDates";
+
   export let res;
 
   let loaded = false;
+  let view = window.localStorage.getItem("bslp-year-progress-view") ?? "countdown";
 
   let weeks;
   let days;
@@ -66,6 +69,23 @@
 
     return message;
   };
+
+  const cycleView = () => {
+    switch (view) {
+      case "countdown":
+        view = "time-left";
+        window.localStorage.setItem("bslp-year-progress-view", "time-left");
+        break;
+      case "time-left":
+        view = "date";
+        window.localStorage.setItem("bslp-year-progress-view", "date");
+        break;
+      case "date":
+        view = "countdown";
+        window.localStorage.setItem("bslp-year-progress-view", "countdown");
+        break;
+    }
+  };
 </script>
 
 <div class="bslp-route-specific claro-list-group sdl-course-grades list-group">
@@ -81,7 +101,15 @@
   {:then { schoolYears }}
     {@const lastDay = getLastDay(schoolYears)}
     <li class="grade-row list-group-item bslp-time-left">
-      {weeks} weeks, {days} days, {format(hours)}:{format(minutes)}:{format(seconds)}
+      <button on:click={cycleView}>
+        {#if view === "countdown"}
+          {weeks} weeks, {days} days, {format(hours)}:{format(minutes)}:{format(seconds)}
+        {:else if view === "time-left"}
+          {weeks} weeks<span class="bslp-vertical-divider" />{weeks * 7 + days} days
+        {:else if view === "date"}
+          {formatLongDate(schoolYears.at(-1).lastDayOfSchool)}
+        {/if}
+      </button>
       <div class="bslp-time-left-motivational-message">{getMotivationalMessage()}</div>
     </li>
   {:catch err}
@@ -103,5 +131,12 @@
   .bslp-time-left-motivational-message {
     color: var(--eds-theme-color-text-neutral-subtle);
     font-size: 0.8rem;
+  }
+
+  .bslp-vertical-divider {
+    height: 100%;
+    width: 0;
+    border-right: 2px solid #c0c4c8;
+    margin-inline: 0.7ch;
   }
 </style>
