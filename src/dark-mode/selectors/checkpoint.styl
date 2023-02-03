@@ -7,9 +7,13 @@ CheckpointTitle = '.project-feedback-header-container, .project-feedback-header'
 CheckpointFeedback = '.project-feedback-actions-text'
 CheckpointIcon_OpenInNewTab = '.project-feedback-open-doc-btn a svg'
 CheckpointIcon_Resources = '.project-feedback-header-button > button > svg'
-CheckpointSwitcher = '.project-feedback-asset-switcher > div'
+CheckpointSwitcher = '.project-feedback-asset-switcher > .dropdown'
+CheckpointSwitcherOpen = '.project-feedback-asset-switcher > .dropdown.open > .project-feedback-asset-switcher-selector'
 CheckpointSwitcherTitle = '.project-feedback-title'
 CheckpointAskForHelp = '.feedback-help-request-popover'
+CheckpointTopBarIconButtons = '.project-feedback-header-right .btn-default'
+CheckpointTopBarIconButtonsSvg = '.project-feedback-header-right .btn-default svg'
+CheckpointBackButton = ".project-feedback-header-button > .btn-default"
 
 // Medium Bar
 CheckpointHead = '.platform-doc-header'
@@ -19,6 +23,7 @@ CheckpointIcon_History = '[aria-label="Edit history"]'
 CheckpointIcon_Print = '#print_button'
 CheckpointSavingChanges = '.platform-doc-saving-indicator'
 CheckpointTitleFade = '.platform-doc-header-row-start::after'
+CheckpointTitleBarDropdown = ".platform-doc-header-row-end .dropdown-menu"
 
 // Bottom - Body 
 CheckpointBody = '.czi-editor-frame-body-scroll'
@@ -26,8 +31,10 @@ CheckpointBackDrop = '.project-feedback-dimension-navigator-backdrop'
 
 CheckpointFocusContainer = '.project-feedback-dimension-navigator'
 CheckpointFocus = '.project-feedback-dimension-navigator-topbar'
-CogSkills  = '.project-feedback-dimension-navigator-list'
+CogSkills = '.project-feedback-dimension-navigator-list'
+CogSkillsSelectedItem = ".project-feedback-dimension-navigator button.selected"
 CogSkillsDetail = '.project-feedback-dimension-navigator-dimension-details'
+CogSkillBreakdownContainer = ".project-feedback-dimension-navigator-drilldown"
 CogSkillsTitle = '.project-feedback-dimension-navigator-drilldown-topbar'
 CogSkillsContent = '.project-feedback-dimension-navigator-drilldown-content'
 
@@ -41,9 +48,6 @@ CogSkillScoreHighligtedText = '.text-with-annotations-word-color-strong-evidence
 CogSkillMathLevel = '.project-feedback-dimension-navigator-indicator-list-item-text'
 
 CogSkillFinalScore = '.project-feedback-dimension-navigator-score-token'
-
-// Bottom - Document 
-DocumentToolbarIcons = '#toolbar_container .czi-tooltip-surface > span'
 
 // Bottom - Comments
 CommentThreadContainer = '.platform-doc-comment-thread thread-can-condense'
