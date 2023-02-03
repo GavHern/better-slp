@@ -213,7 +213,10 @@ html[bslp-dark]
 		CheckpointIcon_Print,
 		CogSkillScoreNumber,
 		CogSkillMathLevel,
-		CheckpointTopBarIconButtons
+		CheckpointTopBarIconButtons,
+		focusAreaInfoText,
+		focusAreaInfoScoreNeededToPass,
+		focusAreaResourceDescriptionText
 	)}
 		color: lightSecondary !important
 
@@ -333,3 +336,8 @@ html[bslp-dark]
 	{CheckpointTopBarIconButtonsSvg} // Needs to set SVG fill rather than background/text color
 		fill: lightPrimary !important
 	
+	{focusAreaTourNub} // Unique colors for focus area tour buttons
+		background-color: focusAreaTourBg !important
+		border-color: focusAreaTourBg !important
+		{focusAreaTourNubText}
+			color: focusAreaTour !important
