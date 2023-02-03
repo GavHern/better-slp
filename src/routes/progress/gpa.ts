@@ -35,7 +35,7 @@ export const parseAPIResponse = (res: any) =>
       isAP: res.courses.filter((c) => c.id === a.course_id)[0].name?.includes("AP "),
       isExpedition: res.courses.filter((c) => c.id === a.course_id)[0].subjectId === 10,
     }))
-    .filter((grade) => !grade.isExpedition && grade.grade !== "N/A");
+    .filter(({isExpedition, grade}) => !isExpedition && grade !== "N/A");
 
 // Averages a list of letter grades
 const calculateYearAverage = (weighted, grades: any[]) => {
