@@ -92,7 +92,7 @@
   <span class="grade-header list-group-item">
     <div class="row">
       <div class="col-xs-12 flex">
-        <h2 class="courses-title">Time Remaining This Year</h2>
+        <h2 class="courses-title">{view === "date" ? "Last Day of School" : "Time Remaining This Year"}</h2>
       </div>
     </div>
   </span>
