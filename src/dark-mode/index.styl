@@ -80,7 +80,6 @@ html[bslp-dark]
 
 	{_(
 		yearHorizontalScrollButton,
-		masterContentMessage,
 		rubricTopBarDropdownContainer
 	)}
 		background-color: transparent !important
@@ -173,7 +172,8 @@ html[bslp-dark]
 		userProfileAvatar,
 		goalPopoverCreateButton,
 		buttonDefault,
-	
+		hoveredTableRow,
+		hover(focusAreaResourceContainer)
 	)}
 		background-color: darkElevate !important
 
@@ -237,7 +237,8 @@ html[bslp-dark]
 		focusAreaInfoText,
 		focusAreaInfoScoreNeededToPass,
 		focusAreaResourceDescriptionText,
-		notificationDrawerSeenTitle
+		notificationDrawerSeenTitle,
+		focusAreaSeeAllTakesLink
 	)}
 		color: lightSecondary !important
 
@@ -298,7 +299,8 @@ html[bslp-dark]
 		mentorCheckinDrawerFooter,
 		notificationDrawerHeader,
 		rubricTable,
-		rubricTableHeader
+		rubricTableHeader,
+		tableDivider
 	)}
 		border-color: darkDivide !important
 
@@ -308,31 +310,32 @@ html[bslp-dark]
 	)}
 		background-color: darkDivide !important
 		
-	{_(
+	{_( // Focus area section
 		requestPanel,
 		diagnosticPanel,
 		introductionPanel,
 		objective
 	)}
-		border-color: darkDivide !important
-		border: solid
+		box-shadow: 0 0 0 1px darkDivide !important
 
 	
 	//? Status Colors
 
-	{_(yearFocusAreaGreen, yearProjectGreen, progressFeedLineGreenIcon, checkpointGreenIcon )}
+	{_(yearFocusAreaGreen, yearProjectGreen, progressFeedLineGreenIcon, checkpointGreenIcon, masterContentMessage, seeAllTakesScoreTokenGreen  )}
 		color: statusGreen !important
 		background-color: statusGreenBg !important
 	{_(yearFocusAreaYellow, yearProjectYellow, checkpointYellowIcon )}
 		color: statusYellow !important
 		background-color: statusYellowBg !important
-	{_(yearFocusAreaRed, yearProjectRed, progressFeedLineRedIcon, checkpointRedIcon, checkpointCopyPasteOldWorkWarning)}
+	{_(yearFocusAreaRed, yearProjectRed, progressFeedLineRedIcon, checkpointRedIcon, checkpointCopyPasteOldWorkWarning, seeAllTakesScoreTokenRed )}
 		color: statusRed !important
 		background-color: statusRedBg !important
 
-	{_(yearTooltipTextGreen)}
+	{_(yearTooltipTextGreen, scoreBadgeGreen)}
 		color: statusGreen !important
-	{_(yearTooltipTextRed)}
+	{_(scoreBadgeYellow)}
+		color: statusYellow !important
+	{_(yearTooltipTextRed, scoreBadgeRed)}
 		color: statusRed !important
 
 	{_(
