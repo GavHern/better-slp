@@ -31,7 +31,7 @@
 	[ ] Notifications drawer
 	[ ] Progresss grades modal
 	[ ] "View Rubric" modal
-	[ ] Mentor checkin prework drawer
+	[x] Mentor checkin prework drawer
 	[x] Navigation bar
 	[x] BetterSLP components
  */
@@ -114,6 +114,13 @@ html[bslp-dark]
 	)}
 		background-color: dark700 !important
 	
+	//! ONLY USE IF SLIGHT ELEVATION INCREASE NEEDED
+	{_(
+		mentorCheckinDrawerContainer,
+		mentorCheckinDrawerToggleButton
+	)}
+		background-color: dark600 !important
+
 	{_(
 		floatingGoalPanel,
 		selectFormOption,
@@ -235,7 +242,8 @@ html[bslp-dark]
 		progressWeeklyGoalSummaryLink,
 		progressLetterGrade,
 		indexCardIcon,
-		tabActive
+		tabActive,
+		mentorCheckinDrawerOpenButtonIcon
 	)}
 		color: brandGrape !important
 
@@ -268,7 +276,8 @@ html[bslp-dark]
 		modalFooterContainer,
 		checkpointCardContainer,
 		CogSkills, // Todo: not actually working hmm
-		CogSkillBreakdownContainer
+		CogSkillBreakdownContainer,
+		mentorCheckinDrawerFooter
 	)}
 		border-color: darkDivide !important
 
@@ -341,3 +350,8 @@ html[bslp-dark]
 		border-color: focusAreaTourBg !important
 		{focusAreaTourNubText}
 			color: focusAreaTour !important
+
+	{mentorCheckinDrawerToggleButton} // Borders are weird on checkin toggle nub
+		border-right: none
+		border-top-right-radius: 0
+		border-bottom-right-radius: 0
