@@ -30,7 +30,7 @@
 	[ ] Document editor (skip document itself)
 	[ ] Notifications drawer
 	[ ] Progresss grades modal
-	[ ] "View Rubric" modal
+	[x] "View Rubric" modal
 	[x] Mentor checkin prework drawer
 	[x] Navigation bar
 	[x] BetterSLP components
@@ -80,11 +80,14 @@ html[bslp-dark]
 
 	{_(
 		yearHorizontalScrollButton,
-		masterContentMessage
+		masterContentMessage,
+		rubricTopBarDropdownContainer
 	)}
 		background-color: transparent !important
 		
-	&, {body}, {CheckpointBody}
+	&, {_(
+		body, CheckpointBody, rubricTopBarStandalone
+	)}
 		background-color: dark900 !important
 
 	{_(
@@ -113,7 +116,11 @@ html[bslp-dark]
 		CogSkills, // Needed since there are transparent colors
 		CheckpointModal,
 		CheckpointTopBarIconButtons,
-		CheckpointBackButton
+		CheckpointBackButton,
+		rubricTableCell,
+		rubricTopBarModal,
+		rubricTopBarDropdown,
+		rubricTopBarSearchInput
 	)}
 		background-color: dark700 !important
 	
@@ -149,7 +156,8 @@ html[bslp-dark]
 		hover(checkpointNavBar),
 		projectOverviewTeacher,
 		CheckpointSwitcherOpen,
-		notificationDrawerBackground
+		notificationDrawerBackground,
+		rubricTableHeader
 	)}
 		background-color: dark400 !important
 
@@ -194,7 +202,8 @@ html[bslp-dark]
 		textCardTitle,
 		CheckpointSwitcherTitle,
 		CheckpointFocus,
-		CheckpointBackButton
+		CheckpointBackButton,
+		rubricTableHeader
 	)}
 		color: lightPrimary !important
 	
@@ -250,7 +259,8 @@ html[bslp-dark]
 		indexCardIcon,
 		tabActive,
 		mentorCheckinDrawerOpenButtonIcon,
-		notificationDrawerUnseenTitle
+		notificationDrawerUnseenTitle,
+		rubricCogSkillLink
 	)}
 		color: brandGrape !important
 
@@ -286,7 +296,9 @@ html[bslp-dark]
 		CogSkills, // Todo: not actually working hmm
 		CogSkillBreakdownContainer,
 		mentorCheckinDrawerFooter,
-		notificationDrawerHeader
+		notificationDrawerHeader,
+		rubricTable,
+		rubricTableHeader
 	)}
 		border-color: darkDivide !important
 
@@ -368,3 +380,6 @@ html[bslp-dark]
 
 	{notificationDrawerArrow} // Popover arrow with css border
 		border-top-color: dark400 !important
+
+	{rubricSearchKeyword} // Color rubric search highlight text dark since it has a yellow background
+		color: dark900 !important
