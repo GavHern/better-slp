@@ -22,8 +22,8 @@
 	[x] Progress
 	[x] College
 	[ ] Resources
-	[ ] Focus Area Page
-	[x] Project Page
+	[?] Focus Area Page
+	[?] Project Page
 	[ ]	Checkpoint Page
 	[ ] Plans Tab
 	[x] Course page (click from year page)
@@ -173,7 +173,8 @@ html[bslp-dark]
 		goalPopoverCreateButton,
 		buttonDefault,
 		hoveredTableRow,
-		hover(focusAreaResourceContainer)
+		hover(focusAreaResourceContainer),
+		gradeSummaryFocusAreaTabAreaCount
 	)}
 		background-color: darkElevate !important
 
@@ -238,7 +239,9 @@ html[bslp-dark]
 		focusAreaInfoScoreNeededToPass,
 		focusAreaResourceDescriptionText,
 		notificationDrawerSeenTitle,
-		focusAreaSeeAllTakesLink
+		focusAreaSeeAllTakesLink,
+		gradeSummaryPieChartTotalGradeText,
+		gradeSummaryFocusAreaTabAreaCount
 	)}
 		color: lightSecondary !important
 
@@ -261,7 +264,8 @@ html[bslp-dark]
 		tabActive,
 		mentorCheckinDrawerOpenButtonIcon,
 		notificationDrawerUnseenTitle,
-		rubricCogSkillLink
+		rubricCogSkillLink,
+		gradeSummaryGradingPolicyLink
 	)}
 		color: brandGrape !important
 
@@ -300,7 +304,11 @@ html[bslp-dark]
 		notificationDrawerHeader,
 		rubricTable,
 		rubricTableHeader,
-		tableDivider
+		tableDivider,
+		gradeSummaryTabsContainer,
+		gradeSummaryBreakdownTable,
+		gradeSummarySelectedTabContainer,
+		gradeSummaryProjectsTabDivider
 	)}
 		border-color: darkDivide !important
 
@@ -386,3 +394,6 @@ html[bslp-dark]
 
 	{rubricSearchKeyword} // Color rubric search highlight text dark since it has a yellow background
 		color: dark900 !important
+
+	{gradeSummaryPieChart} // Use a filter since it's a canvas and can't be styled
+		filter: brightness(0.85) invert(1) hue-rotate(.5turn) !important
