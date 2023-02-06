@@ -17,7 +17,7 @@
 
 	CHECKLIST:
 	[x] Announcements
-	[x] Week (could be better)
+	[x] Week
 	[x] Year
 	[x] Progress
 	[x] College
@@ -102,6 +102,7 @@ html[bslp-dark]
 		weekGoalPopover,
 		goalPopoverInputContainer,
 		goalPopoverFooter,
+		goalPopoverChild,
 		modal,
 		alertInfo,
 		megaPhoneContainer,
@@ -170,7 +171,7 @@ html[bslp-dark]
 		hover(dropdownItem),
 		focus(dropdownItem),
 		userProfileAvatar,
-		goalPopoverCreateButton,
+		goalPopoverCreateButtonDisabled,
 		buttonDefault,
 		hoveredTableRow,
 		hover(focusAreaResourceContainer),
@@ -179,7 +180,8 @@ html[bslp-dark]
 		background-color: darkElevate !important
 
 	{_(
-		rangeMiddle
+		rangeMiddle,
+		goalPopoverCreateButton
 	)}
 		background-color: brandGrape !important
 
@@ -223,7 +225,7 @@ html[bslp-dark]
 		progressFeedLineGrayIcon,
 		progressNoteCancelButton,
 		placeholder(goalPopoverInputForm),
-		goalChild,
+		goalPopoverChild,
 		modalText,
 		helpIcon,
 		mentorNote,
