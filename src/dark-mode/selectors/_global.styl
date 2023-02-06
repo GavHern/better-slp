@@ -1,4 +1,4 @@
-body = ".page-content"
+body = ".page-content, .app-page-container"
 appBody = ".app-body"
 navigation = ".page-menu"
 navigationItem = ".page-menu ul li a"
@@ -27,6 +27,7 @@ modalHeaderContainer = ".modal-header"
 modalFooterContainer = ".modal-footer"
 loadingSpinner = ".loading-indicator-icon"
 tabActive = ".nav-tabs>li.active>a, .nav-tabs>li.active>a:focus"
+panelFooter = ".panel-footer"
 
 // Selector is this long in original source code (other than :not statements)
 formElement = ".app textarea:not(.composer textarea), .app textarea.form-control:not(.composer textarea), .app input.form-control:not(.composer textarea), .app input[type=text]:not(.typeahead-input):not([data-bootstrap-override=inputfield]), .app input[type=password]:not([data-bootstrap-override=inputfield]), .app input[type=email]:not([data-bootstrap-override=inputfield]), .app input[type=number]:not([data-bootstrap-override=inputfield]), .app [type=text].form-control, .app [type=password].form-control, .app [type=email].form-control, .app [type=tel].form-control, .app [contenteditable].form-control, .app .rbt-input.form-control, .app select.form-control"
@@ -41,6 +42,15 @@ rangeLabel = ".range-label-start, .range-label-finish"
 checkboxListGroup = ".selectivity-content .list-group li label"
 checkboxFormListLabels = ".list-unstyled label"
 standardizedTestScoreGoalEmpty = ".studentcollege .pane-scores .scoregoal-unentered .progress-bar:last-child:before"
+
+//? Notification drawer
+notificationDrawerBackground = "#notifications-popover .popover-content, .notifications-header, .notification-item, .list-group-item"
+notificationDrawerHeader = ".notifications-header"
+notificationDrawerUnseen = ".notification-item.notification-item-unread"
+notificationDrawerUnseenTitle = ".notification-item.notification-item-unread .notification-item-content span"
+notificationDrawerSeenTitle = ".notification-item:not(.notification-item-unread) .notification-item-content span"
+notificationDrawerSubtitle = ".notification-item-subtitle"
+notificationDrawerArrow = ".popover.top > .arrow::after"
 
 //? Mentor checkin drawer
 mentorCheckinDrawerContainer = ".right-screen-flyout-content"

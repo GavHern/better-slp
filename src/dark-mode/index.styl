@@ -34,6 +34,9 @@
 	[x] Mentor checkin prework drawer
 	[x] Navigation bar
 	[x] BetterSLP components
+
+	Extras:
+	[x] summitlearning.org/enroll
  */
 
 @import "colors.styl"
@@ -145,7 +148,8 @@ html[bslp-dark]
 		checkpointSelected,
 		hover(checkpointNavBar),
 		projectOverviewTeacher,
-		CheckpointSwitcherOpen
+		CheckpointSwitcherOpen,
+		notificationDrawerBackground
 	)}
 		background-color: dark400 !important
 
@@ -223,7 +227,8 @@ html[bslp-dark]
 		CheckpointTopBarIconButtons,
 		focusAreaInfoText,
 		focusAreaInfoScoreNeededToPass,
-		focusAreaResourceDescriptionText
+		focusAreaResourceDescriptionText,
+		notificationDrawerSeenTitle
 	)}
 		color: lightSecondary !important
 
@@ -231,7 +236,8 @@ html[bslp-dark]
 		yearCogSkillAverage,
 		yearMonthsHeader,
 		CogSkillsDetail,
-		CogSkillScoreDescription
+		CogSkillScoreDescription,
+		notificationDrawerSubtitle
 	)}
 		color: lightSubtle !important
 
@@ -243,7 +249,8 @@ html[bslp-dark]
 		progressLetterGrade,
 		indexCardIcon,
 		tabActive,
-		mentorCheckinDrawerOpenButtonIcon
+		mentorCheckinDrawerOpenButtonIcon,
+		notificationDrawerUnseenTitle
 	)}
 		color: brandGrape !important
 
@@ -254,6 +261,7 @@ html[bslp-dark]
 
 	{_(
 		divider,
+		panelFooter,
 		tableItem,
 		listGroupItem,
 		formElement,
@@ -277,7 +285,8 @@ html[bslp-dark]
 		checkpointCardContainer,
 		CogSkills, // Todo: not actually working hmm
 		CogSkillBreakdownContainer,
-		mentorCheckinDrawerFooter
+		mentorCheckinDrawerFooter,
+		notificationDrawerHeader
 	)}
 		border-color: darkDivide !important
 
@@ -317,7 +326,8 @@ html[bslp-dark]
 	{_(
 		announcementBodyUnseen,
 		CogSkillScoreHighligtedText,
-		CogSkillsSelectedItem
+		CogSkillsSelectedItem,
+		notificationDrawerUnseen
 	)}
 		background-color: brandGrapeBg !important
 	
@@ -355,3 +365,6 @@ html[bslp-dark]
 		border-right: none
 		border-top-right-radius: 0
 		border-bottom-right-radius: 0
+
+	{notificationDrawerArrow} // Popover arrow with css border
+		border-top-color: dark400 !important
