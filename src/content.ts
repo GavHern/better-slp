@@ -7,11 +7,22 @@ import focusarea from "./routes/focusArea/handler";
 import progress from "./routes/progress/handler";
 import announcements from "./routes/announcements/handler";
 
+// Dummy element that does nothing other than prove that the injected content is still present
+const appendInstanceValidator = () => {
+  const container = document.querySelector(".app-body") ?? document.querySelector(".czi-editor-frame-body");
+
+  const validator = document.createElement("div");
+  validator.classList.add("bslp-route-specific");
+  validator.id = "bslp-instance-verifier";
+  validator.ariaHidden = "true";
+
+  container.appendChild(validator);
+};
+
 // Check the route and load appropriate route handler
 const injectContent = () => {
-  console.log("testing")
-
   document.querySelectorAll(".bslp-route-specific").forEach((element) => element.remove());
+  appendInstanceValidator();
 
   const path = window.location.pathname;
 
@@ -36,9 +47,24 @@ const injectContent = () => {
   init();
 };
 
+// Only injects content if the content is missing
+const safeInject = () => {
+  if (document.querySelector("#bslp-instance-verifier") == null) {
+    console.log("✅ Safe injection triggered");
+    injectContent();
+  } else {
+    console.log("⚠️ Safe injection passed");
+  }
+};
+
+//! ADD CONTENT TO PAGE:
+
 // Inject code when the page initially loads
 document.addEventListener("DOMContentLoaded", () => {
-  console.log("DOM load detected");
+  console.log("✅ DOM load detected");
+
+  window.addEventListener("focus", safeInject);
+
   const observer = new MutationObserver((entries) => {
     entries.forEach((i) => {
       i.addedNodes.forEach((ii: any) => {
@@ -57,30 +83,31 @@ document.addEventListener("DOMContentLoaded", () => {
 
   if (container) {
     observer.observe(container, { childList: true });
-  } else {
-    console.warn("Could not find observer container");
   }
 });
 
 // Run injections again when a new history state is pushed via react router
 chrome.runtime.onMessage.addListener((request) => {
-  console.log(request);
+  safeInject();
+
   if (request.message !== "routerUpdate") return;
 
-  const progressBar = document.querySelector("#nprogress")
+  const progressBar = document.querySelector("#nprogress");
   progressBar?.addEventListener("DOMNodeRemoved", injectContent);
 
   const observer = new MutationObserver(() => {
     observer.disconnect();
-    injectContent();
-    progressBar?.removeEventListener("DOMNodeRemoved", injectContent);
+    safeInject();
+    // progressBar?.removeEventListener("DOMNodeRemoved", injectContent);
   });
 
   const routerContainer = document.querySelector(".router-content");
 
   if (routerContainer) {
     observer.observe(routerContainer, { childList: true, subtree: true });
-  } else {
-    console.warn("Could not find observer container");
   }
+});
+
+window.addEventListener("popstate", () => {
+  console.log("Location change!");
 });
