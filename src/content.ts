@@ -107,7 +107,3 @@ chrome.runtime.onMessage.addListener((request) => {
     observer.observe(routerContainer, { childList: true, subtree: true });
   }
 });
-
-window.addEventListener("popstate", () => {
-  console.log("Location change!");
-});
