@@ -20,7 +20,7 @@
   };
 </script>
 
-<button class="bslp-dark-mode-toggle-button" on:click={toggleDark}>
+<button class="bslp-dark-mode-toggle-button bslp-global-component" on:click={toggleDark}>
   <i class="material-icons">{dark ? "wb_sunny" : "brightness_3"}</i>
 </button>
 

@@ -9,7 +9,9 @@ import announcements from "./routes/announcements/handler";
 
 // Dummy element that does nothing other than prove that the injected content is still present
 const appendInstanceValidator = () => {
-  const container = document.querySelector(".app-body") ?? document.querySelector(".czi-editor-frame-body");
+  const container: Element | null = document.querySelector(".app-body");
+
+  if (container == null) return;
 
   const validator = document.createElement("div");
   validator.classList.add("bslp-route-specific");
@@ -49,7 +51,7 @@ const injectContent = () => {
 
 // Only injects content if the content is missing
 const safeInject = () => {
-  if (document.querySelector("#bslp-instance-verifier") == null) {
+  if (document.querySelector("#bslp-instance-verifier, .bslp-route-specific, .bslp-global-component") == null) {
     console.log("✅ Safe injection triggered");
     injectContent();
   } else {

@@ -34,6 +34,7 @@ const appendDarkModeToggle = () => {
   const container = document.createElement("div");
   container.setAttribute("style", "position:absolute;right:10px;top:10px;width:33px;height:33px;");
   container.classList.add("bslp-dark-mode-toggle");
+  container.classList.add("bslp-global-component");
   navBar.appendChild(container);
 
   new DarkModeToggle({
