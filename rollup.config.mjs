@@ -8,15 +8,25 @@ import minify from "postcss-minify";
 import { nodeResolve } from "@rollup/plugin-node-resolve";
 import terser from "@rollup/plugin-terser";
 
-const supportGeckoBrowsers = (target, contents) => {
-  if (target === "chromium") return contents.toString();
+import nodePackage from "./package.json" assert { type: "json" };
 
-  const file = JSON.parse(contents.toString());
+const reformatManifest = (target, dev, contents) => {
+  const manifest = JSON.parse(contents.toString());
 
-  file.background.scripts = [file.background.service_worker];
-  delete file.background.service_worker;
+  // Uses version number from package.json
+  manifest.version = nodePackage.version;
 
-  return JSON.stringify(file, null, 2);
+  // Add dev mode to manifest if in the dev environment
+  if (dev) manifest.description = `[DEV MODE] ${manifest.description}`;
+
+  // Leave manifest alone if using chromium
+  if (target === "chromium") return JSON.stringify(manifest, null, 2);
+
+  // Reformats manifest for gecko support below
+  manifest.background.scripts = [manifest.background.service_worker];
+  delete manifest.background.service_worker;
+
+  return JSON.stringify(manifest, null, 2);
 };
 
 export default ({ configTarget: target, w: dev }) => {
@@ -44,7 +54,8 @@ export default ({ configTarget: target, w: dev }) => {
           {
             src: "public/manifest.json",
             dest: output,
-            transform: (contents) => supportGeckoBrowsers(target, contents),
+            // Properly formats manifest for all browser engines and code environments
+            transform: (contents) => reformatManifest(target, dev, contents),
           },
           { src: "public/assets", dest: output },
         ],
