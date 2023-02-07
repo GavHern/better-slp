@@ -1,5 +1,6 @@
 import "./dark-mode/index.styl";
 import "./style.styl";
+import "quill/dist/quill.snow.css";
 
 import init from "./init";
 import year from "./routes/year/handler";

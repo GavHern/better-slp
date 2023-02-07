@@ -1,7 +1,6 @@
 <script lang="ts">
   import { onMount } from "svelte";
   import Quill from "quill";
-  import "quill/dist/quill.snow.css";
 
   let editor;
   let quill;

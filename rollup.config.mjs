@@ -34,12 +34,10 @@ export default ({ configTarget: target, w: dev }) => {
       svelte({
         preprocess: preprocess(),
       }),
-      css({
-        output: "bundle.css",
-      }),
       typescript(),
       postcss({
-        extract: "stylus.css",
+        extensions: [".css", ".styl"],
+        extract: "bundle.css",
         plugins: [minify()],
       }),
       copy({
