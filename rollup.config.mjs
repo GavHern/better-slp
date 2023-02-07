@@ -2,7 +2,6 @@ import copy from "rollup-plugin-copy";
 import commonjs from "@rollup/plugin-commonjs";
 import svelte from "rollup-plugin-svelte";
 import preprocess from "svelte-preprocess";
-import css from "rollup-plugin-css-only";
 import typescript from "@rollup/plugin-typescript";
 import postcss from "rollup-plugin-postcss";
 import minify from "postcss-minify";
