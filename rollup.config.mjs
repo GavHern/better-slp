@@ -33,7 +33,6 @@ export default ({ configTarget: target, w: dev }) => {
       nodeResolve(),
       svelte({
         preprocess: preprocess(),
-        plugins: [nodeResolve()],
       }),
       css({
         output: "bundle.css",
