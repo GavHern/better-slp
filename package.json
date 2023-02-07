@@ -1,8 +1,6 @@
 {
-  "name": "betterslp-new",
+  "name": "better-slp",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
   "scripts": {
     "dev": "rollup -c -w --configTarget=chromium",
     "dev:chromium": "rollup -c -w --configTarget=chromium",
@@ -11,10 +9,7 @@
     "build:chromium": "rm -rf dist/chromium && rollup -c --configTarget=chromium",
     "build:gecko": "rm -rf dist/gecko && rollup -c --configTarget=gecko"
   },
-  "keywords": [],
   "type": "module",
-  "author": "",
-  "license": "ISC",
   "devDependencies": {
     "@rollup/plugin-commonjs": "^24.0.1",
     "@rollup/plugin-node-resolve": "^15.0.1",
