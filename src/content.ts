@@ -64,8 +64,6 @@ const safeInject = () => {
 
 // Inject code when the page initially loads
 document.addEventListener("DOMContentLoaded", () => {
-  console.log("✅ DOM load detected");
-
   window.addEventListener("focus", safeInject);
 
   const observer = new MutationObserver((entries) => {
@@ -73,7 +71,9 @@ document.addEventListener("DOMContentLoaded", () => {
       i.addedNodes.forEach((ii: any) => {
         if (ii.classList.contains("app")) {
           observer.disconnect();
+
           injectContent();
+          console.log("✅ DOM load injection triggered");
 
           if (window.localStorage.getItem("bslp-dark") == "true")
             document.documentElement.setAttribute("bslp-dark", "");
@@ -96,7 +96,7 @@ chrome.runtime.onMessage.addListener((request) => {
   if (request.message !== "routerUpdate") return;
 
   const progressBar = document.querySelector("#nprogress");
-  progressBar?.addEventListener("DOMNodeRemoved", injectContent);
+  progressBar?.addEventListener("DOMNodeRemoved", safeInject);
 
   const observer = new MutationObserver(() => {
     observer.disconnect();
