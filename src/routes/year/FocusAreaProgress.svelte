@@ -62,43 +62,37 @@
   </div>
 </div>
 
-<style>
-  .bslp-progress-bar {
-    width: 100%;
-    background: #f0f0fc;
-    padding: 0.3em 0.5em;
-    border-radius: 0.4em;
-    display: flex;
-    justify-content: space-between;
-    font-weight: 500;
-    margin-top: 0.6em;
-    position: relative;
-    overflow: hidden;
-  }
+<style lang="stylus">
+  .bslp-progress-bar
+    width: 100%
+    background: #f0f0fc
+    padding: 0.3em 0.5em
+    border-radius: 0.4em
+    display: flex
+    justify-content: space-between
+    font-weight: 500
+    margin-top: 0.6em
+    position: relative
+    overflow: hidden
 
-  .bslp-progress {
-    position: absolute;
-    background: #6b65e2;
-    height: 100%;
-    top: 0;
-    left: 0;
-  }
+  .bslp-progress
+    position: absolute
+    background: #6b65e2
+    height: 100%
+    top: 0
+    left: 0
 
-  .bslp-progress-completed .bslp-progress {
-    background: #008656;
-  }
+	.bslp-progress-completed
+  	.bslp-progress
+   	  background: #008656
+		.bslp-progress-percentage
+  	  color: white
 
-  .bslp-progress-completed .bslp-progress-percentage {
-    color: white;
-  }
+  .bslp-progress-label
+    position: relative
+    color: white
 
-  .bslp-progress-label {
-    position: relative;
-    color: white;
-  }
-
-  .bslp-progress-percentage {
-    position: relative;
-    color: black;
-  }
+  .bslp-progress-percentage
+    position: relative
+    color: black
 </style>

@@ -49,18 +49,17 @@
   {/if}
 {/await}
 
-<style>
-  .bslp-announcements-badge {
-    position: absolute;
-    top: 0px;
-    left: 27px;
-    background: #d41e52;  /* dont touch this color */ 
-    color: #fff;
-    display: flex;
-    font-size: 11px;
-    font-weight: bold;
-    justify-content: center;
-    width: 20px;
-    border-radius: 100%;
-  }
+<style lang="stylus">
+  .bslp-announcements-badge
+    position: absolute
+    top: 0px
+    left: 27px
+    background: #d41e52
+    color: #fff
+    display: flex
+    font-size: 11px
+    font-weight: bold
+    justify-content: center
+    width: 20px
+    border-radius: 100%
 </style>

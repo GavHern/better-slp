@@ -61,30 +61,25 @@
   {/await}
 </div>
 
-<style>
-  .loading-indicator-icon {
-    margin-top: 1.5em;
-  }
+<style lang="stylus">
+  .loading-indicator-icon
+    margin-top: 1.5em
 
-  .bslp-gpa-info-tooltip {
-    color: #00000070;
-    padding-left: 0.3em;
-    cursor: help;
-  }
+  .bslp-gpa-info-tooltip
+    color: #00000070
+    padding-left: 0.3em
+    cursor: help
 
-  .blsp-gpa-tooltip {
-    pointer-events: none;
-    opacity: 0;
-    top: 20px;
-    left: 37px;
-  }
+  	&:hover + .blsp-gpa-tooltip
+			pointer-events: auto
+			opacity: 1
 
-  .bslp-gpa-info-tooltip:hover + .blsp-gpa-tooltip {
-    pointer-events: auto;
-    opacity: 1;
-  }
+  .blsp-gpa-tooltip
+    pointer-events: none
+    opacity: 0
+    top: 20px
+    left: 37px
 
-  .bslp-gpa-section-title-container {
-    width: 100%;
-  }
+  .bslp-gpa-section-title-container
+    width: 100%
 </style>

@@ -64,37 +64,31 @@
   {/await}
 </div>
 
-<style>
-  .loading-indicator-icon {
-    margin-top: 1.5em;
-  }
+<style lang="stylus">
+  .loading-indicator-icon
+    margin-top: 1.5em
 
-  .bslp-day-off {
-    color: #5751d2;
-    font-size: 17px;
-    font-weight: bold;
-  }
+  .bslp-day-off
+    color: #5751d2
+    font-size: 17px
+    font-weight: bold
 
-  .bslp-day-off-reason {
-    color: var(--eds-theme-color-text-neutral-subtle);
-    font-size: 0.8rem;
-  }
+  .bslp-day-off-reason
+    color: var(--eds-theme-color-text-neutral-subtle)
+    font-size: 0.8rem
 
-  .bslp-day-off-info-tooltip {
-    color: #00000070;
-    padding-left: 0.3em;
-    cursor: help;
-  }
+  .bslp-day-off-info-tooltip
+    color: #00000070
+    padding-left: 0.3em
+    cursor: help
+		
+		&:hover + .blsp-day-off-tooltip
+			pointer-events: auto
+			opacity: 1
 
-  .blsp-day-off-tooltip {
-    pointer-events: none;
-    opacity: 0;
-    top: 20px;
-    left: 90px;
-  }
-
-  .bslp-day-off-info-tooltip:hover + .blsp-day-off-tooltip {
-    pointer-events: auto;
-    opacity: 1;
-  }
+  .blsp-day-off-tooltip 
+    pointer-events: none
+    opacity: 0
+    top: 20px
+    left: 90px
 </style>

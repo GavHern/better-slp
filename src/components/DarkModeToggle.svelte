@@ -24,15 +24,13 @@
   <i class="material-icons">{dark ? "wb_sunny" : "brightness_3"}</i>
 </button>
 
-<style>
-  .bslp-dark-mode-toggle-button {
-    width: 100%;
-    height: 100%;
-    color: #ffffff;
-    font-size: 1.1rem;
-  }
+<style lang="stylus">
+  .bslp-dark-mode-toggle-button
+    width: 100%
+    height: 100%
+    color: #ffffff
+    font-size: 1.1rem
 
-  .bslp-dark-mode-toggle-button .material-icons {
-    transform: rotate(45deg);
-  }
+		.material-icons
+			transform: rotate(45deg)
 </style>

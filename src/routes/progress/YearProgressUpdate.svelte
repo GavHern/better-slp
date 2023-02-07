@@ -117,26 +117,22 @@
   {/await}
 </div>
 
-<style>
-  .loading-indicator-icon {
-    margin-top: 1.5em;
-  }
+<style lang="stylus">
+  .loading-indicator-icon
+    margin-top: 1.5em
 
-  .bslp-time-left {
-    color: #5751d2 !important;
-    font-size: 17px;
-    font-weight: bold;
-  }
+  .bslp-time-left
+    color: #5751d2 !important
+    font-size: 17px
+    font-weight: bold
 
-  .bslp-time-left-motivational-message {
-    color: var(--eds-theme-color-text-neutral-subtle);
-    font-size: 0.8rem;
-  }
+  .bslp-time-left-motivational-message
+    color: var(--eds-theme-color-text-neutral-subtle)
+    font-size: 0.8rem
 
-  .bslp-vertical-divider {
-    height: 100%;
-    width: 0;
-    border-right: 2px solid #c0c4c8;
-    margin-inline: 0.7ch;
-  }
+  .bslp-vertical-divider
+    height: 100%
+    width: 0
+    border-right: 2px solid #c0c4c8
+    margin-inline: 0.7ch
 </style>

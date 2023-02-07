@@ -70,55 +70,48 @@
   </div>
 </div>
 
-<style>
-  .bslp-note-taker-scrim {
-    all: unset;
-    position: fixed;
-    z-index: 49999;
-    background: rgba(22, 27, 31, 0.5);
-    inset: 0;
-  }
+<style lang="stylus">
+  .bslp-note-taker-scrim
+    all: unset
+    position: fixed
+    z-index: 49999
+    background: rgba(22, 27, 31, 0.5)
+    inset: 0
 
-  .bslp-note-taker-container {
-    all: unset;
-    position: fixed;
-    display: flex;
-    align-items: center;
-    inset: 0;
-    margin: auto;
-    z-index: 50000;
-    pointer-events: none;
-  }
+  .bslp-note-taker-container
+    all: unset
+    position: fixed
+    display: flex
+    align-items: center
+    inset: 0
+    margin: auto
+    z-index: 50000
+    pointer-events: none
 
-  .bslp-note-taker {
-    display: flex;
-    flex-direction: column;
-    pointer-events: auto;
-    width: min(80%, 1200px);
-    height: 75%;
-    background: #ffffff;
-    margin: auto;
-    border-radius: 3px;
-    /* box-shadow: rgba(0, 0, 0, 0.1) 0px 20px 25px -5px, rgba(0, 0, 0, 0.04) 0px 10px 10px -5px; */
-    box-shadow: 0 5px 15px rgb(0 0 0 / 50%);
-  }
+  .bslp-note-taker
+    display: flex
+    flex-direction: column
+    pointer-events: auto
+    width: min(80%, 1200px)
+    height: 75%
+    background: #ffffff
+    margin: auto
+    border-radius: 3px
+    /* box-shadow: rgba(0, 0, 0, 0.1) 0px 20px 25px -5px, rgba(0, 0, 0, 0.04) 0px 10px 10px -5px */
+    box-shadow: 0 5px 15px rgb(0 0 0 / 50%)
 
-  .bslp-quill-editor {
-    height: calc(100% - 42px);
-    border-color: transparent;
-    font-size: 1rem;
-  }
+  .bslp-quill-editor 
+    height: calc(100% - 42px)
+    border-color: transparent
+    font-size: 1rem
 
-  :global(.ql-toolbar.ql-snow) {
-    border-top-color: transparent;
-    border-inline-color: transparent;
-  }
+  :global(.ql-toolbar.ql-snow)
+    border-top-color: transparent
+    border-inline-color: transparent
 
-  :global(:is(.ql-color) > span > svg) {
-    transform: translateY(-2px);
-  }
+  :global(:is(.ql-color) > span > svg)
+    transform: translateY(-2px)
 
-  :global(:is(.ql-align, .ql-background) > span > svg) {
-    transform: translateY(-3px);
-  }
+  :global(:is(.ql-align, .ql-background) > span > svg)
+    transform: translateY(-3px)
 </style>
