@@ -1,6 +1,6 @@
 # Better SLP
 
-Better SLP is a browser extension that improves the Summit Learning Platform by adding additional quality-of-life improvments.
+Better SLP is a browser extension that improves the Summit Learning Platform by adding additional quality-of-life improvements.
 
 ## Features
 
