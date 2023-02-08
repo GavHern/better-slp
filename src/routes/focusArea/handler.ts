@@ -6,6 +6,7 @@ const openNotes = () => {
     target: document.body,
     props: {
       id: window.location.pathname.split("/").at(-1),
+      title: document.title,
     },
   });
 };

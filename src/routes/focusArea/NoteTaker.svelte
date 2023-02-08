@@ -9,6 +9,7 @@
   let quill;
 
   export let id: string;
+  export let title: string;
 
   onMount(() => {
     window.onbeforeunload = () => "You have unsaved changes!";
@@ -37,17 +38,26 @@
 
     chrome.storage.local.get([`note:${id}`]).then((result) => {
       if (Object.keys(result).length !== 0) {
-        const delta = result[`note:${id}`];
-        quill.setContents(JSON.parse(delta));
+        const noteData = JSON.parse(result[`note:${id}`]);
+
+        // Set the note title to the existing one in the note (unless it is missing)
+        title = noteData?.title ?? title;
+
+        quill.setContents(noteData.delta);
       }
     });
   });
 
   const close = (save = true) => {
     if (save) {
-      const delta = JSON.stringify(quill.getContents());
+      const noteData = JSON.stringify({
+        id,
+        title,
+        lastSaved: Date.now(),
+        delta: quill.getContents(),
+      });
 
-      chrome.storage.local.set({ [`note:${id}`]: delta }).then(() => {
+      chrome.storage.local.set({ [`note:${id}`]: noteData }).then(() => {
         console.log("Wrote document value to chrome.storage.local");
       });
     }
