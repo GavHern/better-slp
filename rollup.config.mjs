@@ -23,6 +23,7 @@ const reformatManifest = (target, dev, contents) => {
   if (target === "chromium") return JSON.stringify(manifest, null, 2);
 
   // Reformats manifest for gecko support below
+  manifest.manifest_version = 2;
   manifest.background.scripts = [manifest.background.service_worker];
   delete manifest.background.service_worker;
 
