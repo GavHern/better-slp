@@ -1,5 +1,6 @@
 import copy from "rollup-plugin-copy";
 import commonjs from "@rollup/plugin-commonjs";
+import json from "@rollup/plugin-json";
 import svelte from "rollup-plugin-svelte";
 import preprocess from "svelte-preprocess";
 import typescript from "@rollup/plugin-typescript";
@@ -40,6 +41,7 @@ export default ({ configTarget: target, w: dev }) => {
     plugins: [
       commonjs(),
       nodeResolve(),
+      json(),
       svelte({
         preprocess: preprocess(),
       }),
