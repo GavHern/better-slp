@@ -1,4 +1,6 @@
 <script lang="ts">
+  import { v4 as uuid } from "uuid";
+
   import { openNotes } from "../../routes/focusArea/handler";
 
   import { slide, scale } from "svelte/transition";
@@ -31,15 +33,46 @@
     });
   };
 
+  const openBslpFile = ({ target }) => {
+    dropdownOpen = false;
+
+    const reader = new FileReader();
+    reader.addEventListener("load", ({ target }) => {
+      const delta = JSON.parse(target.result);
+      const name = window.prompt("Enter a name for your note");
+      if (name != null && name.length > 0) {
+        const id = uuid();
+        const content = {
+          id,
+          title: name,
+          lastSaved: Date.now(),
+          source: "upload",
+          delta,
+        };
+
+        chrome.storage.local.set({ [`note:${id}`]: JSON.stringify(content) }, () => {
+          notesList = [content, ...notesList];
+        });
+      }
+    });
+    const file = target.files[0];
+    if (file == null) return;
+    reader.readAsText(file);
+  };
+
   let notesList = [];
 
-  chrome.storage.local.get(null, (items) => {
-    notesList = Object.keys(items)
-      .filter((item) => item.includes("note:"))
-      .map((key) => JSON.parse(items[key]))
-      // @ts-ignore
-      .sort((a, b) => new Date(b.lastSaved) - new Date(a.lastSaved));
-  });
+  const refreshNotesList = () => {
+    chrome.storage.local.get(null, (items) => {
+      notesList = Object.keys(items)
+        .filter((item) => item.includes("note:"))
+        .map((key) => JSON.parse(items[key]))
+        // @ts-ignore
+        .sort((a, b) => new Date(b.lastSaved) - new Date(a.lastSaved));
+    });
+  };
+
+  refreshNotesList();
 </script>
 
 <div class="w-3/4 py-6">
@@ -80,23 +113,30 @@
           <button
             class="block w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
             role="menuitem"
-            tabindex="-1"
             on:click={() => {
               dropdownOpen = false;
+              const name = window.prompt("Enter a name for your note");
+
+              if (name != null) {
+                const id = uuid();
+                openNotes(id, name);
+
+                // Delta never read so it's left blank
+                notesList = [{ id, lastSaved: Date.now(), title: name, delta: {} }, ...notesList];
+              }
             }}
           >
             New note
           </button>
-          <button
-            class="block w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+          <label
+            aria-hidden="true"
+            for="bslp-fileUpload"
             role="menuitem"
-            tabindex="-1"
-            on:click={() => {
-              dropdownOpen = false;
-            }}
+            class="block w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 mb-0 cursor-pointer"
           >
             Open .bslp file
-          </button>
+          </label>
+          <input type="file" class="sr-only" id="bslp-fileUpload" accept=".bslp" on:change={openBslpFile} />
         </div>
       {/if}
     </div>
@@ -104,7 +144,7 @@
   <ul class="divide-y divide-gray-100 -mx-4">
     {#each notesList as note (note.id)}
       <li
-        class="flex items-center px-4 py-2 hover:bg-grape-100 first:rounded-t-lg last:rounded-b-lg"
+        class="flex items-center px-4 py-2 bg-white hover:bg-grape-100 first:rounded-t-lg last:rounded-b-lg"
         animate:flip
         out:slide|local
       >
@@ -137,7 +177,9 @@
           </button>
           <button
             on:click={() => {
-              deleteNote(note.id);
+              if (window.confirm("Are you sure you want to delete this note?")) {
+                deleteNote(note.id);
+              }
             }}
           >
             <svg
