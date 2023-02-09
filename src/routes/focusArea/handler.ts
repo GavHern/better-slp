@@ -1,12 +1,12 @@
 import NoteTaker from "./NoteTaker.svelte";
 import NoteTakerButton from "./NoteTakerButton.svelte";
 
-const openNotes = () => {
+export const openNotes = (id, title) => {
   new NoteTaker({
     target: document.body,
     props: {
-      id: window.location.pathname.split("/").at(-1),
-      title: document.title,
+      id,
+      title,
     },
   });
 };

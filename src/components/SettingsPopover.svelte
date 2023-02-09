@@ -1,0 +1,63 @@
+<script lang="ts">
+  import { scale } from "svelte/transition";
+
+  import Settings from "./settings/Settings.svelte";
+  import MyNotes from "./settings/MyNotes.svelte";
+  import About from "./settings/About.svelte";
+
+  export let settingsPopoverOpen;
+
+  const nav = [
+    { name: "Settings", component: Settings },
+    { name: "My Notes", component: MyNotes },
+    { name: "About", component: About },
+  ];
+
+  let activeTab = 0;
+</script>
+
+{#if $settingsPopoverOpen}
+  <div class="bslp-tailwind bslp-settings">
+    <div
+      class="fixed !top-8 left-[13.5rem] z-[9999] drop-shadow-lg flex origin-[0_2rem]"
+      transition:scale|local={{ start: 0.5, duration: 300 }}
+    >
+      <div class="border-[1rem] z-50 border-transparent border-r-white h-8 translate-y-4 translate-x-[1px]" />
+      <div class="rounded-xl overflow-clip bg-white !w-[48rem] h-96 border">
+        <div class="w-full h-full flex divide-x divide-gray-200">
+          <ul class="w-1/3 h-full py-2 relative">
+            {#each nav as navItem, idx}
+              <li>
+                <button
+                  class="flex w-full px-6 py-3 uppercase font-bold text-lg text-grape-600 transition-colors"
+                  class:bg-grape-100={idx === activeTab}
+                  on:click={() => (activeTab = idx)}
+                >
+                  {navItem.name}
+                </button>
+              </li>
+            {/each}
+
+            <div
+              class="absolute top-2 -left-1 w-2 h-[52px] rounded-full bg-grape-600 transition-transform duration-300"
+              style="transform: translateY(calc(52px * {activeTab}))"
+            />
+          </ul>
+          <div class="w-2/3 mx-auto flex justify-center overflow-y-auto">
+            <svelte:component this={nav[activeTab].component} />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{/if}
+
+<style lang="postcss">
+  @tailwind base;
+  @tailwind components;
+  @tailwind utilities;
+
+  .bslp-settings {
+    position: static;
+  }
+</style>

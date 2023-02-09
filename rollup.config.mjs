@@ -4,7 +4,6 @@ import svelte from "rollup-plugin-svelte";
 import preprocess from "svelte-preprocess";
 import typescript from "@rollup/plugin-typescript";
 import postcss from "rollup-plugin-postcss";
-import minify from "postcss-minify";
 import { nodeResolve } from "@rollup/plugin-node-resolve";
 import terser from "@rollup/plugin-terser";
 
@@ -48,7 +47,6 @@ export default ({ configTarget: target, w: dev }) => {
       postcss({
         extensions: [".css", ".styl"],
         extract: "bundle.css",
-        plugins: [minify()],
       }),
       copy({
         targets: [

@@ -7,7 +7,11 @@ The default export will run every route change just to be certain everything is 
 */
 
 import AnnouncementBadge from "./components/AnnouncementBadge.svelte";
-import DarkModeToggle from "./components/DarkModeToggle.svelte";
+import SettingsToggle from "./components/SettingsToggle.svelte";
+import SettingsPopover from "./components/SettingsPopover.svelte";
+
+import { writable } from "svelte/store";
+const settingsPopoverOpen = writable(false);
 
 const appendAnnouncementsBadge = () => {
   const exists = document.querySelectorAll(".bslp-announcements-badge").length > 0;
@@ -24,8 +28,8 @@ const appendAnnouncementsBadge = () => {
   });
 };
 
-const appendDarkModeToggle = () => {
-  const exists = document.querySelectorAll(".bslp-dark-mode-toggle").length > 0;
+const appendSettingsToggle = () => {
+  const exists = document.querySelectorAll(".bslp-settings-toggle").length > 0;
   if (exists) return;
 
   const navBar = document.querySelector(".page-menu .container-fluid");
@@ -33,16 +37,26 @@ const appendDarkModeToggle = () => {
 
   const container = document.createElement("div");
   container.setAttribute("style", "position:absolute;right:10px;top:10px;width:33px;height:33px;");
-  container.classList.add("bslp-dark-mode-toggle");
+  container.classList.add("bslp-settings-toggle");
   container.classList.add("bslp-global-component");
   navBar.appendChild(container);
 
-  new DarkModeToggle({
+  new SettingsToggle({
     target: container,
+    props: {
+      settingsPopoverOpen,
+    },
   });
 };
 
 export default () => {
-  // appendDarkModeToggle();
+  appendSettingsToggle();
   appendAnnouncementsBadge();
+
+  new SettingsPopover({
+    target: document.body,
+    props: {
+      settingsPopoverOpen,
+    },
+  });
 };

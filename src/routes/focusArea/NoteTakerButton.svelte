@@ -2,7 +2,10 @@
   export let openNotes;
 </script>
 
-<button class="bslp-route-specific" on:click={openNotes}>
+<button
+  class="bslp-route-specific"
+  on:click={() => openNotes(window.location.pathname.split("/").at(-1), document.title)}
+>
   <i class="material-icons material-icons-default">edit</i>
   <span>Take Notes</span>
 </button>
