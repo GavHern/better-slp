@@ -77,11 +77,11 @@
 
 <div class="w-3/4 py-6">
   <div class="flex justify-between">
-    <h2 class="font-bold text-2xl mb-2">My Notes</h2>
+    <h2 class=" font-bold text-2xl mb-2">My Notes</h2>
 
     <div>
       <button
-        class=" hover:bg-opacity-90 w-8 h-8 grid place-items-center rounded-full shadow-md hover:shadow-lg transition-all"
+        class="hover:bg-opacity-90 w-8 h-8 grid place-items-center rounded-full shadow-md hover:shadow-lg transition-all"
         class:bg-grape-600={!dropdownOpen}
         class:bg-gray-200={dropdownOpen}
         class:rotate-45={dropdownOpen}
