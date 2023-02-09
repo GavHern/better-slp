@@ -34,8 +34,6 @@
   let notesList = [];
 
   chrome.storage.local.get(null, (items) => {
-    console.log(items);
-
     notesList = Object.keys(items)
       .filter((item) => item.includes("note:"))
       .map((key) => JSON.parse(items[key]))
@@ -106,13 +104,13 @@
   <ul class="divide-y divide-gray-100 -mx-4">
     {#each notesList as note (note.id)}
       <li
-        class="flex justify-between items-center px-4 py-2 hover:bg-grape-100 first:rounded-t-lg last:rounded-b-lg"
+        class="flex items-center px-4 py-2 hover:bg-grape-100 first:rounded-t-lg last:rounded-b-lg"
         animate:flip
         out:slide|local
       >
-        <div>
-          <p class="mb-0 font-semibold text-gray-800 text-lg">{note.title}</p>
-          <p class="mb-0 text-sm text-gray-500">
+        <div class="w-full overflow-hidden">
+          <p class="mb-0 font-semibold text-gray-800 text-lg truncate">{note.title}</p>
+          <p class="mb-0 text-sm text-gray-500 truncate">
             Last edited: {new Date(note.lastSaved).toLocaleString()}
           </p>
         </div>
