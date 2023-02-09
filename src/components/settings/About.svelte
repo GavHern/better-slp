@@ -9,11 +9,17 @@
 
   <p>
     Version: {packageJson.version}
+    <br />
+    <a href="https://github.com/GavHern/better-slp" target="_blank" rel="noreferrer">View on GitHub</a>
     <details>
-      <summary class="text-grape-600 hover:underline cursor-pointer">Show Packages</summary>
+      <summary class="text-grape-600 hover:underline font-bold tracking-wide cursor-pointer">Show Packages</summary>
       <ul class="list-disc">
         {#each Object.keys(packageJson.devDependencies) as dependency}
-          <li>{dependency}</li>
+          <li>
+            <a class="hover:underline" target="_blank" rel="noreferrer" href="https://npmjs.com/package/{dependency}">
+              {dependency}
+            </a>
+          </li>
         {/each}
       </ul>
     </details>
