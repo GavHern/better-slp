@@ -14,10 +14,20 @@
   ];
 
   let activeTab = 0;
+
+  const keydown = (e) => e.key === "Escape" && settingsPopoverOpen.set(false);
 </script>
+
+<svelte:window on:keydown={keydown} />
 
 {#if $settingsPopoverOpen}
   <div class="bslp-tailwind bslp-settings">
+    <div
+      aria-hidden="true"
+      class="fixed inset-0 w-full h-full z-[9998]"
+      on:click={() => settingsPopoverOpen.set(false)}
+    />
+
     <div
       class="fixed !top-8 left-[13.5rem] z-[9999] drop-shadow-lg flex origin-[0_2rem]"
       transition:scale|local={{ start: 0.5, duration: 300 }}
@@ -58,6 +68,9 @@
   @tailwind utilities;
 
   .bslp-settings {
-    position: static;
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
   }
 </style>
