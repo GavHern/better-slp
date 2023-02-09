@@ -38,6 +38,8 @@
 
     const reader = new FileReader();
     reader.addEventListener("load", ({ target }) => {
+      if (typeof target.result !== "string") return;
+
       const delta = JSON.parse(target.result);
       const name = window.prompt("Enter a name for your note");
       if (name != null && name.length > 0) {
