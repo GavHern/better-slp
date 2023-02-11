@@ -10,6 +10,8 @@
   <p>
     Version: {packageJson.version}
     <br />
+    Support: <a href="mailto:betterslp@gavhern.com">betterslp@gavhern.com</a>
+    <br />
     <a href="https://github.com/GavHern/better-slp" target="_blank" rel="noreferrer">View on GitHub</a>
     <details>
       <summary class="text-grape-600 hover:underline font-bold tracking-wide cursor-pointer">Show Packages</summary>
