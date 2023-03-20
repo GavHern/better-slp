@@ -32,15 +32,15 @@
       class="fixed !top-8 left-[13.5rem] z-[9999] drop-shadow-lg flex origin-[0_2rem]"
       transition:scale|local={{ start: 0.5, duration: 300 }}
     >
-      <div class="border-[1rem] z-50 border-transparent border-r-white h-8 translate-y-4 translate-x-[1px]" />
-      <div class="rounded-xl overflow-clip bg-white !w-[48rem] h-96 border">
-        <div class="w-full h-full flex divide-x divide-gray-200">
+      <div class="border-[1rem] z-50 border-transparent border-r-white dark:border-r-dark-700 h-8 translate-y-4 translate-x-[1px]" />
+      <div class="rounded-xl overflow-clip bg-white dark:bg-dark-700 !w-[48rem] h-96 border dark:border-dark-500">
+        <div class="w-full h-full flex divide-x divide-gray-200 dark:divide-dark-500">
           <ul class="w-1/3 h-full py-2 relative">
             {#each nav as navItem, idx}
+              {@const active = idx === activeTab}
               <li>
                 <button
-                  class="flex w-full px-6 py-3 uppercase font-bold text-lg text-grape-600 transition-colors"
-                  class:bg-grape-100={idx === activeTab}
+                  class="flex w-full px-6 py-3 uppercase font-bold text-lg text-grape-600 transition-colors {active ? 'bg-grape-100 dark:bg-dark-500' : ''}"
                   on:click={() => (activeTab = idx)}
                 >
                   {navItem.name}

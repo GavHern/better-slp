@@ -83,9 +83,7 @@
 
     <div>
       <button
-        class="hover:bg-opacity-90 w-8 h-8 grid place-items-center rounded-full shadow-md hover:shadow-lg transition-all"
-        class:bg-grape-600={!dropdownOpen}
-        class:bg-gray-200={dropdownOpen}
+        class="hover:bg-opacity-90 w-8 h-8 grid place-items-center rounded-full shadow-md hover:shadow-lg transition-all {dropdownOpen ? 'bg-gray-200 dark:bg-neutral-600' : 'bg-grape-600'}"
         class:rotate-45={dropdownOpen}
         on:click={() => {
           dropdownOpen = !dropdownOpen;
@@ -97,9 +95,7 @@
           viewBox="0 0 24 24"
           stroke-width="3"
           stroke="currentColor"
-          class="w-5 h-5"
-          class:text-white={!dropdownOpen}
-          class:fill-gray-700={dropdownOpen}
+          class="w-5 h-5 {dropdownOpen ? 'fill-gray-700' : 'text-white'}"
         >
           <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
         </svg>
@@ -108,12 +104,12 @@
 
       {#if dropdownOpen}
         <div
-          class="absolute right-16 top-14 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
+          class="absolute right-16 top-14 z-10 mt-2 w-48 origin-top-right rounded-md bg-white dark:bg-neutral-700 py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
           role="menu"
           transition:scale|local={{ duration: 200 }}
         >
           <button
-            class="block w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+            class="block w-full text-left px-4 py-2 text-sm text-gray-700 dark:text-neutral-300 hover:bg-gray-100 dark:hover:bg-neutral-600"
             role="menuitem"
             on:click={() => {
               dropdownOpen = false;
@@ -134,7 +130,7 @@
             aria-hidden="true"
             for="bslp-fileUpload"
             role="menuitem"
-            class="block w-full text-left px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 mb-0 cursor-pointer"
+            class="block w-full text-left px-4 py-2 text-sm text-gray-700 dark:text-neutral-300 hover:bg-gray-100 dark:hover:bg-neutral-600 mb-0 cursor-pointer"
           >
             Open .bslp file
           </label>
@@ -143,16 +139,16 @@
       {/if}
     </div>
   </div>
-  <ul class="divide-y divide-gray-100 -mx-4">
+  <ul class="divide-y divide-gray-100 dark:divide-neutral-600 -mx-4">
     {#each notesList as note (note.id)}
       <li
-        class="flex items-center px-4 py-2 bg-white hover:bg-grape-100 first:rounded-t-lg last:rounded-b-lg"
+        class="flex items-center px-4 py-2 bg-white dark:bg-dark-700 hover:bg-grape-100 dark:hover:bg-dark-500 first:rounded-t-lg last:rounded-b-lg"
         animate:flip
         out:slide|local
       >
         <div class="w-full overflow-hidden">
-          <p class="mb-0 font-semibold text-gray-800 text-lg truncate">{note.title}</p>
-          <p class="mb-0 text-sm text-gray-500 truncate">
+          <p class="mb-0 font-semibold text-gray-800 !dark:text-white text-lg truncate">{note.title}</p>
+          <p class="mb-0 text-sm text-gray-500 dark:text-white/80 truncate">
             Last edited: {new Date(note.lastSaved).toLocaleString()}
           </p>
         </div>
@@ -168,7 +164,7 @@
               viewBox="0 0 24 24"
               stroke-width="1.5"
               stroke="currentColor"
-              class="w-6 h-6 text-gray-700 hover:text-gray-900 cursor-pointer"
+              class="w-6 h-6 text-gray-700 dark:text-white/50 hover:text-gray-900 dark:hover:text-white/80 cursor-pointer"
             >
               <path
                 stroke-linecap="round"
@@ -190,7 +186,7 @@
               viewBox="0 0 24 24"
               stroke-width="1.5"
               stroke="currentColor"
-              class="w-6 h-6 text-gray-700 hover:text-gray-900 cursor-pointer"
+              class="w-6 h-6 text-gray-700 dark:text-white/50 hover:text-gray-900 dark:hover:text-white/80 cursor-pointer"
             >
               <path
                 stroke-linecap="round"
@@ -210,7 +206,7 @@
               viewBox="0 0 24 24"
               stroke-width="1.5"
               stroke="currentColor"
-              class="w-6 h-6 text-gray-700 hover:text-gray-900 cursor-pointer"
+              class="w-6 h-6 text-gray-700 dark:text-white/50 hover:text-gray-900 dark:hover:text-white/80 cursor-pointer"
             >
               <path
                 stroke-linecap="round"
