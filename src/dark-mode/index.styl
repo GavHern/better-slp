@@ -29,7 +29,7 @@
 	[x] Course page (click from year page)
 	[ ] Document editor (skip document itself)
 	[x] Notifications drawer
-	[ ] Progresss grades modal
+	[x] Progresss grades modal
 	[x] "View Rubric" modal
 	[x] Mentor checkin prework drawer
 	[x] Navigation bar
@@ -120,14 +120,15 @@ html[bslp-dark]
 		rubricTableCell,
 		rubricTopBarModal,
 		rubricTopBarDropdown,
-		rubricTopBarSearchInput
+		rubricTopBarSearchInput,
 	)}
 		background-color: dark700 !important
 	
 	//! ONLY USE IF SLIGHT ELEVATION INCREASE NEEDED
 	{_(
 		mentorCheckinDrawerContainer,
-		mentorCheckinDrawerToggleButton
+		mentorCheckinDrawerToggleButton,
+		cogNumber,
 	)}
 		background-color: dark600 !important
 
@@ -157,7 +158,8 @@ html[bslp-dark]
 		projectOverviewTeacher,
 		CheckpointSwitcherOpen,
 		notificationDrawerBackground,
-		rubricTableHeader
+		rubricTableHeader,
+		skillPill,
 	)}
 		background-color: dark400 !important
 
@@ -243,7 +245,8 @@ html[bslp-dark]
 		notificationDrawerSeenTitle,
 		focusAreaSeeAllTakesLink,
 		gradeSummaryPieChartTotalGradeText,
-		gradeSummaryFocusAreaTabAreaCount
+		gradeSummaryFocusAreaTabAreaCount,
+		todayText,
 	)}
 		color: lightSecondary !important
 
